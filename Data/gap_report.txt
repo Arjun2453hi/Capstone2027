@@ -1,0 +1,1207 @@
+══════════════════════════════════════════════════════════════════════
+  GAP DETECTION REPORT
+══════════════════════════════════════════════════════════════════════
+
+  Questions analysed   : 800
+  Answered by slides   : 31  (3.9%)
+  Unanswered (gaps)    : 769
+  Gap clusters found   : 56
+
+══════════════════════════════════════════════════════════════════════
+
+
+  GAP #1  |  Slide 170  |  Severity: 0.993  |  2 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    There are seven levels of cohesion of increasing strength: •
+    Coincidental cohesion : Wit Unanswered questions: Give an
+    example of a module with Functional Cohesion. | Give an
+    example of a module with poor (Coincidental) Cohesion.
+
+  SLIDE CONTEXT:
+    "Techniques that enable design ‑ There are seven levels of
+     cohesion of increasing strength: • Coincidental cohesion :
+     Wit"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • Give an example of a module with Functional Cohesion.
+    • Give an example of a module with poor (Coincidental)
+      Cohesion.
+
+
+  GAP #2  |  Slide 44  |  Severity: 0.950  |  4 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A RACI chart is a type of responsibility assignment matrix
+    (RAM) in project mana. What does it mean when someone is
+    marked 'R' in a RACI chart?
+
+  SLIDE CONTEXT:
+    "RACI matrix A RACI chart, also called a RACI matrix, is a
+     type of responsibility assignment matrix (RAM) in project
+     mana"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What does it mean when someone is marked 'R' in a RACI
+      chart?
+    • What does it mean when someone is marked 'A' in a RACI
+      chart?
+    • What does it mean when someone is marked 'C' in a RACI
+      chart?
+
+
+  GAP #3  |  Slide 147  |  Severity: 0.934  |  1 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Microservices architecture helps with complexity management.
+
+  SLIDE CONTEXT:
+    "Challenges with a Microservices Architecture ⮚ Increased
+     Operational Complexity - Managing and deploying multiple
+     servic"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • How does architecture help with complexity management?
+
+
+  GAP #4  |  Slide 30  |  Severity: 0.846  |  3 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Different models of CoCoMo have been proposed to predict the
+    cost estimation at d Unanswered questions: Why does COCOMO
+    have different constants for different project types? | What
+    is 'Semi-Detached' project type in COCOMO and give an example?
+    | What are the outputs of the COCOMO model and how are they
+
+  SLIDE CONTEXT:
+    "More about WBS – Estimation approaches Different models of
+     CoCoMo have been proposed to predict the cost estimation at d"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • Why does COCOMO have different constants for different
+      project types?
+    • What is 'Semi-Detached' project type in COCOMO and give an
+      example?
+    • What are the outputs of the COCOMO model and how are they
+      used?
+
+
+  GAP #5  |  Slide 144  |  Severity: 0.834  |  6 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: What is microservices architecture and
+    how does it contrast with monolithic architecture? What are
+    the trade-offs between monolithic and microservices
+    architectures? What are the trade-offs between monolithic and
+    microservices architectures? What are the trade-offs between
+    monolithic and microservices architectures?
+
+  SLIDE CONTEXT:
+    "Methodology to break up a monolith Two major patterns to move
+     from a monolithic application to microservices: Strangler"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is microservices architecture and how does it
+      contrast with monolithic architecture?
+    • How does a monolithic application differ from a
+      microservices application?
+    • What are the trade-offs between monolithic and
+      microservices architectures?
+
+
+  GAP #6  |  Slide 170  |  Severity: 0.812  |  2 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    There are seven levels of cohesion of increasing strength: •
+    Coincidental cohesion : Wit
+
+  SLIDE CONTEXT:
+    "Techniques that enable design ‑ There are seven levels of
+     cohesion of increasing strength: • Coincidental cohesion :
+     Wit"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is the difference between 'Logical Cohesion' and
+      'Functional Cohesion'?
+    • What is 'Logical Cohesion' and give an example from a real
+      system?
+
+
+  GAP #7  |  Slide 45  |  Severity: 0.809  |  4 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: How does 'Consulted' differ from
+    'Informed' in terms of communication direction? | How does
+    'Consulted' differ from 'Informed' in RACI communication? |
+    What is the key difference between two-way and one-way
+    communication in RACI?
+
+  SLIDE CONTEXT:
+    "RACI matrix (Summary) Responsible is “The Doer” the
+     individual or Individuals who perform an activity —
+     responsible for"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • How does 'Consulted' differ from 'Informed' in terms of
+      communication direction?
+    • How does 'Consulted' differ from 'Informed' in RACI
+      communication?
+    • What is the key difference between two-way and one-way
+      communication in RACI?
+
+
+  GAP #8  |  Slide 53  |  Severity: 0.799  |  3 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A critical path in a Gantt chart refers to the phenomenon in
+    which Unanswered questions: How does Gantt chart visualization
+    help in identifying the critical path? | How does a Gantt
+    chart show the critical path visually? | What is the
+    connection between critical path and Gantt chart progress
+    tracking?
+
+  SLIDE CONTEXT:
+    "Gantt Chart What Is a Critical Path in a Gantt Chart? A
+     critical path in a Gantt chart refers to the phenomenon in
+     which"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • How does Gantt chart visualization help in identifying the
+      critical path?
+    • How does a Gantt chart show the critical path visually?
+    • What is the connection between critical path and Gantt
+      chart progress tracking?
+
+
+  GAP #9  |  Slide 171  |  Severity: 0.776  |  4 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    'Sequential cohesion' is a type of cohesion.
+
+  SLIDE CONTEXT:
+    "computations on those data, and print the result.
+     Department‑of‑CSE‑–‑UE23CS341A • Sequential cohesion
+     :Sequential cohes"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is 'Sequential Cohesion' and how does it differ from
+      'Communicational Cohesion'?
+    • What is 'Communicational Cohesion' and give an example?
+    • Why is 'Sequential Cohesion' stronger than
+      'Communicational Cohesion'?
+
+
+  GAP #10  |  Slide 279  |  Severity: 0.755  |  2 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+     Tightly-coupled components  Poorly-specified requirements
+    Business pressure  La Unanswered questions: What is 'delayed
+    refactoring' and how does it create technical debt?
+
+  SLIDE CONTEXT:
+    "What actions cause technical debt? ⮚ Tightly-coupled
+     components ⮚ Poorly-specified requirements ⮚ Business
+     pressure ⮚ La"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is 'delayed refactoring' and how does it create
+      technical debt?
+    • How does technical debt relate to the concept of
+      'refactoring'?
+
+
+  GAP #11  |  Slide 16  |  Severity: 0.751  |  7 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Agile methods of software development are iterative approaches
+    where the software is developed and delivered. What
+    characteristics define Agile methodology?
+
+  SLIDE CONTEXT:
+    "Agile Planning Agile methods of software development are
+     iterative approaches where the software is developed and
+     delive"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What makes Agile methodology suitable for projects with
+      evolving requirements?
+    • What characteristics define Agile methodology?
+    • What is velocity in the context of Agile planning?
+
+
+  GAP #12  |  Slide 39  |  Severity: 0.744  |  7 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: Give examples of Project Risks in
+    software development. | How do Business Risks differ from
+    Project Risks? | What are 'Technology Risks' and provide
+    examples? | What are 'Organizational Risks' and provide
+    examples?
+
+  SLIDE CONTEXT:
+    "Examples of project, product, and business risks Risk Affects
+     Description Staff turnover Project Experienced staff will"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • Give examples of Project Risks in software development.
+    • How do Business Risks differ from Project Risks?
+    • What are 'Technology Risks' and provide examples?
+
+
+  GAP #13  |  Slide 217  |  Severity: 0.737  |  6 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Risk assessments underestimated bug risks by several orders of
+    magnitude DDDeeepppaaarrrtttmmmeeennntttooofffCCCSS Unanswered
+    questions: What are race conditions and how did they affect
+    the Therac-25?
+
+  SLIDE CONTEXT:
+    "Risk assessments underestimated bug risks by several orders
+     of magnitude DDDeeepppaaarrrtttmmmeeennnttt‑‑‑ooofff‑‑‑CCCSS"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What are race conditions and how did they affect the
+      Therac-25?
+    • What interface problems contributed to Therac-25 patient
+      deaths?
+    • What were 'race conditions' in the Therac-25 and how did
+      they cause harm?
+
+
+  GAP #14  |  Slide 53  |  Severity: 0.728  |  28 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A critical path in a Gantt chart refers to the phenomenon in
+    which Unanswered questions: What is the critical path in a
+    project network?
+
+  SLIDE CONTEXT:
+    "Gantt Chart What Is a Critical Path in a Gantt Chart? A
+     critical path in a Gantt chart refers to the phenomenon in
+     which"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is the critical path in a project network?
+    • What are the benefits of identifying the critical path in
+      a project?
+    • How does identifying the critical path help in project
+      scheduling?
+
+
+  GAP #15  |  Slide 217  |  Severity: 0.713  |  24 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Risk assessments underestimated bug risks by several orders of
+    magnitude DDDeeepppaaarrrtttmmmeeennntttooofffCCCSS Unanswered
+    questions: What is 'tight coupling' and how did it cause
+    problems in the Therac-25?
+
+  SLIDE CONTEXT:
+    "Risk assessments underestimated bug risks by several orders
+     of magnitude DDDeeepppaaarrrtttmmmeeennnttt‑‑‑ooofff‑‑‑CCCSS"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is 'tight coupling' and how did it cause problems in
+      the Therac-25?
+    • What is 'poor observability' and why was it a problem in
+      the Therac-25?
+    • How did software architecture lead to patient deaths in
+      the Therac-25 machine?
+
+
+  GAP #16  |  Slide 44  |  Severity: 0.697  |  4 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A RACI matrix is a type of responsibility assignment matrix
+    (RAM) in project mana. What is the difference between
+    'Consulted' and 'Informed' in a RACI matrix?
+
+  SLIDE CONTEXT:
+    "RACI matrix A RACI chart, also called a RACI matrix, is a
+     type of responsibility assignment matrix (RAM) in project
+     mana"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is the difference between 'Consulted' and 'Informed'
+      in a RACI matrix?
+    • What does it mean to be 'Informed' in a RACI matrix?
+    • What is the purpose of defining 'Consulted' stakeholders
+      in a RACI matrix?
+
+
+  GAP #17  |  Slide 29  |  Severity: 0.667  |  20 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A work breakdown structure (WBS) is a description of the work
+    that will be done for a project. What is the difference
+    between Effort and Time in the COCOMO formula?
+
+  SLIDE CONTEXT:
+    "WBS – Estimation approache A work breakdown structure (WBS)
+     is a description of the work that will be done for a project"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • Write the Basic COCOMO formula for estimating Effort and
+      Time.
+    • Explain how COCOMO calculates effort and development time
+      for a software project.
+    • What is the difference between Effort and Time in the
+      COCOMO formula?
+
+
+  GAP #18  |  Slide 45  |  Severity: 0.665  |  10 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    In a RACI matrix, can a task have multiple Accountable people?
+    Explain. Why is it important to have only one Accountable
+    person per task in RACI? How does 'Accountable' differ from
+    'Responsible' in terms of task ownership?
+
+  SLIDE CONTEXT:
+    "RACI matrix (Summary) Responsible is “The Doer” the
+     individual or Individuals who perform an activity —
+     responsible for"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is the difference between 'Responsible' and
+      'Accountable' in a RACI matrix?
+    • In a RACI matrix, can a task have multiple Accountable
+      people? Explain.
+    • Why is it important to have only one Accountable person
+      per task in RACI?
+
+
+  GAP #19  |  Slide 171  |  Severity: 0.661  |  7 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    CS341A • Sequential cohesion :Sequential cohes Unanswered
+    questions: Explain the different types of cohesion in software
+    modules. | How does cohesion affect the reusability of a
+    software module? | What happens to a software system when all
+    modules have low cohesion? | How do you measure or evaluate
+
+  SLIDE CONTEXT:
+    "computations on those data, and print the result.
+     Department‑of‑CSE‑–‑UE23CS341A • Sequential cohesion
+     :Sequential cohes"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • Explain the different types of cohesion in software
+      modules.
+    • How does cohesion affect the reusability of a software
+      module?
+    • What happens to a software system when all modules have
+      low cohesion?
+
+
+  GAP #20  |  Slide 37  |  Severity: 0.651  |  13 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Risk management is concerned with identifying risks and
+    drawing up plans to minimise their effect on a p Unanswered
+    questions: What is risk management in software projects and
+    why is it necessary?
+
+  SLIDE CONTEXT:
+    "Risk management Risk management is concerned with identifying
+     risks and drawing up plans to minimise their effect on a p"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is risk management in software projects and why is it
+      necessary?
+    • How is a 'risk' formally defined in software project
+      management?
+    • What are the main phases of managing risk in a software
+      project?
+
+
+  GAP #21  |  Slide 44  |  Severity: 0.651  |  11 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A RACI chart, also called a RACI matrix, is a type of
+    responsibility assignment matrix (RAM) in project mana.
+    Unanswered questions: What does RACI stand for in a RACI
+    matrix?
+
+  SLIDE CONTEXT:
+    "RACI matrix A RACI chart, also called a RACI matrix, is a
+     type of responsibility assignment matrix (RAM) in project
+     mana"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What does RACI stand for in a RACI matrix?
+    • Give an example of RACI application for software testing
+      activities.
+    • Explain how RACI works with an example from software
+      testing.
+
+
+  GAP #22  |  Slide 53  |  Severity: 0.650  |  13 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A critical path in a Gantt chart refers to the phenomenon in
+    which Unanswered questions: Why do activities on the critical
+    path have zero slack time? | What does 'zero total slack' mean
+    for a critical path activity? | Why do activities on the
+    critical path have zero slack time? | What is '
+
+  SLIDE CONTEXT:
+    "Gantt Chart What Is a Critical Path in a Gantt Chart? A
+     critical path in a Gantt chart refers to the phenomenon in
+     which"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • Why do activities on the critical path have zero slack
+      time?
+    • What does 'zero total slack' mean for a critical path
+      activity?
+    • Why do activities on the critical path have zero slack
+      time?
+
+
+  GAP #23  |  Slide 12  |  Severity: 0.648  |  26 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    The project management triangle visualizes the problem of
+    “triple constraints”—the need to balance s Unanswered
+    questions: What is the project management triangle and what
+    are its three constraints?
+
+  SLIDE CONTEXT:
+    "Quality of Projects The project management triangle
+     visualizes the problem of “triple constraints”—the need to
+     balance s"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is the project management triangle and what are its
+      three constraints?
+    • How does quality relate to the three constraints in the
+      project management triangle?
+    • If you add a new feature to an app mid-project, what
+      trade-offs must the project manager consider?
+
+
+  GAP #24  |  Slide 147  |  Severity: 0.645  |  14 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: What are the six reasons for adopting
+    microservices architecture? What are the main challenges of
+    microservices architecture? What is 'fault isolation' and how
+    does microservices architecture achieve it? What is meant by
+    'independently deployable services' in microservices?
+
+  SLIDE CONTEXT:
+    "Challenges with a Microservices Architecture ⮚ Increased
+     Operational Complexity - Managing and deploying multiple
+     servic"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What are the six reasons for adopting microservices
+      architecture?
+    • What are the main challenges of microservices
+      architecture?
+    • What is 'fault isolation' and how does microservices
+      architecture achieve it?
+
+
+  GAP #25  |  Slide 137  |  Severity: 0.614  |  6 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Micro services are a set of services that act together to make
+    a whole application operate.
+
+  SLIDE CONTEXT:
+    "MICROSERVICES ⮚ Micro services are a set of services that act
+     together to make a whole application operate. ⮚ This archi"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What are the core characteristics of microservices
+      architecture?
+    • How does SOA relate to microservices architecture?
+    • What are 'Infrastructure Services' in a microservices
+      architecture?
+
+
+  GAP #26  |  Slide 12  |  Severity: 0.603  |  12 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    The project management triangle visualizes the problem of
+    “triple constraints”—the need to balance s Unanswered
+    questions: How does scope change impact time and cost in the
+    project management triangle? | How does scope, time, and cost
+    interact in a software project? | Why can't you have unlimited
+    scope, minimal time, and low cost all at once?
+
+  SLIDE CONTEXT:
+    "Quality of Projects The project management triangle
+     visualizes the problem of “triple constraints”—the need to
+     balance s"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • How does scope change impact time and cost in the project
+      management triangle?
+    • How does scope, time, and cost interact in a software
+      project?
+    • Why can't you have unlimited scope, minimal time, and low
+      cost all at once?
+
+
+  GAP #27  |  Slide 31  |  Severity: 0.547  |  13 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: When is the Waterfall approach best
+    suited for a project? | What are the three project categories
+    in Basic COCOMO and their constants? | What are the
+    characteristics of an 'Embedded' project in COCOMO? | What are
+    the three project categories in COCOMO and their differences?
+
+  SLIDE CONTEXT:
+    "More about WBS – Estimation approaches Embedded – A software
+     project requiring the highest level of complexity, creativi"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • When is the Waterfall approach best suited for a project?
+    • What are the three project categories in Basic COCOMO and
+      their constants?
+    • What are the characteristics of an 'Embedded' project in
+      COCOMO?
+
+
+  GAP #28  |  Slide 37  |  Severity: 0.546  |  3 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Risk management is concerned with identifying risks and
+    drawing up plans to minimise their effect on a project. What
+    is 'Risk Indicator Monitoring' and why is it important?
+
+  SLIDE CONTEXT:
+    "Risk management Risk management is concerned with identifying
+     risks and drawing up plans to minimise their effect on a p"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • Why is continuous risk identification important throughout
+      a project?
+    • What is 'Risk Indicator Monitoring' and why is it
+      important?
+    • What is the purpose of a risk status report?
+
+
+  GAP #29  |  Slide 53  |  Severity: 0.536  |  5 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A critical path in a Gantt chart refers to the phenomenon in
+    which Unanswered questions: How does critical path analysis
+    help with resource optimization? What is'schedule compression'
+    and how is it related to the critical path? What is'resource
+    leveling' and how does it relate to the critical path?
+
+  SLIDE CONTEXT:
+    "Gantt Chart What Is a Critical Path in a Gantt Chart? A
+     critical path in a Gantt chart refers to the phenomenon in
+     which"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • How does critical path analysis help with resource
+      optimization?
+    • How does critical path analysis support resource
+      allocation decisions?
+    • What is 'schedule compression' and how is it related to
+      the critical path?
+
+
+  GAP #30  |  Slide 30  |  Severity: 0.525  |  9 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Different models of CoCoMo have been proposed to predict the
+    cost estimation at d Unanswered questions: How does COCOMO
+    compare to Function Point Analysis as an estimation method? |
+    What is Analogical Estimation and when is it preferred over
+    COCOMO? | Why might a project manager use COCOMO alongside
+    other estimation techniques? | What is the role of historical
+
+  SLIDE CONTEXT:
+    "More about WBS – Estimation approaches Different models of
+     CoCoMo have been proposed to predict the cost estimation at d"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • How does COCOMO compare to Function Point Analysis as an
+      estimation method?
+    • What is Analogical Estimation and when is it preferred
+      over COCOMO?
+    • Why might a project manager use COCOMO alongside other
+      estimation techniques?
+
+
+  GAP #31  |  Slide 276  |  Severity: 0.513  |  16 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: What is 'Technical Debt' as listed under
+    management control costs? | What is 'Technical Debt' and how
+    is it analogous to financial debt? | What is the 'interest' in
+    technical debt and what does it cost a team?
+
+  SLIDE CONTEXT:
+    "Technical Debt != Bad Internal Quality “In⮚software-
+     intensive⮚systems,⮚technical⮚de⮚bt⮚consists⮚of⮚design or
+     implementat"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is 'Technical Debt' as listed under management
+      control costs?
+    • What is technical debt and how is it analogous to
+      financial debt?
+    • What is the Technical Debt Quadrant and its two
+      dimensions?
+
+
+  GAP #32  |  Slide 279  |  Severity: 0.511  |  11 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: What are the four negative consequences
+    of accumulating technical debt?
+
+  SLIDE CONTEXT:
+    "What actions cause technical debt? ⮚ Tightly-coupled
+     components ⮚ Poorly-specified requirements ⮚ Business
+     pressure ⮚ La"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What are the four negative consequences of accumulating
+      technical debt?
+    • How does business pressure lead to the creation of
+      technical debt?
+    • Why do teams often delay addressing technical debt?
+
+
+  GAP #33  |  Slide 12  |  Severity: 0.500  |  9 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    The project management triangle visualizes the problem of
+    “triple constraints”—the need to balance s Unanswered
+    questions: Explain the triple constraint model in software
+    engineering. | How do the three constraints in a software
+    project affect each other? | What is the project constraint
+    model and how is it used in practice? | How does compressing a
+    project timeline affect the other
+
+  SLIDE CONTEXT:
+    "Quality of Projects The project management triangle
+     visualizes the problem of “triple constraints”—the need to
+     balance s"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • Explain the triple constraint model in software
+      engineering.
+    • How do the three constraints in a software project affect
+      each other?
+    • What is the project constraint model and how is it used in
+      practice?
+
+
+  GAP #34  |  Slide 276  |  Severity: 0.488  |  11 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    “In software-intensive systems,technicaldebtconsistsofdesign
+    or implementat Unanswered questions: What is the difference
+    between technical debt and poor quality? | How does technical
+    debt accumulate over time in a software project? | How does
+    technical debt differ from simply having bugs in code? | How
+    does technical debt affect the ability to add new
+
+  SLIDE CONTEXT:
+    "Technical Debt != Bad Internal Quality “In⮚software-
+     intensive⮚systems,⮚technical⮚de⮚bt⮚consists⮚of⮚design or
+     implementat"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is the difference between technical debt and poor
+      quality?
+    • How does technical debt accumulate over time in a software
+      project?
+    • How does technical debt differ from simply having bugs in
+      code?
+
+
+  GAP #35  |  Slide 171  |  Severity: 0.474  |  6 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    What is 'Functional Cohesion' and why is it considered the
+    strongest form?
+
+  SLIDE CONTEXT:
+    "computations on those data, and print the result.
+     Department‑of‑CSE‑–‑UE23CS341A • Sequential cohesion
+     :Sequential cohes"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is 'Functional Cohesion' and why is it considered the
+      strongest form?
+    • What is 'Functional Cohesion' and why is it considered
+      ideal?
+    • How does 'Logical Cohesion' differ from 'Procedural
+      Cohesion'?
+
+
+  GAP #36  |  Slide 144  |  Severity: 0.470  |  1 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A monolithic application becomes harder to manage over time.
+    What are two major patterns to move from a monolithic
+    application to microservices?
+
+  SLIDE CONTEXT:
+    "Methodology to break up a monolith Two major patterns to move
+     from a monolithic application to microservices: Strangler"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • Why does a monolithic application become harder to manage
+      over time?
+
+
+  GAP #37  |  Slide 40  |  Severity: 0.454  |  4 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: What are the four steps of the Risk
+    Management Process?
+
+  SLIDE CONTEXT:
+    "The Risk Management process Risk identification • Identify
+     project, product and business risks; Risk analysis • Assess t"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What are the four steps of the Risk Management Process?
+    • What are the four risk response strategies in Risk
+      Planning?
+    • What are the four strategies available for responding to
+      identified risks?
+
+
+  GAP #38  |  Slide 293  |  Severity: 0.449  |  37 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Test-driven development (TDD) is an approach to program
+    development in which you inter-leave t Unanswered questions:
+    What is Test-Driven Development (TDD) and how does it differ
+    from traditional testing? | How does TDD produce 'Living
+    Documentation'? | How does TDD align with Agile development
+    principles? | What is
+
+  SLIDE CONTEXT:
+    "Test-driven Development ⮚ Test-driven development (TDD) is an
+     approach to program development in which you inter-leave t"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is Test-Driven Development (TDD) and how does it
+      differ from traditional testing?
+    • How does TDD produce 'Living Documentation'?
+    • How does TDD align with Agile development principles?
+
+
+  GAP #39  |  Slide 29  |  Severity: 0.433  |  11 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A work breakdown structure (WBS) is a description of the work
+    that will be done for a project. What does the '100% rule'
+    mean in the context of WBS?
+
+  SLIDE CONTEXT:
+    "WBS – Estimation approache A work breakdown structure (WBS)
+     is a description of the work that will be done for a project"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is a Work Breakdown Structure (WBS) and what purpose
+      does it serve?
+    • What does the '100% rule' mean in the context of WBS?
+    • What is COCOMO and what is it based on?
+
+
+  GAP #40  |  Slide 40  |  Severity: 0.426  |  9 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: What methods are used during Risk
+    Identification? | How is 'Risk Analysis' different from 'Risk
+    Monitoring'? | How does risk monitoring differ from risk
+    identification? | How does qualitative risk analysis differ
+    from quantitative risk analysis? | What is the role of
+    historical analysis in risk identification?
+
+  SLIDE CONTEXT:
+    "The Risk Management process Risk identification • Identify
+     project, product and business risks; Risk analysis • Assess t"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What methods are used during Risk Identification?
+    • How is 'Risk Analysis' different from 'Risk Monitoring'?
+    • How does risk monitoring differ from risk identification?
+
+
+  GAP #41  |  Slide 144  |  Severity: 0.376  |  8 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: What is the Strangler Fig pattern for
+    migrating from monolith to microservices? | What are the
+    scalability advantages of microservices over monoliths? | What
+    are the disadvantages of microservices compared to monoliths?
+    | How does database management differ between monoliths and
+    microservices?
+
+  SLIDE CONTEXT:
+    "Methodology to break up a monolith Two major patterns to move
+     from a monolithic application to microservices: Strangler"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is the Strangler Fig pattern for migrating from
+      monolith to microservices?
+    • What are the scalability advantages of microservices over
+      monoliths?
+    • What are the disadvantages of microservices compared to
+      monoliths?
+
+
+  GAP #42  |  Slide 170  |  Severity: 0.363  |  5 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    There are seven levels of cohesion of increasing strength: •
+    Coincidental cohesion : Wit Unanswered questions: What are the
+    seven levels of cohesion from weakest to strongest? | What is
+    the relationship between cohesion levels and code readability?
+    | What is the impact of cohesion levels on software evolution
+    and change management?
+
+  SLIDE CONTEXT:
+    "Techniques that enable design ‑ There are seven levels of
+     cohesion of increasing strength: • Coincidental cohesion :
+     Wit"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What are the seven levels of cohesion from weakest to
+      strongest?
+    • What is the ideal cohesion level to aim for in software
+      design?
+    • What is the relationship between cohesion levels and code
+      readability?
+
+
+  GAP #43  |  Slide 137  |  Severity: 0.319  |  3 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Micro services are a set of services that act together to make
+    a whole application operate.
+
+  SLIDE CONTEXT:
+    "MICROSERVICES ⮚ Micro services are a set of services that act
+     together to make a whole application operate. ⮚ This archi"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is 'Decentralized Data Management' in microservices?
+    • What is 'decentralized data management' in microservices?
+    • What is 'service discovery' and why is it needed in
+      microservices?
+
+
+  GAP #44  |  Slide 44  |  Severity: 0.307  |  21 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    A RACI chart, also called a RACI matrix, is a type of
+    responsibility assignment matrix (RAM) in project mana.
+    Unanswered questions: Why is RACI useful for avoiding
+    confusion in software teams? | What problems does RACI solve
+    in multi-team software projects? | How does RACI support the
+    principle of clear accountability in project
+
+  SLIDE CONTEXT:
+    "RACI matrix A RACI chart, also called a RACI matrix, is a
+     type of responsibility assignment matrix (RAM) in project
+     mana"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • Why is RACI useful for avoiding confusion in software
+      teams?
+    • What problems does RACI solve in multi-team software
+      projects?
+    • How does RACI support the principle of clear
+      accountability in project management?
+
+
+  GAP #45  |  Slide 137  |  Severity: 0.304  |  3 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: How does the Netflix architecture
+    exemplify microservices? | What are 'User-Facing Services' in
+    Netflix's microservices example? | What is'selective component
+    updates' and why is it a microservices advantage?
+
+  SLIDE CONTEXT:
+    "MICROSERVICES ⮚ Micro services are a set of services that act
+     together to make a whole application operate. ⮚ This archi"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • How does the Netflix architecture exemplify microservices?
+    • What are 'User-Facing Services' in Netflix's microservices
+      example?
+    • What is 'selective component updates' and why is it a
+      microservices advantage?
+
+
+  GAP #46  |  Slide 170  |  Severity: 0.278  |  3 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    There are seven levels of cohesion of increasing strength: •
+    Coincidental cohesion : Wit Unanswered questions: What is
+    'Coincidental Cohesion' and why is it the poorest form? | Why
+    is Temporal Cohesion considered a weak form of cohesion? | Why
+    is Coincidental Cohesion often
+
+  SLIDE CONTEXT:
+    "Techniques that enable design ‑ There are seven levels of
+     cohesion of increasing strength: • Coincidental cohesion :
+     Wit"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is 'Coincidental Cohesion' and why is it the poorest
+      form?
+    • Why is Temporal Cohesion considered a weak form of
+      cohesion?
+    • Why is Coincidental Cohesion often the result of poor
+      initial planning?
+
+
+  GAP #47  |  Slide 31  |  Severity: 0.272  |  3 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: How is team size calculated in COCOMO?
+
+  SLIDE CONTEXT:
+    "More about WBS – Estimation approaches Embedded – A software
+     project requiring the highest level of complexity, creativi"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • How is team size calculated in COCOMO?
+    • Why does team complexity increase exponentially with
+      project size?
+    • What does it mean when COCOMO gives a team size of 3.1
+      persons?
+
+
+  GAP #48  |  Slide 16  |  Severity: 0.177  |  4 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Agile methods of software development are iterative approaches
+    where the software is developed and delivered. What are the
+    main characteristics of the Waterfall methodology?
+
+  SLIDE CONTEXT:
+    "Agile Planning Agile methods of software development are
+     iterative approaches where the software is developed and
+     delive"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • How does the Waterfall approach differ from Agile in terms
+      of flexibility?
+    • What are the main characteristics of the Waterfall
+      methodology?
+    • How does the road trip analogy explain the difference
+      between Waterfall and Agile?
+
+
+  GAP #49  |  Slide 293  |  Severity: 0.145  |  13 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: What are the three phases of the Red-
+    Green-Refactor cycle in TDD?
+
+  SLIDE CONTEXT:
+    "Test-driven Development ⮚ Test-driven development (TDD) is an
+     approach to program development in which you inter-leave t"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What are the three phases of the Red-Green-Refactor cycle
+      in TDD?
+    • What does the 'Green Phase' focus on in TDD?
+    • What does the 'Refactor Phase' accomplish in TDD?
+
+
+  GAP #50  |  Slide 39  |  Severity: 0.133  |  2 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Examples of project, product, and business risks Risk Affects
+    Description Staff turnover Project Experienced staff will
+    Unanswered questions: What is 'Risk Transfer' and give an
+    example? | How does regulatory change represent an external
+    risk?
+
+  SLIDE CONTEXT:
+    "Examples of project, product, and business risks Risk Affects
+     Description Staff turnover Project Experienced staff will"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is 'Risk Transfer' and give an example?
+    • How does regulatory change represent an external risk?
+
+
+  GAP #51  |  Slide 37  |  Severity: 0.070  |  9 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Risk management is concerned with identifying risks and
+    drawing up plans to minimise their effect on a p Unanswered
+    questions: What is Risk Avoidance and how is it achieved? |
+    What is Risk Transfer and when is it used? | What is risk
+    prioritization and how is it done? | What is Risk Mitigation
+    as a response strategy?
+
+  SLIDE CONTEXT:
+    "Risk management Risk management is concerned with identifying
+     risks and drawing up plans to minimise their effect on a p"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is Risk Avoidance and how is it achieved?
+    • What is Risk Transfer and when is it used?
+    • What is risk prioritization and how is it done?
+
+
+  GAP #52  |  Slide 137  |  Severity: 0.022  |  3 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: What is an Enterprise Service Bus (ESB)
+    and which architecture relies on it?
+
+  SLIDE CONTEXT:
+    "MICROSERVICES ⮚ Micro services are a set of services that act
+     together to make a whole application operate. ⮚ This archi"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is an Enterprise Service Bus (ESB) and which
+      architecture uses it?
+    • What is an Enterprise Service Bus and which architecture
+      relies on it?
+    • How does SOA use an ESB while microservices do not?
+
+
+  GAP #53  |  Slide 144  |  Severity: 0.016  |  1 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Strangler is a pattern to move from a monolithic application
+    to microservices. What is 'circuit breaker' pattern and when
+    is it needed in microservices?
+
+  SLIDE CONTEXT:
+    "Methodology to break up a monolith Two major patterns to move
+     from a monolithic application to microservices: Strangler"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What is 'circuit breaker' pattern and when is it needed in
+      microservices?
+
+
+  GAP #54  |  Slide 40  |  Severity: 0.002  |  2 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Unanswered questions: What triggers should a team watch for
+    during risk monitoring? | What happens when a risk is not
+    monitored and triggers unexpectedly?
+
+  SLIDE CONTEXT:
+    "The Risk Management process Risk identification • Identify
+     project, product and business risks; Risk analysis • Assess t"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • What triggers should a team watch for during risk
+      monitoring?
+    • What happens when a risk is not monitored and triggers
+      unexpectedly?
+
+
+  GAP #55  |  Slide 217  |  Severity: 0.002  |  2 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Risk assessments underestimated bug risks by several orders of
+    magnitude DDDeeepppaaarrrtttmmmeeennntttooofffCCCSS Unanswered
+    questions: How is Risk Exposure calculated? | How does low
+    cohesion increase the risk of bugs during feature development?
+
+  SLIDE CONTEXT:
+    "Risk assessments underestimated bug risks by several orders
+     of magnitude DDDeeepppaaarrrtttmmmeeennnttt‑‑‑ooofff‑‑‑CCCSS"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • How is Risk Exposure calculated?
+    • How does low cohesion increase the risk of bugs during
+      feature development?
+
+
+  GAP #56  |  Slide 37  |  Severity: 0.002  |  2 question(s)
+──────────────────────────────────────────────────────────────────────
+
+  MISSING:
+    Risk management is concerned with identifying risks and
+    drawing up plans to minimise their effect on a p
+
+  SLIDE CONTEXT:
+    "Risk management Risk management is concerned with identifying
+     risks and drawing up plans to minimise their effect on a p"
+
+  QUESTIONS THAT COULDN'T BE ANSWERED:
+    • When should a team choose to 'accept' a risk rather than
+      mitigate it?
+    • What is the first step a team should take when a risk
+      becomes reality?
+
+══════════════════════════════════════════════════════════════════════
+  END OF REPORT
+══════════════════════════════════════════════════════════════════════

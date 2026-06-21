@@ -1,0 +1,800 @@
+What is software project management and how does it differ from traditional project management?
+What are the fundamental attributes shared by all software projects?
+What are the three primary roles of a software project manager?
+How does a project manager fulfill the liaison role between clients and development teams?
+Why does software engineering become particularly relevant for large projects?
+What is the project management triangle and what are its three constraints?
+How does quality relate to the three constraints in the project management triangle?
+If you add a new feature to an app mid-project, what trade-offs must the project manager consider?
+What are the five phases of the software project management lifecycle?
+What happens during the Initiation phase of the project management lifecycle?
+What activities are carried out in the Planning phase of software project management?
+What does the Closure phase of a software project involve?
+What are the nine components of project planning shown in the project planning diagram?
+How does the Waterfall approach differ from Agile in terms of flexibility?
+What are the main characteristics of the Waterfall methodology?
+When is the Waterfall approach best suited for a project?
+What makes Agile methodology suitable for projects with evolving requirements?
+How does the road trip analogy explain the difference between Waterfall and Agile?
+What is the mentoring role of a project manager?
+Why can't good project management alone guarantee project success?
+What key principles are required for successful software project management?
+How does scope change impact time and cost in the project management triangle?
+What is the leadership role of a project manager?
+What characteristics define Agile methodology?
+How does the Monitoring and Control phase keep a project aligned with its objectives?
+What is the fundamental shift in thinking that Agile planning represents compared to traditional planning?
+What are the two levels of Agile planning discussed in the notes?
+What activities are included in Release Planning?
+What is Iteration Planning and what timeframe does it typically cover?
+What is the standard format for writing a user story in Agile?
+What are story points and how are they used in Agile planning?
+What is velocity in the context of Agile planning?
+What is the Planning Game in Agile and who participates in it?
+How are tasks allocated during iteration planning in Agile?
+What are the benefits of self-selection during task allocation in Agile?
+How does Agile handle scope when planned features cannot be completed in time?
+What are the key principles of software delivery in Agile methodologies?
+Why is customer availability a challenge in Agile planning?
+What team characteristics are optimal for Agile planning?
+What scalability issues does traditional Agile planning face?
+How many hours of work should each task require during iteration planning?
+Why do user stories focus on end-user perspective rather than technical implementation?
+What does 'adaptive planning' mean in the context of Agile?
+What is the core philosophy behind Agile planning regarding requirements?
+How does Agile planning differ from predictive planning?
+What is a Work Breakdown Structure (WBS) and what purpose does it serve?
+What are the four principles of a WBS?
+What does the '100% rule' mean in the context of WBS?
+What is COCOMO and what is it based on?
+Write the Basic COCOMO formula for estimating Effort and Time.
+What are the three project categories in Basic COCOMO and their constants?
+Using COCOMO, calculate the effort and time for a 10 KLOC organic project.
+What is Function Point Analysis and how does it differ from COCOMO?
+What is Analogical Estimation and when is it used?
+What are the seven principles of effective project scheduling?
+What is compartmentalization in project scheduling?
+Why is interdependency management important in project scheduling?
+What is effort validation in project scheduling?
+What is the difference between measures and metrics in software project estimation?
+What does KLOC stand for and how is it used in COCOMO?
+What are the characteristics of an 'Embedded' project in COCOMO?
+How is team size calculated in COCOMO?
+What is Expert Judgment as an estimation technique?
+Why is buffer time important in time allocation during scheduling?
+What are 'defined milestones' in project scheduling and why are they needed?
+What is risk management in software projects and why is it necessary?
+How is a 'risk' formally defined in software project management?
+What are the three types of risks based on their nature and source?
+What are the three risk impact categories and how do they differ?
+Give examples of Project Risks in software development.
+What are Product Risks and how do they affect software quality?
+What are the four steps of the Risk Management Process?
+What methods are used during Risk Identification?
+What is the difference between Qualitative and Quantitative risk analysis?
+How is Risk Exposure calculated?
+What are the four risk response strategies in Risk Planning?
+What is Risk Avoidance and how is it achieved?
+What is Risk Transfer and when is it used?
+What does Risk Monitoring involve?
+What are risk indicators and why are they important?
+What are some estimation risk indicators to watch for?
+How do Business Risks differ from Project Risks?
+What is risk prioritization and how is it done?
+Why does software development inherently contain uncertainties?
+What is Risk Mitigation as a response strategy?
+What are the five quality perspectives in software quality management?
+Why can't quality be 'added' after development is complete?
+What does RACI stand for in a RACI matrix?
+What is the difference between 'Responsible' and 'Accountable' in a RACI matrix?
+Why can only one person be 'Accountable' per task in a RACI matrix?
+What is the difference between 'Consulted' and 'Informed' in a RACI matrix?
+Give an example of RACI application for software testing activities.
+What are the seven critical deliverables produced by comprehensive project planning?
+What is the 'Transcendent' quality perspective?
+What is the 'Value-Based' quality perspective?
+What does a Communication Plan deliverable include?
+How does 'Consulted' differ from 'Informed' in terms of communication direction?
+What is the 'Manufacturing-Based' quality perspective?
+What is a Resource Management Plan?
+What is the 'User-Based' quality perspective?
+What is project monitoring and control and why is it important?
+What are the core activities of project monitoring and control?
+What is Change Control Management in software projects?
+What is a Gantt chart and what does it represent?
+What are the six main components of a Gantt chart?
+What is the critical path in a project network?
+Why do activities on the critical path have zero slack time?
+What are the benefits of identifying the critical path in a project?
+What are the four main applications of Gantt charts in project management?
+How does critical path analysis help with resource optimization?
+What is trend analysis used for in project monitoring?
+What is Quality Triangle Management in project control?
+What does 'zero total slack' mean for a critical path activity?
+How are milestones shown in a Gantt chart?
+What is corrective action in project monitoring?
+Why is software engineering inherently a collaborative activity?
+What is group cohesiveness and how does it impact team performance?
+What are the four advantages of cohesive groups in software development?
+How can project managers actively build team cohesiveness?
+What skills are needed in an effective software development team composition?
+What are the three types of communication in software teams?
+Why does knowledge sharing reduce single points of failure in a team?
+What organizational principles should structure a software team?
+How does social interaction facilitation improve professional collaboration?
+What is the role of professional development in building team cohesiveness?
+Why does team complexity increase exponentially with project size?
+What is 'shared purpose creation' and how does it affect team ownership?
+How does managerial communication differ from technical communication in teams?
+What does 'continuity maintenance' mean in the context of team cohesiveness?
+Why is individual development insufficient for most commercial software projects?
+What is software architecture and why does it serve as a blueprint for development?
+Why does software architecture use multiple views to represent a system?
+What were the architectural failures of the Therac-25 radiation therapy machine?
+What is 'tight coupling' and how did it cause problems in the Therac-25?
+What are race conditions and how did they affect the Therac-25?
+What lessons were learned from the Therac-25 case study?
+What are the four components of software architecture definition?
+How does architecture facilitate communication between stakeholders?
+What is the difference between Architecture Questions and Design Questions?
+What is the 'Zipper Model' of architecture integration in development?
+Why is it important to document software architecture even if it exists implicitly?
+How does architecture differ in Waterfall versus Agile development models?
+What is 'fail-safe design' in software architecture?
+What is 'poor observability' and why was it a problem in the Therac-25?
+How does architecture help with complexity management?
+What is an architectural pattern and what purpose does it serve?
+What are the key characteristics of the Pipes and Filters architecture?
+What applications use the Pipes and Filters pattern?
+What are the core principles of Object-Oriented Architecture?
+How does Adobe Photoshop exemplify Object-Oriented Architecture?
+What are the four components of Event-Driven Architecture?
+How does Node.js use event-driven architecture?
+What is Blackboard Architecture and what are its three components?
+What are the principles of Layered Systems Architecture?
+How does the Internet Protocol Suite demonstrate layered architecture?
+What is Client-Server Architecture and what are its characteristics?
+What are the variations of Client-Server Architecture (two-tier, three-tier)?
+What are the three components of MVC architecture?
+Describe the interaction pattern in MVC architecture step by step.
+What are the advantages and disadvantages of Pipes and Filters architecture?
+What are the advantages and disadvantages of Layered Systems Architecture?
+What are the advantages and disadvantages of Event-Driven Architecture?
+What is encapsulation in Object-Oriented Architecture?
+What is polymorphism in Object-Oriented Architecture?
+What type of problems is Blackboard Architecture suited for?
+What is 'separation of concerns' in software architecture?
+What is the difference between high cohesion and low coupling?
+What are the seven levels of cohesion from weakest to strongest?
+What are the six types of coupling from loosest to tightest?
+What is 'Functional Cohesion' and why is it considered the strongest form?
+What is 'Content Coupling' and why is it the most dangerous form?
+What is 'Security by Design' and why is it important?
+What is a 'Trust Boundary' in security architecture?
+Give an example of a trust boundary in a hospital patient data system.
+What does a comprehensive security architecture review include?
+What is 'Coincidental Cohesion' and why is it the poorest form?
+What is 'Data Coupling' and why is it the loosest form of coupling?
+What does modularity mean in software architecture?
+What is 'Decomposability' in the context of modularity?
+What is 'Temporal Cohesion' and give an example?
+What is microservices architecture and how does it contrast with monolithic architecture?
+What are the core characteristics of microservices architecture?
+How does Monolithic Architecture differ from Service-Oriented Architecture (SOA)?
+What is an Enterprise Service Bus (ESB) and which architecture uses it?
+What are the six reasons for adopting microservices architecture?
+How does Netflix use microservices architecture?
+What is the Strangler Fig pattern for migrating from monolith to microservices?
+What is the Anti-Corruption Layer pattern and when is it used?
+What are the main challenges of microservices architecture?
+What is data consistency challenge in microservices and how is it addressed?
+What are circuit breakers and why are they needed in microservices?
+What is 'fault isolation' and how does microservices architecture achieve it?
+Compare monolithic, SOA, and microservices in terms of scalability.
+What is 'Decentralized Data Management' in microservices?
+What DevOps overhead comes with microservices architecture?
+What is a component in UML and what are its key characteristics?
+What is the difference between 'Provided Interfaces' and 'Required Interfaces' in UML?
+What are ports in UML component diagrams and what is port visibility?
+What is a 'Usage Dependency' in component diagrams?
+What is a subsystem in UML and how does it differ from a component?
+What are the five steps in the component diagram development process?
+What are the four applications of component diagrams?
+List the components of an online shopping system in a component diagram.
+What is the 'lollipop' notation in UML component diagrams?
+What is an 'Assembly Connector' in component diagrams?
+What is the role of software design in the development lifecycle?
+What is 'Abstraction' in software design and what are its benefits?
+What is the difference between good cohesion and poor cohesion in design with examples?
+What is 'Information Hiding' and how does encapsulation support it?
+What are the four sources of complexity in software design?
+What are the four strategies for reducing complexity in software design?
+What concurrency concerns must software design address?
+What is data persistence and what strategies exist for it?
+What event processing patterns are commonly used in software design?
+What are the five UML diagram types used in design modeling?
+What are the elements of a Sequence Diagram?
+What is error and exception handling in software design?
+What is 'Interface-Implementation Separation' in software design?
+What is the Observer Pattern in event handling?
+What is deadlock prevention in concurrency management?
+What is an API and why is it important in software systems?
+What are the naming best practices for well-designed APIs?
+What does 'simplicity and minimalism' mean in API design?
+What are the four error handling strategies for APIs?
+What are the different API versioning approaches?
+What is the difference between Static Libraries and Dynamic Libraries?
+What are POSIX IPC mechanisms and when are they used?
+What are RESTful design principles for network APIs?
+What is the difference between Synchronous and Asynchronous APIs?
+What is Dependency Injection and how does it help achieve loose coupling?
+What is Contract-First Development and what are its benefits?
+What are the advantages of Protocol Buffers and gRPC?
+What is an Application Binary Interface (ABI)?
+What does ABI define regarding function call rules?
+What is OpenAPI/Swagger and what benefits does it provide?
+What are the four categories of errors in software systems?
+What are the three error propagation patterns used in different programming paradigms?
+How are HTTP status codes used for error communication in REST APIs?
+What is namespace management in error code organization?
+What is structured logging and what information should log entries include?
+What is request tracing and how does it support error analysis?
+What is the 'Fail-Fast' principle in defensive programming?
+What is 'Graceful Degradation' in error handling?
+What is a 'Result Type' in functional language error handling?
+Why is input validation important as an early error detection strategy?
+What is usability engineering and what does it address?
+How did the 2018 Hawaiian Missile Alert demonstrate usability failures?
+What interface problems contributed to Therac-25 patient deaths?
+What are the five stages of User-Centered Design methodology?
+What is a 'Think-Aloud Protocol' in usability testing?
+What is A/B Testing in the context of usability evaluation?
+What does LESEM stand for in the usability evaluation framework?
+What is 'Progressive Disclosure' in learnability design?
+What is 'Wizard of Oz' testing in usability engineering?
+What are the four principles of Inclusive/Accessible design?
+What are the three types of prototypes used in usability engineering?
+What is 'Error Prevention' in usability design and what strategies are used?
+What is 'Memorability' in usability and how is it supported by design?
+What is Field Study testing in usability research?
+What is WCAG 2.1 and why is it important in usability engineering?
+What dimensions of software quality are covered under 'Product Operation Perspective'?
+What is 'Reliability' as a software quality dimension?
+What are the 'Product Revision' quality attributes?
+What are the 'Product Transition' quality attributes?
+What is the Cost of Quality (COQ) framework?
+What are 'Prevention Costs' in the Cost of Good Quality?
+What are 'Internal Failure Costs' in the Cost of Poor Quality?
+What is Software Quality Assurance (SQA)?
+What does an SQA Plan include?
+What is 'Technical Debt' as listed under management control costs?
+What is 'Testability' as a quality attribute?
+What is 'Portability' as a quality attribute in product transition?
+How does SQA differ from software testing?
+What is 'Interoperability' in software quality?
+What is 'Compliance Auditing' in Software Quality Assurance?
+What is technical debt and how is it analogous to financial debt?
+What is the difference between technical debt and poor quality?
+What is the Technical Debt Quadrant and its two dimensions?
+What is 'Prudent Technical Debt' and give an example?
+What are 'Inadvertent Technical Debt' sources?
+What are the four negative consequences of accumulating technical debt?
+What strategies are used to manage technical debt?
+What happened in the Knight Capital Trading System failure of 2012?
+What technical debt factors contributed to the Knight Capital incident?
+What lessons does the Knight Capital case teach about technical debt management?
+What is Test-Driven Development (TDD) and how does it differ from traditional testing?
+What are the three phases of the Red-Green-Refactor cycle in TDD?
+What are the six process activities in TDD?
+What are the four benefits of Test-Driven Development?
+How does TDD produce 'Living Documentation'?
+How does TDD align with Agile development principles?
+What is 'Coverage Quality' in the context of TDD?
+What are the challenges and limitations of TDD?
+Why is TDD difficult to apply in UI testing?
+How does TDD improve software design quality?
+What is 'Regression Prevention' in TDD?
+What is 'Problem Isolation' in TDD debugging?
+What does the 'Green Phase' focus on in TDD?
+What does the 'Refactor Phase' accomplish in TDD?
+What is the core TDD principle regarding writing tests and implementation?
+Can you explain the iron triangle in software project management?
+What are the three competing constraints every project manager must balance?
+How does scope, time, and cost interact in a software project?
+Why is the project management triangle important for understanding trade-offs in a project?
+What happens to quality when one corner of the project triangle is changed?
+Explain the triple constraint model in software engineering.
+Why can't you have unlimited scope, minimal time, and low cost all at once?
+What does the project triangle tell us about project decision-making?
+If a client asks for more features mid-project, how does the project triangle help the manager respond?
+Describe the relationship between scope, time, and cost in project management.
+What is the 'iron triangle' and why is quality placed at its center?
+How does the project management triangle apply when a deadline is moved up?
+What trade-offs must a project manager make when the budget is suddenly cut?
+How do the three constraints in a software project affect each other?
+What is meant by 'changes to one constraint necessitate adjustments to others'?
+Explain why a project manager cannot simultaneously optimize scope, time, and cost.
+What is the significance of quality being at the center of the project triangle?
+In a software project, if time is fixed, what happens to scope and cost?
+How does adding calendar integration to an app illustrate the project management triangle?
+What is the project constraint model and how is it used in practice?
+Why is it impossible to deliver a high-scope project in minimal time with minimal cost?
+How does the project triangle help managers communicate trade-offs to stakeholders?
+What are the implications of 'scope creep' on the project management triangle?
+Describe a real-world scenario where the project triangle trade-off must be evaluated.
+What is the Triple Constraint in project management?
+How does compressing a project timeline affect the other two constraints?
+What does it mean to say that quality 'sits at the center' of the project triangle?
+When a client insists on adding features without extending the timeline, what must the manager sacrifice?
+Why are scope, time, and cost considered 'competing' constraints?
+How would you explain the project management triangle to a non-technical stakeholder?
+What is the relationship between the project triangle and project failure?
+How does poor management of the triple constraint lead to project failure?
+If scope is fixed, what levers does a project manager have to adjust?
+What happens to project quality when all three constraints are pushed to their limits?
+Why must stakeholders be consulted when navigating trade-offs in the project triangle?
+How does the project triangle apply to agile vs. waterfall projects differently?
+Is it possible to improve quality without affecting scope, time, or cost? Explain.
+What role does the project triangle play in feasibility assessment?
+How do project managers use the triangle to justify decisions to clients?
+In agile projects, which constraint is typically treated as most flexible and why?
+What is 'scope creep' and how does it disturb the project management triangle?
+What is the cost of extending a project timeline to accommodate more scope?
+Explain the trade-off between adding resources and extending the timeline when scope grows.
+How does the project triangle help in risk management decisions?
+Why does reducing cost often lead to reduced scope or lower quality?
+What is the role of stakeholder communication in managing project triangle trade-offs?
+If quality is non-negotiable, what must happen to the other three constraints?
+How is the project management triangle related to the concept of 'good enough' software?
+What is meant by 'fixed timeline, variable scope' in agile delivery?
+How do project managers document and communicate decisions made using the project triangle?
+Explain the three steps of TDD development cycle.
+What happens in the 'Red' phase of TDD?
+What is the purpose of the 'Green' phase in TDD?
+Why is refactoring the third step in TDD rather than the first?
+Describe the TDD workflow from writing a test to refactoring code.
+Why must a test fail before you write any implementation in TDD?
+What is meant by 'write minimal code to make the test pass' in TDD?
+How does the refactor phase in TDD improve code quality without changing behavior?
+What does it mean for a test to be in the 'Red' state?
+In TDD, why is it important to run all existing tests after each implementation?
+What is the significance of 'failing test first' in TDD philosophy?
+How does TDD differ from writing tests after implementation?
+Explain the TDD mantra: 'Red, Green, Refactor'.
+What is the risk of skipping the refactor phase in TDD?
+Why does TDD ensure every line of production code exists for a testable purpose?
+What does 'Green' mean in the context of the TDD cycle?
+How many tests should be written per TDD cycle?
+What is the relationship between the TDD cycle and code coverage?
+How does TDD prevent over-engineering during the Green phase?
+What is the purpose of the refactor step if the code already passes tests?
+In TDD, what should you focus on during the Green phase — optimization or functionality?
+Why is the refactor phase in TDD done only after tests pass?
+How does the Red phase ensure the test is meaningful?
+What would happen if you skipped the Red phase and went straight to Green?
+How does TDD's iterative cycle support incremental development?
+What types of tests are written during the TDD Red phase?
+How does the refactor phase contribute to long-term maintainability?
+Is the TDD cycle applicable to all types of software? Explain.
+How does TDD relate to the principle of 'working software over documentation'?
+What is 'test coverage quality' in TDD compared to arbitrary coverage metrics?
+How does TDD simplify the debugging process?
+Why is TDD considered a design technique and not just a testing technique?
+How does TDD influence the modularity of software?
+What is the risk of 'brittle tests' in TDD?
+How do you know when the refactor phase is complete in TDD?
+Can TDD be applied in Waterfall development? Explain.
+What is the relationship between TDD and continuous integration?
+How does TDD act as living documentation for a system?
+Why does TDD require a cultural change in development organizations?
+What is the feedback loop length in TDD compared to traditional testing?
+How does TDD prevent regression bugs from being introduced?
+What is 'problem isolation' in TDD and why does it reduce debugging time?
+How does writing tests first force better interface design in TDD?
+What happens if a TDD test passes without any implementation being written?
+How does TDD support changing requirements in Agile projects?
+What tools are typically needed to practice TDD effectively?
+How does TDD handle edge cases and error conditions?
+Why do some developers resist adopting TDD despite its benefits?
+What is the learning curve associated with adopting TDD?
+Describe a real-world example of TDD applied to a login feature.
+In a RACI matrix, can a task have multiple Accountable people? Explain.
+Why is it important to have only one Accountable person per task in RACI?
+What is the role of a 'Responsible' person in a RACI matrix?
+How does 'Accountable' differ from 'Responsible' in terms of task ownership?
+Can the same person be both Responsible and Accountable for a task in RACI?
+What happens when there is no clearly defined Accountable person in a project?
+In RACI, who does the actual work — the Responsible or the Accountable person?
+Why is RACI useful for avoiding confusion in software teams?
+What does it mean to be 'Informed' in a RACI matrix?
+How does 'Consulted' differ from 'Informed' in RACI communication?
+Explain how RACI works with an example from software testing.
+Why might having two Accountable people for a task cause problems?
+What is the purpose of defining 'Consulted' stakeholders in a RACI matrix?
+How does the RACI matrix help in assigning responsibilities during project planning?
+What is the key difference between two-way and one-way communication in RACI?
+Why is the RACI matrix especially useful in large software teams?
+What does it mean when someone is marked 'R' in a RACI chart?
+What does it mean when someone is marked 'A' in a RACI chart?
+What does it mean when someone is marked 'C' in a RACI chart?
+What does it mean when someone is marked 'I' in a RACI chart?
+How is a RACI matrix constructed for a software development project?
+What problems does RACI solve in multi-team software projects?
+How does RACI support the principle of clear accountability in project management?
+What is the difference between being 'consulted' vs 'involved' in a task?
+How does a RACI matrix improve stakeholder engagement management?
+In what situations should you update the RACI matrix during a project?
+How does RACI relate to the project's communication plan?
+What would happen if every stakeholder was marked 'Accountable' for all tasks?
+How does RACI prevent 'diffusion of responsibility' in teams?
+What is the relationship between RACI and role definitions in a project plan?
+Can the RACI model be used in Agile projects? Explain.
+How does RACI differ from a simple task assignment list?
+What is the consequence of a task having no 'Responsible' person in RACI?
+How does RACI help when a team member leaves mid-project?
+What is the benefit of involving 'Consulted' stakeholders in a software project?
+How does RACI reduce conflict about task ownership in teams?
+What is the risk of over-consulting stakeholders in a RACI-based process?
+How would you apply RACI to a software release management process?
+What is the difference between RACI and RASCI (which adds 'Support')?
+Why should the 'Accountable' role be assigned carefully in a RACI matrix?
+How does RACI relate to decision-making authority in software teams?
+Is RACI effective for cross-functional software teams? Explain.
+How does RACI ensure that all tasks are covered and no one is overburdened?
+What is a common mistake made when creating a RACI matrix?
+How does RACI help with onboarding new team members?
+What is the relationship between RACI and the project management triangle?
+How does RACI ensure stakeholders receive the right level of information?
+Can RACI be used alongside Agile user stories? Explain.
+How does RACI support compliance and audit requirements in software projects?
+What happens if 'Informed' stakeholders are not properly notified in RACI?
+Explain the concept of technical debt using the financial metaphor.
+How does taking a shortcut in coding create 'interest' that must be paid later?
+What is the 'interest' in technical debt and what does it cost a team?
+How does technical debt accumulate over time in a software project?
+What is the difference between deliberate and inadvertent technical debt?
+Why is technical debt sometimes a conscious and justified decision?
+What is the formal definition of technical debt according to the notes?
+When does technical debt become unmanageable?
+How does technical debt differ from simply having bugs in code?
+What are 'Reckless' and 'Prudent' forms of technical debt?
+What are common sources of technical debt in development teams?
+How does business pressure lead to the creation of technical debt?
+What impact does technical debt have on development velocity?
+How does technical debt affect team morale over time?
+Why do teams often delay addressing technical debt?
+What is meant by 'paying back' technical debt?
+How does poor documentation create technical debt?
+What is 'architecture erosion' and how does it relate to technical debt?
+How does the Knight Capital incident illustrate the dangers of unmanaged technical debt?
+What is the 'Deliberate vs. Inadvertent' dimension in the Technical Debt Quadrant?
+How does insufficient test coverage contribute to technical debt?
+What are the four management strategies for technical debt?
+How does technical debt affect the ability to add new features?
+What is 'debt visualization' in technical debt management?
+How does code ownership affect the accumulation of technical debt?
+What is the relationship between technical debt and software maintainability?
+How does tightly coupled code create technical debt?
+What is 'delayed refactoring' and how does it create technical debt?
+Why is it important to make technical debt visible to management?
+How does technical debt relate to the concept of 'quality' in software?
+What strategies can prevent inadvertent technical debt?
+How does Continuous Integration help manage technical debt?
+What is the 'Reckless and Deliberate' quadrant of technical debt?
+How does 'Prudent and Inadvertent' technical debt occur?
+What is the relationship between technical debt and code reviews?
+How does technical debt affect customer satisfaction?
+What is the cost of not addressing technical debt early?
+How does technical debt relate to the concept of 'refactoring'?
+Why is technical debt considered a 'contingent liability'?
+How can automated quality gates help control technical debt?
+What is the role of architecture reviews in preventing technical debt?
+How does poor branching strategy contribute to technical debt?
+What is 'debt recognition' in technical debt management?
+How does technical debt affect the onboarding of new developers?
+What is the relationship between technical debt and software security?
+How does incomplete deployment automation create technical debt (Knight Capital example)?
+Why is technical debt considered an internal quality problem rather than an external one?
+How does 'Lack of Process' contribute to technical debt accumulation?
+What is the role of retrospectives in managing technical debt?
+How do you prioritize which technical debt to pay back first?
+What are the main phases of managing risk in a software project?
+How does a software team systematically deal with potential project threats?
+What does 'Risk Identification' involve in software project management?
+How is 'Risk Analysis' different from 'Risk Monitoring'?
+What is the purpose of 'Risk Planning' in project management?
+What techniques are used to identify risks in software projects?
+How is Risk Exposure calculated and why is it useful?
+What are the four strategies available for responding to identified risks?
+What is the difference between risk mitigation and risk avoidance?
+When should a team choose to 'accept' a risk rather than mitigate it?
+How does risk monitoring differ from risk identification?
+What triggers should a team watch for during risk monitoring?
+What is a 'risk register' and how does it relate to the risk management process?
+Why is continuous risk identification important throughout a project?
+How does qualitative risk analysis differ from quantitative risk analysis?
+What is a risk indicator and give an example from an estimation context?
+How does risk planning contribute to project resilience?
+What is the role of historical analysis in risk identification?
+What is 'Risk Transfer' and give an example?
+How does risk management support the project management triangle?
+Why is risk management especially critical in software projects compared to other engineering?
+What is the difference between a risk and an issue in project management?
+How do brainstorming sessions help in identifying project risks?
+What is 'Risk Prioritization' and how is it achieved?
+How does the probability-impact matrix work in risk analysis?
+What are 'Technology Risks' and provide examples?
+What are 'Organizational Risks' and provide examples?
+What is the relationship between risk management and the project plan?
+How does the team know when a risk has 'triggered'?
+What is a contingency plan in risk management?
+How does expert judgment assist in risk identification?
+What is the difference between a 'threat' and a 'risk' in software projects?
+How does staff turnover represent a project risk?
+What is 'Risk Indicator Monitoring' and why is it important?
+How does risk management change across different phases of the project lifecycle?
+What is the purpose of checklist reviews in risk identification?
+Why should risks be continuously re-evaluated throughout a project?
+How does risk management relate to the concept of 'technical debt'?
+What is the relationship between risk management and quality management?
+What are 'External Risks' in software development?
+How does regulatory change represent an external risk?
+What is risk acceptance and when is it appropriate?
+How does the risk management process integrate with Agile planning?
+What is the purpose of a risk status report?
+How does competitive product release represent a business risk?
+What is the first step a team should take when a risk becomes reality?
+How does technology obsolescence represent a business risk?
+What role does documentation review play in risk identification?
+How does risk management help prevent project failure?
+What happens when a risk is not monitored and triggers unexpectedly?
+How does a monolithic application differ from a microservices application?
+What are the trade-offs between monolithic and microservices architectures?
+When should a team choose microservices over a monolithic architecture?
+What is an Enterprise Service Bus and which architecture relies on it?
+How does SOA relate to microservices architecture?
+Compare deployment strategies for monolithic vs microservices applications.
+How does fault isolation differ between monolithic and microservices systems?
+What are the scalability advantages of microservices over monoliths?
+Why does a monolithic application become harder to manage over time?
+What is meant by 'independently deployable services' in microservices?
+How does communication differ between monolithic components and microservices?
+What is 'technology stack flexibility' and which architecture benefits most from it?
+How does the Netflix architecture exemplify microservices?
+What is the Strangler Fig pattern and when is it used?
+What are the disadvantages of microservices compared to monoliths?
+What is 'operational complexity' in microservices and why is it a challenge?
+How does database management differ between monoliths and microservices?
+What is 'decentralized data management' in microservices?
+When is a monolithic architecture still the better choice?
+What governance challenges come with microservices at scale?
+How does inter-service communication in microservices differ from monolithic function calls?
+What is the 'anti-corruption layer' pattern used for in microservices migration?
+What testing challenges exist for microservices compared to monoliths?
+How does development speed differ between monoliths and microservices?
+Why do microservices require DevOps capabilities that monoliths do not?
+What is 'circuit breaker' pattern and when is it needed in microservices?
+How does SOA use an ESB while microservices do not?
+What are 'User-Facing Services' in Netflix's microservices example?
+What is point-to-point communication in microservices?
+How does fault tolerance differ between SOA and microservices?
+What is 'service discovery' and why is it needed in microservices?
+How does the 'Business Capability Alignment' principle apply to microservices?
+What is a 'facade layer' in the Strangler Fig migration pattern?
+Why do microservices require independent CI/CD pipelines for each service?
+How does data consistency become a problem in distributed microservices?
+What is the 'saga pattern' and when is it used in microservices?
+What are 'Infrastructure Services' in a microservices architecture?
+How does technology diversity benefit microservices teams?
+What makes monolithic architectures attractive for early-stage products?
+How does microservices architecture support rapid feature deployment?
+What is 'selective component updates' and why is it a microservices advantage?
+How does security management differ between monolith and microservices?
+What is 'lightweight protocol communication' in microservices?
+How does REST API communication work between microservices?
+What is gRPC and why is it used in microservices communication?
+How does container technology (like Docker) support microservices deployment?
+What is the relationship between microservices and cloud-native architecture?
+How do health monitoring requirements differ for microservices vs monoliths?
+What is 'feature parity' concern when migrating from monolith to microservices?
+How does microservices architecture enable A/B testing at scale?
+Explain the different types of cohesion in software modules.
+What is 'Functional Cohesion' and why is it considered ideal?
+What is 'Coincidental Cohesion' and why should it be avoided?
+How does 'Logical Cohesion' differ from 'Procedural Cohesion'?
+What is 'Temporal Cohesion' with an example?
+What is 'Sequential Cohesion' and how does it differ from 'Communicational Cohesion'?
+Why is high cohesion desirable in software module design?
+What is the relationship between cohesion and maintainability?
+What is 'Communicational Cohesion' and give an example?
+How does cohesion affect the reusability of a software module?
+What is the difference between high and low cohesion?
+Give an example of a module with Functional Cohesion.
+Give an example of a module with poor (Coincidental) Cohesion.
+How does cohesion relate to the Single Responsibility Principle?
+What is 'Procedural Cohesion' and when does it occur?
+How does cohesion relate to the concept of 'separation of concerns'?
+What happens to a software system when all modules have low cohesion?
+How do you measure or evaluate the cohesion of a module?
+What is the ideal cohesion level to aim for in software design?
+Why does low cohesion increase the complexity of software maintenance?
+How does cohesion interact with coupling in software design?
+What is the difference between 'Logical Cohesion' and 'Functional Cohesion'?
+How does cohesion affect unit testing of individual modules?
+What does it mean when unrelated functions are grouped in a utility module?
+Why is 'Sequential Cohesion' stronger than 'Communicational Cohesion'?
+What is the relationship between cohesion levels and code readability?
+How does a developer refactor code from Coincidental Cohesion to Functional Cohesion?
+Why is Temporal Cohesion considered a weak form of cohesion?
+What is the impact of cohesion levels on software evolution and change management?
+How does low cohesion lead to 'God classes' in object-oriented design?
+What is 'Logical Cohesion' and give an example from a real system?
+How does cohesion differ from coupling in software quality?
+Why is it harder to test a module with low cohesion?
+What is the relationship between cohesion and module size?
+How does functional cohesion simplify debugging?
+What is the connection between cohesion and the RACI matrix?
+Why should initialization routines be separated based on cohesion principles?
+How does cohesion affect the development of microservices?
+What is the 'High Cohesion Pattern' in API design?
+How does poor cohesion relate to technical debt?
+What refactoring techniques improve cohesion in existing code?
+How does cohesion relate to the design principle of 'information hiding'?
+What is the impact of Sequential Cohesion on data flow in a system?
+How does cohesion relate to the concept of module independence?
+What is the connection between cohesion levels and software architecture?
+How does low cohesion increase the risk of bugs during feature development?
+Why is Coincidental Cohesion often the result of poor initial planning?
+How does cohesion relate to the Open/Closed Principle in SOLID?
+What is the impact of cohesion on inter-team dependencies in large projects?
+How does cohesion influence the granularity of service design in SOA?
+How did software architecture lead to patient deaths in the Therac-25 machine?
+What is 'tight coupling' and why was it dangerous in the Therac-25 system?
+What were 'race conditions' in the Therac-25 and how did they cause harm?
+Why was reusing code from older Therac models without redesign a problem?
+What is 'lack of fault isolation' and how did it affect the Therac-25?
+What is 'poor observability' and why was it a critical failure in the Therac-25?
+What lesson does the Therac-25 teach about 'fail-safe design' in architecture?
+How does the Therac-25 case illustrate the importance of hardware-software safety interlock?
+What is 'Separation of Concerns' and how would it have helped the Therac-25?
+What is 'Defensive Programming' and how would it have prevented Therac-25 failures?
+What is meant by 'redundancy requirements' in safety-critical system architecture?
+How did the Therac-25's reliance on software control instead of hardware safety create risk?
+What is 'legacy code reuse' and what architectural risks does it introduce?
+Why is logging and diagnostics architecturally important in safety-critical systems?
+How did operator behavior interact with architectural flaws in the Therac-25?
+What is 'error propagation' and how did it occur in the Therac-25 system?
+How could architectural boundaries have prevented the Therac-25 failures?
+What does 'global memory sharing between UI and control logic' mean in architecture?
+Why is input validation at architectural boundaries critical in safety systems?
+What is the relationship between system observability and fault diagnosis?
+How does the Therac-25 case relate to the concept of 'trust boundaries' in architecture?
+What architectural review processes might have caught the Therac-25 issues?
+Why did the Therac-25's error messages fail to help operators respond safely?
+How does the Therac-25 relate to the principle of 'architecture documentation'?
+What would a proper 'Fail-Safe' architecture have looked like for the Therac-25?
+How does the Therac-25 case demonstrate the risks of removing hardware interlocks?
+Why is the Therac-25 considered a landmark case in software engineering ethics?
+What role did 'override culture' play in the Therac-25 accidents?
+How does the Therac-25 case illustrate the danger of cryptic error codes?
+What is the connection between the Therac-25 and modern safety-critical software standards?
+How does the Therac-25 incident inform current medical device software regulation?
+What architectural pattern could have been used to isolate the safety-critical components?
+How does the Therac-25 case relate to the concept of 'software architecture risk'?
+What is the role of testing in preventing failures like the Therac-25?
+How does the Therac-25 case illustrate the difference between architecture and implementation failures?
+What is 'state management' and how did the Therac-25 mishandle system state?
+How could MVC architecture have helped isolate the UI from control systems in Therac-25?
+What is the lesson of the Therac-25 for architecture teams working on AI systems today?
+What does the Therac-25 teach about the dangers of insufficient regression testing?
+How does the Therac-25 failure relate to the concept of 'technical debt' in safety systems?
+What is the lesson of Therac-25 about the importance of user interface design?
+How did time pressure and business decisions contribute to the Therac-25 failures?
+Why did the Therac-25 development team not discover the race conditions during testing?
+What is the difference between a latent bug and the kind of race condition found in Therac-25?
+How does the Therac-25 relate to the principle of 'defense in depth' in system design?
+What is the impact of shared global state on multi-threaded or concurrent systems?
+How does the Therac-25 case study apply to drone or autonomous vehicle software today?
+What formal methods could have been used to verify the Therac-25 architecture?
+Why should safety-critical systems undergo independent architecture audits?
+How does the Therac-25 inform the principle of 'modularity' in life-critical systems?
+Explain how COCOMO calculates effort and development time for a software project.
+What does KLOC stand for and how is it used in COCOMO estimation?
+What are the three project categories in COCOMO and their differences?
+How do you classify a project as 'Organic' vs 'Embedded' in COCOMO?
+What is the difference between Effort and Time in the COCOMO formula?
+How does COCOMO calculate the number of persons required for a project?
+What are the constants a, b, c, d in the COCOMO formula?
+Why is COCOMO based on Lines of Code rather than function points?
+What are the limitations of using COCOMO for modern software estimation?
+How would you use COCOMO to estimate a 20 KLOC semi-detached project?
+What type of projects are considered 'Organic' in COCOMO?
+What makes a project 'Embedded' in COCOMO classification?
+What is the Constructive Cost Model and what does it construct?
+How does COCOMO help in resource planning for a software project?
+What is the formula for Effort in the Basic COCOMO model?
+What is the formula for Development Time in the Basic COCOMO model?
+How does increasing KLOC affect effort exponentially in COCOMO?
+What is the relationship between Effort and Team Size in COCOMO?
+Why does COCOMO have different constants for different project types?
+How does COCOMO compare to Function Point Analysis as an estimation method?
+What is Analogical Estimation and when is it preferred over COCOMO?
+What is Expert Judgment estimation and when is it used alongside COCOMO?
+What are the inputs required to use the Basic COCOMO model?
+How accurate is COCOMO in practice for modern software projects?
+What improvements does Intermediate COCOMO make over Basic COCOMO?
+What is a 'person-month' as used in COCOMO output?
+How does COCOMO estimation feed into the project schedule?
+Why might a project manager use COCOMO alongside other estimation techniques?
+What is the role of historical data in improving COCOMO accuracy?
+How does COCOMO handle software with reused components?
+What assumptions does COCOMO make about team productivity?
+How does the COCOMO model relate to the Work Breakdown Structure?
+What is the impact of inaccurate KLOC estimation on COCOMO results?
+Why is COCOMO considered an algorithmic estimation approach?
+How do you validate COCOMO estimates against historical project data?
+What does it mean when COCOMO gives a team size of 3.1 persons?
+How does COCOMO handle projects with rapidly changing requirements?
+What is the difference between Basic COCOMO and Detailed COCOMO?
+How does COCOMO apply to Agile software development?
+Why might COCOMO underestimate effort for complex, innovative projects?
+What does the 'b' exponent in the COCOMO formula represent?
+How does increasing project size affect effort in COCOMO — linearly or exponentially?
+What is 'Semi-Detached' project type in COCOMO and give an example?
+How does COCOMO estimation change if the project scope changes mid-development?
+What are the outputs of the COCOMO model and how are they used?
+How does COCOMO relate to the concept of 'velocity' in Agile estimation?
+Can COCOMO be used for estimating maintenance projects? Explain.
+What is the role of estimation techniques in managing the project triangle?
+How does COCOMO help justify budget requests to management?
+What would happen if you applied the Organic project constants to an Embedded project?
+Why do activities on the critical path have zero slack time?
+How does identifying the critical path help in project scheduling?
+What happens to the project completion date if a critical path activity is delayed?
+What is 'slack time' and how does it relate to the critical path?
+How do you identify the critical path in a project network?
+What is the difference between critical path activities and non-critical activities?
+How does critical path analysis support resource allocation decisions?
+Why is the critical path called the 'longest path' through the project network?
+What is 'total float' in critical path analysis?
+How does Gantt chart visualization help in identifying the critical path?
+Can there be more than one critical path in a project? Explain.
+What is 'schedule compression' and how is it related to the critical path?
+What is 'crashing' in the context of critical path management?
+How does adding resources to critical path activities affect project completion?
+Why is the critical path given priority in risk management?
+What is the relationship between critical path and project milestones?
+How does critical path analysis relate to the project management triangle?
+What is the danger of ignoring the critical path in a complex project?
+How does a Gantt chart show the critical path visually?
+What is 'fast tracking' in critical path schedule compression?
+How does critical path analysis change in Agile vs. Waterfall projects?
+What is 'near-critical path' and why should it be monitored?
+How does critical path analysis help predict the minimum project duration?
+What information is needed to perform a critical path analysis?
+How does critical path analysis support stakeholder communication?
+What is the role of predecessor-successor relationships in critical path analysis?
+How does a delay in a non-critical activity affect the project?
+What is the PERT method and how does it relate to critical path analysis?
+What is 'Early Start' and 'Late Start' in CPM scheduling?
+What is 'Early Finish' and 'Late Finish' in critical path method?
+How does the critical path change if a task is removed from the project?
+What tools are commonly used to calculate the critical path in software projects?
+What is the difference between 'Total Float' and 'Free Float' in CPM?
+How does resource contention affect the critical path?
+What is 'resource leveling' and how does it relate to the critical path?
+Why is it important to update critical path analysis as the project progresses?
+How does the critical path relate to project monitoring and control?
+What is the relationship between the critical path and project baseline?
+How does adding a new task to the schedule potentially create a new critical path?
+What is the connection between critical path and earned value management?
+How does critical path analysis help a project manager justify deadline extensions?
+What happens if a team member assigned to a critical path task is unavailable?
+How does critical path analysis interact with risk management activities?
+What is 'schedule variance' and how is it detected using critical path?
+How does critical path analysis support the principle of 'defined milestones'?
+What is the connection between critical path and Gantt chart progress tracking?
+How does the critical path differ in fixed-price vs. time-and-materials contracts?
+What is the impact of parallel task execution on the critical path length?
+How does critical path management improve project delivery predictability?
+Why should the project manager monitor critical path tasks more closely than others?
