@@ -3,3 +3,24 @@ Confusion_Detection/backend/.env
 **/.env
 __pycache__/
 *.pyc
+
+# Python
+*.pyo
+.pytest_cache/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+venv/
+.venv/
+
+# Similarity_gen: on-disk embedding cache — regenerated per (deck, model, content hash)
+**/.cache/embeddings/
+
+# Node (frontend)
+node_modules/
+dist/
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
