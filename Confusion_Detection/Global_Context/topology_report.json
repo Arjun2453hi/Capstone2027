@@ -1,0 +1,6100 @@
+{
+  "questions_path": "C:\\Users\\NAGARJUN N H\\OneDrive\\Desktop\\Capstone\\Capstone2027\\Confusion_Detection\\Similiarity_gen\\u2_questions.txt",
+  "n_questions": 800,
+  "model_name": "sentence-transformers-all-MiniLM-L6-v2",
+  "clusterer_name": "hdbscan-mcs3",
+  "stats": {
+    "n_real_clusters": 36,
+    "n_noise_singletons": 409,
+    "min": 3,
+    "median": 5.0,
+    "mean": 10.86,
+    "max": 51
+  },
+  "topics": [
+    {
+      "topic_id": 0,
+      "representative_query": "What is usability engineering and what does it address?",
+      "is_noise": false,
+      "size": 4,
+      "source_questions": [
+        "What is usability engineering and what does it address?",
+        "What is 'Wizard of Oz' testing in usability engineering?",
+        "What are the three types of prototypes used in usability engineering?",
+        "What is Field Study testing in usability research?"
+      ],
+      "question_indices": [
+        245,
+        253,
+        255,
+        258
+      ]
+    },
+    {
+      "topic_id": 1,
+      "representative_query": "What are the principles of Layered Systems Architecture?",
+      "is_noise": false,
+      "size": 8,
+      "source_questions": [
+        "What are the key characteristics of the Pipes and Filters architecture?",
+        "What applications use the Pipes and Filters pattern?",
+        "What are the core principles of Object-Oriented Architecture?",
+        "What are the principles of Layered Systems Architecture?",
+        "How does the Internet Protocol Suite demonstrate layered architecture?",
+        "What are the advantages and disadvantages of Pipes and Filters architecture?",
+        "What are the advantages and disadvantages of Layered Systems Architecture?",
+        "What is polymorphism in Object-Oriented Architecture?"
+      ],
+      "question_indices": [
+        146,
+        147,
+        148,
+        153,
+        154,
+        159,
+        160,
+        163
+      ]
+    },
+    {
+      "topic_id": 2,
+      "representative_query": "What are race conditions and how did they affect the Therac-25?",
+      "is_noise": false,
+      "size": 4,
+      "source_questions": [
+        "What are race conditions and how did they affect the Therac-25?",
+        "What were 'race conditions' in the Therac-25 and how did they cause harm?",
+        "What is the role of testing in preventing failures like the Therac-25?",
+        "Why did the Therac-25 development team not discover the race conditions during testing?"
+      ],
+      "question_indices": [
+        134,
+        652,
+        683,
+        692
+      ]
+    },
+    {
+      "topic_id": 3,
+      "representative_query": "How does Netflix use microservices architecture?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "How does Netflix use microservices architecture?",
+        "How does the Netflix architecture exemplify microservices?",
+        "What are 'User-Facing Services' in Netflix's microservices example?"
+      ],
+      "question_indices": [
+        185,
+        562,
+        577
+      ]
+    },
+    {
+      "topic_id": 4,
+      "representative_query": "What is 'tight coupling' and how did it cause problems in the Therac-25?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "What is 'tight coupling' and how did it cause problems in the Therac-25?",
+        "What are the six types of coupling from loosest to tightest?",
+        "What is 'tight coupling' and why was it dangerous in the Therac-25 system?"
+      ],
+      "question_indices": [
+        133,
+        168,
+        651
+      ]
+    },
+    {
+      "topic_id": 5,
+      "representative_query": "What are the advantages and disadvantages of Event-Driven Architecture?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "What are the four components of Event-Driven Architecture?",
+        "How does Node.js use event-driven architecture?",
+        "What are the advantages and disadvantages of Event-Driven Architecture?"
+      ],
+      "question_indices": [
+        150,
+        151,
+        161
+      ]
+    },
+    {
+      "topic_id": 6,
+      "representative_query": "What is microservices architecture and how does it contrast with monolithic architecture?",
+      "is_noise": false,
+      "size": 40,
+      "source_questions": [
+        "What is microservices architecture and how does it contrast with monolithic architecture?",
+        "What are the core characteristics of microservices architecture?",
+        "How does Monolithic Architecture differ from Service-Oriented Architecture (SOA)?",
+        "What are the six reasons for adopting microservices architecture?",
+        "What are the main challenges of microservices architecture?",
+        "What is 'fault isolation' and how does microservices architecture achieve it?",
+        "Compare monolithic, SOA, and microservices in terms of scalability.",
+        "What is 'Decentralized Data Management' in microservices?",
+        "What DevOps overhead comes with microservices architecture?",
+        "How does a monolithic application differ from a microservices application?",
+        "What are the trade-offs between monolithic and microservices architectures?",
+        "When should a team choose microservices over a monolithic architecture?",
+        "How does SOA relate to microservices architecture?",
+        "Compare deployment strategies for monolithic vs microservices applications.",
+        "How does fault isolation differ between monolithic and microservices systems?",
+        "What are the scalability advantages of microservices over monoliths?",
+        "What is meant by 'independently deployable services' in microservices?",
+        "How does communication differ between monolithic components and microservices?",
+        "What are the disadvantages of microservices compared to monoliths?",
+        "How does database management differ between monoliths and microservices?",
+        "What is 'decentralized data management' in microservices?",
+        "When is a monolithic architecture still the better choice?",
+        "What governance challenges come with microservices at scale?",
+        "How does inter-service communication in microservices differ from monolithic function calls?",
+        "What testing challenges exist for microservices compared to monoliths?",
+        "How does development speed differ between monoliths and microservices?",
+        "Why do microservices require DevOps capabilities that monoliths do not?",
+        "What is point-to-point communication in microservices?",
+        "How does fault tolerance differ between SOA and microservices?",
+        "What are 'Infrastructure Services' in a microservices architecture?",
+        "What makes monolithic architectures attractive for early-stage products?",
+        "How does microservices architecture support rapid feature deployment?",
+        "How does security management differ between monolith and microservices?",
+        "What is 'lightweight protocol communication' in microservices?",
+        "How does REST API communication work between microservices?",
+        "What is the relationship between microservices and cloud-native architecture?",
+        "How do health monitoring requirements differ for microservices vs monoliths?",
+        "What is 'feature parity' concern when migrating from monolith to microservices?",
+        "How does cohesion affect the development of microservices?",
+        "How does cohesion influence the granularity of service design in SOA?"
+      ],
+      "question_indices": [
+        180,
+        181,
+        182,
+        184,
+        188,
+        191,
+        192,
+        193,
+        194,
+        550,
+        551,
+        552,
+        554,
+        555,
+        556,
+        557,
+        559,
+        560,
+        564,
+        566,
+        567,
+        568,
+        569,
+        570,
+        572,
+        573,
+        574,
+        578,
+        579,
+        586,
+        588,
+        589,
+        591,
+        592,
+        593,
+        596,
+        597,
+        598,
+        637,
+        649
+      ]
+    },
+    {
+      "topic_id": 7,
+      "representative_query": "How does TDD produce 'Living Documentation'?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "How does TDD produce 'Living Documentation'?",
+        "How does TDD relate to the principle of 'working software over documentation'?",
+        "How does TDD act as living documentation for a system?"
+      ],
+      "question_indices": [
+        289,
+        378,
+        387
+      ]
+    },
+    {
+      "topic_id": 8,
+      "representative_query": "What would a proper 'Fail-Safe' architecture have looked like for the Therac-25?",
+      "is_noise": false,
+      "size": 30,
+      "source_questions": [
+        "What lessons were learned from the Therac-25 case study?",
+        "What is 'fail-safe design' in software architecture?",
+        "What is a 'Trust Boundary' in security architecture?",
+        "What is error and exception handling in software design?",
+        "What are the four error handling strategies for APIs?",
+        "What are the four categories of errors in software systems?",
+        "What are the three error propagation patterns used in different programming paradigms?",
+        "What is 'lack of fault isolation' and how did it affect the Therac-25?",
+        "What is 'poor observability' and why was it a critical failure in the Therac-25?",
+        "What lesson does the Therac-25 teach about 'fail-safe design' in architecture?",
+        "How does the Therac-25 case illustrate the importance of hardware-software safety interlock?",
+        "What is 'Separation of Concerns' and how would it have helped the Therac-25?",
+        "What is 'Defensive Programming' and how would it have prevented Therac-25 failures?",
+        "How did the Therac-25's reliance on software control instead of hardware safety create risk?",
+        "How did operator behavior interact with architectural flaws in the Therac-25?",
+        "How could architectural boundaries have prevented the Therac-25 failures?",
+        "Why is input validation at architectural boundaries critical in safety systems?",
+        "How does the Therac-25 case relate to the concept of 'trust boundaries' in architecture?",
+        "What architectural review processes might have caught the Therac-25 issues?",
+        "How does the Therac-25 relate to the principle of 'architecture documentation'?",
+        "What would a proper 'Fail-Safe' architecture have looked like for the Therac-25?",
+        "Why is the Therac-25 considered a landmark case in software engineering ethics?",
+        "What is the connection between the Therac-25 and modern safety-critical software standards?",
+        "What architectural pattern could have been used to isolate the safety-critical components?",
+        "How does the Therac-25 case relate to the concept of 'software architecture risk'?",
+        "How does the Therac-25 case illustrate the difference between architecture and implementation failures?",
+        "How does the Therac-25 failure relate to the concept of 'technical debt' in safety systems?",
+        "How does the Therac-25 case study apply to drone or autonomous vehicle software today?",
+        "What formal methods could have been used to verify the Therac-25 architecture?",
+        "Why should safety-critical systems undergo independent architecture audits?"
+      ],
+      "question_indices": [
+        135,
+        142,
+        172,
+        216,
+        223,
+        235,
+        236,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        661,
+        664,
+        666,
+        668,
+        670,
+        671,
+        673,
+        674,
+        676,
+        679,
+        681,
+        682,
+        684,
+        689,
+        696,
+        697,
+        698
+      ]
+    },
+    {
+      "topic_id": 9,
+      "representative_query": "What is technical debt and how is it analogous to financial debt?",
+      "is_noise": false,
+      "size": 51,
+      "source_questions": [
+        "What is 'Technical Debt' as listed under management control costs?",
+        "What is technical debt and how is it analogous to financial debt?",
+        "What is the difference between technical debt and poor quality?",
+        "What is the Technical Debt Quadrant and its two dimensions?",
+        "What is 'Prudent Technical Debt' and give an example?",
+        "What are 'Inadvertent Technical Debt' sources?",
+        "What are the four negative consequences of accumulating technical debt?",
+        "What strategies are used to manage technical debt?",
+        "Explain the concept of technical debt using the financial metaphor.",
+        "What is the 'interest' in technical debt and what does it cost a team?",
+        "How does technical debt accumulate over time in a software project?",
+        "What is the difference between deliberate and inadvertent technical debt?",
+        "Why is technical debt sometimes a conscious and justified decision?",
+        "What is the formal definition of technical debt according to the notes?",
+        "When does technical debt become unmanageable?",
+        "How does technical debt differ from simply having bugs in code?",
+        "What are 'Reckless' and 'Prudent' forms of technical debt?",
+        "What are common sources of technical debt in development teams?",
+        "How does business pressure lead to the creation of technical debt?",
+        "What impact does technical debt have on development velocity?",
+        "How does technical debt affect team morale over time?",
+        "Why do teams often delay addressing technical debt?",
+        "What is meant by 'paying back' technical debt?",
+        "How does poor documentation create technical debt?",
+        "What is the 'Deliberate vs. Inadvertent' dimension in the Technical Debt Quadrant?",
+        "What are the four management strategies for technical debt?",
+        "How does technical debt affect the ability to add new features?",
+        "What is 'debt visualization' in technical debt management?",
+        "How does code ownership affect the accumulation of technical debt?",
+        "What is the relationship between technical debt and software maintainability?",
+        "How does tightly coupled code create technical debt?",
+        "Why is it important to make technical debt visible to management?",
+        "How does technical debt relate to the concept of 'quality' in software?",
+        "What strategies can prevent inadvertent technical debt?",
+        "What is the 'Reckless and Deliberate' quadrant of technical debt?",
+        "How does 'Prudent and Inadvertent' technical debt occur?",
+        "What is the relationship between technical debt and code reviews?",
+        "How does technical debt affect customer satisfaction?",
+        "What is the cost of not addressing technical debt early?",
+        "How does technical debt relate to the concept of 'refactoring'?",
+        "Why is technical debt considered a 'contingent liability'?",
+        "How can automated quality gates help control technical debt?",
+        "What is the role of architecture reviews in preventing technical debt?",
+        "What is 'debt recognition' in technical debt management?",
+        "How does technical debt affect the onboarding of new developers?",
+        "What is the relationship between technical debt and software security?",
+        "Why is technical debt considered an internal quality problem rather than an external one?",
+        "What is the role of retrospectives in managing technical debt?",
+        "How do you prioritize which technical debt to pay back first?",
+        "How does risk management relate to the concept of 'technical debt'?",
+        "How does poor cohesion relate to technical debt?"
+      ],
+      "question_indices": [
+        269,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        450,
+        452,
+        453,
+        454,
+        455,
+        456,
+        457,
+        458,
+        459,
+        460,
+        461,
+        462,
+        463,
+        464,
+        465,
+        466,
+        469,
+        471,
+        472,
+        473,
+        474,
+        475,
+        476,
+        478,
+        479,
+        480,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        492,
+        493,
+        494,
+        496,
+        498,
+        499,
+        537,
+        639
+      ]
+    },
+    {
+      "topic_id": 10,
+      "representative_query": "How does the Knight Capital incident illustrate the dangers of unmanaged technical debt?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "What technical debt factors contributed to the Knight Capital incident?",
+        "What lessons does the Knight Capital case teach about technical debt management?",
+        "How does the Knight Capital incident illustrate the dangers of unmanaged technical debt?"
+      ],
+      "question_indices": [
+        283,
+        284,
+        468
+      ]
+    },
+    {
+      "topic_id": 11,
+      "representative_query": "How does TDD differ from writing tests after implementation?",
+      "is_noise": false,
+      "size": 15,
+      "source_questions": [
+        "What is Test-Driven Development (TDD) and how does it differ from traditional testing?",
+        "Why is TDD difficult to apply in UI testing?",
+        "What is 'Problem Isolation' in TDD debugging?",
+        "What is the core TDD principle regarding writing tests and implementation?",
+        "Describe the TDD workflow from writing a test to refactoring code.",
+        "Why must a test fail before you write any implementation in TDD?",
+        "What is meant by 'write minimal code to make the test pass' in TDD?",
+        "In TDD, why is it important to run all existing tests after each implementation?",
+        "How does TDD differ from writing tests after implementation?",
+        "Why does TDD ensure every line of production code exists for a testable purpose?",
+        "How does TDD simplify the debugging process?",
+        "Why is TDD considered a design technique and not just a testing technique?",
+        "What is 'problem isolation' in TDD and why does it reduce debugging time?",
+        "How does writing tests first force better interface design in TDD?",
+        "What happens if a TDD test passes without any implementation being written?"
+      ],
+      "question_indices": [
+        285,
+        293,
+        296,
+        299,
+        354,
+        355,
+        356,
+        359,
+        361,
+        364,
+        380,
+        381,
+        391,
+        392,
+        393
+      ]
+    },
+    {
+      "topic_id": 12,
+      "representative_query": "Is the TDD cycle applicable to all types of software? Explain.",
+      "is_noise": false,
+      "size": 6,
+      "source_questions": [
+        "What is 'Coverage Quality' in the context of TDD?",
+        "How does TDD improve software design quality?",
+        "What is the relationship between the TDD cycle and code coverage?",
+        "How does TDD's iterative cycle support incremental development?",
+        "Is the TDD cycle applicable to all types of software? Explain.",
+        "How does TDD influence the modularity of software?"
+      ],
+      "question_indices": [
+        291,
+        294,
+        367,
+        374,
+        377,
+        382
+      ]
+    },
+    {
+      "topic_id": 13,
+      "representative_query": "What is the learning curve associated with adopting TDD?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "What are the challenges and limitations of TDD?",
+        "Why do some developers resist adopting TDD despite its benefits?",
+        "What is the learning curve associated with adopting TDD?"
+      ],
+      "question_indices": [
+        292,
+        397,
+        398
+      ]
+    },
+    {
+      "topic_id": 14,
+      "representative_query": "What does the 'Refactor Phase' accomplish in TDD?",
+      "is_noise": false,
+      "size": 6,
+      "source_questions": [
+        "What does the 'Refactor Phase' accomplish in TDD?",
+        "Why is refactoring the third step in TDD rather than the first?",
+        "How does the refactor phase in TDD improve code quality without changing behavior?",
+        "What is the risk of skipping the refactor phase in TDD?",
+        "Why is the refactor phase in TDD done only after tests pass?",
+        "How do you know when the refactor phase is complete in TDD?"
+      ],
+      "question_indices": [
+        298,
+        353,
+        357,
+        363,
+        371,
+        384
+      ]
+    },
+    {
+      "topic_id": 15,
+      "representative_query": "What does the 'Green Phase' focus on in TDD?",
+      "is_noise": false,
+      "size": 9,
+      "source_questions": [
+        "What are the three phases of the Red-Green-Refactor cycle in TDD?",
+        "What does the 'Green Phase' focus on in TDD?",
+        "What happens in the 'Red' phase of TDD?",
+        "What is the purpose of the 'Green' phase in TDD?",
+        "What does 'Green' mean in the context of the TDD cycle?",
+        "How does TDD prevent over-engineering during the Green phase?",
+        "In TDD, what should you focus on during the Green phase — optimization or functionality?",
+        "How does the Red phase ensure the test is meaningful?",
+        "What types of tests are written during the TDD Red phase?"
+      ],
+      "question_indices": [
+        286,
+        297,
+        351,
+        352,
+        365,
+        368,
+        370,
+        372,
+        375
+      ]
+    },
+    {
+      "topic_id": 16,
+      "representative_query": "What is group cohesiveness and how does it impact team performance?",
+      "is_noise": false,
+      "size": 5,
+      "source_questions": [
+        "What is group cohesiveness and how does it impact team performance?",
+        "What are the four advantages of cohesive groups in software development?",
+        "How can project managers actively build team cohesiveness?",
+        "What is the role of professional development in building team cohesiveness?",
+        "What is the impact of cohesion on inter-team dependencies in large projects?"
+      ],
+      "question_indices": [
+        116,
+        117,
+        118,
+        124,
+        648
+      ]
+    },
+    {
+      "topic_id": 17,
+      "representative_query": "How does Gantt chart visualization help in identifying the critical path?",
+      "is_noise": false,
+      "size": 7,
+      "source_questions": [
+        "What is a Gantt chart and what does it represent?",
+        "What are the six main components of a Gantt chart?",
+        "What are the four main applications of Gantt charts in project management?",
+        "How are milestones shown in a Gantt chart?",
+        "How does Gantt chart visualization help in identifying the critical path?",
+        "How does a Gantt chart show the critical path visually?",
+        "What is the connection between critical path and Gantt chart progress tracking?"
+      ],
+      "question_indices": [
+        103,
+        104,
+        108,
+        113,
+        759,
+        768,
+        795
+      ]
+    },
+    {
+      "topic_id": 18,
+      "representative_query": "What is 'Temporal Cohesion' with an example?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "What is 'Temporal Cohesion' and give an example?",
+        "What is 'Temporal Cohesion' with an example?",
+        "Why is Temporal Cohesion considered a weak form of cohesion?"
+      ],
+      "question_indices": [
+        179,
+        604,
+        627
+      ]
+    },
+    {
+      "topic_id": 19,
+      "representative_query": "Explain the different types of cohesion in software modules.",
+      "is_noise": false,
+      "size": 28,
+      "source_questions": [
+        "What is the difference between high cohesion and low coupling?",
+        "What is 'Functional Cohesion' and why is it considered the strongest form?",
+        "What is 'Coincidental Cohesion' and why is it the poorest form?",
+        "What is the difference between good cohesion and poor cohesion in design with examples?",
+        "Explain the different types of cohesion in software modules.",
+        "What is 'Functional Cohesion' and why is it considered ideal?",
+        "How does 'Logical Cohesion' differ from 'Procedural Cohesion'?",
+        "Why is high cohesion desirable in software module design?",
+        "What is the relationship between cohesion and maintainability?",
+        "How does cohesion affect the reusability of a software module?",
+        "What is the difference between high and low cohesion?",
+        "Give an example of a module with poor (Coincidental) Cohesion.",
+        "What is 'Procedural Cohesion' and when does it occur?",
+        "What happens to a software system when all modules have low cohesion?",
+        "How do you measure or evaluate the cohesion of a module?",
+        "What is the ideal cohesion level to aim for in software design?",
+        "Why does low cohesion increase the complexity of software maintenance?",
+        "How does cohesion interact with coupling in software design?",
+        "What is the difference between 'Logical Cohesion' and 'Functional Cohesion'?",
+        "How does cohesion affect unit testing of individual modules?",
+        "How does a developer refactor code from Coincidental Cohesion to Functional Cohesion?",
+        "What is the impact of cohesion levels on software evolution and change management?",
+        "What is 'Logical Cohesion' and give an example from a real system?",
+        "How does cohesion differ from coupling in software quality?",
+        "Why is it harder to test a module with low cohesion?",
+        "What is the relationship between cohesion and module size?",
+        "How does cohesion relate to the concept of module independence?",
+        "What is the connection between cohesion levels and software architecture?"
+      ],
+      "question_indices": [
+        166,
+        169,
+        175,
+        207,
+        600,
+        601,
+        603,
+        606,
+        607,
+        609,
+        610,
+        612,
+        614,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        626,
+        628,
+        630,
+        631,
+        632,
+        633,
+        643,
+        644
+      ]
+    },
+    {
+      "topic_id": 20,
+      "representative_query": "What is 'Sequential Cohesion' and how does it differ from 'Communicational Cohesion'?",
+      "is_noise": false,
+      "size": 4,
+      "source_questions": [
+        "What is 'Sequential Cohesion' and how does it differ from 'Communicational Cohesion'?",
+        "What is 'Communicational Cohesion' and give an example?",
+        "Why is 'Sequential Cohesion' stronger than 'Communicational Cohesion'?",
+        "What is the impact of Sequential Cohesion on data flow in a system?"
+      ],
+      "question_indices": [
+        605,
+        608,
+        624,
+        642
+      ]
+    },
+    {
+      "topic_id": 21,
+      "representative_query": "What is Expert Judgment as an estimation technique?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "What is Expert Judgment as an estimation technique?",
+        "How does expert judgment assist in risk identification?",
+        "What is Expert Judgment estimation and when is it used alongside COCOMO?"
+      ],
+      "question_indices": [
+        62,
+        530,
+        721
+      ]
+    },
+    {
+      "topic_id": 22,
+      "representative_query": "How does COCOMO estimation feed into the project schedule?",
+      "is_noise": false,
+      "size": 44,
+      "source_questions": [
+        "Write the Basic COCOMO formula for estimating Effort and Time.",
+        "What are the three project categories in Basic COCOMO and their constants?",
+        "Using COCOMO, calculate the effort and time for a 10 KLOC organic project.",
+        "What is Function Point Analysis and how does it differ from COCOMO?",
+        "What are the characteristics of an 'Embedded' project in COCOMO?",
+        "How is team size calculated in COCOMO?",
+        "Explain how COCOMO calculates effort and development time for a software project.",
+        "What does KLOC stand for and how is it used in COCOMO estimation?",
+        "What are the three project categories in COCOMO and their differences?",
+        "How do you classify a project as 'Organic' vs 'Embedded' in COCOMO?",
+        "What is the difference between Effort and Time in the COCOMO formula?",
+        "How does COCOMO calculate the number of persons required for a project?",
+        "Why is COCOMO based on Lines of Code rather than function points?",
+        "What are the limitations of using COCOMO for modern software estimation?",
+        "How would you use COCOMO to estimate a 20 KLOC semi-detached project?",
+        "What type of projects are considered 'Organic' in COCOMO?",
+        "What makes a project 'Embedded' in COCOMO classification?",
+        "How does COCOMO help in resource planning for a software project?",
+        "What is the formula for Effort in the Basic COCOMO model?",
+        "What is the formula for Development Time in the Basic COCOMO model?",
+        "How does increasing KLOC affect effort exponentially in COCOMO?",
+        "What is the relationship between Effort and Team Size in COCOMO?",
+        "Why does COCOMO have different constants for different project types?",
+        "How does COCOMO compare to Function Point Analysis as an estimation method?",
+        "What is Analogical Estimation and when is it preferred over COCOMO?",
+        "How accurate is COCOMO in practice for modern software projects?",
+        "What improvements does Intermediate COCOMO make over Basic COCOMO?",
+        "How does COCOMO estimation feed into the project schedule?",
+        "Why might a project manager use COCOMO alongside other estimation techniques?",
+        "What is the role of historical data in improving COCOMO accuracy?",
+        "What assumptions does COCOMO make about team productivity?",
+        "What is the impact of inaccurate KLOC estimation on COCOMO results?",
+        "Why is COCOMO considered an algorithmic estimation approach?",
+        "How do you validate COCOMO estimates against historical project data?",
+        "What does it mean when COCOMO gives a team size of 3.1 persons?",
+        "How does COCOMO handle projects with rapidly changing requirements?",
+        "What is the difference between Basic COCOMO and Detailed COCOMO?",
+        "How does COCOMO apply to Agile software development?",
+        "Why might COCOMO underestimate effort for complex, innovative projects?",
+        "How does increasing project size affect effort in COCOMO — linearly or exponentially?",
+        "What is 'Semi-Detached' project type in COCOMO and give an example?",
+        "How does COCOMO estimation change if the project scope changes mid-development?",
+        "Can COCOMO be used for estimating maintenance projects? Explain.",
+        "How does COCOMO help justify budget requests to management?"
+      ],
+      "question_indices": [
+        49,
+        50,
+        51,
+        52,
+        60,
+        61,
+        700,
+        701,
+        702,
+        703,
+        704,
+        705,
+        707,
+        708,
+        709,
+        710,
+        711,
+        713,
+        714,
+        715,
+        716,
+        717,
+        718,
+        719,
+        720,
+        723,
+        724,
+        726,
+        727,
+        728,
+        730,
+        732,
+        733,
+        734,
+        735,
+        736,
+        737,
+        738,
+        739,
+        741,
+        742,
+        743,
+        746,
+        748
+      ]
+    },
+    {
+      "topic_id": 23,
+      "representative_query": "What is the fundamental shift in thinking that Agile planning represents compared to traditional planning?",
+      "is_noise": false,
+      "size": 10,
+      "source_questions": [
+        "What makes Agile methodology suitable for projects with evolving requirements?",
+        "What characteristics define Agile methodology?",
+        "What is the fundamental shift in thinking that Agile planning represents compared to traditional planning?",
+        "What are the two levels of Agile planning discussed in the notes?",
+        "What is the Planning Game in Agile and who participates in it?",
+        "What team characteristics are optimal for Agile planning?",
+        "What scalability issues does traditional Agile planning face?",
+        "What does 'adaptive planning' mean in the context of Agile?",
+        "What is the core philosophy behind Agile planning regarding requirements?",
+        "How does Agile planning differ from predictive planning?"
+      ],
+      "question_indices": [
+        16,
+        23,
+        25,
+        26,
+        32,
+        38,
+        39,
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "topic_id": 24,
+      "representative_query": "What does it mean when someone is marked 'A' in a RACI chart?",
+      "is_noise": false,
+      "size": 4,
+      "source_questions": [
+        "What does it mean when someone is marked 'R' in a RACI chart?",
+        "What does it mean when someone is marked 'A' in a RACI chart?",
+        "What does it mean when someone is marked 'C' in a RACI chart?",
+        "What does it mean when someone is marked 'I' in a RACI chart?"
+      ],
+      "question_indices": [
+        416,
+        417,
+        418,
+        419
+      ]
+    },
+    {
+      "topic_id": 25,
+      "representative_query": "How does scope change impact time and cost in the project management triangle?",
+      "is_noise": false,
+      "size": 7,
+      "source_questions": [
+        "How does scope change impact time and cost in the project management triangle?",
+        "How does scope, time, and cost interact in a software project?",
+        "Describe the relationship between scope, time, and cost in project management.",
+        "Explain why a project manager cannot simultaneously optimize scope, time, and cost.",
+        "In a software project, if time is fixed, what happens to scope and cost?",
+        "What are the implications of 'scope creep' on the project management triangle?",
+        "What is 'scope creep' and how does it disturb the project management triangle?"
+      ],
+      "question_indices": [
+        21,
+        302,
+        309,
+        315,
+        317,
+        322,
+        340
+      ]
+    },
+    {
+      "topic_id": 26,
+      "representative_query": "Why do activities on the critical path have zero slack time?",
+      "is_noise": false,
+      "size": 5,
+      "source_questions": [
+        "Why do activities on the critical path have zero slack time?",
+        "What does 'zero total slack' mean for a critical path activity?",
+        "Why do activities on the critical path have zero slack time?",
+        "What is 'slack time' and how does it relate to the critical path?",
+        "What is the difference between critical path activities and non-critical activities?"
+      ],
+      "question_indices": [
+        106,
+        112,
+        750,
+        753,
+        755
+      ]
+    },
+    {
+      "topic_id": 27,
+      "representative_query": "How does the Waterfall approach differ from Agile in terms of flexibility?",
+      "is_noise": false,
+      "size": 5,
+      "source_questions": [
+        "How does the Waterfall approach differ from Agile in terms of flexibility?",
+        "What are the main characteristics of the Waterfall methodology?",
+        "When is the Waterfall approach best suited for a project?",
+        "How does architecture differ in Waterfall versus Agile development models?",
+        "How does the project triangle apply to agile vs. waterfall projects differently?"
+      ],
+      "question_indices": [
+        13,
+        14,
+        15,
+        141,
+        335
+      ]
+    },
+    {
+      "topic_id": 28,
+      "representative_query": "What is the leadership role of a project manager?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "How does a project manager fulfill the liaison role between clients and development teams?",
+        "What is the mentoring role of a project manager?",
+        "What is the leadership role of a project manager?"
+      ],
+      "question_indices": [
+        3,
+        18,
+        22
+      ]
+    },
+    {
+      "topic_id": 29,
+      "representative_query": "What is 'Risk Indicator Monitoring' and why is it important?",
+      "is_noise": false,
+      "size": 7,
+      "source_questions": [
+        "What does Risk Monitoring involve?",
+        "What are risk indicators and why are they important?",
+        "What are some estimation risk indicators to watch for?",
+        "How is 'Risk Analysis' different from 'Risk Monitoring'?",
+        "How does risk monitoring differ from risk identification?",
+        "What is a risk indicator and give an example from an estimation context?",
+        "What is 'Risk Indicator Monitoring' and why is it important?"
+      ],
+      "question_indices": [
+        78,
+        79,
+        80,
+        503,
+        510,
+        515,
+        533
+      ]
+    },
+    {
+      "topic_id": 30,
+      "representative_query": "What is the difference between 'Consulted' and 'Informed' in a RACI matrix?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "What is the difference between 'Consulted' and 'Informed' in a RACI matrix?",
+        "How does 'Consulted' differ from 'Informed' in RACI communication?",
+        "What is the purpose of defining 'Consulted' stakeholders in a RACI matrix?"
+      ],
+      "question_indices": [
+        90,
+        409,
+        412
+      ]
+    },
+    {
+      "topic_id": 31,
+      "representative_query": "Why can only one person be 'Accountable' per task in a RACI matrix?",
+      "is_noise": false,
+      "size": 10,
+      "source_questions": [
+        "What is the difference between 'Responsible' and 'Accountable' in a RACI matrix?",
+        "Why can only one person be 'Accountable' per task in a RACI matrix?",
+        "In a RACI matrix, can a task have multiple Accountable people? Explain.",
+        "Why is it important to have only one Accountable person per task in RACI?",
+        "What is the role of a 'Responsible' person in a RACI matrix?",
+        "Can the same person be both Responsible and Accountable for a task in RACI?",
+        "In RACI, who does the actual work — the Responsible or the Accountable person?",
+        "How does the RACI matrix help in assigning responsibilities during project planning?",
+        "What is the consequence of a task having no 'Responsible' person in RACI?",
+        "Why should the 'Accountable' role be assigned carefully in a RACI matrix?"
+      ],
+      "question_indices": [
+        88,
+        89,
+        400,
+        401,
+        402,
+        404,
+        406,
+        413,
+        432,
+        439
+      ]
+    },
+    {
+      "topic_id": 32,
+      "representative_query": "Why is the RACI matrix especially useful in large software teams?",
+      "is_noise": false,
+      "size": 5,
+      "source_questions": [
+        "Why is RACI useful for avoiding confusion in software teams?",
+        "Why is the RACI matrix especially useful in large software teams?",
+        "How is a RACI matrix constructed for a software development project?",
+        "What problems does RACI solve in multi-team software projects?",
+        "Is RACI effective for cross-functional software teams? Explain."
+      ],
+      "question_indices": [
+        407,
+        415,
+        420,
+        421,
+        441
+      ]
+    },
+    {
+      "topic_id": 33,
+      "representative_query": "How does risk management support the project management triangle?",
+      "is_noise": false,
+      "size": 33,
+      "source_questions": [
+        "What is the project management triangle and what are its three constraints?",
+        "How does quality relate to the three constraints in the project management triangle?",
+        "What is risk management in software projects and why is it necessary?",
+        "How is a 'risk' formally defined in software project management?",
+        "Give examples of Project Risks in software development.",
+        "How do Business Risks differ from Project Risks?",
+        "What is Quality Triangle Management in project control?",
+        "Why is the project management triangle important for understanding trade-offs in a project?",
+        "What does the project triangle tell us about project decision-making?",
+        "How do the three constraints in a software project affect each other?",
+        "What is the significance of quality being at the center of the project triangle?",
+        "How does the project triangle help managers communicate trade-offs to stakeholders?",
+        "What is the Triple Constraint in project management?",
+        "How would you explain the project management triangle to a non-technical stakeholder?",
+        "What is the relationship between the project triangle and project failure?",
+        "What happens to project quality when all three constraints are pushed to their limits?",
+        "Why must stakeholders be consulted when navigating trade-offs in the project triangle?",
+        "What role does the project triangle play in feasibility assessment?",
+        "How do project managers use the triangle to justify decisions to clients?",
+        "How does the project triangle help in risk management decisions?",
+        "What is the role of stakeholder communication in managing project triangle trade-offs?",
+        "How do project managers document and communicate decisions made using the project triangle?",
+        "What are the main phases of managing risk in a software project?",
+        "What does 'Risk Identification' involve in software project management?",
+        "What is the purpose of 'Risk Planning' in project management?",
+        "What techniques are used to identify risks in software projects?",
+        "How does risk planning contribute to project resilience?",
+        "How does risk management support the project management triangle?",
+        "What is the difference between a risk and an issue in project management?",
+        "What is the relationship between risk management and the project plan?",
+        "What is the difference between a 'threat' and a 'risk' in software projects?",
+        "How does risk management change across different phases of the project lifecycle?",
+        "How does risk management help prevent project failure?"
+      ],
+      "question_indices": [
+        5,
+        6,
+        65,
+        66,
+        69,
+        81,
+        111,
+        303,
+        307,
+        313,
+        316,
+        321,
+        324,
+        329,
+        330,
+        333,
+        334,
+        337,
+        338,
+        343,
+        345,
+        349,
+        500,
+        502,
+        504,
+        505,
+        516,
+        519,
+        521,
+        527,
+        531,
+        534,
+        548
+      ]
+    },
+    {
+      "topic_id": 34,
+      "representative_query": "What are the benefits of identifying the critical path in a project?",
+      "is_noise": false,
+      "size": 11,
+      "source_questions": [
+        "What is the critical path in a project network?",
+        "What are the benefits of identifying the critical path in a project?",
+        "How does identifying the critical path help in project scheduling?",
+        "How do you identify the critical path in a project network?",
+        "Can there be more than one critical path in a project? Explain.",
+        "What is the relationship between critical path and project milestones?",
+        "How does critical path analysis relate to the project management triangle?",
+        "What is the danger of ignoring the critical path in a complex project?",
+        "How does the critical path relate to project monitoring and control?",
+        "How does critical path analysis interact with risk management activities?",
+        "How does critical path management improve project delivery predictability?"
+      ],
+      "question_indices": [
+        105,
+        107,
+        751,
+        754,
+        760,
+        765,
+        766,
+        767,
+        786,
+        792,
+        798
+      ]
+    },
+    {
+      "topic_id": 35,
+      "representative_query": "How does critical path analysis support resource allocation decisions?",
+      "is_noise": false,
+      "size": 3,
+      "source_questions": [
+        "How does critical path analysis help with resource optimization?",
+        "How does critical path analysis support resource allocation decisions?",
+        "How does resource contention affect the critical path?"
+      ],
+      "question_indices": [
+        109,
+        756,
+        783
+      ]
+    },
+    {
+      "topic_id": 36,
+      "representative_query": "What is software project management and how does it differ from traditional project management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is software project management and how does it differ from traditional project management?"
+      ],
+      "question_indices": [
+        0
+      ]
+    },
+    {
+      "topic_id": 37,
+      "representative_query": "What are the fundamental attributes shared by all software projects?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the fundamental attributes shared by all software projects?"
+      ],
+      "question_indices": [
+        1
+      ]
+    },
+    {
+      "topic_id": 38,
+      "representative_query": "What are the three primary roles of a software project manager?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the three primary roles of a software project manager?"
+      ],
+      "question_indices": [
+        2
+      ]
+    },
+    {
+      "topic_id": 39,
+      "representative_query": "Why does software engineering become particularly relevant for large projects?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why does software engineering become particularly relevant for large projects?"
+      ],
+      "question_indices": [
+        4
+      ]
+    },
+    {
+      "topic_id": 40,
+      "representative_query": "If you add a new feature to an app mid-project, what trade-offs must the project manager consider?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "If you add a new feature to an app mid-project, what trade-offs must the project manager consider?"
+      ],
+      "question_indices": [
+        7
+      ]
+    },
+    {
+      "topic_id": 41,
+      "representative_query": "What are the five phases of the software project management lifecycle?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the five phases of the software project management lifecycle?"
+      ],
+      "question_indices": [
+        8
+      ]
+    },
+    {
+      "topic_id": 42,
+      "representative_query": "What happens during the Initiation phase of the project management lifecycle?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What happens during the Initiation phase of the project management lifecycle?"
+      ],
+      "question_indices": [
+        9
+      ]
+    },
+    {
+      "topic_id": 43,
+      "representative_query": "What activities are carried out in the Planning phase of software project management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What activities are carried out in the Planning phase of software project management?"
+      ],
+      "question_indices": [
+        10
+      ]
+    },
+    {
+      "topic_id": 44,
+      "representative_query": "What does the Closure phase of a software project involve?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does the Closure phase of a software project involve?"
+      ],
+      "question_indices": [
+        11
+      ]
+    },
+    {
+      "topic_id": 45,
+      "representative_query": "What are the nine components of project planning shown in the project planning diagram?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the nine components of project planning shown in the project planning diagram?"
+      ],
+      "question_indices": [
+        12
+      ]
+    },
+    {
+      "topic_id": 46,
+      "representative_query": "How does the road trip analogy explain the difference between Waterfall and Agile?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the road trip analogy explain the difference between Waterfall and Agile?"
+      ],
+      "question_indices": [
+        17
+      ]
+    },
+    {
+      "topic_id": 47,
+      "representative_query": "Why can't good project management alone guarantee project success?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why can't good project management alone guarantee project success?"
+      ],
+      "question_indices": [
+        19
+      ]
+    },
+    {
+      "topic_id": 48,
+      "representative_query": "What key principles are required for successful software project management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What key principles are required for successful software project management?"
+      ],
+      "question_indices": [
+        20
+      ]
+    },
+    {
+      "topic_id": 49,
+      "representative_query": "How does the Monitoring and Control phase keep a project aligned with its objectives?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the Monitoring and Control phase keep a project aligned with its objectives?"
+      ],
+      "question_indices": [
+        24
+      ]
+    },
+    {
+      "topic_id": 50,
+      "representative_query": "What activities are included in Release Planning?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What activities are included in Release Planning?"
+      ],
+      "question_indices": [
+        27
+      ]
+    },
+    {
+      "topic_id": 51,
+      "representative_query": "What is Iteration Planning and what timeframe does it typically cover?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Iteration Planning and what timeframe does it typically cover?"
+      ],
+      "question_indices": [
+        28
+      ]
+    },
+    {
+      "topic_id": 52,
+      "representative_query": "What is the standard format for writing a user story in Agile?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the standard format for writing a user story in Agile?"
+      ],
+      "question_indices": [
+        29
+      ]
+    },
+    {
+      "topic_id": 53,
+      "representative_query": "What are story points and how are they used in Agile planning?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are story points and how are they used in Agile planning?"
+      ],
+      "question_indices": [
+        30
+      ]
+    },
+    {
+      "topic_id": 54,
+      "representative_query": "What is velocity in the context of Agile planning?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is velocity in the context of Agile planning?"
+      ],
+      "question_indices": [
+        31
+      ]
+    },
+    {
+      "topic_id": 55,
+      "representative_query": "How are tasks allocated during iteration planning in Agile?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How are tasks allocated during iteration planning in Agile?"
+      ],
+      "question_indices": [
+        33
+      ]
+    },
+    {
+      "topic_id": 56,
+      "representative_query": "What are the benefits of self-selection during task allocation in Agile?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the benefits of self-selection during task allocation in Agile?"
+      ],
+      "question_indices": [
+        34
+      ]
+    },
+    {
+      "topic_id": 57,
+      "representative_query": "How does Agile handle scope when planned features cannot be completed in time?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does Agile handle scope when planned features cannot be completed in time?"
+      ],
+      "question_indices": [
+        35
+      ]
+    },
+    {
+      "topic_id": 58,
+      "representative_query": "What are the key principles of software delivery in Agile methodologies?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the key principles of software delivery in Agile methodologies?"
+      ],
+      "question_indices": [
+        36
+      ]
+    },
+    {
+      "topic_id": 59,
+      "representative_query": "Why is customer availability a challenge in Agile planning?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is customer availability a challenge in Agile planning?"
+      ],
+      "question_indices": [
+        37
+      ]
+    },
+    {
+      "topic_id": 60,
+      "representative_query": "How many hours of work should each task require during iteration planning?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How many hours of work should each task require during iteration planning?"
+      ],
+      "question_indices": [
+        40
+      ]
+    },
+    {
+      "topic_id": 61,
+      "representative_query": "Why do user stories focus on end-user perspective rather than technical implementation?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why do user stories focus on end-user perspective rather than technical implementation?"
+      ],
+      "question_indices": [
+        41
+      ]
+    },
+    {
+      "topic_id": 62,
+      "representative_query": "What is a Work Breakdown Structure (WBS) and what purpose does it serve?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a Work Breakdown Structure (WBS) and what purpose does it serve?"
+      ],
+      "question_indices": [
+        45
+      ]
+    },
+    {
+      "topic_id": 63,
+      "representative_query": "What are the four principles of a WBS?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the four principles of a WBS?"
+      ],
+      "question_indices": [
+        46
+      ]
+    },
+    {
+      "topic_id": 64,
+      "representative_query": "What does the '100% rule' mean in the context of WBS?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does the '100% rule' mean in the context of WBS?"
+      ],
+      "question_indices": [
+        47
+      ]
+    },
+    {
+      "topic_id": 65,
+      "representative_query": "What is COCOMO and what is it based on?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is COCOMO and what is it based on?"
+      ],
+      "question_indices": [
+        48
+      ]
+    },
+    {
+      "topic_id": 66,
+      "representative_query": "What is Analogical Estimation and when is it used?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Analogical Estimation and when is it used?"
+      ],
+      "question_indices": [
+        53
+      ]
+    },
+    {
+      "topic_id": 67,
+      "representative_query": "What are the seven principles of effective project scheduling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the seven principles of effective project scheduling?"
+      ],
+      "question_indices": [
+        54
+      ]
+    },
+    {
+      "topic_id": 68,
+      "representative_query": "What is compartmentalization in project scheduling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is compartmentalization in project scheduling?"
+      ],
+      "question_indices": [
+        55
+      ]
+    },
+    {
+      "topic_id": 69,
+      "representative_query": "Why is interdependency management important in project scheduling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is interdependency management important in project scheduling?"
+      ],
+      "question_indices": [
+        56
+      ]
+    },
+    {
+      "topic_id": 70,
+      "representative_query": "What is effort validation in project scheduling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is effort validation in project scheduling?"
+      ],
+      "question_indices": [
+        57
+      ]
+    },
+    {
+      "topic_id": 71,
+      "representative_query": "What is the difference between measures and metrics in software project estimation?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between measures and metrics in software project estimation?"
+      ],
+      "question_indices": [
+        58
+      ]
+    },
+    {
+      "topic_id": 72,
+      "representative_query": "What does KLOC stand for and how is it used in COCOMO?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does KLOC stand for and how is it used in COCOMO?"
+      ],
+      "question_indices": [
+        59
+      ]
+    },
+    {
+      "topic_id": 73,
+      "representative_query": "Why is buffer time important in time allocation during scheduling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is buffer time important in time allocation during scheduling?"
+      ],
+      "question_indices": [
+        63
+      ]
+    },
+    {
+      "topic_id": 74,
+      "representative_query": "What are 'defined milestones' in project scheduling and why are they needed?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are 'defined milestones' in project scheduling and why are they needed?"
+      ],
+      "question_indices": [
+        64
+      ]
+    },
+    {
+      "topic_id": 75,
+      "representative_query": "What are the three types of risks based on their nature and source?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the three types of risks based on their nature and source?"
+      ],
+      "question_indices": [
+        67
+      ]
+    },
+    {
+      "topic_id": 76,
+      "representative_query": "What are the three risk impact categories and how do they differ?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the three risk impact categories and how do they differ?"
+      ],
+      "question_indices": [
+        68
+      ]
+    },
+    {
+      "topic_id": 77,
+      "representative_query": "What are Product Risks and how do they affect software quality?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are Product Risks and how do they affect software quality?"
+      ],
+      "question_indices": [
+        70
+      ]
+    },
+    {
+      "topic_id": 78,
+      "representative_query": "What are the four steps of the Risk Management Process?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the four steps of the Risk Management Process?"
+      ],
+      "question_indices": [
+        71
+      ]
+    },
+    {
+      "topic_id": 79,
+      "representative_query": "What methods are used during Risk Identification?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What methods are used during Risk Identification?"
+      ],
+      "question_indices": [
+        72
+      ]
+    },
+    {
+      "topic_id": 80,
+      "representative_query": "What is the difference between Qualitative and Quantitative risk analysis?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between Qualitative and Quantitative risk analysis?"
+      ],
+      "question_indices": [
+        73
+      ]
+    },
+    {
+      "topic_id": 81,
+      "representative_query": "How is Risk Exposure calculated?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How is Risk Exposure calculated?"
+      ],
+      "question_indices": [
+        74
+      ]
+    },
+    {
+      "topic_id": 82,
+      "representative_query": "What are the four risk response strategies in Risk Planning?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the four risk response strategies in Risk Planning?"
+      ],
+      "question_indices": [
+        75
+      ]
+    },
+    {
+      "topic_id": 83,
+      "representative_query": "What is Risk Avoidance and how is it achieved?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Risk Avoidance and how is it achieved?"
+      ],
+      "question_indices": [
+        76
+      ]
+    },
+    {
+      "topic_id": 84,
+      "representative_query": "What is Risk Transfer and when is it used?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Risk Transfer and when is it used?"
+      ],
+      "question_indices": [
+        77
+      ]
+    },
+    {
+      "topic_id": 85,
+      "representative_query": "What is risk prioritization and how is it done?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is risk prioritization and how is it done?"
+      ],
+      "question_indices": [
+        82
+      ]
+    },
+    {
+      "topic_id": 86,
+      "representative_query": "Why does software development inherently contain uncertainties?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why does software development inherently contain uncertainties?"
+      ],
+      "question_indices": [
+        83
+      ]
+    },
+    {
+      "topic_id": 87,
+      "representative_query": "What is Risk Mitigation as a response strategy?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Risk Mitigation as a response strategy?"
+      ],
+      "question_indices": [
+        84
+      ]
+    },
+    {
+      "topic_id": 88,
+      "representative_query": "What are the five quality perspectives in software quality management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the five quality perspectives in software quality management?"
+      ],
+      "question_indices": [
+        85
+      ]
+    },
+    {
+      "topic_id": 89,
+      "representative_query": "Why can't quality be 'added' after development is complete?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why can't quality be 'added' after development is complete?"
+      ],
+      "question_indices": [
+        86
+      ]
+    },
+    {
+      "topic_id": 90,
+      "representative_query": "What does RACI stand for in a RACI matrix?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does RACI stand for in a RACI matrix?"
+      ],
+      "question_indices": [
+        87
+      ]
+    },
+    {
+      "topic_id": 91,
+      "representative_query": "Give an example of RACI application for software testing activities.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Give an example of RACI application for software testing activities."
+      ],
+      "question_indices": [
+        91
+      ]
+    },
+    {
+      "topic_id": 92,
+      "representative_query": "What are the seven critical deliverables produced by comprehensive project planning?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the seven critical deliverables produced by comprehensive project planning?"
+      ],
+      "question_indices": [
+        92
+      ]
+    },
+    {
+      "topic_id": 93,
+      "representative_query": "What is the 'Transcendent' quality perspective?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'Transcendent' quality perspective?"
+      ],
+      "question_indices": [
+        93
+      ]
+    },
+    {
+      "topic_id": 94,
+      "representative_query": "What is the 'Value-Based' quality perspective?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'Value-Based' quality perspective?"
+      ],
+      "question_indices": [
+        94
+      ]
+    },
+    {
+      "topic_id": 95,
+      "representative_query": "What does a Communication Plan deliverable include?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does a Communication Plan deliverable include?"
+      ],
+      "question_indices": [
+        95
+      ]
+    },
+    {
+      "topic_id": 96,
+      "representative_query": "How does 'Consulted' differ from 'Informed' in terms of communication direction?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does 'Consulted' differ from 'Informed' in terms of communication direction?"
+      ],
+      "question_indices": [
+        96
+      ]
+    },
+    {
+      "topic_id": 97,
+      "representative_query": "What is the 'Manufacturing-Based' quality perspective?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'Manufacturing-Based' quality perspective?"
+      ],
+      "question_indices": [
+        97
+      ]
+    },
+    {
+      "topic_id": 98,
+      "representative_query": "What is a Resource Management Plan?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a Resource Management Plan?"
+      ],
+      "question_indices": [
+        98
+      ]
+    },
+    {
+      "topic_id": 99,
+      "representative_query": "What is the 'User-Based' quality perspective?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'User-Based' quality perspective?"
+      ],
+      "question_indices": [
+        99
+      ]
+    },
+    {
+      "topic_id": 100,
+      "representative_query": "What is project monitoring and control and why is it important?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is project monitoring and control and why is it important?"
+      ],
+      "question_indices": [
+        100
+      ]
+    },
+    {
+      "topic_id": 101,
+      "representative_query": "What are the core activities of project monitoring and control?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the core activities of project monitoring and control?"
+      ],
+      "question_indices": [
+        101
+      ]
+    },
+    {
+      "topic_id": 102,
+      "representative_query": "What is Change Control Management in software projects?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Change Control Management in software projects?"
+      ],
+      "question_indices": [
+        102
+      ]
+    },
+    {
+      "topic_id": 103,
+      "representative_query": "What is trend analysis used for in project monitoring?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is trend analysis used for in project monitoring?"
+      ],
+      "question_indices": [
+        110
+      ]
+    },
+    {
+      "topic_id": 104,
+      "representative_query": "What is corrective action in project monitoring?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is corrective action in project monitoring?"
+      ],
+      "question_indices": [
+        114
+      ]
+    },
+    {
+      "topic_id": 105,
+      "representative_query": "Why is software engineering inherently a collaborative activity?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is software engineering inherently a collaborative activity?"
+      ],
+      "question_indices": [
+        115
+      ]
+    },
+    {
+      "topic_id": 106,
+      "representative_query": "What skills are needed in an effective software development team composition?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What skills are needed in an effective software development team composition?"
+      ],
+      "question_indices": [
+        119
+      ]
+    },
+    {
+      "topic_id": 107,
+      "representative_query": "What are the three types of communication in software teams?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the three types of communication in software teams?"
+      ],
+      "question_indices": [
+        120
+      ]
+    },
+    {
+      "topic_id": 108,
+      "representative_query": "Why does knowledge sharing reduce single points of failure in a team?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why does knowledge sharing reduce single points of failure in a team?"
+      ],
+      "question_indices": [
+        121
+      ]
+    },
+    {
+      "topic_id": 109,
+      "representative_query": "What organizational principles should structure a software team?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What organizational principles should structure a software team?"
+      ],
+      "question_indices": [
+        122
+      ]
+    },
+    {
+      "topic_id": 110,
+      "representative_query": "How does social interaction facilitation improve professional collaboration?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does social interaction facilitation improve professional collaboration?"
+      ],
+      "question_indices": [
+        123
+      ]
+    },
+    {
+      "topic_id": 111,
+      "representative_query": "Why does team complexity increase exponentially with project size?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why does team complexity increase exponentially with project size?"
+      ],
+      "question_indices": [
+        125
+      ]
+    },
+    {
+      "topic_id": 112,
+      "representative_query": "What is 'shared purpose creation' and how does it affect team ownership?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'shared purpose creation' and how does it affect team ownership?"
+      ],
+      "question_indices": [
+        126
+      ]
+    },
+    {
+      "topic_id": 113,
+      "representative_query": "How does managerial communication differ from technical communication in teams?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does managerial communication differ from technical communication in teams?"
+      ],
+      "question_indices": [
+        127
+      ]
+    },
+    {
+      "topic_id": 114,
+      "representative_query": "What does 'continuity maintenance' mean in the context of team cohesiveness?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does 'continuity maintenance' mean in the context of team cohesiveness?"
+      ],
+      "question_indices": [
+        128
+      ]
+    },
+    {
+      "topic_id": 115,
+      "representative_query": "Why is individual development insufficient for most commercial software projects?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is individual development insufficient for most commercial software projects?"
+      ],
+      "question_indices": [
+        129
+      ]
+    },
+    {
+      "topic_id": 116,
+      "representative_query": "What is software architecture and why does it serve as a blueprint for development?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is software architecture and why does it serve as a blueprint for development?"
+      ],
+      "question_indices": [
+        130
+      ]
+    },
+    {
+      "topic_id": 117,
+      "representative_query": "Why does software architecture use multiple views to represent a system?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why does software architecture use multiple views to represent a system?"
+      ],
+      "question_indices": [
+        131
+      ]
+    },
+    {
+      "topic_id": 118,
+      "representative_query": "What were the architectural failures of the Therac-25 radiation therapy machine?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What were the architectural failures of the Therac-25 radiation therapy machine?"
+      ],
+      "question_indices": [
+        132
+      ]
+    },
+    {
+      "topic_id": 119,
+      "representative_query": "What are the four components of software architecture definition?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the four components of software architecture definition?"
+      ],
+      "question_indices": [
+        136
+      ]
+    },
+    {
+      "topic_id": 120,
+      "representative_query": "How does architecture facilitate communication between stakeholders?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does architecture facilitate communication between stakeholders?"
+      ],
+      "question_indices": [
+        137
+      ]
+    },
+    {
+      "topic_id": 121,
+      "representative_query": "What is the difference between Architecture Questions and Design Questions?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between Architecture Questions and Design Questions?"
+      ],
+      "question_indices": [
+        138
+      ]
+    },
+    {
+      "topic_id": 122,
+      "representative_query": "What is the 'Zipper Model' of architecture integration in development?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'Zipper Model' of architecture integration in development?"
+      ],
+      "question_indices": [
+        139
+      ]
+    },
+    {
+      "topic_id": 123,
+      "representative_query": "Why is it important to document software architecture even if it exists implicitly?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is it important to document software architecture even if it exists implicitly?"
+      ],
+      "question_indices": [
+        140
+      ]
+    },
+    {
+      "topic_id": 124,
+      "representative_query": "What is 'poor observability' and why was it a problem in the Therac-25?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'poor observability' and why was it a problem in the Therac-25?"
+      ],
+      "question_indices": [
+        143
+      ]
+    },
+    {
+      "topic_id": 125,
+      "representative_query": "How does architecture help with complexity management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does architecture help with complexity management?"
+      ],
+      "question_indices": [
+        144
+      ]
+    },
+    {
+      "topic_id": 126,
+      "representative_query": "What is an architectural pattern and what purpose does it serve?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is an architectural pattern and what purpose does it serve?"
+      ],
+      "question_indices": [
+        145
+      ]
+    },
+    {
+      "topic_id": 127,
+      "representative_query": "How does Adobe Photoshop exemplify Object-Oriented Architecture?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does Adobe Photoshop exemplify Object-Oriented Architecture?"
+      ],
+      "question_indices": [
+        149
+      ]
+    },
+    {
+      "topic_id": 128,
+      "representative_query": "What is Blackboard Architecture and what are its three components?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Blackboard Architecture and what are its three components?"
+      ],
+      "question_indices": [
+        152
+      ]
+    },
+    {
+      "topic_id": 129,
+      "representative_query": "What is Client-Server Architecture and what are its characteristics?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Client-Server Architecture and what are its characteristics?"
+      ],
+      "question_indices": [
+        155
+      ]
+    },
+    {
+      "topic_id": 130,
+      "representative_query": "What are the variations of Client-Server Architecture (two-tier, three-tier)?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the variations of Client-Server Architecture (two-tier, three-tier)?"
+      ],
+      "question_indices": [
+        156
+      ]
+    },
+    {
+      "topic_id": 131,
+      "representative_query": "What are the three components of MVC architecture?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the three components of MVC architecture?"
+      ],
+      "question_indices": [
+        157
+      ]
+    },
+    {
+      "topic_id": 132,
+      "representative_query": "Describe the interaction pattern in MVC architecture step by step.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Describe the interaction pattern in MVC architecture step by step."
+      ],
+      "question_indices": [
+        158
+      ]
+    },
+    {
+      "topic_id": 133,
+      "representative_query": "What is encapsulation in Object-Oriented Architecture?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is encapsulation in Object-Oriented Architecture?"
+      ],
+      "question_indices": [
+        162
+      ]
+    },
+    {
+      "topic_id": 134,
+      "representative_query": "What type of problems is Blackboard Architecture suited for?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What type of problems is Blackboard Architecture suited for?"
+      ],
+      "question_indices": [
+        164
+      ]
+    },
+    {
+      "topic_id": 135,
+      "representative_query": "What is 'separation of concerns' in software architecture?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'separation of concerns' in software architecture?"
+      ],
+      "question_indices": [
+        165
+      ]
+    },
+    {
+      "topic_id": 136,
+      "representative_query": "What are the seven levels of cohesion from weakest to strongest?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the seven levels of cohesion from weakest to strongest?"
+      ],
+      "question_indices": [
+        167
+      ]
+    },
+    {
+      "topic_id": 137,
+      "representative_query": "What is 'Content Coupling' and why is it the most dangerous form?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Content Coupling' and why is it the most dangerous form?"
+      ],
+      "question_indices": [
+        170
+      ]
+    },
+    {
+      "topic_id": 138,
+      "representative_query": "What is 'Security by Design' and why is it important?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Security by Design' and why is it important?"
+      ],
+      "question_indices": [
+        171
+      ]
+    },
+    {
+      "topic_id": 139,
+      "representative_query": "Give an example of a trust boundary in a hospital patient data system.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Give an example of a trust boundary in a hospital patient data system."
+      ],
+      "question_indices": [
+        173
+      ]
+    },
+    {
+      "topic_id": 140,
+      "representative_query": "What does a comprehensive security architecture review include?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does a comprehensive security architecture review include?"
+      ],
+      "question_indices": [
+        174
+      ]
+    },
+    {
+      "topic_id": 141,
+      "representative_query": "What is 'Data Coupling' and why is it the loosest form of coupling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Data Coupling' and why is it the loosest form of coupling?"
+      ],
+      "question_indices": [
+        176
+      ]
+    },
+    {
+      "topic_id": 142,
+      "representative_query": "What does modularity mean in software architecture?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does modularity mean in software architecture?"
+      ],
+      "question_indices": [
+        177
+      ]
+    },
+    {
+      "topic_id": 143,
+      "representative_query": "What is 'Decomposability' in the context of modularity?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Decomposability' in the context of modularity?"
+      ],
+      "question_indices": [
+        178
+      ]
+    },
+    {
+      "topic_id": 144,
+      "representative_query": "What is an Enterprise Service Bus (ESB) and which architecture uses it?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is an Enterprise Service Bus (ESB) and which architecture uses it?"
+      ],
+      "question_indices": [
+        183
+      ]
+    },
+    {
+      "topic_id": 145,
+      "representative_query": "What is the Strangler Fig pattern for migrating from monolith to microservices?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the Strangler Fig pattern for migrating from monolith to microservices?"
+      ],
+      "question_indices": [
+        186
+      ]
+    },
+    {
+      "topic_id": 146,
+      "representative_query": "What is the Anti-Corruption Layer pattern and when is it used?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the Anti-Corruption Layer pattern and when is it used?"
+      ],
+      "question_indices": [
+        187
+      ]
+    },
+    {
+      "topic_id": 147,
+      "representative_query": "What is data consistency challenge in microservices and how is it addressed?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is data consistency challenge in microservices and how is it addressed?"
+      ],
+      "question_indices": [
+        189
+      ]
+    },
+    {
+      "topic_id": 148,
+      "representative_query": "What are circuit breakers and why are they needed in microservices?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are circuit breakers and why are they needed in microservices?"
+      ],
+      "question_indices": [
+        190
+      ]
+    },
+    {
+      "topic_id": 149,
+      "representative_query": "What is a component in UML and what are its key characteristics?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a component in UML and what are its key characteristics?"
+      ],
+      "question_indices": [
+        195
+      ]
+    },
+    {
+      "topic_id": 150,
+      "representative_query": "What is the difference between 'Provided Interfaces' and 'Required Interfaces' in UML?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between 'Provided Interfaces' and 'Required Interfaces' in UML?"
+      ],
+      "question_indices": [
+        196
+      ]
+    },
+    {
+      "topic_id": 151,
+      "representative_query": "What are ports in UML component diagrams and what is port visibility?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are ports in UML component diagrams and what is port visibility?"
+      ],
+      "question_indices": [
+        197
+      ]
+    },
+    {
+      "topic_id": 152,
+      "representative_query": "What is a 'Usage Dependency' in component diagrams?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a 'Usage Dependency' in component diagrams?"
+      ],
+      "question_indices": [
+        198
+      ]
+    },
+    {
+      "topic_id": 153,
+      "representative_query": "What is a subsystem in UML and how does it differ from a component?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a subsystem in UML and how does it differ from a component?"
+      ],
+      "question_indices": [
+        199
+      ]
+    },
+    {
+      "topic_id": 154,
+      "representative_query": "What are the five steps in the component diagram development process?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the five steps in the component diagram development process?"
+      ],
+      "question_indices": [
+        200
+      ]
+    },
+    {
+      "topic_id": 155,
+      "representative_query": "What are the four applications of component diagrams?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the four applications of component diagrams?"
+      ],
+      "question_indices": [
+        201
+      ]
+    },
+    {
+      "topic_id": 156,
+      "representative_query": "List the components of an online shopping system in a component diagram.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "List the components of an online shopping system in a component diagram."
+      ],
+      "question_indices": [
+        202
+      ]
+    },
+    {
+      "topic_id": 157,
+      "representative_query": "What is the 'lollipop' notation in UML component diagrams?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'lollipop' notation in UML component diagrams?"
+      ],
+      "question_indices": [
+        203
+      ]
+    },
+    {
+      "topic_id": 158,
+      "representative_query": "What is an 'Assembly Connector' in component diagrams?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is an 'Assembly Connector' in component diagrams?"
+      ],
+      "question_indices": [
+        204
+      ]
+    },
+    {
+      "topic_id": 159,
+      "representative_query": "What is the role of software design in the development lifecycle?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the role of software design in the development lifecycle?"
+      ],
+      "question_indices": [
+        205
+      ]
+    },
+    {
+      "topic_id": 160,
+      "representative_query": "What is 'Abstraction' in software design and what are its benefits?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Abstraction' in software design and what are its benefits?"
+      ],
+      "question_indices": [
+        206
+      ]
+    },
+    {
+      "topic_id": 161,
+      "representative_query": "What is 'Information Hiding' and how does encapsulation support it?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Information Hiding' and how does encapsulation support it?"
+      ],
+      "question_indices": [
+        208
+      ]
+    },
+    {
+      "topic_id": 162,
+      "representative_query": "What are the four sources of complexity in software design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the four sources of complexity in software design?"
+      ],
+      "question_indices": [
+        209
+      ]
+    },
+    {
+      "topic_id": 163,
+      "representative_query": "What are the four strategies for reducing complexity in software design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the four strategies for reducing complexity in software design?"
+      ],
+      "question_indices": [
+        210
+      ]
+    },
+    {
+      "topic_id": 164,
+      "representative_query": "What concurrency concerns must software design address?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What concurrency concerns must software design address?"
+      ],
+      "question_indices": [
+        211
+      ]
+    },
+    {
+      "topic_id": 165,
+      "representative_query": "What is data persistence and what strategies exist for it?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is data persistence and what strategies exist for it?"
+      ],
+      "question_indices": [
+        212
+      ]
+    },
+    {
+      "topic_id": 166,
+      "representative_query": "What event processing patterns are commonly used in software design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What event processing patterns are commonly used in software design?"
+      ],
+      "question_indices": [
+        213
+      ]
+    },
+    {
+      "topic_id": 167,
+      "representative_query": "What are the five UML diagram types used in design modeling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the five UML diagram types used in design modeling?"
+      ],
+      "question_indices": [
+        214
+      ]
+    },
+    {
+      "topic_id": 168,
+      "representative_query": "What are the elements of a Sequence Diagram?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the elements of a Sequence Diagram?"
+      ],
+      "question_indices": [
+        215
+      ]
+    },
+    {
+      "topic_id": 169,
+      "representative_query": "What is 'Interface-Implementation Separation' in software design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Interface-Implementation Separation' in software design?"
+      ],
+      "question_indices": [
+        217
+      ]
+    },
+    {
+      "topic_id": 170,
+      "representative_query": "What is the Observer Pattern in event handling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the Observer Pattern in event handling?"
+      ],
+      "question_indices": [
+        218
+      ]
+    },
+    {
+      "topic_id": 171,
+      "representative_query": "What is deadlock prevention in concurrency management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is deadlock prevention in concurrency management?"
+      ],
+      "question_indices": [
+        219
+      ]
+    },
+    {
+      "topic_id": 172,
+      "representative_query": "What is an API and why is it important in software systems?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is an API and why is it important in software systems?"
+      ],
+      "question_indices": [
+        220
+      ]
+    },
+    {
+      "topic_id": 173,
+      "representative_query": "What are the naming best practices for well-designed APIs?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the naming best practices for well-designed APIs?"
+      ],
+      "question_indices": [
+        221
+      ]
+    },
+    {
+      "topic_id": 174,
+      "representative_query": "What does 'simplicity and minimalism' mean in API design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does 'simplicity and minimalism' mean in API design?"
+      ],
+      "question_indices": [
+        222
+      ]
+    },
+    {
+      "topic_id": 175,
+      "representative_query": "What are the different API versioning approaches?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the different API versioning approaches?"
+      ],
+      "question_indices": [
+        224
+      ]
+    },
+    {
+      "topic_id": 176,
+      "representative_query": "What is the difference between Static Libraries and Dynamic Libraries?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between Static Libraries and Dynamic Libraries?"
+      ],
+      "question_indices": [
+        225
+      ]
+    },
+    {
+      "topic_id": 177,
+      "representative_query": "What are POSIX IPC mechanisms and when are they used?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are POSIX IPC mechanisms and when are they used?"
+      ],
+      "question_indices": [
+        226
+      ]
+    },
+    {
+      "topic_id": 178,
+      "representative_query": "What are RESTful design principles for network APIs?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are RESTful design principles for network APIs?"
+      ],
+      "question_indices": [
+        227
+      ]
+    },
+    {
+      "topic_id": 179,
+      "representative_query": "What is the difference between Synchronous and Asynchronous APIs?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between Synchronous and Asynchronous APIs?"
+      ],
+      "question_indices": [
+        228
+      ]
+    },
+    {
+      "topic_id": 180,
+      "representative_query": "What is Dependency Injection and how does it help achieve loose coupling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Dependency Injection and how does it help achieve loose coupling?"
+      ],
+      "question_indices": [
+        229
+      ]
+    },
+    {
+      "topic_id": 181,
+      "representative_query": "What is Contract-First Development and what are its benefits?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Contract-First Development and what are its benefits?"
+      ],
+      "question_indices": [
+        230
+      ]
+    },
+    {
+      "topic_id": 182,
+      "representative_query": "What are the advantages of Protocol Buffers and gRPC?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the advantages of Protocol Buffers and gRPC?"
+      ],
+      "question_indices": [
+        231
+      ]
+    },
+    {
+      "topic_id": 183,
+      "representative_query": "What is an Application Binary Interface (ABI)?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is an Application Binary Interface (ABI)?"
+      ],
+      "question_indices": [
+        232
+      ]
+    },
+    {
+      "topic_id": 184,
+      "representative_query": "What does ABI define regarding function call rules?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does ABI define regarding function call rules?"
+      ],
+      "question_indices": [
+        233
+      ]
+    },
+    {
+      "topic_id": 185,
+      "representative_query": "What is OpenAPI/Swagger and what benefits does it provide?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is OpenAPI/Swagger and what benefits does it provide?"
+      ],
+      "question_indices": [
+        234
+      ]
+    },
+    {
+      "topic_id": 186,
+      "representative_query": "How are HTTP status codes used for error communication in REST APIs?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How are HTTP status codes used for error communication in REST APIs?"
+      ],
+      "question_indices": [
+        237
+      ]
+    },
+    {
+      "topic_id": 187,
+      "representative_query": "What is namespace management in error code organization?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is namespace management in error code organization?"
+      ],
+      "question_indices": [
+        238
+      ]
+    },
+    {
+      "topic_id": 188,
+      "representative_query": "What is structured logging and what information should log entries include?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is structured logging and what information should log entries include?"
+      ],
+      "question_indices": [
+        239
+      ]
+    },
+    {
+      "topic_id": 189,
+      "representative_query": "What is request tracing and how does it support error analysis?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is request tracing and how does it support error analysis?"
+      ],
+      "question_indices": [
+        240
+      ]
+    },
+    {
+      "topic_id": 190,
+      "representative_query": "What is the 'Fail-Fast' principle in defensive programming?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'Fail-Fast' principle in defensive programming?"
+      ],
+      "question_indices": [
+        241
+      ]
+    },
+    {
+      "topic_id": 191,
+      "representative_query": "What is 'Graceful Degradation' in error handling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Graceful Degradation' in error handling?"
+      ],
+      "question_indices": [
+        242
+      ]
+    },
+    {
+      "topic_id": 192,
+      "representative_query": "What is a 'Result Type' in functional language error handling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a 'Result Type' in functional language error handling?"
+      ],
+      "question_indices": [
+        243
+      ]
+    },
+    {
+      "topic_id": 193,
+      "representative_query": "Why is input validation important as an early error detection strategy?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is input validation important as an early error detection strategy?"
+      ],
+      "question_indices": [
+        244
+      ]
+    },
+    {
+      "topic_id": 194,
+      "representative_query": "How did the 2018 Hawaiian Missile Alert demonstrate usability failures?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How did the 2018 Hawaiian Missile Alert demonstrate usability failures?"
+      ],
+      "question_indices": [
+        246
+      ]
+    },
+    {
+      "topic_id": 195,
+      "representative_query": "What interface problems contributed to Therac-25 patient deaths?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What interface problems contributed to Therac-25 patient deaths?"
+      ],
+      "question_indices": [
+        247
+      ]
+    },
+    {
+      "topic_id": 196,
+      "representative_query": "What are the five stages of User-Centered Design methodology?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the five stages of User-Centered Design methodology?"
+      ],
+      "question_indices": [
+        248
+      ]
+    },
+    {
+      "topic_id": 197,
+      "representative_query": "What is a 'Think-Aloud Protocol' in usability testing?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a 'Think-Aloud Protocol' in usability testing?"
+      ],
+      "question_indices": [
+        249
+      ]
+    },
+    {
+      "topic_id": 198,
+      "representative_query": "What is A/B Testing in the context of usability evaluation?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is A/B Testing in the context of usability evaluation?"
+      ],
+      "question_indices": [
+        250
+      ]
+    },
+    {
+      "topic_id": 199,
+      "representative_query": "What does LESEM stand for in the usability evaluation framework?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does LESEM stand for in the usability evaluation framework?"
+      ],
+      "question_indices": [
+        251
+      ]
+    },
+    {
+      "topic_id": 200,
+      "representative_query": "What is 'Progressive Disclosure' in learnability design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Progressive Disclosure' in learnability design?"
+      ],
+      "question_indices": [
+        252
+      ]
+    },
+    {
+      "topic_id": 201,
+      "representative_query": "What are the four principles of Inclusive/Accessible design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the four principles of Inclusive/Accessible design?"
+      ],
+      "question_indices": [
+        254
+      ]
+    },
+    {
+      "topic_id": 202,
+      "representative_query": "What is 'Error Prevention' in usability design and what strategies are used?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Error Prevention' in usability design and what strategies are used?"
+      ],
+      "question_indices": [
+        256
+      ]
+    },
+    {
+      "topic_id": 203,
+      "representative_query": "What is 'Memorability' in usability and how is it supported by design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Memorability' in usability and how is it supported by design?"
+      ],
+      "question_indices": [
+        257
+      ]
+    },
+    {
+      "topic_id": 204,
+      "representative_query": "What is WCAG 2.1 and why is it important in usability engineering?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is WCAG 2.1 and why is it important in usability engineering?"
+      ],
+      "question_indices": [
+        259
+      ]
+    },
+    {
+      "topic_id": 205,
+      "representative_query": "What dimensions of software quality are covered under 'Product Operation Perspective'?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What dimensions of software quality are covered under 'Product Operation Perspective'?"
+      ],
+      "question_indices": [
+        260
+      ]
+    },
+    {
+      "topic_id": 206,
+      "representative_query": "What is 'Reliability' as a software quality dimension?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Reliability' as a software quality dimension?"
+      ],
+      "question_indices": [
+        261
+      ]
+    },
+    {
+      "topic_id": 207,
+      "representative_query": "What are the 'Product Revision' quality attributes?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the 'Product Revision' quality attributes?"
+      ],
+      "question_indices": [
+        262
+      ]
+    },
+    {
+      "topic_id": 208,
+      "representative_query": "What are the 'Product Transition' quality attributes?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the 'Product Transition' quality attributes?"
+      ],
+      "question_indices": [
+        263
+      ]
+    },
+    {
+      "topic_id": 209,
+      "representative_query": "What is the Cost of Quality (COQ) framework?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the Cost of Quality (COQ) framework?"
+      ],
+      "question_indices": [
+        264
+      ]
+    },
+    {
+      "topic_id": 210,
+      "representative_query": "What are 'Prevention Costs' in the Cost of Good Quality?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are 'Prevention Costs' in the Cost of Good Quality?"
+      ],
+      "question_indices": [
+        265
+      ]
+    },
+    {
+      "topic_id": 211,
+      "representative_query": "What are 'Internal Failure Costs' in the Cost of Poor Quality?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are 'Internal Failure Costs' in the Cost of Poor Quality?"
+      ],
+      "question_indices": [
+        266
+      ]
+    },
+    {
+      "topic_id": 212,
+      "representative_query": "What is Software Quality Assurance (SQA)?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is Software Quality Assurance (SQA)?"
+      ],
+      "question_indices": [
+        267
+      ]
+    },
+    {
+      "topic_id": 213,
+      "representative_query": "What does an SQA Plan include?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does an SQA Plan include?"
+      ],
+      "question_indices": [
+        268
+      ]
+    },
+    {
+      "topic_id": 214,
+      "representative_query": "What is 'Testability' as a quality attribute?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Testability' as a quality attribute?"
+      ],
+      "question_indices": [
+        270
+      ]
+    },
+    {
+      "topic_id": 215,
+      "representative_query": "What is 'Portability' as a quality attribute in product transition?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Portability' as a quality attribute in product transition?"
+      ],
+      "question_indices": [
+        271
+      ]
+    },
+    {
+      "topic_id": 216,
+      "representative_query": "How does SQA differ from software testing?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does SQA differ from software testing?"
+      ],
+      "question_indices": [
+        272
+      ]
+    },
+    {
+      "topic_id": 217,
+      "representative_query": "What is 'Interoperability' in software quality?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Interoperability' in software quality?"
+      ],
+      "question_indices": [
+        273
+      ]
+    },
+    {
+      "topic_id": 218,
+      "representative_query": "What is 'Compliance Auditing' in Software Quality Assurance?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Compliance Auditing' in Software Quality Assurance?"
+      ],
+      "question_indices": [
+        274
+      ]
+    },
+    {
+      "topic_id": 219,
+      "representative_query": "What happened in the Knight Capital Trading System failure of 2012?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What happened in the Knight Capital Trading System failure of 2012?"
+      ],
+      "question_indices": [
+        282
+      ]
+    },
+    {
+      "topic_id": 220,
+      "representative_query": "What are the six process activities in TDD?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the six process activities in TDD?"
+      ],
+      "question_indices": [
+        287
+      ]
+    },
+    {
+      "topic_id": 221,
+      "representative_query": "What are the four benefits of Test-Driven Development?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the four benefits of Test-Driven Development?"
+      ],
+      "question_indices": [
+        288
+      ]
+    },
+    {
+      "topic_id": 222,
+      "representative_query": "How does TDD align with Agile development principles?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does TDD align with Agile development principles?"
+      ],
+      "question_indices": [
+        290
+      ]
+    },
+    {
+      "topic_id": 223,
+      "representative_query": "What is 'Regression Prevention' in TDD?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Regression Prevention' in TDD?"
+      ],
+      "question_indices": [
+        295
+      ]
+    },
+    {
+      "topic_id": 224,
+      "representative_query": "Can you explain the iron triangle in software project management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Can you explain the iron triangle in software project management?"
+      ],
+      "question_indices": [
+        300
+      ]
+    },
+    {
+      "topic_id": 225,
+      "representative_query": "What are the three competing constraints every project manager must balance?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the three competing constraints every project manager must balance?"
+      ],
+      "question_indices": [
+        301
+      ]
+    },
+    {
+      "topic_id": 226,
+      "representative_query": "What happens to quality when one corner of the project triangle is changed?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What happens to quality when one corner of the project triangle is changed?"
+      ],
+      "question_indices": [
+        304
+      ]
+    },
+    {
+      "topic_id": 227,
+      "representative_query": "Explain the triple constraint model in software engineering.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Explain the triple constraint model in software engineering."
+      ],
+      "question_indices": [
+        305
+      ]
+    },
+    {
+      "topic_id": 228,
+      "representative_query": "Why can't you have unlimited scope, minimal time, and low cost all at once?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why can't you have unlimited scope, minimal time, and low cost all at once?"
+      ],
+      "question_indices": [
+        306
+      ]
+    },
+    {
+      "topic_id": 229,
+      "representative_query": "If a client asks for more features mid-project, how does the project triangle help the manager respond?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "If a client asks for more features mid-project, how does the project triangle help the manager respond?"
+      ],
+      "question_indices": [
+        308
+      ]
+    },
+    {
+      "topic_id": 230,
+      "representative_query": "What is the 'iron triangle' and why is quality placed at its center?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'iron triangle' and why is quality placed at its center?"
+      ],
+      "question_indices": [
+        310
+      ]
+    },
+    {
+      "topic_id": 231,
+      "representative_query": "How does the project management triangle apply when a deadline is moved up?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the project management triangle apply when a deadline is moved up?"
+      ],
+      "question_indices": [
+        311
+      ]
+    },
+    {
+      "topic_id": 232,
+      "representative_query": "What trade-offs must a project manager make when the budget is suddenly cut?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What trade-offs must a project manager make when the budget is suddenly cut?"
+      ],
+      "question_indices": [
+        312
+      ]
+    },
+    {
+      "topic_id": 233,
+      "representative_query": "What is meant by 'changes to one constraint necessitate adjustments to others'?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is meant by 'changes to one constraint necessitate adjustments to others'?"
+      ],
+      "question_indices": [
+        314
+      ]
+    },
+    {
+      "topic_id": 234,
+      "representative_query": "How does adding calendar integration to an app illustrate the project management triangle?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does adding calendar integration to an app illustrate the project management triangle?"
+      ],
+      "question_indices": [
+        318
+      ]
+    },
+    {
+      "topic_id": 235,
+      "representative_query": "What is the project constraint model and how is it used in practice?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the project constraint model and how is it used in practice?"
+      ],
+      "question_indices": [
+        319
+      ]
+    },
+    {
+      "topic_id": 236,
+      "representative_query": "Why is it impossible to deliver a high-scope project in minimal time with minimal cost?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is it impossible to deliver a high-scope project in minimal time with minimal cost?"
+      ],
+      "question_indices": [
+        320
+      ]
+    },
+    {
+      "topic_id": 237,
+      "representative_query": "Describe a real-world scenario where the project triangle trade-off must be evaluated.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Describe a real-world scenario where the project triangle trade-off must be evaluated."
+      ],
+      "question_indices": [
+        323
+      ]
+    },
+    {
+      "topic_id": 238,
+      "representative_query": "How does compressing a project timeline affect the other two constraints?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does compressing a project timeline affect the other two constraints?"
+      ],
+      "question_indices": [
+        325
+      ]
+    },
+    {
+      "topic_id": 239,
+      "representative_query": "What does it mean to say that quality 'sits at the center' of the project triangle?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does it mean to say that quality 'sits at the center' of the project triangle?"
+      ],
+      "question_indices": [
+        326
+      ]
+    },
+    {
+      "topic_id": 240,
+      "representative_query": "When a client insists on adding features without extending the timeline, what must the manager sacrifice?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "When a client insists on adding features without extending the timeline, what must the manager sacrifice?"
+      ],
+      "question_indices": [
+        327
+      ]
+    },
+    {
+      "topic_id": 241,
+      "representative_query": "Why are scope, time, and cost considered 'competing' constraints?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why are scope, time, and cost considered 'competing' constraints?"
+      ],
+      "question_indices": [
+        328
+      ]
+    },
+    {
+      "topic_id": 242,
+      "representative_query": "How does poor management of the triple constraint lead to project failure?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does poor management of the triple constraint lead to project failure?"
+      ],
+      "question_indices": [
+        331
+      ]
+    },
+    {
+      "topic_id": 243,
+      "representative_query": "If scope is fixed, what levers does a project manager have to adjust?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "If scope is fixed, what levers does a project manager have to adjust?"
+      ],
+      "question_indices": [
+        332
+      ]
+    },
+    {
+      "topic_id": 244,
+      "representative_query": "Is it possible to improve quality without affecting scope, time, or cost? Explain.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Is it possible to improve quality without affecting scope, time, or cost? Explain."
+      ],
+      "question_indices": [
+        336
+      ]
+    },
+    {
+      "topic_id": 245,
+      "representative_query": "In agile projects, which constraint is typically treated as most flexible and why?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "In agile projects, which constraint is typically treated as most flexible and why?"
+      ],
+      "question_indices": [
+        339
+      ]
+    },
+    {
+      "topic_id": 246,
+      "representative_query": "What is the cost of extending a project timeline to accommodate more scope?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the cost of extending a project timeline to accommodate more scope?"
+      ],
+      "question_indices": [
+        341
+      ]
+    },
+    {
+      "topic_id": 247,
+      "representative_query": "Explain the trade-off between adding resources and extending the timeline when scope grows.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Explain the trade-off between adding resources and extending the timeline when scope grows."
+      ],
+      "question_indices": [
+        342
+      ]
+    },
+    {
+      "topic_id": 248,
+      "representative_query": "Why does reducing cost often lead to reduced scope or lower quality?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why does reducing cost often lead to reduced scope or lower quality?"
+      ],
+      "question_indices": [
+        344
+      ]
+    },
+    {
+      "topic_id": 249,
+      "representative_query": "If quality is non-negotiable, what must happen to the other three constraints?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "If quality is non-negotiable, what must happen to the other three constraints?"
+      ],
+      "question_indices": [
+        346
+      ]
+    },
+    {
+      "topic_id": 250,
+      "representative_query": "How is the project management triangle related to the concept of 'good enough' software?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How is the project management triangle related to the concept of 'good enough' software?"
+      ],
+      "question_indices": [
+        347
+      ]
+    },
+    {
+      "topic_id": 251,
+      "representative_query": "What is meant by 'fixed timeline, variable scope' in agile delivery?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is meant by 'fixed timeline, variable scope' in agile delivery?"
+      ],
+      "question_indices": [
+        348
+      ]
+    },
+    {
+      "topic_id": 252,
+      "representative_query": "Explain the three steps of TDD development cycle.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Explain the three steps of TDD development cycle."
+      ],
+      "question_indices": [
+        350
+      ]
+    },
+    {
+      "topic_id": 253,
+      "representative_query": "What does it mean for a test to be in the 'Red' state?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does it mean for a test to be in the 'Red' state?"
+      ],
+      "question_indices": [
+        358
+      ]
+    },
+    {
+      "topic_id": 254,
+      "representative_query": "What is the significance of 'failing test first' in TDD philosophy?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the significance of 'failing test first' in TDD philosophy?"
+      ],
+      "question_indices": [
+        360
+      ]
+    },
+    {
+      "topic_id": 255,
+      "representative_query": "Explain the TDD mantra: 'Red, Green, Refactor'.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Explain the TDD mantra: 'Red, Green, Refactor'."
+      ],
+      "question_indices": [
+        362
+      ]
+    },
+    {
+      "topic_id": 256,
+      "representative_query": "How many tests should be written per TDD cycle?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How many tests should be written per TDD cycle?"
+      ],
+      "question_indices": [
+        366
+      ]
+    },
+    {
+      "topic_id": 257,
+      "representative_query": "What is the purpose of the refactor step if the code already passes tests?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the purpose of the refactor step if the code already passes tests?"
+      ],
+      "question_indices": [
+        369
+      ]
+    },
+    {
+      "topic_id": 258,
+      "representative_query": "What would happen if you skipped the Red phase and went straight to Green?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What would happen if you skipped the Red phase and went straight to Green?"
+      ],
+      "question_indices": [
+        373
+      ]
+    },
+    {
+      "topic_id": 259,
+      "representative_query": "How does the refactor phase contribute to long-term maintainability?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the refactor phase contribute to long-term maintainability?"
+      ],
+      "question_indices": [
+        376
+      ]
+    },
+    {
+      "topic_id": 260,
+      "representative_query": "What is 'test coverage quality' in TDD compared to arbitrary coverage metrics?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'test coverage quality' in TDD compared to arbitrary coverage metrics?"
+      ],
+      "question_indices": [
+        379
+      ]
+    },
+    {
+      "topic_id": 261,
+      "representative_query": "What is the risk of 'brittle tests' in TDD?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the risk of 'brittle tests' in TDD?"
+      ],
+      "question_indices": [
+        383
+      ]
+    },
+    {
+      "topic_id": 262,
+      "representative_query": "Can TDD be applied in Waterfall development? Explain.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Can TDD be applied in Waterfall development? Explain."
+      ],
+      "question_indices": [
+        385
+      ]
+    },
+    {
+      "topic_id": 263,
+      "representative_query": "What is the relationship between TDD and continuous integration?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the relationship between TDD and continuous integration?"
+      ],
+      "question_indices": [
+        386
+      ]
+    },
+    {
+      "topic_id": 264,
+      "representative_query": "Why does TDD require a cultural change in development organizations?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why does TDD require a cultural change in development organizations?"
+      ],
+      "question_indices": [
+        388
+      ]
+    },
+    {
+      "topic_id": 265,
+      "representative_query": "What is the feedback loop length in TDD compared to traditional testing?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the feedback loop length in TDD compared to traditional testing?"
+      ],
+      "question_indices": [
+        389
+      ]
+    },
+    {
+      "topic_id": 266,
+      "representative_query": "How does TDD prevent regression bugs from being introduced?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does TDD prevent regression bugs from being introduced?"
+      ],
+      "question_indices": [
+        390
+      ]
+    },
+    {
+      "topic_id": 267,
+      "representative_query": "How does TDD support changing requirements in Agile projects?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does TDD support changing requirements in Agile projects?"
+      ],
+      "question_indices": [
+        394
+      ]
+    },
+    {
+      "topic_id": 268,
+      "representative_query": "What tools are typically needed to practice TDD effectively?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What tools are typically needed to practice TDD effectively?"
+      ],
+      "question_indices": [
+        395
+      ]
+    },
+    {
+      "topic_id": 269,
+      "representative_query": "How does TDD handle edge cases and error conditions?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does TDD handle edge cases and error conditions?"
+      ],
+      "question_indices": [
+        396
+      ]
+    },
+    {
+      "topic_id": 270,
+      "representative_query": "Describe a real-world example of TDD applied to a login feature.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Describe a real-world example of TDD applied to a login feature."
+      ],
+      "question_indices": [
+        399
+      ]
+    },
+    {
+      "topic_id": 271,
+      "representative_query": "How does 'Accountable' differ from 'Responsible' in terms of task ownership?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does 'Accountable' differ from 'Responsible' in terms of task ownership?"
+      ],
+      "question_indices": [
+        403
+      ]
+    },
+    {
+      "topic_id": 272,
+      "representative_query": "What happens when there is no clearly defined Accountable person in a project?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What happens when there is no clearly defined Accountable person in a project?"
+      ],
+      "question_indices": [
+        405
+      ]
+    },
+    {
+      "topic_id": 273,
+      "representative_query": "What does it mean to be 'Informed' in a RACI matrix?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does it mean to be 'Informed' in a RACI matrix?"
+      ],
+      "question_indices": [
+        408
+      ]
+    },
+    {
+      "topic_id": 274,
+      "representative_query": "Explain how RACI works with an example from software testing.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Explain how RACI works with an example from software testing."
+      ],
+      "question_indices": [
+        410
+      ]
+    },
+    {
+      "topic_id": 275,
+      "representative_query": "Why might having two Accountable people for a task cause problems?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why might having two Accountable people for a task cause problems?"
+      ],
+      "question_indices": [
+        411
+      ]
+    },
+    {
+      "topic_id": 276,
+      "representative_query": "What is the key difference between two-way and one-way communication in RACI?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the key difference between two-way and one-way communication in RACI?"
+      ],
+      "question_indices": [
+        414
+      ]
+    },
+    {
+      "topic_id": 277,
+      "representative_query": "How does RACI support the principle of clear accountability in project management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI support the principle of clear accountability in project management?"
+      ],
+      "question_indices": [
+        422
+      ]
+    },
+    {
+      "topic_id": 278,
+      "representative_query": "What is the difference between being 'consulted' vs 'involved' in a task?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between being 'consulted' vs 'involved' in a task?"
+      ],
+      "question_indices": [
+        423
+      ]
+    },
+    {
+      "topic_id": 279,
+      "representative_query": "How does a RACI matrix improve stakeholder engagement management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does a RACI matrix improve stakeholder engagement management?"
+      ],
+      "question_indices": [
+        424
+      ]
+    },
+    {
+      "topic_id": 280,
+      "representative_query": "In what situations should you update the RACI matrix during a project?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "In what situations should you update the RACI matrix during a project?"
+      ],
+      "question_indices": [
+        425
+      ]
+    },
+    {
+      "topic_id": 281,
+      "representative_query": "How does RACI relate to the project's communication plan?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI relate to the project's communication plan?"
+      ],
+      "question_indices": [
+        426
+      ]
+    },
+    {
+      "topic_id": 282,
+      "representative_query": "What would happen if every stakeholder was marked 'Accountable' for all tasks?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What would happen if every stakeholder was marked 'Accountable' for all tasks?"
+      ],
+      "question_indices": [
+        427
+      ]
+    },
+    {
+      "topic_id": 283,
+      "representative_query": "How does RACI prevent 'diffusion of responsibility' in teams?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI prevent 'diffusion of responsibility' in teams?"
+      ],
+      "question_indices": [
+        428
+      ]
+    },
+    {
+      "topic_id": 284,
+      "representative_query": "What is the relationship between RACI and role definitions in a project plan?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the relationship between RACI and role definitions in a project plan?"
+      ],
+      "question_indices": [
+        429
+      ]
+    },
+    {
+      "topic_id": 285,
+      "representative_query": "Can the RACI model be used in Agile projects? Explain.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Can the RACI model be used in Agile projects? Explain."
+      ],
+      "question_indices": [
+        430
+      ]
+    },
+    {
+      "topic_id": 286,
+      "representative_query": "How does RACI differ from a simple task assignment list?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI differ from a simple task assignment list?"
+      ],
+      "question_indices": [
+        431
+      ]
+    },
+    {
+      "topic_id": 287,
+      "representative_query": "How does RACI help when a team member leaves mid-project?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI help when a team member leaves mid-project?"
+      ],
+      "question_indices": [
+        433
+      ]
+    },
+    {
+      "topic_id": 288,
+      "representative_query": "What is the benefit of involving 'Consulted' stakeholders in a software project?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the benefit of involving 'Consulted' stakeholders in a software project?"
+      ],
+      "question_indices": [
+        434
+      ]
+    },
+    {
+      "topic_id": 289,
+      "representative_query": "How does RACI reduce conflict about task ownership in teams?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI reduce conflict about task ownership in teams?"
+      ],
+      "question_indices": [
+        435
+      ]
+    },
+    {
+      "topic_id": 290,
+      "representative_query": "What is the risk of over-consulting stakeholders in a RACI-based process?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the risk of over-consulting stakeholders in a RACI-based process?"
+      ],
+      "question_indices": [
+        436
+      ]
+    },
+    {
+      "topic_id": 291,
+      "representative_query": "How would you apply RACI to a software release management process?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How would you apply RACI to a software release management process?"
+      ],
+      "question_indices": [
+        437
+      ]
+    },
+    {
+      "topic_id": 292,
+      "representative_query": "What is the difference between RACI and RASCI (which adds 'Support')?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between RACI and RASCI (which adds 'Support')?"
+      ],
+      "question_indices": [
+        438
+      ]
+    },
+    {
+      "topic_id": 293,
+      "representative_query": "How does RACI relate to decision-making authority in software teams?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI relate to decision-making authority in software teams?"
+      ],
+      "question_indices": [
+        440
+      ]
+    },
+    {
+      "topic_id": 294,
+      "representative_query": "How does RACI ensure that all tasks are covered and no one is overburdened?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI ensure that all tasks are covered and no one is overburdened?"
+      ],
+      "question_indices": [
+        442
+      ]
+    },
+    {
+      "topic_id": 295,
+      "representative_query": "What is a common mistake made when creating a RACI matrix?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a common mistake made when creating a RACI matrix?"
+      ],
+      "question_indices": [
+        443
+      ]
+    },
+    {
+      "topic_id": 296,
+      "representative_query": "How does RACI help with onboarding new team members?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI help with onboarding new team members?"
+      ],
+      "question_indices": [
+        444
+      ]
+    },
+    {
+      "topic_id": 297,
+      "representative_query": "What is the relationship between RACI and the project management triangle?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the relationship between RACI and the project management triangle?"
+      ],
+      "question_indices": [
+        445
+      ]
+    },
+    {
+      "topic_id": 298,
+      "representative_query": "How does RACI ensure stakeholders receive the right level of information?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI ensure stakeholders receive the right level of information?"
+      ],
+      "question_indices": [
+        446
+      ]
+    },
+    {
+      "topic_id": 299,
+      "representative_query": "Can RACI be used alongside Agile user stories? Explain.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Can RACI be used alongside Agile user stories? Explain."
+      ],
+      "question_indices": [
+        447
+      ]
+    },
+    {
+      "topic_id": 300,
+      "representative_query": "How does RACI support compliance and audit requirements in software projects?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does RACI support compliance and audit requirements in software projects?"
+      ],
+      "question_indices": [
+        448
+      ]
+    },
+    {
+      "topic_id": 301,
+      "representative_query": "What happens if 'Informed' stakeholders are not properly notified in RACI?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What happens if 'Informed' stakeholders are not properly notified in RACI?"
+      ],
+      "question_indices": [
+        449
+      ]
+    },
+    {
+      "topic_id": 302,
+      "representative_query": "How does taking a shortcut in coding create 'interest' that must be paid later?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does taking a shortcut in coding create 'interest' that must be paid later?"
+      ],
+      "question_indices": [
+        451
+      ]
+    },
+    {
+      "topic_id": 303,
+      "representative_query": "What is 'architecture erosion' and how does it relate to technical debt?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'architecture erosion' and how does it relate to technical debt?"
+      ],
+      "question_indices": [
+        467
+      ]
+    },
+    {
+      "topic_id": 304,
+      "representative_query": "How does insufficient test coverage contribute to technical debt?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does insufficient test coverage contribute to technical debt?"
+      ],
+      "question_indices": [
+        470
+      ]
+    },
+    {
+      "topic_id": 305,
+      "representative_query": "What is 'delayed refactoring' and how does it create technical debt?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'delayed refactoring' and how does it create technical debt?"
+      ],
+      "question_indices": [
+        477
+      ]
+    },
+    {
+      "topic_id": 306,
+      "representative_query": "How does Continuous Integration help manage technical debt?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does Continuous Integration help manage technical debt?"
+      ],
+      "question_indices": [
+        481
+      ]
+    },
+    {
+      "topic_id": 307,
+      "representative_query": "How does poor branching strategy contribute to technical debt?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does poor branching strategy contribute to technical debt?"
+      ],
+      "question_indices": [
+        491
+      ]
+    },
+    {
+      "topic_id": 308,
+      "representative_query": "How does incomplete deployment automation create technical debt (Knight Capital example)?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does incomplete deployment automation create technical debt (Knight Capital example)?"
+      ],
+      "question_indices": [
+        495
+      ]
+    },
+    {
+      "topic_id": 309,
+      "representative_query": "How does 'Lack of Process' contribute to technical debt accumulation?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does 'Lack of Process' contribute to technical debt accumulation?"
+      ],
+      "question_indices": [
+        497
+      ]
+    },
+    {
+      "topic_id": 310,
+      "representative_query": "How does a software team systematically deal with potential project threats?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does a software team systematically deal with potential project threats?"
+      ],
+      "question_indices": [
+        501
+      ]
+    },
+    {
+      "topic_id": 311,
+      "representative_query": "How is Risk Exposure calculated and why is it useful?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How is Risk Exposure calculated and why is it useful?"
+      ],
+      "question_indices": [
+        506
+      ]
+    },
+    {
+      "topic_id": 312,
+      "representative_query": "What are the four strategies available for responding to identified risks?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the four strategies available for responding to identified risks?"
+      ],
+      "question_indices": [
+        507
+      ]
+    },
+    {
+      "topic_id": 313,
+      "representative_query": "What is the difference between risk mitigation and risk avoidance?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between risk mitigation and risk avoidance?"
+      ],
+      "question_indices": [
+        508
+      ]
+    },
+    {
+      "topic_id": 314,
+      "representative_query": "When should a team choose to 'accept' a risk rather than mitigate it?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "When should a team choose to 'accept' a risk rather than mitigate it?"
+      ],
+      "question_indices": [
+        509
+      ]
+    },
+    {
+      "topic_id": 315,
+      "representative_query": "What triggers should a team watch for during risk monitoring?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What triggers should a team watch for during risk monitoring?"
+      ],
+      "question_indices": [
+        511
+      ]
+    },
+    {
+      "topic_id": 316,
+      "representative_query": "What is a 'risk register' and how does it relate to the risk management process?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a 'risk register' and how does it relate to the risk management process?"
+      ],
+      "question_indices": [
+        512
+      ]
+    },
+    {
+      "topic_id": 317,
+      "representative_query": "Why is continuous risk identification important throughout a project?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is continuous risk identification important throughout a project?"
+      ],
+      "question_indices": [
+        513
+      ]
+    },
+    {
+      "topic_id": 318,
+      "representative_query": "How does qualitative risk analysis differ from quantitative risk analysis?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does qualitative risk analysis differ from quantitative risk analysis?"
+      ],
+      "question_indices": [
+        514
+      ]
+    },
+    {
+      "topic_id": 319,
+      "representative_query": "What is the role of historical analysis in risk identification?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the role of historical analysis in risk identification?"
+      ],
+      "question_indices": [
+        517
+      ]
+    },
+    {
+      "topic_id": 320,
+      "representative_query": "What is 'Risk Transfer' and give an example?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Risk Transfer' and give an example?"
+      ],
+      "question_indices": [
+        518
+      ]
+    },
+    {
+      "topic_id": 321,
+      "representative_query": "Why is risk management especially critical in software projects compared to other engineering?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is risk management especially critical in software projects compared to other engineering?"
+      ],
+      "question_indices": [
+        520
+      ]
+    },
+    {
+      "topic_id": 322,
+      "representative_query": "How do brainstorming sessions help in identifying project risks?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How do brainstorming sessions help in identifying project risks?"
+      ],
+      "question_indices": [
+        522
+      ]
+    },
+    {
+      "topic_id": 323,
+      "representative_query": "What is 'Risk Prioritization' and how is it achieved?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Risk Prioritization' and how is it achieved?"
+      ],
+      "question_indices": [
+        523
+      ]
+    },
+    {
+      "topic_id": 324,
+      "representative_query": "How does the probability-impact matrix work in risk analysis?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the probability-impact matrix work in risk analysis?"
+      ],
+      "question_indices": [
+        524
+      ]
+    },
+    {
+      "topic_id": 325,
+      "representative_query": "What are 'Technology Risks' and provide examples?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are 'Technology Risks' and provide examples?"
+      ],
+      "question_indices": [
+        525
+      ]
+    },
+    {
+      "topic_id": 326,
+      "representative_query": "What are 'Organizational Risks' and provide examples?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are 'Organizational Risks' and provide examples?"
+      ],
+      "question_indices": [
+        526
+      ]
+    },
+    {
+      "topic_id": 327,
+      "representative_query": "How does the team know when a risk has 'triggered'?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the team know when a risk has 'triggered'?"
+      ],
+      "question_indices": [
+        528
+      ]
+    },
+    {
+      "topic_id": 328,
+      "representative_query": "What is a contingency plan in risk management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a contingency plan in risk management?"
+      ],
+      "question_indices": [
+        529
+      ]
+    },
+    {
+      "topic_id": 329,
+      "representative_query": "How does staff turnover represent a project risk?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does staff turnover represent a project risk?"
+      ],
+      "question_indices": [
+        532
+      ]
+    },
+    {
+      "topic_id": 330,
+      "representative_query": "What is the purpose of checklist reviews in risk identification?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the purpose of checklist reviews in risk identification?"
+      ],
+      "question_indices": [
+        535
+      ]
+    },
+    {
+      "topic_id": 331,
+      "representative_query": "Why should risks be continuously re-evaluated throughout a project?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why should risks be continuously re-evaluated throughout a project?"
+      ],
+      "question_indices": [
+        536
+      ]
+    },
+    {
+      "topic_id": 332,
+      "representative_query": "What is the relationship between risk management and quality management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the relationship between risk management and quality management?"
+      ],
+      "question_indices": [
+        538
+      ]
+    },
+    {
+      "topic_id": 333,
+      "representative_query": "What are 'External Risks' in software development?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are 'External Risks' in software development?"
+      ],
+      "question_indices": [
+        539
+      ]
+    },
+    {
+      "topic_id": 334,
+      "representative_query": "How does regulatory change represent an external risk?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does regulatory change represent an external risk?"
+      ],
+      "question_indices": [
+        540
+      ]
+    },
+    {
+      "topic_id": 335,
+      "representative_query": "What is risk acceptance and when is it appropriate?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is risk acceptance and when is it appropriate?"
+      ],
+      "question_indices": [
+        541
+      ]
+    },
+    {
+      "topic_id": 336,
+      "representative_query": "How does the risk management process integrate with Agile planning?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the risk management process integrate with Agile planning?"
+      ],
+      "question_indices": [
+        542
+      ]
+    },
+    {
+      "topic_id": 337,
+      "representative_query": "What is the purpose of a risk status report?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the purpose of a risk status report?"
+      ],
+      "question_indices": [
+        543
+      ]
+    },
+    {
+      "topic_id": 338,
+      "representative_query": "How does competitive product release represent a business risk?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does competitive product release represent a business risk?"
+      ],
+      "question_indices": [
+        544
+      ]
+    },
+    {
+      "topic_id": 339,
+      "representative_query": "What is the first step a team should take when a risk becomes reality?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the first step a team should take when a risk becomes reality?"
+      ],
+      "question_indices": [
+        545
+      ]
+    },
+    {
+      "topic_id": 340,
+      "representative_query": "How does technology obsolescence represent a business risk?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does technology obsolescence represent a business risk?"
+      ],
+      "question_indices": [
+        546
+      ]
+    },
+    {
+      "topic_id": 341,
+      "representative_query": "What role does documentation review play in risk identification?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What role does documentation review play in risk identification?"
+      ],
+      "question_indices": [
+        547
+      ]
+    },
+    {
+      "topic_id": 342,
+      "representative_query": "What happens when a risk is not monitored and triggers unexpectedly?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What happens when a risk is not monitored and triggers unexpectedly?"
+      ],
+      "question_indices": [
+        549
+      ]
+    },
+    {
+      "topic_id": 343,
+      "representative_query": "What is an Enterprise Service Bus and which architecture relies on it?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is an Enterprise Service Bus and which architecture relies on it?"
+      ],
+      "question_indices": [
+        553
+      ]
+    },
+    {
+      "topic_id": 344,
+      "representative_query": "Why does a monolithic application become harder to manage over time?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why does a monolithic application become harder to manage over time?"
+      ],
+      "question_indices": [
+        558
+      ]
+    },
+    {
+      "topic_id": 345,
+      "representative_query": "What is 'technology stack flexibility' and which architecture benefits most from it?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'technology stack flexibility' and which architecture benefits most from it?"
+      ],
+      "question_indices": [
+        561
+      ]
+    },
+    {
+      "topic_id": 346,
+      "representative_query": "What is the Strangler Fig pattern and when is it used?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the Strangler Fig pattern and when is it used?"
+      ],
+      "question_indices": [
+        563
+      ]
+    },
+    {
+      "topic_id": 347,
+      "representative_query": "What is 'operational complexity' in microservices and why is it a challenge?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'operational complexity' in microservices and why is it a challenge?"
+      ],
+      "question_indices": [
+        565
+      ]
+    },
+    {
+      "topic_id": 348,
+      "representative_query": "What is the 'anti-corruption layer' pattern used for in microservices migration?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'anti-corruption layer' pattern used for in microservices migration?"
+      ],
+      "question_indices": [
+        571
+      ]
+    },
+    {
+      "topic_id": 349,
+      "representative_query": "What is 'circuit breaker' pattern and when is it needed in microservices?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'circuit breaker' pattern and when is it needed in microservices?"
+      ],
+      "question_indices": [
+        575
+      ]
+    },
+    {
+      "topic_id": 350,
+      "representative_query": "How does SOA use an ESB while microservices do not?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does SOA use an ESB while microservices do not?"
+      ],
+      "question_indices": [
+        576
+      ]
+    },
+    {
+      "topic_id": 351,
+      "representative_query": "What is 'service discovery' and why is it needed in microservices?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'service discovery' and why is it needed in microservices?"
+      ],
+      "question_indices": [
+        580
+      ]
+    },
+    {
+      "topic_id": 352,
+      "representative_query": "How does the 'Business Capability Alignment' principle apply to microservices?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the 'Business Capability Alignment' principle apply to microservices?"
+      ],
+      "question_indices": [
+        581
+      ]
+    },
+    {
+      "topic_id": 353,
+      "representative_query": "What is a 'facade layer' in the Strangler Fig migration pattern?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a 'facade layer' in the Strangler Fig migration pattern?"
+      ],
+      "question_indices": [
+        582
+      ]
+    },
+    {
+      "topic_id": 354,
+      "representative_query": "Why do microservices require independent CI/CD pipelines for each service?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why do microservices require independent CI/CD pipelines for each service?"
+      ],
+      "question_indices": [
+        583
+      ]
+    },
+    {
+      "topic_id": 355,
+      "representative_query": "How does data consistency become a problem in distributed microservices?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does data consistency become a problem in distributed microservices?"
+      ],
+      "question_indices": [
+        584
+      ]
+    },
+    {
+      "topic_id": 356,
+      "representative_query": "What is the 'saga pattern' and when is it used in microservices?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'saga pattern' and when is it used in microservices?"
+      ],
+      "question_indices": [
+        585
+      ]
+    },
+    {
+      "topic_id": 357,
+      "representative_query": "How does technology diversity benefit microservices teams?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does technology diversity benefit microservices teams?"
+      ],
+      "question_indices": [
+        587
+      ]
+    },
+    {
+      "topic_id": 358,
+      "representative_query": "What is 'selective component updates' and why is it a microservices advantage?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'selective component updates' and why is it a microservices advantage?"
+      ],
+      "question_indices": [
+        590
+      ]
+    },
+    {
+      "topic_id": 359,
+      "representative_query": "What is gRPC and why is it used in microservices communication?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is gRPC and why is it used in microservices communication?"
+      ],
+      "question_indices": [
+        594
+      ]
+    },
+    {
+      "topic_id": 360,
+      "representative_query": "How does container technology (like Docker) support microservices deployment?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does container technology (like Docker) support microservices deployment?"
+      ],
+      "question_indices": [
+        595
+      ]
+    },
+    {
+      "topic_id": 361,
+      "representative_query": "How does microservices architecture enable A/B testing at scale?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does microservices architecture enable A/B testing at scale?"
+      ],
+      "question_indices": [
+        599
+      ]
+    },
+    {
+      "topic_id": 362,
+      "representative_query": "What is 'Coincidental Cohesion' and why should it be avoided?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Coincidental Cohesion' and why should it be avoided?"
+      ],
+      "question_indices": [
+        602
+      ]
+    },
+    {
+      "topic_id": 363,
+      "representative_query": "Give an example of a module with Functional Cohesion.",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Give an example of a module with Functional Cohesion."
+      ],
+      "question_indices": [
+        611
+      ]
+    },
+    {
+      "topic_id": 364,
+      "representative_query": "How does cohesion relate to the Single Responsibility Principle?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does cohesion relate to the Single Responsibility Principle?"
+      ],
+      "question_indices": [
+        613
+      ]
+    },
+    {
+      "topic_id": 365,
+      "representative_query": "How does cohesion relate to the concept of 'separation of concerns'?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does cohesion relate to the concept of 'separation of concerns'?"
+      ],
+      "question_indices": [
+        615
+      ]
+    },
+    {
+      "topic_id": 366,
+      "representative_query": "What does it mean when unrelated functions are grouped in a utility module?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does it mean when unrelated functions are grouped in a utility module?"
+      ],
+      "question_indices": [
+        623
+      ]
+    },
+    {
+      "topic_id": 367,
+      "representative_query": "What is the relationship between cohesion levels and code readability?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the relationship between cohesion levels and code readability?"
+      ],
+      "question_indices": [
+        625
+      ]
+    },
+    {
+      "topic_id": 368,
+      "representative_query": "How does low cohesion lead to 'God classes' in object-oriented design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does low cohesion lead to 'God classes' in object-oriented design?"
+      ],
+      "question_indices": [
+        629
+      ]
+    },
+    {
+      "topic_id": 369,
+      "representative_query": "How does functional cohesion simplify debugging?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does functional cohesion simplify debugging?"
+      ],
+      "question_indices": [
+        634
+      ]
+    },
+    {
+      "topic_id": 370,
+      "representative_query": "What is the connection between cohesion and the RACI matrix?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the connection between cohesion and the RACI matrix?"
+      ],
+      "question_indices": [
+        635
+      ]
+    },
+    {
+      "topic_id": 371,
+      "representative_query": "Why should initialization routines be separated based on cohesion principles?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why should initialization routines be separated based on cohesion principles?"
+      ],
+      "question_indices": [
+        636
+      ]
+    },
+    {
+      "topic_id": 372,
+      "representative_query": "What is the 'High Cohesion Pattern' in API design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the 'High Cohesion Pattern' in API design?"
+      ],
+      "question_indices": [
+        638
+      ]
+    },
+    {
+      "topic_id": 373,
+      "representative_query": "What refactoring techniques improve cohesion in existing code?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What refactoring techniques improve cohesion in existing code?"
+      ],
+      "question_indices": [
+        640
+      ]
+    },
+    {
+      "topic_id": 374,
+      "representative_query": "How does cohesion relate to the design principle of 'information hiding'?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does cohesion relate to the design principle of 'information hiding'?"
+      ],
+      "question_indices": [
+        641
+      ]
+    },
+    {
+      "topic_id": 375,
+      "representative_query": "How does low cohesion increase the risk of bugs during feature development?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does low cohesion increase the risk of bugs during feature development?"
+      ],
+      "question_indices": [
+        645
+      ]
+    },
+    {
+      "topic_id": 376,
+      "representative_query": "Why is Coincidental Cohesion often the result of poor initial planning?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is Coincidental Cohesion often the result of poor initial planning?"
+      ],
+      "question_indices": [
+        646
+      ]
+    },
+    {
+      "topic_id": 377,
+      "representative_query": "How does cohesion relate to the Open/Closed Principle in SOLID?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does cohesion relate to the Open/Closed Principle in SOLID?"
+      ],
+      "question_indices": [
+        647
+      ]
+    },
+    {
+      "topic_id": 378,
+      "representative_query": "How did software architecture lead to patient deaths in the Therac-25 machine?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How did software architecture lead to patient deaths in the Therac-25 machine?"
+      ],
+      "question_indices": [
+        650
+      ]
+    },
+    {
+      "topic_id": 379,
+      "representative_query": "Why was reusing code from older Therac models without redesign a problem?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why was reusing code from older Therac models without redesign a problem?"
+      ],
+      "question_indices": [
+        653
+      ]
+    },
+    {
+      "topic_id": 380,
+      "representative_query": "What is meant by 'redundancy requirements' in safety-critical system architecture?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is meant by 'redundancy requirements' in safety-critical system architecture?"
+      ],
+      "question_indices": [
+        660
+      ]
+    },
+    {
+      "topic_id": 381,
+      "representative_query": "What is 'legacy code reuse' and what architectural risks does it introduce?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'legacy code reuse' and what architectural risks does it introduce?"
+      ],
+      "question_indices": [
+        662
+      ]
+    },
+    {
+      "topic_id": 382,
+      "representative_query": "Why is logging and diagnostics architecturally important in safety-critical systems?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is logging and diagnostics architecturally important in safety-critical systems?"
+      ],
+      "question_indices": [
+        663
+      ]
+    },
+    {
+      "topic_id": 383,
+      "representative_query": "What is 'error propagation' and how did it occur in the Therac-25 system?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'error propagation' and how did it occur in the Therac-25 system?"
+      ],
+      "question_indices": [
+        665
+      ]
+    },
+    {
+      "topic_id": 384,
+      "representative_query": "What does 'global memory sharing between UI and control logic' mean in architecture?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does 'global memory sharing between UI and control logic' mean in architecture?"
+      ],
+      "question_indices": [
+        667
+      ]
+    },
+    {
+      "topic_id": 385,
+      "representative_query": "What is the relationship between system observability and fault diagnosis?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the relationship between system observability and fault diagnosis?"
+      ],
+      "question_indices": [
+        669
+      ]
+    },
+    {
+      "topic_id": 386,
+      "representative_query": "Why did the Therac-25's error messages fail to help operators respond safely?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why did the Therac-25's error messages fail to help operators respond safely?"
+      ],
+      "question_indices": [
+        672
+      ]
+    },
+    {
+      "topic_id": 387,
+      "representative_query": "How does the Therac-25 case demonstrate the risks of removing hardware interlocks?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the Therac-25 case demonstrate the risks of removing hardware interlocks?"
+      ],
+      "question_indices": [
+        675
+      ]
+    },
+    {
+      "topic_id": 388,
+      "representative_query": "What role did 'override culture' play in the Therac-25 accidents?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What role did 'override culture' play in the Therac-25 accidents?"
+      ],
+      "question_indices": [
+        677
+      ]
+    },
+    {
+      "topic_id": 389,
+      "representative_query": "How does the Therac-25 case illustrate the danger of cryptic error codes?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the Therac-25 case illustrate the danger of cryptic error codes?"
+      ],
+      "question_indices": [
+        678
+      ]
+    },
+    {
+      "topic_id": 390,
+      "representative_query": "How does the Therac-25 incident inform current medical device software regulation?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the Therac-25 incident inform current medical device software regulation?"
+      ],
+      "question_indices": [
+        680
+      ]
+    },
+    {
+      "topic_id": 391,
+      "representative_query": "What is 'state management' and how did the Therac-25 mishandle system state?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'state management' and how did the Therac-25 mishandle system state?"
+      ],
+      "question_indices": [
+        685
+      ]
+    },
+    {
+      "topic_id": 392,
+      "representative_query": "How could MVC architecture have helped isolate the UI from control systems in Therac-25?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How could MVC architecture have helped isolate the UI from control systems in Therac-25?"
+      ],
+      "question_indices": [
+        686
+      ]
+    },
+    {
+      "topic_id": 393,
+      "representative_query": "What is the lesson of the Therac-25 for architecture teams working on AI systems today?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the lesson of the Therac-25 for architecture teams working on AI systems today?"
+      ],
+      "question_indices": [
+        687
+      ]
+    },
+    {
+      "topic_id": 394,
+      "representative_query": "What does the Therac-25 teach about the dangers of insufficient regression testing?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does the Therac-25 teach about the dangers of insufficient regression testing?"
+      ],
+      "question_indices": [
+        688
+      ]
+    },
+    {
+      "topic_id": 395,
+      "representative_query": "What is the lesson of Therac-25 about the importance of user interface design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the lesson of Therac-25 about the importance of user interface design?"
+      ],
+      "question_indices": [
+        690
+      ]
+    },
+    {
+      "topic_id": 396,
+      "representative_query": "How did time pressure and business decisions contribute to the Therac-25 failures?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How did time pressure and business decisions contribute to the Therac-25 failures?"
+      ],
+      "question_indices": [
+        691
+      ]
+    },
+    {
+      "topic_id": 397,
+      "representative_query": "What is the difference between a latent bug and the kind of race condition found in Therac-25?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between a latent bug and the kind of race condition found in Therac-25?"
+      ],
+      "question_indices": [
+        693
+      ]
+    },
+    {
+      "topic_id": 398,
+      "representative_query": "How does the Therac-25 relate to the principle of 'defense in depth' in system design?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the Therac-25 relate to the principle of 'defense in depth' in system design?"
+      ],
+      "question_indices": [
+        694
+      ]
+    },
+    {
+      "topic_id": 399,
+      "representative_query": "What is the impact of shared global state on multi-threaded or concurrent systems?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the impact of shared global state on multi-threaded or concurrent systems?"
+      ],
+      "question_indices": [
+        695
+      ]
+    },
+    {
+      "topic_id": 400,
+      "representative_query": "How does the Therac-25 inform the principle of 'modularity' in life-critical systems?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the Therac-25 inform the principle of 'modularity' in life-critical systems?"
+      ],
+      "question_indices": [
+        699
+      ]
+    },
+    {
+      "topic_id": 401,
+      "representative_query": "What are the constants a, b, c, d in the COCOMO formula?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the constants a, b, c, d in the COCOMO formula?"
+      ],
+      "question_indices": [
+        706
+      ]
+    },
+    {
+      "topic_id": 402,
+      "representative_query": "What is the Constructive Cost Model and what does it construct?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the Constructive Cost Model and what does it construct?"
+      ],
+      "question_indices": [
+        712
+      ]
+    },
+    {
+      "topic_id": 403,
+      "representative_query": "What are the inputs required to use the Basic COCOMO model?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the inputs required to use the Basic COCOMO model?"
+      ],
+      "question_indices": [
+        722
+      ]
+    },
+    {
+      "topic_id": 404,
+      "representative_query": "What is a 'person-month' as used in COCOMO output?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is a 'person-month' as used in COCOMO output?"
+      ],
+      "question_indices": [
+        725
+      ]
+    },
+    {
+      "topic_id": 405,
+      "representative_query": "How does COCOMO handle software with reused components?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does COCOMO handle software with reused components?"
+      ],
+      "question_indices": [
+        729
+      ]
+    },
+    {
+      "topic_id": 406,
+      "representative_query": "How does the COCOMO model relate to the Work Breakdown Structure?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the COCOMO model relate to the Work Breakdown Structure?"
+      ],
+      "question_indices": [
+        731
+      ]
+    },
+    {
+      "topic_id": 407,
+      "representative_query": "What does the 'b' exponent in the COCOMO formula represent?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What does the 'b' exponent in the COCOMO formula represent?"
+      ],
+      "question_indices": [
+        740
+      ]
+    },
+    {
+      "topic_id": 408,
+      "representative_query": "What are the outputs of the COCOMO model and how are they used?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What are the outputs of the COCOMO model and how are they used?"
+      ],
+      "question_indices": [
+        744
+      ]
+    },
+    {
+      "topic_id": 409,
+      "representative_query": "How does COCOMO relate to the concept of 'velocity' in Agile estimation?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does COCOMO relate to the concept of 'velocity' in Agile estimation?"
+      ],
+      "question_indices": [
+        745
+      ]
+    },
+    {
+      "topic_id": 410,
+      "representative_query": "What is the role of estimation techniques in managing the project triangle?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the role of estimation techniques in managing the project triangle?"
+      ],
+      "question_indices": [
+        747
+      ]
+    },
+    {
+      "topic_id": 411,
+      "representative_query": "What would happen if you applied the Organic project constants to an Embedded project?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What would happen if you applied the Organic project constants to an Embedded project?"
+      ],
+      "question_indices": [
+        749
+      ]
+    },
+    {
+      "topic_id": 412,
+      "representative_query": "What happens to the project completion date if a critical path activity is delayed?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What happens to the project completion date if a critical path activity is delayed?"
+      ],
+      "question_indices": [
+        752
+      ]
+    },
+    {
+      "topic_id": 413,
+      "representative_query": "Why is the critical path called the 'longest path' through the project network?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is the critical path called the 'longest path' through the project network?"
+      ],
+      "question_indices": [
+        757
+      ]
+    },
+    {
+      "topic_id": 414,
+      "representative_query": "What is 'total float' in critical path analysis?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'total float' in critical path analysis?"
+      ],
+      "question_indices": [
+        758
+      ]
+    },
+    {
+      "topic_id": 415,
+      "representative_query": "What is 'schedule compression' and how is it related to the critical path?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'schedule compression' and how is it related to the critical path?"
+      ],
+      "question_indices": [
+        761
+      ]
+    },
+    {
+      "topic_id": 416,
+      "representative_query": "What is 'crashing' in the context of critical path management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'crashing' in the context of critical path management?"
+      ],
+      "question_indices": [
+        762
+      ]
+    },
+    {
+      "topic_id": 417,
+      "representative_query": "How does adding resources to critical path activities affect project completion?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does adding resources to critical path activities affect project completion?"
+      ],
+      "question_indices": [
+        763
+      ]
+    },
+    {
+      "topic_id": 418,
+      "representative_query": "Why is the critical path given priority in risk management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is the critical path given priority in risk management?"
+      ],
+      "question_indices": [
+        764
+      ]
+    },
+    {
+      "topic_id": 419,
+      "representative_query": "What is 'fast tracking' in critical path schedule compression?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'fast tracking' in critical path schedule compression?"
+      ],
+      "question_indices": [
+        769
+      ]
+    },
+    {
+      "topic_id": 420,
+      "representative_query": "How does critical path analysis change in Agile vs. Waterfall projects?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does critical path analysis change in Agile vs. Waterfall projects?"
+      ],
+      "question_indices": [
+        770
+      ]
+    },
+    {
+      "topic_id": 421,
+      "representative_query": "What is 'near-critical path' and why should it be monitored?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'near-critical path' and why should it be monitored?"
+      ],
+      "question_indices": [
+        771
+      ]
+    },
+    {
+      "topic_id": 422,
+      "representative_query": "How does critical path analysis help predict the minimum project duration?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does critical path analysis help predict the minimum project duration?"
+      ],
+      "question_indices": [
+        772
+      ]
+    },
+    {
+      "topic_id": 423,
+      "representative_query": "What information is needed to perform a critical path analysis?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What information is needed to perform a critical path analysis?"
+      ],
+      "question_indices": [
+        773
+      ]
+    },
+    {
+      "topic_id": 424,
+      "representative_query": "How does critical path analysis support stakeholder communication?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does critical path analysis support stakeholder communication?"
+      ],
+      "question_indices": [
+        774
+      ]
+    },
+    {
+      "topic_id": 425,
+      "representative_query": "What is the role of predecessor-successor relationships in critical path analysis?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the role of predecessor-successor relationships in critical path analysis?"
+      ],
+      "question_indices": [
+        775
+      ]
+    },
+    {
+      "topic_id": 426,
+      "representative_query": "How does a delay in a non-critical activity affect the project?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does a delay in a non-critical activity affect the project?"
+      ],
+      "question_indices": [
+        776
+      ]
+    },
+    {
+      "topic_id": 427,
+      "representative_query": "What is the PERT method and how does it relate to critical path analysis?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the PERT method and how does it relate to critical path analysis?"
+      ],
+      "question_indices": [
+        777
+      ]
+    },
+    {
+      "topic_id": 428,
+      "representative_query": "What is 'Early Start' and 'Late Start' in CPM scheduling?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Early Start' and 'Late Start' in CPM scheduling?"
+      ],
+      "question_indices": [
+        778
+      ]
+    },
+    {
+      "topic_id": 429,
+      "representative_query": "What is 'Early Finish' and 'Late Finish' in critical path method?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'Early Finish' and 'Late Finish' in critical path method?"
+      ],
+      "question_indices": [
+        779
+      ]
+    },
+    {
+      "topic_id": 430,
+      "representative_query": "How does the critical path change if a task is removed from the project?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the critical path change if a task is removed from the project?"
+      ],
+      "question_indices": [
+        780
+      ]
+    },
+    {
+      "topic_id": 431,
+      "representative_query": "What tools are commonly used to calculate the critical path in software projects?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What tools are commonly used to calculate the critical path in software projects?"
+      ],
+      "question_indices": [
+        781
+      ]
+    },
+    {
+      "topic_id": 432,
+      "representative_query": "What is the difference between 'Total Float' and 'Free Float' in CPM?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the difference between 'Total Float' and 'Free Float' in CPM?"
+      ],
+      "question_indices": [
+        782
+      ]
+    },
+    {
+      "topic_id": 433,
+      "representative_query": "What is 'resource leveling' and how does it relate to the critical path?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'resource leveling' and how does it relate to the critical path?"
+      ],
+      "question_indices": [
+        784
+      ]
+    },
+    {
+      "topic_id": 434,
+      "representative_query": "Why is it important to update critical path analysis as the project progresses?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why is it important to update critical path analysis as the project progresses?"
+      ],
+      "question_indices": [
+        785
+      ]
+    },
+    {
+      "topic_id": 435,
+      "representative_query": "What is the relationship between the critical path and project baseline?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the relationship between the critical path and project baseline?"
+      ],
+      "question_indices": [
+        787
+      ]
+    },
+    {
+      "topic_id": 436,
+      "representative_query": "How does adding a new task to the schedule potentially create a new critical path?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does adding a new task to the schedule potentially create a new critical path?"
+      ],
+      "question_indices": [
+        788
+      ]
+    },
+    {
+      "topic_id": 437,
+      "representative_query": "What is the connection between critical path and earned value management?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the connection between critical path and earned value management?"
+      ],
+      "question_indices": [
+        789
+      ]
+    },
+    {
+      "topic_id": 438,
+      "representative_query": "How does critical path analysis help a project manager justify deadline extensions?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does critical path analysis help a project manager justify deadline extensions?"
+      ],
+      "question_indices": [
+        790
+      ]
+    },
+    {
+      "topic_id": 439,
+      "representative_query": "What happens if a team member assigned to a critical path task is unavailable?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What happens if a team member assigned to a critical path task is unavailable?"
+      ],
+      "question_indices": [
+        791
+      ]
+    },
+    {
+      "topic_id": 440,
+      "representative_query": "What is 'schedule variance' and how is it detected using critical path?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is 'schedule variance' and how is it detected using critical path?"
+      ],
+      "question_indices": [
+        793
+      ]
+    },
+    {
+      "topic_id": 441,
+      "representative_query": "How does critical path analysis support the principle of 'defined milestones'?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does critical path analysis support the principle of 'defined milestones'?"
+      ],
+      "question_indices": [
+        794
+      ]
+    },
+    {
+      "topic_id": 442,
+      "representative_query": "How does the critical path differ in fixed-price vs. time-and-materials contracts?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "How does the critical path differ in fixed-price vs. time-and-materials contracts?"
+      ],
+      "question_indices": [
+        796
+      ]
+    },
+    {
+      "topic_id": 443,
+      "representative_query": "What is the impact of parallel task execution on the critical path length?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "What is the impact of parallel task execution on the critical path length?"
+      ],
+      "question_indices": [
+        797
+      ]
+    },
+    {
+      "topic_id": 444,
+      "representative_query": "Why should the project manager monitor critical path tasks more closely than others?",
+      "is_noise": true,
+      "size": 1,
+      "source_questions": [
+        "Why should the project manager monitor critical path tasks more closely than others?"
+      ],
+      "question_indices": [
+        799
+      ]
+    }
+  ],
+  "min_cluster_size_sweep": {
+    "2": {
+      "n_real_clusters": 168,
+      "n_noise_singletons": 296,
+      "min": 2,
+      "median": 2.0,
+      "mean": 3.0,
+      "max": 13
+    },
+    "3": {
+      "n_real_clusters": 36,
+      "n_noise_singletons": 409,
+      "min": 3,
+      "median": 5.0,
+      "mean": 10.86,
+      "max": 51
+    },
+    "5": {
+      "n_real_clusters": 12,
+      "n_noise_singletons": 466,
+      "min": 5,
+      "median": 24.0,
+      "mean": 27.83,
+      "max": 62
+    },
+    "8": {
+      "n_real_clusters": 7,
+      "n_noise_singletons": 444,
+      "min": 11,
+      "median": 35,
+      "mean": 50.86,
+      "max": 162
+    }
+  }
+}
