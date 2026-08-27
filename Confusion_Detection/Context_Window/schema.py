@@ -20,6 +20,7 @@ class ContextBundle:
     window_text: str  # assembled, budget-enforced
     source_questions: List[str]
     cluster_size: int
+    is_noise: bool = False  # carried through from TopicCluster -- Gap_Verification weights singletons differently
 
     def __post_init__(self):
         if self.anchor_slide_id not in self.window_slide_ids:

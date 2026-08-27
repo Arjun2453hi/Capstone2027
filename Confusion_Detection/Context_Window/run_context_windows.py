@@ -109,7 +109,7 @@ def run(
     print(f"-- {len(bundles)} context bundles built --")
     print(f"  {stats}")
 
-    real_bundles = [b for b in bundles if not next(t for t in topology.topics if t.topic_id == b.topic_id).is_noise]
+    real_bundles = [b for b in bundles if not b.is_noise]
     real_bundles.sort(key=lambda b: -b.cluster_size)
     print("\n  4 example bundles (largest clusters first):")
     for b in real_bundles[:4]:
@@ -132,7 +132,7 @@ def run(
                 "window_text": b.window_text,
                 "source_questions": b.source_questions,
                 "cluster_size": b.cluster_size,
-                "is_noise": next(t for t in topology.topics if t.topic_id == b.topic_id).is_noise,
+                "is_noise": b.is_noise,
             }
             for b in bundles
         ],

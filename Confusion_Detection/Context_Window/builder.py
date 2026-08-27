@@ -67,6 +67,7 @@ class ContextWindowBuilder:
             window_text=window_text,
             source_questions=list(topic.source_questions),
             cluster_size=topic.size,
+            is_noise=getattr(topic, "is_noise", False),
         )
 
     def build_all(self, topics: List) -> List[ContextBundle]:
