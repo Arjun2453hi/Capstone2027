@@ -1,6 +1,6 @@
 {
-  "source_pdf": "se-u2-slides.pdf",
-  "extracted_at": "2026-08-25T09:54:06.834207+00:00",
+  "source_pdf": "../Similiarity_gen/se-u2-slides.pdf",
+  "extracted_at": "2026-08-26T18:16:26.576545+00:00",
   "num_pages": 298,
   "slides": [
     {
@@ -1271,26 +1271,22 @@
       "slide_number": 64,
       "title": "Software Architecture",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A",
         "UEEd2u3cCaSti3o4n1A"
       ],
       "notes": null,
-      "raw_text": "Software Architecture\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
-      "char_count": 137,
+      "raw_text": "Software Architecture\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
+      "char_count": 106,
       "module_id": null
     },
     {
       "slide_id": 64,
       "slide_number": 65,
       "title": "Course Timeline",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Course Timeline\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 137,
+      "raw_text": "Course Timeline",
+      "char_count": 15,
       "module_id": null
     },
     {
@@ -1302,17 +1298,15 @@
         "⮚ Case Study: Therac-25",
         "⮚ Software Architecture",
         "⮚Definitions,⮚Importance",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚Software⮚Design⮚vs.⮚Software⮚Architecture",
         "⮚ Architecting software",
         "⮚Integrating⮚Architectural⮚Decisions⮚into⮚the⮚SW⮚Development⮚Process",
         "⮚Common⮚Software⮚Architectures",
-        "⮚Documentation",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚Documentation"
       ],
       "notes": null,
-      "raw_text": "Outline\n⮚ Views and Abstraction\n⮚ Case Study: Therac-25\n⮚ Software Architecture\n⮚Definitions,⮚Importance\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚Software⮚Design⮚vs.⮚Software⮚Architecture\n⮚ Architecting software\n⮚Integrating⮚Architectural⮚Decisions⮚into⮚the⮚SW⮚Development⮚Process\n⮚Common⮚Software⮚Architectures\n⮚Documentation\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 408,
+      "raw_text": "Outline\n⮚ Views and Abstraction\n⮚ Case Study: Therac-25\n⮚ Software Architecture\n⮚Definitions,⮚Importance\n⮚Software⮚Design⮚vs.⮚Software⮚Architecture\n⮚ Architecting software\n⮚Integrating⮚Architectural⮚Decisions⮚into⮚the⮚SW⮚Development⮚Process\n⮚Common⮚Software⮚Architectures\n⮚Documentation",
+      "char_count": 286,
       "module_id": null
     },
     {
@@ -1323,96 +1317,76 @@
         "⮚ Views and Abstraction",
         "⮚ Case Study: Therac-25",
         "⮚ Software Architecture",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚Definitions,⮚Importance",
         "⮚Software⮚Design⮚vs.⮚Software⮚Architecture",
         "⮚Architecting⮚software",
         "⮚Integrating⮚Architectural⮚Decisions⮚into⮚the⮚SW⮚Development⮚Process",
         "⮚Common⮚Software⮚Architectures",
-        "⮚Documentation",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚Documentation"
       ],
       "notes": null,
-      "raw_text": "Outline\n⮚ Views and Abstraction\n⮚ Case Study: Therac-25\n⮚ Software Architecture\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚Definitions,⮚Importance\n⮚Software⮚Design⮚vs.⮚Software⮚Architecture\n⮚Architecting⮚software\n⮚Integrating⮚Architectural⮚Decisions⮚into⮚the⮚SW⮚Development⮚Process\n⮚Common⮚Software⮚Architectures\n⮚Documentation\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 407,
+      "raw_text": "Outline\n⮚ Views and Abstraction\n⮚ Case Study: Therac-25\n⮚ Software Architecture\n⮚Definitions,⮚Importance\n⮚Software⮚Design⮚vs.⮚Software⮚Architecture\n⮚Architecting⮚software\n⮚Integrating⮚Architectural⮚Decisions⮚into⮚the⮚SW⮚Development⮚Process\n⮚Common⮚Software⮚Architectures\n⮚Documentation",
+      "char_count": 285,
       "module_id": null
     },
     {
       "slide_id": 67,
       "slide_number": 68,
       "title": "Namma Bengaluru",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Namma Bengaluru\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 137,
+      "raw_text": "Namma Bengaluru",
+      "char_count": 15,
       "module_id": null
     },
     {
       "slide_id": 68,
       "slide_number": 69,
       "title": "Bengaluru but divided by pincodes",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Bengaluru but divided by pincodes\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 155,
+      "raw_text": "Bengaluru but divided by pincodes",
+      "char_count": 33,
       "module_id": null
     },
     {
       "slide_id": 69,
       "slide_number": 70,
       "title": "Maps but with BBMP Wards",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Maps but with BBMP Wards\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 146,
+      "raw_text": "Maps but with BBMP Wards",
+      "char_count": 24,
       "module_id": null
     },
     {
       "slide_id": 70,
       "slide_number": 71,
       "title": "Bengaluru Map but with BESCOM Divisions",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Bengaluru Map but with BESCOM Divisions\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 161,
+      "raw_text": "Bengaluru Map but with BESCOM Divisions",
+      "char_count": 39,
       "module_id": null
     },
     {
       "slide_id": 71,
       "slide_number": 72,
       "title": "Bengaluru Map but with BWSSB Divisions",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Bengaluru Map but with BWSSB Divisions\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 160,
+      "raw_text": "Bengaluru Map but with BWSSB Divisions",
+      "char_count": 38,
       "module_id": null
     },
     {
       "slide_id": 72,
       "slide_number": 73,
       "title": "Bengaluru Map with state assembly demarcations",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Bengaluru Map with state assembly demarcations\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 168,
+      "raw_text": "Bengaluru Map with state assembly demarcations",
+      "char_count": 46,
       "module_id": null
     },
     {
@@ -1424,14 +1398,12 @@
         "⮚ They have a well-defined purpose",
         "⮚ Shows only necessary information",
         "⮚ Abstract away unnecessary details",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ Use legends/annotations to remove ambiguity",
-        "⮚ Multiple views of the same object tell a larger story",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ Multiple views of the same object tell a larger story"
       ],
       "notes": null,
-      "raw_text": "Abstracted Views\n⮚ Abstracted views focus on conveying specific information\n⮚ They have a well-defined purpose\n⮚ Shows only necessary information\n⮚ Abstract away unnecessary details\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Use legends/annotations to remove ambiguity\n⮚ Multiple views of the same object tell a larger story\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 405,
+      "raw_text": "Abstracted Views\n⮚ Abstracted views focus on conveying specific information\n⮚ They have a well-defined purpose\n⮚ Shows only necessary information\n⮚ Abstract away unnecessary details\n⮚ Use legends/annotations to remove ambiguity\n⮚ Multiple views of the same object tell a larger story",
+      "char_count": 283,
       "module_id": null
     },
     {
@@ -1442,18 +1414,16 @@
         "⮚ Views and Abstraction",
         "⮚ Case Study: Therac-25",
         "⮚ Software Architecture",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚Definitions,⮚Importance",
         "⮚Software⮚Design⮚vs.⮚Software⮚Architecture",
         "⮚Architecting⮚software",
         "Integrating Architectural Decisions into the SW Development Process",
         "Common Software Architectures",
-        "Documentation",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Documentation"
       ],
       "notes": null,
-      "raw_text": "Outline\n⮚ Views and Abstraction\n⮚ Case Study: Therac-25\n⮚ Software Architecture\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚Definitions,⮚Importance\n⮚Software⮚Design⮚vs.⮚Software⮚Architecture\n⮚Architecting⮚software\nIntegrating Architectural Decisions into the SW Development Process\nCommon Software Architectures\nDocumentation\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 404,
+      "raw_text": "Outline\n⮚ Views and Abstraction\n⮚ Case Study: Therac-25\n⮚ Software Architecture\n⮚Definitions,⮚Importance\n⮚Software⮚Design⮚vs.⮚Software⮚Architecture\n⮚Architecting⮚software\nIntegrating Architectural Decisions into the SW Development Process\nCommon Software Architectures\nDocumentation",
+      "char_count": 282,
       "module_id": null
     },
     {
@@ -1469,19 +1439,17 @@
         "Operator used a terminal to input treatment settings.",
         "⮚ Legacy Reuse: Code adapted from Therac-6 and Therac-20, which had physical",
         "safety interlocks.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ Embedded System: Real-time interaction between software and custom",
         "hardware.",
         "⮚ Why this case?",
         "Embedded system with life-critical consequences.",
         "Real-world failures due to poor software architecture.",
         "Lessons applicable to medical, automotive, IoT, and industrial systems.",
-        "⮚ Era:⮚1980s,⮚but⮚still⮚cited⮚in⮚safety⮚and⮚architecture⮚literature.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ Era:⮚1980s,⮚but⮚still⮚cited⮚in⮚safety⮚and⮚architecture⮚literature."
       ],
       "notes": null,
-      "raw_text": "System⮚Overview⮚–⮚What⮚is⮚Therac-25?\n⮚ Therac-25: Computer-controlled radiation therapy machine.\n⮚ Purpose:⮚Deliver⮚controlled⮚dose’s⮚of⮚radiation⮚to⮚cancer⮚patients.\n⮚ Design Features:\nSoftware replaced most hardware-based safety mechanisms.\nMultiple treatment modes (low-energy X-ray, high-energy electron beam).\nOperator used a terminal to input treatment settings.\n⮚ Legacy Reuse: Code adapted from Therac-6 and Therac-20, which had physical\nsafety interlocks.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Embedded System: Real-time interaction between software and custom\nhardware.\n⮚ Why this case?\nEmbedded system with life-critical consequences.\nReal-world failures due to poor software architecture.\nLessons applicable to medical, automotive, IoT, and industrial systems.\n⮚ Era:⮚1980s,⮚but⮚still⮚cited⮚in⮚safety⮚and⮚architecture⮚literature.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 927,
+      "raw_text": "System⮚Overview⮚–⮚What⮚is⮚Therac-25?\n⮚ Therac-25: Computer-controlled radiation therapy machine.\n⮚ Purpose:⮚Deliver⮚controlled⮚dose’s⮚of⮚radiation⮚to⮚cancer⮚patients.\n⮚ Design Features:\nSoftware replaced most hardware-based safety mechanisms.\nMultiple treatment modes (low-energy X-ray, high-energy electron beam).\nOperator used a terminal to input treatment settings.\n⮚ Legacy Reuse: Code adapted from Therac-6 and Therac-20, which had physical\nsafety interlocks.\n⮚ Embedded System: Real-time interaction between software and custom\nhardware.\n⮚ Why this case?\nEmbedded system with life-critical consequences.\nReal-world failures due to poor software architecture.\nLessons applicable to medical, automotive, IoT, and industrial systems.\n⮚ Era:⮚1980s,⮚but⮚still⮚cited⮚in⮚safety⮚and⮚architecture⮚literature.",
+      "char_count": 805,
       "module_id": null
     },
     {
@@ -1498,13 +1466,11 @@
         "Software reused from older models, but hardware interlocks",
         "removed.",
         "⮚",
-        "System failed silently or with cryptic error messages.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "System failed silently or with cryptic error messages."
       ],
       "notes": null,
-      "raw_text": "What Happened?\n⮚\nMachine delivered massive overdoses of radiation.\n⮚\nAt least 6 incidents, multiple injuries and deaths.\n⮚\nSoftware reused from older models, but hardware interlocks\nremoved.\n⮚\nSystem failed silently or with cryptic error messages.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 369,
+      "raw_text": "What Happened?\n⮚\nMachine delivered massive overdoses of radiation.\n⮚\nAt least 6 incidents, multiple injuries and deaths.\n⮚\nSoftware reused from older models, but hardware interlocks\nremoved.\n⮚\nSystem failed silently or with cryptic error messages.",
+      "char_count": 247,
       "module_id": null
     },
     {
@@ -1521,17 +1487,15 @@
         "quickly.",
         "⮚",
         "Reused Legacy Code:⮚Assumed⮚hardware interlocks would catch",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "errors.",
         "⮚",
         "Lack of Fault Isolation:⮚No⮚module⮚validation⮚or⮚error⮚containment.",
         "⮚",
-        "Poor Observability:⮚No⮚logging⮚or⮚diagnostics.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Poor Observability:⮚No⮚logging⮚or⮚diagnostics."
       ],
       "notes": null,
-      "raw_text": "Architectural Failures\n⮚\nTight Coupling:⮚UI,⮚control logic, and machine control shared\nglobal memory.\n⮚\nRace Conditions:⮚Unsafe⮚state transitions when operators acted\nquickly.\n⮚\nReused Legacy Code:⮚Assumed⮚hardware interlocks would catch\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nerrors.\n⮚\nLack of Fault Isolation:⮚No⮚module⮚validation⮚or⮚error⮚containment.\n⮚\nPoor Observability:⮚No⮚logging⮚or⮚diagnostics.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 486,
+      "raw_text": "Architectural Failures\n⮚\nTight Coupling:⮚UI,⮚control logic, and machine control shared\nglobal memory.\n⮚\nRace Conditions:⮚Unsafe⮚state transitions when operators acted\nquickly.\n⮚\nReused Legacy Code:⮚Assumed⮚hardware interlocks would catch\nerrors.\n⮚\nLack of Fault Isolation:⮚No⮚module⮚validation⮚or⮚error⮚containment.\n⮚\nPoor Observability:⮚No⮚logging⮚or⮚diagnostics.",
+      "char_count": 364,
       "module_id": null
     },
     {
@@ -1549,13 +1513,11 @@
         "⮚",
         "Ignored safety-critical coding and testing standards.",
         "⮚",
-        "Lack of defensive programming and redundancy.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Lack of defensive programming and redundancy."
       ],
       "notes": null,
-      "raw_text": "Architecture Principles Violated\n⮚\nNo separation of concerns.\n⮚\nAbsence of fault-tolerant or fail-safe layers.\n⮚\nReuse without architectural redesign.\n⮚\nIgnored safety-critical coding and testing standards.\n⮚\nLack of defensive programming and redundancy.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 376,
+      "raw_text": "Architecture Principles Violated\n⮚\nNo separation of concerns.\n⮚\nAbsence of fault-tolerant or fail-safe layers.\n⮚\nReuse without architectural redesign.\n⮚\nIgnored safety-critical coding and testing standards.\n⮚\nLack of defensive programming and redundancy.",
+      "char_count": 254,
       "module_id": null
     },
     {
@@ -1572,13 +1534,11 @@
         "Industry Impact:⮚Contributed⮚to development of IEC 62304 and",
         "other medical safety standards.",
         "⮚",
-        "Learning:⮚Software⮚failures⮚in⮚physical⮚systems⮚can⮚be⮚lethal.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Learning:⮚Software⮚failures⮚in⮚physical⮚systems⮚can⮚be⮚lethal."
       ],
       "notes": null,
-      "raw_text": "Impact Assessment\n⮚\nHuman Impact:⮚Patients⮚injured⮚or⮚killed⮚by⮚overdoses.\n⮚\nReputation Damage:⮚AECL⮚faced⮚lawsuits,⮚global⮚scrutiny.\n⮚\nIndustry Impact:⮚Contributed⮚to development of IEC 62304 and\nother medical safety standards.\n⮚\nLearning:⮚Software⮚failures⮚in⮚physical⮚systems⮚can⮚be⮚lethal.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 415,
+      "raw_text": "Impact Assessment\n⮚\nHuman Impact:⮚Patients⮚injured⮚or⮚killed⮚by⮚overdoses.\n⮚\nReputation Damage:⮚AECL⮚faced⮚lawsuits,⮚global⮚scrutiny.\n⮚\nIndustry Impact:⮚Contributed⮚to development of IEC 62304 and\nother medical safety standards.\n⮚\nLearning:⮚Software⮚failures⮚in⮚physical⮚systems⮚can⮚be⮚lethal.",
+      "char_count": 293,
       "module_id": null
     },
     {
@@ -1596,13 +1556,11 @@
         "⮚",
         "Thorough validation and verification.",
         "⮚",
-        "Include redundancy in both logic and controls.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Include redundancy in both logic and controls."
       ],
       "notes": null,
-      "raw_text": "What Should Have Been Done?\n⮚\nIntroduce modular, layered architecture with fault isolation.\n⮚\nBuild-in software interlocks and state machine guards.\n⮚\nDefensive programming techniques and fail-safe defaults.\n⮚\nThorough validation and verification.\n⮚\nInclude redundancy in both logic and controls.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 418,
+      "raw_text": "What Should Have Been Done?\n⮚\nIntroduce modular, layered architecture with fault isolation.\n⮚\nBuild-in software interlocks and state machine guards.\n⮚\nDefensive programming techniques and fail-safe defaults.\n⮚\nThorough validation and verification.\n⮚\nInclude redundancy in both logic and controls.",
+      "char_count": 296,
       "module_id": null
     },
     {
@@ -1619,13 +1577,11 @@
         "Should safety checks be in software, hardware, or both?",
         "⮚",
         "How do software architecture decisions relate to ethical",
-        "responsibility?",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "responsibility?"
       ],
       "notes": null,
-      "raw_text": "Class Discussion Questions\n⮚\nHow can architecture enforce safety in embedded systems?\n⮚\nHow to prevent race conditions?\n⮚\nShould safety checks be in software, hardware, or both?\n⮚\nHow do software architecture decisions relate to ethical\nresponsibility?\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 374,
+      "raw_text": "Class Discussion Questions\n⮚\nHow can architecture enforce safety in embedded systems?\n⮚\nHow to prevent race conditions?\n⮚\nShould safety checks be in software, hardware, or both?\n⮚\nHow do software architecture decisions relate to ethical\nresponsibility?",
+      "char_count": 252,
       "module_id": null
     },
     {
@@ -1636,14 +1592,12 @@
         "⮚ Elements: roles, responsibilities, behaviors, properties.",
         "⮚ Relationships between elements.",
         "⮚ Relationships to non-software elements : Hardware, external",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "systems",
-        "⮚ Described from many different perspectives (views)",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ Described from many different perspectives (views)"
       ],
       "notes": null,
-      "raw_text": "Software Architecture: Abstraction\n⮚ Elements: roles, responsibilities, behaviors, properties.\n⮚ Relationships between elements.\n⮚ Relationships to non-software elements : Hardware, external\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nsystems\n⮚ Described from many different perspectives (views)\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 373,
+      "raw_text": "Software Architecture: Abstraction\n⮚ Elements: roles, responsibilities, behaviors, properties.\n⮚ Relationships between elements.\n⮚ Relationships to non-software elements : Hardware, external\nsystems\n⮚ Described from many different perspectives (views)",
+      "char_count": 251,
       "module_id": null
     },
     {
@@ -1655,17 +1609,15 @@
         "into major components together with a characterization of how",
         "these components interact",
         "⮚ Software architecture of a computing system can be",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "used for communication among stakeholders",
         "a blueprint for the system and project under development",
         "used for negotiations and balancing of functional and quality",
         "goals",
-        "which happen during architecture",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "which happen during architecture"
       ],
       "notes": null,
-      "raw_text": "What is Software Architecture?\nIt is the top-level decomposition of the system being developed,\ninto major components together with a characterization of how\nthese components interact\n⮚ Software architecture of a computing system can be\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nused for communication among stakeholders\na blueprint for the system and project under development\nused for negotiations and balancing of functional and quality\ngoals\nwhich happen during architecture\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 558,
+      "raw_text": "What is Software Architecture?\nIt is the top-level decomposition of the system being developed,\ninto major components together with a characterization of how\nthese components interact\n⮚ Software architecture of a computing system can be\nused for communication among stakeholders\na blueprint for the system and project under development\nused for negotiations and balancing of functional and quality\ngoals\nwhich happen during architecture",
+      "char_count": 436,
       "module_id": null
     },
     {
@@ -1678,15 +1630,13 @@
         "⮚ Relates to organizational structure",
         "⮚ Permits/precludes achieving non-functional requirements",
         "⮚ Control complexity",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ Reason about and manage change",
         "⮚ Good basis for effort estimation",
-        "⮚ …",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ …"
       ],
       "notes": null,
-      "raw_text": "Software Architecture: Motivation\n⮚ Facilitates internal and external communication\n⮚ Describes design decisions and prescribes implementation Constraints.\n⮚ Relates to organizational structure\n⮚ Permits/precludes achieving non-functional requirements\n⮚ Control complexity\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Reason about and manage change\n⮚ Good basis for effort estimation\n⮚ …\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 466,
+      "raw_text": "Software Architecture: Motivation\n⮚ Facilitates internal and external communication\n⮚ Describes design decisions and prescribes implementation Constraints.\n⮚ Relates to organizational structure\n⮚ Permits/precludes achieving non-functional requirements\n⮚ Control complexity\n⮚ Reason about and manage change\n⮚ Good basis for effort estimation\n⮚ …",
+      "char_count": 344,
       "module_id": null
     },
     {
@@ -1706,13 +1656,10 @@
       "slide_id": 86,
       "slide_number": 87,
       "title": "Context of Software Design",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Context of Software Design\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 148,
+      "raw_text": "Context of Software Design",
+      "char_count": 26,
       "module_id": null
     },
     {
@@ -1727,18 +1674,16 @@
         "⮚",
         "Architecture ( High-level Design)",
         "High-level⮚“how”,⮚mid-level⮚“what”",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Design ( Low-level Design, e.g : Design Pattern)",
         "Mid-level⮚“how”,⮚low-level⮚“what”",
         "⮚",
         "Code",
-        "Low-level⮚“how”",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Low-level⮚“how”"
       ],
       "notes": null,
-      "raw_text": "Levels of Abstraction\n⮚\nRequirements\nHigh-level⮚“what”⮚needs⮚to⮚be⮚done\n⮚\nArchitecture ( High-level Design)\nHigh-level⮚“how”,⮚mid-level⮚“what”\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nDesign ( Low-level Design, e.g : Design Pattern)\nMid-level⮚“how”,⮚low-level⮚“what”\n⮚\nCode\nLow-level⮚“how”\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 372,
+      "raw_text": "Levels of Abstraction\n⮚\nRequirements\nHigh-level⮚“what”⮚needs⮚to⮚be⮚done\n⮚\nArchitecture ( High-level Design)\nHigh-level⮚“how”,⮚mid-level⮚“what”\n⮚\nDesign ( Low-level Design, e.g : Design Pattern)\nMid-level⮚“how”,⮚low-level⮚“what”\n⮚\nCode\nLow-level⮚“how”",
+      "char_count": 250,
       "module_id": null
     },
     {
@@ -1750,17 +1695,15 @@
         "How do I add a menu item in the app? How do I extend app with a plugin ?",
         "How can I make it easy to use a function? What threads exist and how do they co-",
         "ordinate?",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "What lock protects this data? How does Google scale to billions of hits per",
         "day ?",
         "How does Google Rank pages? Where should I put my firewalls ?",
         "What encoder should I use for secure What is the interface between subsystem ?",
-        "communication ?",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
+        "communication ?"
       ],
       "notes": null,
-      "raw_text": "Design v/s Architecture\nDesign Questions Architectural Questions\nHow do I add a menu item in the app? How do I extend app with a plugin ?\nHow can I make it easy to use a function? What threads exist and how do they co-\nordinate?\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nWhat lock protects this data? How does Google scale to billions of hits per\nday ?\nHow does Google Rank pages? Where should I put my firewalls ?\nWhat encoder should I use for secure What is the interface between subsystem ?\ncommunication ?\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 529,
+      "raw_text": "Design v/s Architecture\nDesign Questions Architectural Questions\nHow do I add a menu item in the app? How do I extend app with a plugin ?\nHow can I make it easy to use a function? What threads exist and how do they co-\nordinate?\nWhat lock protects this data? How does Google scale to billions of hits per\nday ?\nHow does Google Rank pages? Where should I put my firewalls ?\nWhat encoder should I use for secure What is the interface between subsystem ?\ncommunication ?",
+      "char_count": 467,
       "module_id": null
     },
     {
@@ -1772,41 +1715,35 @@
         "⮚ Case Study: Therac-25",
         "⮚ Software Architecture",
         "Definitions, Importance",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "Software Design vs. Software Architecture",
         "⮚ Architecting software",
         "Integrating Architectural Decisions into the SW Development Process",
         "Common Software Architectures",
-        "Documentation",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Documentation"
       ],
       "notes": null,
-      "raw_text": "Outline\n⮚ Views and Abstraction\n⮚ Case Study: Therac-25\n⮚ Software Architecture\nDefinitions, Importance\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nSoftware Design vs. Software Architecture\n⮚ Architecting software\nIntegrating Architectural Decisions into the SW Development Process\nCommon Software Architectures\nDocumentation\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 403,
+      "raw_text": "Outline\n⮚ Views and Abstraction\n⮚ Case Study: Therac-25\n⮚ Software Architecture\nDefinitions, Importance\nSoftware Design vs. Software Architecture\n⮚ Architecting software\nIntegrating Architectural Decisions into the SW Development Process\nCommon Software Architectures\nDocumentation",
+      "char_count": 281,
       "module_id": null
     },
     {
       "slide_id": 90,
       "slide_number": 91,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
       "slide_id": 91,
       "slide_number": 92,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
@@ -1817,64 +1754,52 @@
         "⮚Whether⮚you⮚know⮚it⮚or⮚not",
         "⮚Whether⮚you⮚like⮚it⮚or⮚not",
         "⮚Whether⮚it’s⮚documented⮚or⮚not",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "If⮚you⮚don’t⮚consciously⮚elaborate⮚the",
-        "architecture, it will evolve by itself!",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "architecture, it will evolve by itself!"
       ],
       "notes": null,
-      "raw_text": "Every software system has an architecture\n⮚Whether⮚you⮚know⮚it⮚or⮚not\n⮚Whether⮚you⮚like⮚it⮚or⮚not\n⮚Whether⮚it’s⮚documented⮚or⮚not\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nIf⮚you⮚don’t⮚consciously⮚elaborate⮚the\narchitecture, it will evolve by itself!\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 330,
+      "raw_text": "Every software system has an architecture\n⮚Whether⮚you⮚know⮚it⮚or⮚not\n⮚Whether⮚you⮚like⮚it⮚or⮚not\n⮚Whether⮚it’s⮚documented⮚or⮚not\nIf⮚you⮚don’t⮚consciously⮚elaborate⮚the\narchitecture, it will evolve by itself!",
+      "char_count": 208,
       "module_id": null
     },
     {
       "slide_id": 93,
       "slide_number": 94,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
       "slide_id": 94,
       "slide_number": 95,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
       "slide_id": 95,
       "slide_number": 96,
       "title": "Agile and Architecture",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Agile and Architecture\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 144,
+      "raw_text": "Agile and Architecture",
+      "char_count": 22,
       "module_id": null
     },
     {
       "slide_id": 96,
       "slide_number": 97,
       "title": "The Zipper Model",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "The Zipper Model\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 138,
+      "raw_text": "The Zipper Model",
+      "char_count": 16,
       "module_id": null
     },
     {
@@ -1900,15 +1825,13 @@
         "problem in⮚software⮚architecture⮚within⮚a given context.",
         "Following traditional building architecture, a 'software⮚architectural⮚style' is a",
         "specific method of construction, characterized by the features that make it notable.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "An architectural style defines: a family of systems in terms of a pattern of structural",
         "organization; a vocabulary of components and connectors, with constraints on how",
-        "they can be combined.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "they can be combined."
       ],
       "notes": null,
-      "raw_text": "Architectural Patterns\nWhat is an Architectural pattern?\nAn⮚architectural pattern⮚is⮚a⮚general, reusable solution to a commonly occurring\nproblem in⮚software⮚architecture⮚within⮚a given context.\nFollowing traditional building architecture, a 'software⮚architectural⮚style' is a\nspecific method of construction, characterized by the features that make it notable.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nAn architectural style defines: a family of systems in terms of a pattern of structural\norganization; a vocabulary of components and connectors, with constraints on how\nthey can be combined.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 675,
+      "raw_text": "Architectural Patterns\nWhat is an Architectural pattern?\nAn⮚architectural pattern⮚is⮚a⮚general, reusable solution to a commonly occurring\nproblem in⮚software⮚architecture⮚within⮚a given context.\nFollowing traditional building architecture, a 'software⮚architectural⮚style' is a\nspecific method of construction, characterized by the features that make it notable.\nAn architectural style defines: a family of systems in terms of a pattern of structural\norganization; a vocabulary of components and connectors, with constraints on how\nthey can be combined.",
+      "char_count": 553,
       "module_id": null
     },
     {
@@ -1926,12 +1849,11 @@
         "styles are idioms for architects to use, they \"provide a common language\"⮚or",
         "\"vocabulary\"⮚with⮚which to describe classes of systems.",
         "The main difference is that a pattern can be seen as a solution to a problem, while a",
-        "style is more general and does not require a problem to solve for its appearance.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "style is more general and does not require a problem to solve for its appearance."
       ],
       "notes": null,
-      "raw_text": "Architectural Patterns\nAn architectural style is a named collection of architectural design decisions\nthat are applicable in a given development context,\nconstrain architectural design decisions that are specific to a particular system\nwithin that context, and\nelicit beneficial qualities in each resulting system.\nSome treat architectural Department⮚of⮚CSE⮚–⮚UE23CS341A patterns and architectural styles as the same,⮚some⮚treat\nstyles as specializations of patterns. What they have in common is both patterns and\nstyles are idioms for architects to use, they \"provide a common language\"⮚or\n\"vocabulary\"⮚with⮚which to describe classes of systems.\nThe main difference is that a pattern can be seen as a solution to a problem, while a\nstyle is more general and does not require a problem to solve for its appearance.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 905,
+      "raw_text": "Architectural Patterns\nAn architectural style is a named collection of architectural design decisions\nthat are applicable in a given development context,\nconstrain architectural design decisions that are specific to a particular system\nwithin that context, and\nelicit beneficial qualities in each resulting system.\nSome treat architectural Department⮚of⮚CSE⮚–⮚UE23CS341A patterns and architectural styles as the same,⮚some⮚treat\nstyles as specializations of patterns. What they have in common is both patterns and\nstyles are idioms for architects to use, they \"provide a common language\"⮚or\n\"vocabulary\"⮚with⮚which to describe classes of systems.\nThe main difference is that a pattern can be seen as a solution to a problem, while a\nstyle is more general and does not require a problem to solve for its appearance.",
+      "char_count": 814,
       "module_id": null
     },
     {
@@ -1945,29 +1867,24 @@
         "⮚ Each filter transforms the input",
         "data and passes it to the next.",
         "⮚ Pipes must compute local",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "transformations",
         "⮚ Filters must not share state with",
         "other filters",
-        "⮚ There must be no cycles",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ There must be no cycles"
       ],
       "notes": null,
-      "raw_text": "Pipes and Filters Architecture\n⮚ Data flows through a sequence\nof processing components\n(filters), connected by pipes.\n⮚ Each filter transforms the input\ndata and passes it to the next.\n⮚ Pipes must compute local\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\ntransformations\n⮚ Filters must not share state with\nother filters\n⮚ There must be no cycles\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 426,
+      "raw_text": "Pipes and Filters Architecture\n⮚ Data flows through a sequence\nof processing components\n(filters), connected by pipes.\n⮚ Each filter transforms the input\ndata and passes it to the next.\n⮚ Pipes must compute local\ntransformations\n⮚ Filters must not share state with\nother filters\n⮚ There must be no cycles",
+      "char_count": 304,
       "module_id": null
     },
     {
       "slide_id": 101,
       "slide_number": 102,
       "title": "Example: Compilers",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Example: Compilers\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 140,
+      "raw_text": "Example: Compilers",
+      "char_count": 18,
       "module_id": null
     },
     {
@@ -1981,28 +1898,23 @@
         "⮚ Promotes encapsulation,",
         "inheritance, and polymorphism.",
         "⮚ Great for systems with complex",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "data models.",
         "⮚ Encourages code reuse and",
-        "maintainability.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "maintainability."
       ],
       "notes": null,
-      "raw_text": "Object-Oriented Organization\n⮚ Organizes system as a collection\nof interacting objects, each with\nstate and behavior.\n⮚ Promotes encapsulation,\ninheritance, and polymorphism.\n⮚ Great for systems with complex\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\ndata models.\n⮚ Encourages code reuse and\nmaintainability.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 387,
+      "raw_text": "Object-Oriented Organization\n⮚ Organizes system as a collection\nof interacting objects, each with\nstate and behavior.\n⮚ Promotes encapsulation,\ninheritance, and polymorphism.\n⮚ Great for systems with complex\ndata models.\n⮚ Encourages code reuse and\nmaintainability.",
+      "char_count": 265,
       "module_id": null
     },
     {
       "slide_id": 103,
       "slide_number": 104,
       "title": "Example: Adobe Photoshop",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Example: Adobe Photoshop\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 146,
+      "raw_text": "Example: Adobe Photoshop",
+      "char_count": 24,
       "module_id": null
     },
     {
@@ -2015,26 +1927,21 @@
         "⮚ Suitable for asynchronous and reactive",
         "systems.",
         "⮚ Promotes loose coupling between",
-        "components.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "components."
       ],
       "notes": null,
-      "raw_text": "Event-Driven Architecture\n⮚ Components communicate through\nevents (e.g., publish/subscribe).\n⮚ Suitable for asynchronous and reactive\nsystems.\n⮚ Promotes loose coupling between\ncomponents.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 310,
+      "raw_text": "Event-Driven Architecture\n⮚ Components communicate through\nevents (e.g., publish/subscribe).\n⮚ Suitable for asynchronous and reactive\nsystems.\n⮚ Promotes loose coupling between\ncomponents.",
+      "char_count": 188,
       "module_id": null
     },
     {
       "slide_id": 105,
       "slide_number": 106,
       "title": "Example: Node.js",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Example: Node.js\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 138,
+      "raw_text": "Example: Node.js",
+      "char_count": 16,
       "module_id": null
     },
     {
@@ -2048,25 +1955,21 @@
         "⮚ Each subsystem (knowledge source)",
         "contributes partial solutions.",
         "⮚ Requires a control Department⮚of⮚CSE⮚–⮚UE23CS341A component to",
-        "manage which subsystem acts when.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "manage which subsystem acts when."
       ],
       "notes": null,
-      "raw_text": "Blackboard Architecture\n⮚ Multiple subsystems interact via a\ncommon knowledge base\n(blackboard).\n⮚ Each subsystem (knowledge source)\ncontributes partial solutions.\n⮚ Requires a control Department⮚of⮚CSE⮚–⮚UE23CS341A component to\nmanage which subsystem acts when.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 353,
+      "raw_text": "Blackboard Architecture\n⮚ Multiple subsystems interact via a\ncommon knowledge base\n(blackboard).\n⮚ Each subsystem (knowledge source)\ncontributes partial solutions.\n⮚ Requires a control Department⮚of⮚CSE⮚–⮚UE23CS341A component to\nmanage which subsystem acts when.",
+      "char_count": 262,
       "module_id": null
     },
     {
       "slide_id": 107,
       "slide_number": 108,
       "title": "Example: Stock exchange",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Example: Stock exchange\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 145,
+      "raw_text": "Example: Stock exchange",
+      "char_count": 23,
       "module_id": null
     },
     {
@@ -2079,26 +1982,21 @@
         "⮚ Each layer has a specific role and",
         "interacts only with adjacent layers.",
         "⮚ Easy to swap or upgrade individual",
-        "layers without affecting others.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "layers without affecting others."
       ],
       "notes": null,
-      "raw_text": "Layered Systems Architecture\n⮚ System is organized into hierarchical\nlayers\n⮚ Each layer has a specific role and\ninteracts only with adjacent layers.\n⮚ Easy to swap or upgrade individual\nlayers without affecting others.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 341,
+      "raw_text": "Layered Systems Architecture\n⮚ System is organized into hierarchical\nlayers\n⮚ Each layer has a specific role and\ninteracts only with adjacent layers.\n⮚ Easy to swap or upgrade individual\nlayers without affecting others.",
+      "char_count": 219,
       "module_id": null
     },
     {
       "slide_id": 109,
       "slide_number": 110,
       "title": "Example: Internet Protocol Suite",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Example: Internet Protocol Suite\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 154,
+      "raw_text": "Example: Internet Protocol Suite",
+      "char_count": 32,
       "module_id": null
     },
     {
@@ -2112,27 +2010,22 @@
         "⮚ Centralized control and resource management:",
         "Servers handle business logic, security, and data",
         "storage.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ Clients can be software that depends",
-        "on a shared database/service.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "on a shared database/service."
       ],
       "notes": null,
-      "raw_text": "Client Server Architecture\n⮚ Divides system into clients and servers:\nClients send requests; servers process and\nrespond\n⮚ Centralized control and resource management:\nServers handle business logic, security, and data\nstorage.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Clients can be software that depends\non a shared database/service.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 417,
+      "raw_text": "Client Server Architecture\n⮚ Divides system into clients and servers:\nClients send requests; servers process and\nrespond\n⮚ Centralized control and resource management:\nServers handle business logic, security, and data\nstorage.\n⮚ Clients can be software that depends\non a shared database/service.",
+      "char_count": 295,
       "module_id": null
     },
     {
       "slide_id": 111,
       "slide_number": 112,
       "title": "Example: online banking system",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Example: online banking system\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 152,
+      "raw_text": "Example: online banking system",
+      "char_count": 30,
       "module_id": null
     },
     {
@@ -2152,73 +2045,61 @@
         "America",
         "⮚",
         "Online multi-faceted store like",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "Amazon",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Amazon"
       ],
       "notes": null,
-      "raw_text": "What architecture pattern would you choose and why?\n⮚\nWeather app like the Weather\nChannel\nhttps: //PollEv.com/cse403wi\n⮚\nEmail service like Outlook or Gmail\n⮚\nOnline banking service like Bank of\nAmerica\n⮚\nOnline multi-faceted store like\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nAmazon\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 366,
+      "raw_text": "What architecture pattern would you choose and why?\n⮚\nWeather app like the Weather\nChannel\nhttps: //PollEv.com/cse403wi\n⮚\nEmail service like Outlook or Gmail\n⮚\nOnline banking service like Bank of\nAmerica\n⮚\nOnline multi-faceted store like\nAmazon",
+      "char_count": 244,
       "module_id": null
     },
     {
       "slide_id": 113,
       "slide_number": 114,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
       "slide_id": 114,
       "slide_number": 115,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
       "slide_id": 115,
       "slide_number": 116,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
       "slide_id": 116,
       "slide_number": 117,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
       "slide_id": 117,
       "slide_number": 118,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
@@ -2226,13 +2107,12 @@
       "slide_number": 119,
       "title": "Architecture Considerations",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A",
         "UEEd2u3cCaSti3o4n1A"
       ],
       "notes": null,
-      "raw_text": "Architecture Considerations\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
-      "char_count": 143,
+      "raw_text": "Architecture Considerations\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
+      "char_count": 112,
       "module_id": null
     },
     {
@@ -2252,12 +2132,11 @@
         "Modularity",
         "Decomposable designs, composable components",
         "Localized changes in case of any requirement changes",
-        "Span of impact (how far can an error spread)",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Span of impact (how far can an error spread)"
       ],
       "notes": null,
-      "raw_text": "As an architect, consider\n⮚\nLevel of Abstraction\nComponents and their interconnections (communication/apis)\n⮚\nSeparation of concerns\nHigh⮚cohesion⮚–⮚light⮚relationship⮚within⮚a⮚component\nLow⮚cohesion⮚–⮚interconnection⮚between⮚the⮚components\n⮚ Department⮚of⮚CSE⮚–⮚UE23CS341A\nModularity\nDecomposable designs, composable components\nLocalized changes in case of any requirement changes\nSpan of impact (how far can an error spread)\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 517,
+      "raw_text": "As an architect, consider\n⮚\nLevel of Abstraction\nComponents and their interconnections (communication/apis)\n⮚\nSeparation of concerns\nHigh⮚cohesion⮚–⮚light⮚relationship⮚within⮚a⮚component\nLow⮚cohesion⮚–⮚interconnection⮚between⮚the⮚components\n⮚ Department⮚of⮚CSE⮚–⮚UE23CS341A\nModularity\nDecomposable designs, composable components\nLocalized changes in case of any requirement changes\nSpan of impact (how far can an error spread)",
+      "char_count": 426,
       "module_id": null
     },
     {
@@ -2271,26 +2150,21 @@
         "⮚High cohesion means a component of a system has a clear purpose and",
         "scope",
         "⮚Strong⮚relationships⮚within⮚a⮚component⮚improve⮚clarity⮚and⮚understanding",
-        "⮚A⮚component⮚with⮚good⮚abstraction⮚usually⮚has⮚strong⮚internal⮚cohesion",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚A⮚component⮚with⮚good⮚abstraction⮚usually⮚has⮚strong⮚internal⮚cohesion"
       ],
       "notes": null,
-      "raw_text": "High Cohesion\nCohesion:\nhow closely the operations in a module are related and belong together\n⮚High cohesion means a component of a system has a clear purpose and\nscope\n⮚Strong⮚relationships⮚within⮚a⮚component⮚improve⮚clarity⮚and⮚understanding\n⮚A⮚component⮚with⮚good⮚abstraction⮚usually⮚has⮚strong⮚internal⮚cohesion\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 438,
+      "raw_text": "High Cohesion\nCohesion:\nhow closely the operations in a module are related and belong together\n⮚High cohesion means a component of a system has a clear purpose and\nscope\n⮚Strong⮚relationships⮚within⮚a⮚component⮚improve⮚clarity⮚and⮚understanding\n⮚A⮚component⮚with⮚good⮚abstraction⮚usually⮚has⮚strong⮚internal⮚cohesion",
+      "char_count": 316,
       "module_id": null
     },
     {
       "slide_id": 121,
       "slide_number": 122,
       "title": "Example⮚–⮚low⮚vs⮚high⮚Cohesion",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Example⮚–⮚low⮚vs⮚high⮚Cohesion\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 152,
+      "raw_text": "Example⮚–⮚low⮚vs⮚high⮚Cohesion",
+      "char_count": 30,
       "module_id": null
     },
     {
@@ -2302,26 +2176,21 @@
         "⮚Components⮚that⮚are⮚loosely coupled (or uncoupled) are easier to work with",
         "independently. Easier to debug in the system",
         "⮚The⮚more⮚tightly coupled two modules are, the harder it is to work with them",
-        "separately (consider development, testing, …)",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "separately (consider development, testing, …)"
       ],
       "notes": null,
-      "raw_text": "Loose Coupling\nCoupling: Level of interconnection between any two components\n⮚Components⮚that⮚are⮚loosely coupled (or uncoupled) are easier to work with\nindependently. Easier to debug in the system\n⮚The⮚more⮚tightly coupled two modules are, the harder it is to work with them\nseparately (consider development, testing, …)\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 443,
+      "raw_text": "Loose Coupling\nCoupling: Level of interconnection between any two components\n⮚Components⮚that⮚are⮚loosely coupled (or uncoupled) are easier to work with\nindependently. Easier to debug in the system\n⮚The⮚more⮚tightly coupled two modules are, the harder it is to work with them\nseparately (consider development, testing, …)",
+      "char_count": 321,
       "module_id": null
     },
     {
       "slide_id": 123,
       "slide_number": 124,
       "title": "Example: Lose vs tight Coupling",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Example: Lose vs tight Coupling\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 153,
+      "raw_text": "Example: Lose vs tight Coupling",
+      "char_count": 31,
       "module_id": null
     },
     {
@@ -2333,15 +2202,13 @@
         "⮚ Reuse: high level view shoes opportunity for reuse",
         "⮚ Construction: breaks development down into work items; provides a path from",
         "requirements to code",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ Evolution: high level view shows evolution path",
         "⮚ Management : helps understand items and track progress.",
-        "⮚ Communication : provides vocabulary, a picture says a thousand words.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ Communication : provides vocabulary, a picture says a thousand words."
       ],
       "notes": null,
-      "raw_text": "Architectural considerations\n⮚ System understanding: interactions between modules\n⮚ Reuse: high level view shoes opportunity for reuse\n⮚ Construction: breaks development down into work items; provides a path from\nrequirements to code\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Evolution: high level view shows evolution path\n⮚ Management : helps understand items and track progress.\n⮚ Communication : provides vocabulary, a picture says a thousand words.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 535,
+      "raw_text": "Architectural considerations\n⮚ System understanding: interactions between modules\n⮚ Reuse: high level view shoes opportunity for reuse\n⮚ Construction: breaks development down into work items; provides a path from\nrequirements to code\n⮚ Evolution: high level view shows evolution path\n⮚ Management : helps understand items and track progress.\n⮚ Communication : provides vocabulary, a picture says a thousand words.",
+      "char_count": 413,
       "module_id": null
     },
     {
@@ -2357,12 +2224,11 @@
         "interface",
         "⮚Controller Department⮚of⮚CSE⮚–⮚UE23CS341A ⮚",
         "Handles control flow / mediates between",
-        "the view and model",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "the view and model"
       ],
       "notes": null,
-      "raw_text": "Model View Controller\n⮚ ⮚Divides⮚a⮚system⮚into⮚three⮚components:\n⮚Model:\nApp data and core functionality\n⮚View\nPresents data to user /provides user\ninterface\n⮚Controller Department⮚of⮚CSE⮚–⮚UE23CS341A ⮚\nHandles control flow / mediates between\nthe view and model\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 352,
+      "raw_text": "Model View Controller\n⮚ ⮚Divides⮚a⮚system⮚into⮚three⮚components:\n⮚Model:\nApp data and core functionality\n⮚View\nPresents data to user /provides user\ninterface\n⮚Controller Department⮚of⮚CSE⮚–⮚UE23CS341A ⮚\nHandles control flow / mediates between\nthe view and model",
+      "char_count": 261,
       "module_id": null
     },
     {
@@ -2375,15 +2241,13 @@
         "⮚ Primary carrier of quality attributes",
         "⮚ Key to post-deployment maintenance and enhancement",
         "⮚ Documentation speaks for the architect",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ As long as the system is built, maintained, a nd evolved",
         "according to its documented architecture",
-        "⮚ Support traceability.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ Support traceability."
       ],
       "notes": null,
-      "raw_text": "Why Document Architecture?\n⮚ Blueprint for the system\n⮚ Artifact for early analysis\n⮚ Primary carrier of quality attributes\n⮚ Key to post-deployment maintenance and enhancement\n⮚ Documentation speaks for the architect\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ As long as the system is built, maintained, a nd evolved\naccording to its documented architecture\n⮚ Support traceability.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 463,
+      "raw_text": "Why Document Architecture?\n⮚ Blueprint for the system\n⮚ Artifact for early analysis\n⮚ Primary carrier of quality attributes\n⮚ Key to post-deployment maintenance and enhancement\n⮚ Documentation speaks for the architect\n⮚ As long as the system is built, maintained, a nd evolved\naccording to its documented architecture\n⮚ Support traceability.",
+      "char_count": 341,
       "module_id": null
     },
     {
@@ -2397,7 +2261,6 @@
         "⮚ UML possible (semi-formal), but possibly constraining",
         "Note the different abstraction level –⮚Subsystems or processes,",
         "not classes or objects",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "Formal notations available",
         "⮚ Decompose diagrams hierarchically and in views",
         "⮚ Always include a legend",
@@ -2405,12 +2268,11 @@
         "⮚ Define precisely what the lines mean",
         "⮚ Do not try to do too much in one diagram",
         "⮚ Each view of architecture should fit on a page",
-        "⮚ Use hierarchy",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ Use hierarchy"
       ],
       "notes": null,
-      "raw_text": "Guidelines for selecting a notation\n⮚ Suitable for purpose\n⮚ Often visual for compact representation\n⮚ Usually, boxes and arrows\n⮚ UML possible (semi-formal), but possibly constraining\nNote the different abstraction level –⮚Subsystems or processes,\nnot classes or objects\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nFormal notations available\n⮚ Decompose diagrams hierarchically and in views\n⮚ Always include a legend\n⮚ Define precisely what the boxes mean\n⮚ Define precisely what the lines mean\n⮚ Do not try to do too much in one diagram\n⮚ Each view of architecture should fit on a page\n⮚ Use hierarchy\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 681,
+      "raw_text": "Guidelines for selecting a notation\n⮚ Suitable for purpose\n⮚ Often visual for compact representation\n⮚ Usually, boxes and arrows\n⮚ UML possible (semi-formal), but possibly constraining\nNote the different abstraction level –⮚Subsystems or processes,\nnot classes or objects\nFormal notations available\n⮚ Decompose diagrams hierarchically and in views\n⮚ Always include a legend\n⮚ Define precisely what the boxes mean\n⮚ Define precisely what the lines mean\n⮚ Do not try to do too much in one diagram\n⮚ Each view of architecture should fit on a page\n⮚ Use hierarchy",
+      "char_count": 559,
       "module_id": null
     },
     {
@@ -2433,7 +2295,6 @@
         "4. Course Catalog",
         "4. Use-Case View",
         "5. Billing System",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "1. Architecturally-Significant Use Cases",
         "7. Performance",
         "5. Logical View",
@@ -2446,12 +2307,11 @@
         "here.",
         "3. Process Model to Design",
         "4. Model Dependencies",
-        "5. Processes to the Implementation",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "5. Processes to the Implementation"
       ],
       "notes": null,
-      "raw_text": "An example of Architecture document\n1. Introduction\n1. Purpose\n6. Deployment View\n2. Scope\n1. External Desktop\n3. Definitions, Acronyms and Abbreviations\nPC\n4. References\n2. Desktop PC\n2. Architectural Representation\n3. Registration Server\n3. Architectural Goals and Constraints\n4. Course Catalog\n4. Use-Case View\n5. Billing System\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n1. Architecturally-Significant Use Cases\n7. Performance\n5. Logical View\n8. Quality\n⮚⮚⮚1.⮚Architecture⮚Overview⮚–⮚Package⮚and⮚Subsystem⮚Layering\n2. Process View\n1. Processes\nA good sample SA document is\n2. Process to Design Elements\nhere.\n3. Process Model to Design\n4. Model Dependencies\n5. Processes to the Implementation\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 775,
+      "raw_text": "An example of Architecture document\n1. Introduction\n1. Purpose\n6. Deployment View\n2. Scope\n1. External Desktop\n3. Definitions, Acronyms and Abbreviations\nPC\n4. References\n2. Desktop PC\n2. Architectural Representation\n3. Registration Server\n3. Architectural Goals and Constraints\n4. Course Catalog\n4. Use-Case View\n5. Billing System\n1. Architecturally-Significant Use Cases\n7. Performance\n5. Logical View\n8. Quality\n⮚⮚⮚1.⮚Architecture⮚Overview⮚–⮚Package⮚and⮚Subsystem⮚Layering\n2. Process View\n1. Processes\nA good sample SA document is\n2. Process to Design Elements\nhere.\n3. Process Model to Design\n4. Model Dependencies\n5. Processes to the Implementation",
+      "char_count": 653,
       "module_id": null
     },
     {
@@ -2459,13 +2319,12 @@
       "slide_number": 130,
       "title": "Security Design and Architecture",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A",
         "UEEd2u3cCaSti3o4n1A"
       ],
       "notes": null,
-      "raw_text": "Security Design and Architecture\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
-      "char_count": 148,
+      "raw_text": "Security Design and Architecture\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
+      "char_count": 117,
       "module_id": null
     },
     {
@@ -2482,16 +2341,14 @@
         "environments, and integration points.",
         "⮚",
         "Key Goals:",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "Reduce attack surface",
         "Ensure separation of concerns",
         "Support defense-in-depth strategies",
-        "Align with threat models and security requirements",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Align with threat models and security requirements"
       ],
       "notes": null,
-      "raw_text": "Secure⮚Architecture⮚Design⮚–⮚Overview\n⮚\nPurpose:⮚Embed⮚security principles into architectural decisions to\nmitigate design-level vulnerabilities.\n⮚\nScope:⮚Applies⮚to software components, data flows, deployment\nenvironments, and integration points.\n⮚\nKey Goals:\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nReduce attack surface\nEnsure separation of concerns\nSupport defense-in-depth strategies\nAlign with threat models and security requirements\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 521,
+      "raw_text": "Secure⮚Architecture⮚Design⮚–⮚Overview\n⮚\nPurpose:⮚Embed⮚security principles into architectural decisions to\nmitigate design-level vulnerabilities.\n⮚\nScope:⮚Applies⮚to software components, data flows, deployment\nenvironments, and integration points.\n⮚\nKey Goals:\nReduce attack surface\nEnsure separation of concerns\nSupport defense-in-depth strategies\nAlign with threat models and security requirements",
+      "char_count": 399,
       "module_id": null
     },
     {
@@ -2507,7 +2364,6 @@
         "Encapsulation and service boundaries",
         "Divide system into subsystems and create trust boundary",
         "Components falling in same trust boundaries are marked mutually",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "trusted",
         "Consider assets at Asset origin point, during transit, at rest and in use",
         "⮚",
@@ -2515,12 +2371,11 @@
         "Are all sensitive components isolated?",
         "Are APIs authenticated, rate-limited, and validated?",
         "Is encryption used where needed (data in transit/rest)?",
-        "Are default configurations secure?",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Are default configurations secure?"
       ],
       "notes": null,
-      "raw_text": "Key Secure Architecture Techniques\n⮚\nSecurity by Design Patterns:\nInput validation layers\nSecure communication channels (TLS, mTLS)\nEncapsulation and service boundaries\nDivide system into subsystems and create trust boundary\nComponents falling in same trust boundaries are marked mutually\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\ntrusted\nConsider assets at Asset origin point, during transit, at rest and in use\n⮚\nArchitecture Review Checkpoints:\nAre all sensitive components isolated?\nAre APIs authenticated, rate-limited, and validated?\nIs encryption used where needed (data in transit/rest)?\nAre default configurations secure?\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 710,
+      "raw_text": "Key Secure Architecture Techniques\n⮚\nSecurity by Design Patterns:\nInput validation layers\nSecure communication channels (TLS, mTLS)\nEncapsulation and service boundaries\nDivide system into subsystems and create trust boundary\nComponents falling in same trust boundaries are marked mutually\ntrusted\nConsider assets at Asset origin point, during transit, at rest and in use\n⮚\nArchitecture Review Checkpoints:\nAre all sensitive components isolated?\nAre APIs authenticated, rate-limited, and validated?\nIs encryption used where needed (data in transit/rest)?\nAre default configurations secure?",
+      "char_count": 588,
       "module_id": null
     },
     {
@@ -2533,15 +2388,13 @@
         "Asset⮚derived⮚from⮚example⮚⇒⮚Patient⮚Data",
         "Protection⮚required⮚from⮚⇒⮚Other⮚Patients,⮚Insider⮚threat⮚(Malicious⮚hospital⮚employee)",
         "Patient⮚data⮚origin⮚point⮚⇒⮚Hospital⮚App/Website/Front⮚desk",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "Patient⮚data⮚during⮚transit⮚⇒⮚Over⮚network⮚⮚to⮚Hospital⮚database",
         "Patient⮚data⮚at⮚rest⮚⇒⮚in⮚storage⮚for⮚example⮚in⮚hard⮚disk",
-        "Patient⮚data⮚at⮚use⮚⇒⮚Hospital⮚staff⮚and⮚patient⮚wish⮚to⮚see⮚patient⮚data",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Patient⮚data⮚at⮚use⮚⇒⮚Hospital⮚staff⮚and⮚patient⮚wish⮚to⮚see⮚patient⮚data"
       ],
       "notes": null,
-      "raw_text": "Security Design and Architecture\nSecurity⮚Objective⮚from⮚example⮚⇒⮚Patient data should be confidentiality, integrity &\nreplay protected.\nAsset⮚derived⮚from⮚example⮚⇒⮚Patient⮚Data\nProtection⮚required⮚from⮚⇒⮚Other⮚Patients,⮚Insider⮚threat⮚(Malicious⮚hospital⮚employee)\nPatient⮚data⮚origin⮚point⮚⇒⮚Hospital⮚App/Website/Front⮚desk\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nPatient⮚data⮚during⮚transit⮚⇒⮚Over⮚network⮚⮚to⮚Hospital⮚database\nPatient⮚data⮚at⮚rest⮚⇒⮚in⮚storage⮚for⮚example⮚in⮚hard⮚disk\nPatient⮚data⮚at⮚use⮚⇒⮚Hospital⮚staff⮚and⮚patient⮚wish⮚to⮚see⮚patient⮚data\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 646,
+      "raw_text": "Security Design and Architecture\nSecurity⮚Objective⮚from⮚example⮚⇒⮚Patient data should be confidentiality, integrity &\nreplay protected.\nAsset⮚derived⮚from⮚example⮚⇒⮚Patient⮚Data\nProtection⮚required⮚from⮚⇒⮚Other⮚Patients,⮚Insider⮚threat⮚(Malicious⮚hospital⮚employee)\nPatient⮚data⮚origin⮚point⮚⇒⮚Hospital⮚App/Website/Front⮚desk\nPatient⮚data⮚during⮚transit⮚⇒⮚Over⮚network⮚⮚to⮚Hospital⮚database\nPatient⮚data⮚at⮚rest⮚⇒⮚in⮚storage⮚for⮚example⮚in⮚hard⮚disk\nPatient⮚data⮚at⮚use⮚⇒⮚Hospital⮚staff⮚and⮚patient⮚wish⮚to⮚see⮚patient⮚data",
+      "char_count": 524,
       "module_id": null
     },
     {
@@ -2554,13 +2407,11 @@
         "the hospital employees are out of trust boundary.",
         "Design⮚Protection⮚⇒⮚provision⮚user⮚credentials⮚for⮚patients⮚&⮚doctors.",
         "Implement patient data access policy for example Doctor may have read and edit",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "permission, others including patient read permission.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "permission, others including patient read permission."
       ],
       "notes": null,
-      "raw_text": "Security Design and Architecture\nTrust Boundary Definition ⇒⮚Patient and legitimate hospital employee for\nexample doctors and nurses are within trust boundary. Other patient and rest of\nthe hospital employees are out of trust boundary.\nDesign⮚Protection⮚⇒⮚provision⮚user⮚credentials⮚for⮚patients⮚&⮚doctors.\nImplement patient data access policy for example Doctor may have read and edit\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\npermission, others including patient read permission.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 561,
+      "raw_text": "Security Design and Architecture\nTrust Boundary Definition ⇒⮚Patient and legitimate hospital employee for\nexample doctors and nurses are within trust boundary. Other patient and rest of\nthe hospital employees are out of trust boundary.\nDesign⮚Protection⮚⇒⮚provision⮚user⮚credentials⮚for⮚patients⮚&⮚doctors.\nImplement patient data access policy for example Doctor may have read and edit\npermission, others including patient read permission.",
+      "char_count": 439,
       "module_id": null
     },
     {
@@ -2577,16 +2428,14 @@
         "risks, and mitigations",
         "⮚",
         "Change Requests⮚for⮚identified⮚gaps",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Architecture Threat Map⮚mapping⮚each high-value component to",
         "its threat profile",
-        "74",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "74"
       ],
       "notes": null,
-      "raw_text": "Outputs⮚from⮚Architecture⮚Phase⮚\n⮚\nUpdated Architecture Diagrams⮚with⮚security annotations (e.g.,\ntrust boundaries)\n⮚\nSecurity Architecture Review Report⮚documenting⮚decisions,\nrisks, and mitigations\n⮚\nChange Requests⮚for⮚identified⮚gaps\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nArchitecture Threat Map⮚mapping⮚each high-value component to\nits threat profile\n74\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 444,
+      "raw_text": "Outputs⮚from⮚Architecture⮚Phase⮚\n⮚\nUpdated Architecture Diagrams⮚with⮚security annotations (e.g.,\ntrust boundaries)\n⮚\nSecurity Architecture Review Report⮚documenting⮚decisions,\nrisks, and mitigations\n⮚\nChange Requests⮚for⮚identified⮚gaps\n⮚\nArchitecture Threat Map⮚mapping⮚each high-value component to\nits threat profile\n74",
+      "char_count": 322,
       "module_id": null
     },
     {
@@ -2594,13 +2443,12 @@
       "slide_number": 136,
       "title": "MICROSERVICES",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A",
         "UEEd2u3cCaSti3o4n1A"
       ],
       "notes": null,
-      "raw_text": "MICROSERVICES\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
-      "char_count": 129,
+      "raw_text": "MICROSERVICES\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
+      "char_count": 98,
       "module_id": null
     },
     {
@@ -2616,38 +2464,31 @@
         "This architecture utilizes APIs to pass information, such as user",
         "queries or a data stream, from one service to another.",
         "⮚",
-        "Examples:⮚Amazon,⮚Netflix,⮚Uber,⮚…",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Examples:⮚Amazon,⮚Netflix,⮚Uber,⮚…"
       ],
       "notes": null,
-      "raw_text": "MICROSERVICES\n⮚\nMicro services are a set of services that act together to make a\nwhole application operate.\n⮚\nThis architecture utilizes APIs to pass information, such as user\nqueries or a data stream, from one service to another.\n⮚\nExamples:⮚Amazon,⮚Netflix,⮚Uber,⮚…\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 389,
+      "raw_text": "MICROSERVICES\n⮚\nMicro services are a set of services that act together to make a\nwhole application operate.\n⮚\nThis architecture utilizes APIs to pass information, such as user\nqueries or a data stream, from one service to another.\n⮚\nExamples:⮚Amazon,⮚Netflix,⮚Uber,⮚…",
+      "char_count": 267,
       "module_id": null
     },
     {
       "slide_id": 137,
       "slide_number": 138,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
       "slide_id": 138,
       "slide_number": 139,
       "title": "Monolithic vs. Service-based vs. Microservice",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Monolithic vs. Service-based vs. Microservice\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 167,
+      "raw_text": "Monolithic vs. Service-based vs. Microservice",
+      "char_count": 45,
       "module_id": null
     },
     {
@@ -2661,29 +2502,24 @@
         "⮚ Certain components need different scale requirements or",
         "should be developed in a different technology",
         "⮚ The codebase has gotten too big and complex.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ Scalability",
         "⮚ Target security concerns",
         "⮚ Embrace uncertainty, automation, and faults",
-        "⮚ Better alignment with organization structure",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ Better alignment with organization structure"
       ],
       "notes": null,
-      "raw_text": "Reasons to break up the monolith\n⮚ Faster deployment – ship features faster and safer\n⮚ Update certain components more frequently than others.\n⮚ Certain components need different scale requirements or\nshould be developed in a different technology\n⮚ The codebase has gotten too big and complex.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Scalability\n⮚ Target security concerns\n⮚ Embrace uncertainty, automation, and faults\n⮚ Better alignment with organization structure\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 549,
+      "raw_text": "Reasons to break up the monolith\n⮚ Faster deployment – ship features faster and safer\n⮚ Update certain components more frequently than others.\n⮚ Certain components need different scale requirements or\nshould be developed in a different technology\n⮚ The codebase has gotten too big and complex.\n⮚ Scalability\n⮚ Target security concerns\n⮚ Embrace uncertainty, automation, and faults\n⮚ Better alignment with organization structure",
+      "char_count": 427,
       "module_id": null
     },
     {
       "slide_id": 140,
       "slide_number": 141,
       "title": "Microservices",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Microservices\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 135,
+      "raw_text": "Microservices",
+      "char_count": 13,
       "module_id": null
     },
     {
@@ -2699,12 +2535,11 @@
         "My List (saved shows)",
         "Notifications",
         "User management",
-        "…",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "…"
       ],
       "notes": null,
-      "raw_text": "Netflix Microservices\nUser subscriptions\nBanner Ad\nPopular Shows\nTrending Now\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A • Continue Watching\nMy List (saved shows)\nNotifications\nUser management\n…\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 273,
+      "raw_text": "Netflix Microservices\nUser subscriptions\nBanner Ad\nPopular Shows\nTrending Now\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A • Continue Watching\nMy List (saved shows)\nNotifications\nUser management\n…",
+      "char_count": 182,
       "module_id": null
     },
     {
@@ -2714,15 +2549,13 @@
       "bullets": [
         "Require architecture that can handle various computational",
         "demands",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "Need scalability: mu st support millions of users worldwide",
         "Need fault tolerance to maintain a seamless user experience",
-        "New features and improvements need to be rolled out rapidly",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "New features and improvements need to be rolled out rapidly"
       ],
       "notes": null,
-      "raw_text": "Why Can't Netflix Use a Monolithic Architecture?\nRequire architecture that can handle various computational\ndemands\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nNeed scalability: mu st support millions of users worldwide\nNeed fault tolerance to maintain a seamless user experience\nNew features and improvements need to be rolled out rapidly\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 417,
+      "raw_text": "Why Can't Netflix Use a Monolithic Architecture?\nRequire architecture that can handle various computational\ndemands\nNeed scalability: mu st support millions of users worldwide\nNeed fault tolerance to maintain a seamless user experience\nNew features and improvements need to be rolled out rapidly",
+      "char_count": 295,
       "module_id": null
     },
     {
@@ -2735,7 +2568,6 @@
         "Strangler pattern",
         "New services or existing components are implemented as",
         "microservices",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "A facade or gateway routes user requests to the correct",
         "application",
         "Over time, more and more features /services/functions are moved",
@@ -2746,12 +2578,11 @@
         "legacy system is eventually \"strangled\" and is no longer",
         "necessary - can safely be retired.)",
         "During this process, update the gateway to redirect requests to the",
-        "new functionality.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "new functionality."
       ],
       "notes": null,
-      "raw_text": "Methodology to break up a monolith\nTwo major patterns to move from a monolithic application to\nmicroservices:\nStrangler pattern\nNew services or existing components are implemented as\nmicroservices\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nA facade or gateway routes user requests to the correct\napplication\nOver time, more and more features /services/functions are moved\nhttps://docs.microsoft.com/en-us/azu\nto the new architecture until the monolithic application has been\nre/architecture/patterns/strangler-fig\nentirely transformed into a microservices application (and the\nlegacy system is eventually \"strangled\" and is no longer\nnecessary - can safely be retired.)\nDuring this process, update the gateway to redirect requests to the\nnew functionality.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 835,
+      "raw_text": "Methodology to break up a monolith\nTwo major patterns to move from a monolithic application to\nmicroservices:\nStrangler pattern\nNew services or existing components are implemented as\nmicroservices\nA facade or gateway routes user requests to the correct\napplication\nOver time, more and more features /services/functions are moved\nhttps://docs.microsoft.com/en-us/azu\nto the new architecture until the monolithic application has been\nre/architecture/patterns/strangler-fig\nentirely transformed into a microservices application (and the\nlegacy system is eventually \"strangled\" and is no longer\nnecessary - can safely be retired.)\nDuring this process, update the gateway to redirect requests to the\nnew functionality.",
+      "char_count": 713,
       "module_id": null
     },
     {
@@ -2765,7 +2596,6 @@
         "then translates the concepts from existing app to new, and vice",
         "versa",
         "This pattern is used to implement a facade or adapter between",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "components that don’t share the same semantics",
         "The purpose of the anticorruption layer is to translate the request",
         "from one component to another; for ex, implementing protocol",
@@ -2779,12 +2609,11 @@
         "An anti-corruption layer is about mapping one",
         "domain onto another so that services that use",
         "second domain do not have to be \"corrupted\"",
-        "by concepts from the first.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "by concepts from the first."
       ],
       "notes": null,
-      "raw_text": "Methodology to break up a monolith\nAnticorruption Layer pattern\nThis is similar to the Strangler pattern but is used when new\nservices need to access the legacy application. The layer\nthen translates the concepts from existing app to new, and vice\nversa\nThis pattern is used to implement a facade or adapter between\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\ncomponents that don’t share the same semantics\nThe purpose of the anticorruption layer is to translate the request\nfrom one component to another; for ex, implementing protocol\nhttps://www.cloudbees.com/blog/anti-\nor schema translations\ncorruption-layer-how-keep-legacy-support-\nbreaking-new-systems\nTo implement this, you design and create a new API in the\nmonolith that makes calls through the anticorruption layer in the\nnew service\nAn anti-corruption layer is about mapping one\ndomain onto another so that services that use\nsecond domain do not have to be \"corrupted\"\nby concepts from the first.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 1036,
+      "raw_text": "Methodology to break up a monolith\nAnticorruption Layer pattern\nThis is similar to the Strangler pattern but is used when new\nservices need to access the legacy application. The layer\nthen translates the concepts from existing app to new, and vice\nversa\nThis pattern is used to implement a facade or adapter between\ncomponents that don’t share the same semantics\nThe purpose of the anticorruption layer is to translate the request\nfrom one component to another; for ex, implementing protocol\nhttps://www.cloudbees.com/blog/anti-\nor schema translations\ncorruption-layer-how-keep-legacy-support-\nbreaking-new-systems\nTo implement this, you design and create a new API in the\nmonolith that makes calls through the anticorruption layer in the\nnew service\nAn anti-corruption layer is about mapping one\ndomain onto another so that services that use\nsecond domain do not have to be \"corrupted\"\nby concepts from the first.",
+      "char_count": 914,
       "module_id": null
     },
     {
@@ -2792,13 +2621,12 @@
       "slide_number": 146,
       "title": "Are Microservices always the right choice ?",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A",
         "UEEd2u3cCaSti3o4n1A"
       ],
       "notes": null,
-      "raw_text": "Are Microservices always the right choice ?\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
-      "char_count": 159,
+      "raw_text": "Are Microservices always the right choice ?\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
+      "char_count": 128,
       "module_id": null
     },
     {
@@ -2814,7 +2642,6 @@
         "⮚ Inter-Service Communication –⮚Ensuring⮚reliable⮚communication⮚between⮚services",
         "Example:",
         "A microservice for order processing calls an inventory service to check stock. If the inventory service is slow or",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "down, the order service times out. To mitigate this, developers implement retries with exponential backoff, but",
         "improper configuration can cause a \"retry storm,\" worsening the load on the already degraded service.",
         "⮚ Data Consistency and Integrity - Managing transactions across distributed services",
@@ -2822,12 +2649,11 @@
         "In an e-commerce platform, placing an order involves updating the order service, inventory, and payment",
         "services. Using a Saga pattern, each service commits locally and compensating transactions are used to roll",
         "back if something fails. If the payment service fails after inventory is deducted, the inventory must be rolled",
-        "back separately.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "back separately."
       ],
       "notes": null,
-      "raw_text": "Challenges with a Microservices Architecture\n⮚ Increased Operational Complexity - Managing and deploying multiple services\nExample:\nIn a fintech platform, managing independent microservices for payments, authentication, user management,\nand analytics requires maintaining separate deployment pipelines and health checks. Any misconfiguration in\none service (e.g., wrong environment variable) could cause cascading failures during deployment\n⮚ Inter-Service Communication –⮚Ensuring⮚reliable⮚communication⮚between⮚services\nExample:\nA microservice for order processing calls an inventory service to check stock. If the inventory service is slow or\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\ndown, the order service times out. To mitigate this, developers implement retries with exponential backoff, but\nimproper configuration can cause a \"retry storm,\" worsening the load on the already degraded service.\n⮚ Data Consistency and Integrity - Managing transactions across distributed services\nExample:\nIn an e-commerce platform, placing an order involves updating the order service, inventory, and payment\nservices. Using a Saga pattern, each service commits locally and compensating transactions are used to roll\nback if something fails. If the payment service fails after inventory is deducted, the inventory must be rolled\nback separately.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 1416,
+      "raw_text": "Challenges with a Microservices Architecture\n⮚ Increased Operational Complexity - Managing and deploying multiple services\nExample:\nIn a fintech platform, managing independent microservices for payments, authentication, user management,\nand analytics requires maintaining separate deployment pipelines and health checks. Any misconfiguration in\none service (e.g., wrong environment variable) could cause cascading failures during deployment\n⮚ Inter-Service Communication –⮚Ensuring⮚reliable⮚communication⮚between⮚services\nExample:\nA microservice for order processing calls an inventory service to check stock. If the inventory service is slow or\ndown, the order service times out. To mitigate this, developers implement retries with exponential backoff, but\nimproper configuration can cause a \"retry storm,\" worsening the load on the already degraded service.\n⮚ Data Consistency and Integrity - Managing transactions across distributed services\nExample:\nIn an e-commerce platform, placing an order involves updating the order service, inventory, and payment\nservices. Using a Saga pattern, each service commits locally and compensating transactions are used to roll\nback if something fails. If the payment service fails after inventory is deducted, the inventory must be rolled\nback separately.",
+      "char_count": 1294,
       "module_id": null
     },
     {
@@ -2843,19 +2669,17 @@
         "⮚ Governance and Standardization –⮚Lack⮚of⮚uniform⮚standards⮚across⮚services",
         "Example:",
         "One team uses REST with camelCase JSON keys (userId), while another uses snake_case (user_id). When",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "integrating services, the inconsistencies cause serialization/deserialization issues, leading to production bugs and",
         "friction during integration.",
         "⮚ DevOps and Infrastructure Overhead - Managing infrastructure for each service",
         "Example:",
         "Each microservice (e.g., notifications, audit logging, billing) requires its own Dockerfile, Helm charts, CI/CD",
         "pipeline, monitoring dashboards, and alert rules. The operations team spends more time on infrastructure",
-        "maintenance than on improving product capabilities",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "maintenance than on improving product capabilities"
       ],
       "notes": null,
-      "raw_text": "Challenges with a Microservices Architecture\n⮚ Testing and Debugging - End-to-end testing is hard when services depend on each other\nExample:\nTesting a customer onboarding workflow requires running services like KYC validation, email notification, user\nprovisioning, and analytics. Mocking each service’s⮚responses is non-trivial, and bugs often emerge only in\nstaging or production due to real service behavior not matching mocks\n⮚ Governance and Standardization –⮚Lack⮚of⮚uniform⮚standards⮚across⮚services\nExample:\nOne team uses REST with camelCase JSON keys (userId), while another uses snake_case (user_id). When\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nintegrating services, the inconsistencies cause serialization/deserialization issues, leading to production bugs and\nfriction during integration.\n⮚ DevOps and Infrastructure Overhead - Managing infrastructure for each service\nExample:\nEach microservice (e.g., notifications, audit logging, billing) requires its own Dockerfile, Helm charts, CI/CD\npipeline, monitoring dashboards, and alert rules. The operations team spends more time on infrastructure\nmaintenance than on improving product capabilities\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 1241,
+      "raw_text": "Challenges with a Microservices Architecture\n⮚ Testing and Debugging - End-to-end testing is hard when services depend on each other\nExample:\nTesting a customer onboarding workflow requires running services like KYC validation, email notification, user\nprovisioning, and analytics. Mocking each service’s⮚responses is non-trivial, and bugs often emerge only in\nstaging or production due to real service behavior not matching mocks\n⮚ Governance and Standardization –⮚Lack⮚of⮚uniform⮚standards⮚across⮚services\nExample:\nOne team uses REST with camelCase JSON keys (userId), while another uses snake_case (user_id). When\nintegrating services, the inconsistencies cause serialization/deserialization issues, leading to production bugs and\nfriction during integration.\n⮚ DevOps and Infrastructure Overhead - Managing infrastructure for each service\nExample:\nEach microservice (e.g., notifications, audit logging, billing) requires its own Dockerfile, Helm charts, CI/CD\npipeline, monitoring dashboards, and alert rules. The operations team spends more time on infrastructure\nmaintenance than on improving product capabilities",
+      "char_count": 1119,
       "module_id": null
     },
     {
@@ -2869,7 +2693,6 @@
         "fail to notify the data ingestion team, whose service depends on specific billing data formats. This causes",
         "downstream failures during deployment",
         "Versioning and Backward Compatibility – Managing breaking changes across services",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "Example:",
         "A user profile service renames a field from fullName to name. Several consuming services, including",
         "notifications and analytics, break because they were not updated in time. Even with versioned APIs,",
@@ -2878,12 +2701,11 @@
         "Example:",
         "In a healthcare system, services like patient data, prescription management, and reporting must all comply with",
         "HIPAA. If the report-generation service accidentally logs sensitive patient data without encryption or access",
-        "control, it can lead to a major compliance violation",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "control, it can lead to a major compliance violation"
       ],
       "notes": null,
-      "raw_text": "Challenges with a Microservices Architecture\nTeam and Organizational Challenges - Coordination and skill gaps between teams\nExample:\nA team responsible for the billing microservice decides to upgrade to a new database version. However, they\nfail to notify the data ingestion team, whose service depends on specific billing data formats. This causes\ndownstream failures during deployment\nVersioning and Backward Compatibility – Managing breaking changes across services\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nExample:\nA user profile service renames a field from fullName to name. Several consuming services, including\nnotifications and analytics, break because they were not updated in time. Even with versioned APIs,\nmaintaining compatibility across consumers is difficult.\nSecurity and Compliance - Securing communication and enforcing compliance across services\nExample:\nIn a healthcare system, services like patient data, prescription management, and reporting must all comply with\nHIPAA. If the report-generation service accidentally logs sensitive patient data without encryption or access\ncontrol, it can lead to a major compliance violation\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 1230,
+      "raw_text": "Challenges with a Microservices Architecture\nTeam and Organizational Challenges - Coordination and skill gaps between teams\nExample:\nA team responsible for the billing microservice decides to upgrade to a new database version. However, they\nfail to notify the data ingestion team, whose service depends on specific billing data formats. This causes\ndownstream failures during deployment\nVersioning and Backward Compatibility – Managing breaking changes across services\nExample:\nA user profile service renames a field from fullName to name. Several consuming services, including\nnotifications and analytics, break because they were not updated in time. Even with versioned APIs,\nmaintaining compatibility across consumers is difficult.\nSecurity and Compliance - Securing communication and enforcing compliance across services\nExample:\nIn a healthcare system, services like patient data, prescription management, and reporting must all comply with\nHIPAA. If the report-generation service accidentally logs sensitive patient data without encryption or access\ncontrol, it can lead to a major compliance violation",
+      "char_count": 1108,
       "module_id": null
     },
     {
@@ -2899,19 +2721,17 @@
         "⮚ Versioning and Backward Compatibility –⮚Managing⮚breaking⮚changes⮚across⮚services",
         "Example:",
         "A user profile service renames a field from fullName to name. Several consuming services, including notifications",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "and analytics, break because they were not updated in time. Even with versioned APIs, maintaining compatibility",
         "across consumers is difficult.",
         "⮚ Security and Compliance - Securing communication and enforcing compliance across services",
         "Example:",
         "In a healthcare system, services like patient data, prescription management, and reporting must all comply with",
         "HIPAA. If the report-generation service accidentally logs sensitive patient data without encryption or access",
-        "control, it can lead to a major compliance violation",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "control, it can lead to a major compliance violation"
       ],
       "notes": null,
-      "raw_text": "Challenges with a Microservices Architecture\n⮚ Team and Organizational Challenges - Coordination and skill gaps between teams\nExample:\nA team responsible for the billing microservice decides to upgrade to a new database version. However, they fail\nto notify the data ingestion team, whose service depends on specific billing data formats. This causes\ndownstream failures during deployment\n⮚ Versioning and Backward Compatibility –⮚Managing⮚breaking⮚changes⮚across⮚services\nExample:\nA user profile service renames a field from fullName to name. Several consuming services, including notifications\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nand analytics, break because they were not updated in time. Even with versioned APIs, maintaining compatibility\nacross consumers is difficult.\n⮚ Security and Compliance - Securing communication and enforcing compliance across services\nExample:\nIn a healthcare system, services like patient data, prescription management, and reporting must all comply with\nHIPAA. If the report-generation service accidentally logs sensitive patient data without encryption or access\ncontrol, it can lead to a major compliance violation\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 1236,
+      "raw_text": "Challenges with a Microservices Architecture\n⮚ Team and Organizational Challenges - Coordination and skill gaps between teams\nExample:\nA team responsible for the billing microservice decides to upgrade to a new database version. However, they fail\nto notify the data ingestion team, whose service depends on specific billing data formats. This causes\ndownstream failures during deployment\n⮚ Versioning and Backward Compatibility –⮚Managing⮚breaking⮚changes⮚across⮚services\nExample:\nA user profile service renames a field from fullName to name. Several consuming services, including notifications\nand analytics, break because they were not updated in time. Even with versioned APIs, maintaining compatibility\nacross consumers is difficult.\n⮚ Security and Compliance - Securing communication and enforcing compliance across services\nExample:\nIn a healthcare system, services like patient data, prescription management, and reporting must all comply with\nHIPAA. If the report-generation service accidentally logs sensitive patient data without encryption or access\ncontrol, it can lead to a major compliance violation",
+      "char_count": 1114,
       "module_id": null
     },
     {
@@ -2919,13 +2739,12 @@
       "slide_number": 151,
       "title": "Component Diagrams",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A",
         "UEEd2u3cCaSti3o4n1A"
       ],
       "notes": null,
-      "raw_text": "Component Diagrams\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
-      "char_count": 134,
+      "raw_text": "Component Diagrams\nDDIeeSppFCaarrRtt mmExeeennctt ⮚uootffiv ⮚CCeSSEE ⮚-–⮚UE23CS341A\nUEEd2u3cCaSti3o4n1A",
+      "char_count": 103,
       "module_id": null
     },
     {
@@ -2946,12 +2765,11 @@
         "⮚ Component Notation: In UML, a component is represented by a",
         "classifier rectangle with the stereotype <<component>>. The",
         "component's name is placed at the center, and an optional icon can",
-        "be displayed at the upper right corner.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "be displayed at the upper right corner."
       ],
       "notes": null,
-      "raw_text": "Component Definition and Notation\n⮚ What is a Component? A component is a replaceable and executable\npiece of a system whose implementation details are hidden. Key\ncharacteristics:\nModular: Encapsulates specific functionality\nReplaceable: Can be swapped with other components that provide the\nsame interface\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nBlack Box: External behavior is defined by interfaces, internal\nimplementation is hidden\nExecutable: Participates in system execution\n⮚ Component Notation: In UML, a component is represented by a\nclassifier rectangle with the stereotype <<component>>. The\ncomponent's name is placed at the center, and an optional icon can\nbe displayed at the upper right corner.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 792,
+      "raw_text": "Component Definition and Notation\n⮚ What is a Component? A component is a replaceable and executable\npiece of a system whose implementation details are hidden. Key\ncharacteristics:\nModular: Encapsulates specific functionality\nReplaceable: Can be swapped with other components that provide the\nsame interface\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nBlack Box: External behavior is defined by interfaces, internal\nimplementation is hidden\nExecutable: Participates in system execution\n⮚ Component Notation: In UML, a component is represented by a\nclassifier rectangle with the stereotype <<component>>. The\ncomponent's name is placed at the center, and an optional icon can\nbe displayed at the upper right corner.",
+      "char_count": 701,
       "module_id": null
     },
     {
@@ -2970,25 +2788,21 @@
         "interfaces.",
         "⮚ Port Notation: A port is denoted as a small square on the boundary of a",
         "classifier. When drawn over the boundary, it indicates public visibility, meaning",
-        "all interfaces used are public. If drawn inside, it is either protected or private",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "all interfaces used are public. If drawn inside, it is either protected or private"
       ],
       "notes": null,
-      "raw_text": "Component Interfaces and Interaction Point\n⮚ Provided Interfaces: These indicate the functionality a component offers to\nother components, shown with a \"lollipop\" notation.\n⮚ Required Interfaces: These indicate the functionality a component needs from\nother components to operate correctly, shown with a \"socket\" notation.\n⮚ Connecting Interfaces: Provided and required interfaces can be connected\nusing an assembly connector. Department⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Ports: A port is an interaction point between a classifier and an external\nenvironment. It groups a semantically cohesive set of provided and required\ninterfaces.\n⮚ Port Notation: A port is denoted as a small square on the boundary of a\nclassifier. When drawn over the boundary, it indicates public visibility, meaning\nall interfaces used are public. If drawn inside, it is either protected or private\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 952,
+      "raw_text": "Component Interfaces and Interaction Point\n⮚ Provided Interfaces: These indicate the functionality a component offers to\nother components, shown with a \"lollipop\" notation.\n⮚ Required Interfaces: These indicate the functionality a component needs from\nother components to operate correctly, shown with a \"socket\" notation.\n⮚ Connecting Interfaces: Provided and required interfaces can be connected\nusing an assembly connector. Department⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Ports: A port is an interaction point between a classifier and an external\nenvironment. It groups a semantically cohesive set of provided and required\ninterfaces.\n⮚ Port Notation: A port is denoted as a small square on the boundary of a\nclassifier. When drawn over the boundary, it indicates public visibility, meaning\nall interfaces used are public. If drawn inside, it is either protected or private",
+      "char_count": 861,
       "module_id": null
     },
     {
       "slide_id": 153,
       "slide_number": 154,
       "title": "Component Interfaces and Interaction Point",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Component Interfaces and Interaction Point\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 164,
+      "raw_text": "Component Interfaces and Interaction Point",
+      "char_count": 42,
       "module_id": null
     },
     {
@@ -3006,12 +2820,11 @@
         "as a dashed arrow with a <<use>>",
         "keyword. The arrowhead points from the",
         "dependent component (client) to the one",
-        "on which it is dependent (supplier).",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "on which it is dependent (supplier)."
       ],
       "notes": null,
-      "raw_text": "Component Diagram : Usage Dependency\n⮚ Usage Dependency: This relationship\nsignifies that one element requires\nanother element for its full\nimplementation. It is a dependency where\nthe client requires the presence of the\nsupplier.\n⮚ Notation: A usage dependency Department⮚of⮚CSE⮚–⮚UE23CS341A is shown\nas a dashed arrow with a <<use>>\nkeyword. The arrowhead points from the\ndependent component (client) to the one\non which it is dependent (supplier).\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 541,
+      "raw_text": "Component Diagram : Usage Dependency\n⮚ Usage Dependency: This relationship\nsignifies that one element requires\nanother element for its full\nimplementation. It is a dependency where\nthe client requires the presence of the\nsupplier.\n⮚ Notation: A usage dependency Department⮚of⮚CSE⮚–⮚UE23CS341A is shown\nas a dashed arrow with a <<use>>\nkeyword. The arrowhead points from the\ndependent component (client) to the one\non which it is dependent (supplier).",
+      "char_count": 450,
       "module_id": null
     },
     {
@@ -3027,16 +2840,14 @@
         "⮚",
         "Purpose: This process makes it easy to manage each subsystem",
         "efficiently.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Runtime and Connection: A subsystem cannot be instantiated",
         "during runtime, but its contents can be initialized. When",
-        "subsystems are connected, they create a single system.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "subsystems are connected, they create a single system."
       ],
       "notes": null,
-      "raw_text": "Component Diagram: Subsystems for Large Systems\n⮚\nSubsystem Definition: A subsystem is a component base that acts\nas a decomposition unit for larger systems. It is a logical construct\nused to break down an extensive system into smaller systems.\n⮚\nPurpose: This process makes it easy to manage each subsystem\nefficiently.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nRuntime and Connection: A subsystem cannot be instantiated\nduring runtime, but its contents can be initialized. When\nsubsystems are connected, they create a single system.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 616,
+      "raw_text": "Component Diagram: Subsystems for Large Systems\n⮚\nSubsystem Definition: A subsystem is a component base that acts\nas a decomposition unit for larger systems. It is a logical construct\nused to break down an extensive system into smaller systems.\n⮚\nPurpose: This process makes it easy to manage each subsystem\nefficiently.\n⮚\nRuntime and Connection: A subsystem cannot be instantiated\nduring runtime, but its contents can be initialized. When\nsubsystems are connected, they create a single system.",
+      "char_count": 494,
       "module_id": null
     },
     {
@@ -3051,43 +2862,35 @@
         "view of any system.",
         "They help during the testing of a system.",
         "They visualize the connection between various components.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ How to Draw a Component Diagram (Key Steps):",
         "Before modeling, identify all components within the system and their working.",
         "Explore each component in depth to understand its connection to other physical",
         "artifacts in the system.",
-        "Identify the relationships among various artifacts, libraries, and files.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Identify the relationships among various artifacts, libraries, and files."
       ],
       "notes": null,
-      "raw_text": "Why use and How to Draw Component Diagram\n⮚ Why use Component Diagrams?\nThey are used to represent the structure and organization of components during any\ninstance of time.\nThey are used for modeling subsystems, which collectively represent the entire working\nview of any system.\nThey help during the testing of a system.\nThey visualize the connection between various components.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ How to Draw a Component Diagram (Key Steps):\nBefore modeling, identify all components within the system and their working.\nExplore each component in depth to understand its connection to other physical\nartifacts in the system.\nIdentify the relationships among various artifacts, libraries, and files.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 804,
+      "raw_text": "Why use and How to Draw Component Diagram\n⮚ Why use Component Diagrams?\nThey are used to represent the structure and organization of components during any\ninstance of time.\nThey are used for modeling subsystems, which collectively represent the entire working\nview of any system.\nThey help during the testing of a system.\nThey visualize the connection between various components.\n⮚ How to Draw a Component Diagram (Key Steps):\nBefore modeling, identify all components within the system and their working.\nExplore each component in depth to understand its connection to other physical\nartifacts in the system.\nIdentify the relationships among various artifacts, libraries, and files.",
+      "char_count": 682,
       "module_id": null
     },
     {
       "slide_id": 157,
       "slide_number": 158,
       "title": "Real World Examples: Online Shopping System",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Real World Examples: Online Shopping System\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 165,
+      "raw_text": "Real World Examples: Online Shopping System",
+      "char_count": 43,
       "module_id": null
     },
     {
       "slide_id": 158,
       "slide_number": 159,
       "title": "Real World Examples: ATM System",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Real World Examples: ATM System\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 153,
+      "raw_text": "Real World Examples: ATM System",
+      "char_count": 31,
       "module_id": null
     },
     {
@@ -5101,13 +4904,11 @@
         "The Cost of Neglecting Quality Management in Software Projects",
         "⮚",
         "Introduce how lapses in quality processes can lead to pervasive security flaws",
-        "affecting millions.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "affecting millions."
       ],
       "notes": null,
-      "raw_text": "Case Study: Heartbleed Vulnerability in OpenSSL\n⮚\nThe Cost of Neglecting Quality Management in Software Projects\n⮚\nIntroduce how lapses in quality processes can lead to pervasive security flaws\naffecting millions.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 335,
+      "raw_text": "Case Study: Heartbleed Vulnerability in OpenSSL\n⮚\nThe Cost of Neglecting Quality Management in Software Projects\n⮚\nIntroduce how lapses in quality processes can lead to pervasive security flaws\naffecting millions.",
+      "char_count": 213,
       "module_id": null
     },
     {
@@ -5122,15 +4923,13 @@
         "⮚",
         "Maintained by a small team of volunteers; updates were irregular and lacked",
         "formal release processes at the time.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Adopted by major projects (Apache, Nginx, curl), meaning any flaw propagates",
-        "broadly.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "broadly."
       ],
       "notes": null,
-      "raw_text": "Background⮚–⮚What⮚is⮚OpenSSL?\n⮚\nOpenSSL is a widely used open-source library implementing SSL/TLS protocols\nfor secure communications. It underpins web servers, mail clients, and many\nembedded devices.\n⮚\nMaintained by a small team of volunteers; updates were irregular and lacked\nformal release processes at the time.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nAdopted by major projects (Apache, Nginx, curl), meaning any flaw propagates\nbroadly.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 527,
+      "raw_text": "Background⮚–⮚What⮚is⮚OpenSSL?\n⮚\nOpenSSL is a widely used open-source library implementing SSL/TLS protocols\nfor secure communications. It underpins web servers, mail clients, and many\nembedded devices.\n⮚\nMaintained by a small team of volunteers; updates were irregular and lacked\nformal release processes at the time.\n⮚\nAdopted by major projects (Apache, Nginx, curl), meaning any flaw propagates\nbroadly.",
+      "char_count": 405,
       "module_id": null
     },
     {
@@ -5146,7 +4945,6 @@
         "⮚",
         "Vulnerability Mechanism:⮚OpenSSL⮚did⮚not⮚validate⮚that the length field",
         "matched the actual payload size. A malicious client could ask for, say, 64 KB of",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "data while sending only a few bytes, causing the server to return excess",
         "memory contents.",
         "⮚",
@@ -5154,12 +4952,11 @@
         "session tokens, and PII—completely⮚undermining TLS confidentiality",
         "guarantees (CVE-2014-0160).",
         "⮚",
-        "Reference:⮚⮚https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Reference:⮚⮚https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160"
       ],
       "notes": null,
-      "raw_text": "TLS Heartbeat Overview\n⮚\nProtocol Extension (RFC 6520):⮚TLS⮚Heartbeat lets one peer send a “keep-\nalive”⮚message—containing⮚an arbitrary payload and a length field—to⮚its\ncounterpart without renegotiating the entire TLS handshake. The receiver is\nsupposed to echo back exactly that payload.\n⮚\nVulnerability Mechanism:⮚OpenSSL⮚did⮚not⮚validate⮚that the length field\nmatched the actual payload size. A malicious client could ask for, say, 64 KB of\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\ndata while sending only a few bytes, causing the server to return excess\nmemory contents.\n⮚\nSecurity Impact:⮚Memory⮚disclosure at this level can expose private keys,\nsession tokens, and PII—completely⮚undermining TLS confidentiality\nguarantees (CVE-2014-0160).\n⮚\nReference:⮚⮚https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 903,
+      "raw_text": "TLS Heartbeat Overview\n⮚\nProtocol Extension (RFC 6520):⮚TLS⮚Heartbeat lets one peer send a “keep-\nalive”⮚message—containing⮚an arbitrary payload and a length field—to⮚its\ncounterpart without renegotiating the entire TLS handshake. The receiver is\nsupposed to echo back exactly that payload.\n⮚\nVulnerability Mechanism:⮚OpenSSL⮚did⮚not⮚validate⮚that the length field\nmatched the actual payload size. A malicious client could ask for, say, 64 KB of\ndata while sending only a few bytes, causing the server to return excess\nmemory contents.\n⮚\nSecurity Impact:⮚Memory⮚disclosure at this level can expose private keys,\nsession tokens, and PII—completely⮚undermining TLS confidentiality\nguarantees (CVE-2014-0160).\n⮚\nReference:⮚⮚https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160",
+      "char_count": 781,
       "module_id": null
     },
     {
@@ -5173,19 +4970,17 @@
         "⮚",
         "Discovery:⮚April⮚7, 2014 —⮚Neel Mehta of Google Security identifies suspicious",
         "behaviour in OpenSSL’s⮚heartbeat code.’",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Public Disclosure & Patch Release:⮚April⮚7–8,⮚2014 —⮚OpenSSL team publishes",
         "versions 1.0.1g (and later 1.0.0 series) with the fix.",
         "⮚",
         "Response Window:⮚Immediately⮚following disclosure, major browsers, OS",
         "distributions, and server operators raced to update—yet⮚17% of HTTPS",
-        "servers⮚remained⮚vulnerable for weeks.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "servers⮚remained⮚vulnerable for weeks."
       ],
       "notes": null,
-      "raw_text": "The⮚Incident⮚–⮚Heartbleed⮚(2014)\n⮚\nOver two years, the bug remained in code, unnoticed by code reviews and\ntesting.\n⮚\nDiscovery:⮚April⮚7, 2014 —⮚Neel Mehta of Google Security identifies suspicious\nbehaviour in OpenSSL’s⮚heartbeat code.’\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nPublic Disclosure & Patch Release:⮚April⮚7–8,⮚2014 —⮚OpenSSL team publishes\nversions 1.0.1g (and later 1.0.0 series) with the fix.\n⮚\nResponse Window:⮚Immediately⮚following disclosure, major browsers, OS\ndistributions, and server operators raced to update—yet⮚17% of HTTPS\nservers⮚remained⮚vulnerable for weeks.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 671,
+      "raw_text": "The⮚Incident⮚–⮚Heartbleed⮚(2014)\n⮚\nOver two years, the bug remained in code, unnoticed by code reviews and\ntesting.\n⮚\nDiscovery:⮚April⮚7, 2014 —⮚Neel Mehta of Google Security identifies suspicious\nbehaviour in OpenSSL’s⮚heartbeat code.’\n⮚\nPublic Disclosure & Patch Release:⮚April⮚7–8,⮚2014 —⮚OpenSSL team publishes\nversions 1.0.1g (and later 1.0.0 series) with the fix.\n⮚\nResponse Window:⮚Immediately⮚following disclosure, major browsers, OS\ndistributions, and server operators raced to update—yet⮚17% of HTTPS\nservers⮚remained⮚vulnerable for weeks.",
+      "char_count": 549,
       "module_id": null
     },
     {
@@ -5199,18 +4994,16 @@
         "⮚",
         "Insufficient Testing:⮚No⮚negative tests for out-of-bounds reads of heartbeat",
         "messages; missing fuzzing or boundary-case tests.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Unstructured Release Process:⮚No⮚formal quality gates or regression test suites",
         "enforced before release.",
         "⮚",
         "Poor Documentation:⮚Limited⮚design specs and no comprehensive test plans",
-        "made maintenance harder.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "made maintenance harder."
       ],
       "notes": null,
-      "raw_text": "Quality Management Failures\n⮚\nLack of Formal Code Review:⮚Patches⮚were accepted without systematic peer\nreview or documented approval workflows.\n⮚\nInsufficient Testing:⮚No⮚negative tests for out-of-bounds reads of heartbeat\nmessages; missing fuzzing or boundary-case tests.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nUnstructured Release Process:⮚No⮚formal quality gates or regression test suites\nenforced before release.\n⮚\nPoor Documentation:⮚Limited⮚design specs and no comprehensive test plans\nmade maintenance harder.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 602,
+      "raw_text": "Quality Management Failures\n⮚\nLack of Formal Code Review:⮚Patches⮚were accepted without systematic peer\nreview or documented approval workflows.\n⮚\nInsufficient Testing:⮚No⮚negative tests for out-of-bounds reads of heartbeat\nmessages; missing fuzzing or boundary-case tests.\n⮚\nUnstructured Release Process:⮚No⮚formal quality gates or regression test suites\nenforced before release.\n⮚\nPoor Documentation:⮚Limited⮚design specs and no comprehensive test plans\nmade maintenance harder.",
+      "char_count": 480,
       "module_id": null
     },
     {
@@ -5224,30 +5017,25 @@
         "⮚",
         "Automated Testing:⮚Integrate⮚unit tests, boundary-value tests, and fuzz",
         "testing in CI pipelines.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Documentation & Traceability:⮚Maintain⮚clear design documents, change logs,",
         "and test plans to track requirements and coverage.",
         "⮚",
-        "Periodic Audits:⮚Conduct⮚security⮚audits⮚and⮚peer⮚reviews⮚on⮚critical⮚modules",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Periodic Audits:⮚Conduct⮚security⮚audits⮚and⮚peer⮚reviews⮚on⮚critical⮚modules"
       ],
       "notes": null,
-      "raw_text": "What Should Have Been Done?\n⮚\nDefined Quality Framework:⮚Establish⮚a release process with mandatory code\nreviews, test coverage thresholds, and approval steps.\n⮚\nAutomated Testing:⮚Integrate⮚unit tests, boundary-value tests, and fuzz\ntesting in CI pipelines.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nDocumentation & Traceability:⮚Maintain⮚clear design documents, change logs,\nand test plans to track requirements and coverage.\n⮚\nPeriodic Audits:⮚Conduct⮚security⮚audits⮚and⮚peer⮚reviews⮚on⮚critical⮚modules\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 589,
+      "raw_text": "What Should Have Been Done?\n⮚\nDefined Quality Framework:⮚Establish⮚a release process with mandatory code\nreviews, test coverage thresholds, and approval steps.\n⮚\nAutomated Testing:⮚Integrate⮚unit tests, boundary-value tests, and fuzz\ntesting in CI pipelines.\n⮚\nDocumentation & Traceability:⮚Maintain⮚clear design documents, change logs,\nand test plans to track requirements and coverage.\n⮚\nPeriodic Audits:⮚Conduct⮚security⮚audits⮚and⮚peer⮚reviews⮚on⮚critical⮚modules",
+      "char_count": 467,
       "module_id": null
     },
     {
       "slide_id": 253,
       "slide_number": 254,
       "title": "Software Quality",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Software Quality\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 138,
+      "raw_text": "Software Quality",
+      "char_count": 16,
       "module_id": null
     },
     {
@@ -5259,14 +5047,12 @@
         "continuous assessment and evaluation of quality",
         "⮚ Bad quality of software could have serious repercussions on life if we are",
         "looking at life-critical applications.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ Can definitely lead to dissatisfied customers",
-        "⮚ Software quality enhances long term profitability of products",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ Software quality enhances long term profitability of products"
       ],
       "notes": null,
-      "raw_text": "Software Quality\n⮚ Software systems are complex and evolve, hence there is a need for\ncontinuous assessment and evaluation of quality\n⮚ Bad quality of software could have serious repercussions on life if we are\nlooking at life-critical applications.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Can definitely lead to dissatisfied customers\n⮚ Software quality enhances long term profitability of products\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 483,
+      "raw_text": "Software Quality\n⮚ Software systems are complex and evolve, hence there is a need for\ncontinuous assessment and evaluation of quality\n⮚ Bad quality of software could have serious repercussions on life if we are\nlooking at life-critical applications.\n⮚ Can definitely lead to dissatisfied customers\n⮚ Software quality enhances long term profitability of products",
+      "char_count": 361,
       "module_id": null
     },
     {
@@ -5283,18 +5069,16 @@
         "⮚",
         "Manufacturing based",
         "Conformance to specs.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Product-based",
         "Based on attributes of the software",
         "⮚",
         "Balancing time, cost and profits",
-        "Value-Based",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Value-Based"
       ],
       "notes": null,
-      "raw_text": "Software Quality – Different perspectives\n⮚\nTranscendent\nExceeded normal expectations.\n⮚\nUser-Based\nFitness for use\n⮚\nManufacturing based\nConformance to specs.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nProduct-based\nBased on attributes of the software\n⮚\nBalancing time, cost and profits\nValue-Based\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 380,
+      "raw_text": "Software Quality – Different perspectives\n⮚\nTranscendent\nExceeded normal expectations.\n⮚\nUser-Based\nFitness for use\n⮚\nManufacturing based\nConformance to specs.\n⮚\nProduct-based\nBased on attributes of the software\n⮚\nBalancing time, cost and profits\nValue-Based",
+      "char_count": 258,
       "module_id": null
     },
     {
@@ -5309,19 +5093,17 @@
         "⮚ Integrity: Is it secure?",
         "⮚ Usability: Can I use it?",
         "⮚ Functionality: Does it have necessary features?",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ Availability: Will the product always run when needed?",
         "Overall Environment Perspective",
         "⮚ Responsiveness: Can I quickly respond to change?",
         "⮚ Predictability: Can I always predict the progress?",
         "⮚ Productivity: Will things be done efficiently?",
         "⮚ People: Will the customers be satisfied?",
-        "Will the employees be gainfully engaged?",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Will the employees be gainfully engaged?"
       ],
       "notes": null,
-      "raw_text": "Software Product quality perspective\nProduct Operation Perspective\n⮚ Correctness: Does it do what I want?\n⮚ Reliability: Is it always accurate?\n⮚ Efficiency: Does it run as well as it can?\n⮚ Integrity: Is it secure?\n⮚ Usability: Can I use it?\n⮚ Functionality: Does it have necessary features?\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Availability: Will the product always run when needed?\nOverall Environment Perspective\n⮚ Responsiveness: Can I quickly respond to change?\n⮚ Predictability: Can I always predict the progress?\n⮚ Productivity: Will things be done efficiently?\n⮚ People: Will the customers be satisfied?\nWill the employees be gainfully engaged?\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 740,
+      "raw_text": "Software Product quality perspective\nProduct Operation Perspective\n⮚ Correctness: Does it do what I want?\n⮚ Reliability: Is it always accurate?\n⮚ Efficiency: Does it run as well as it can?\n⮚ Integrity: Is it secure?\n⮚ Usability: Can I use it?\n⮚ Functionality: Does it have necessary features?\n⮚ Availability: Will the product always run when needed?\nOverall Environment Perspective\n⮚ Responsiveness: Can I quickly respond to change?\n⮚ Predictability: Can I always predict the progress?\n⮚ Productivity: Will things be done efficiently?\n⮚ People: Will the customers be satisfied?\nWill the employees be gainfully engaged?",
+      "char_count": 618,
       "module_id": null
     },
     {
@@ -5336,12 +5118,11 @@
         "Product Transition Perspective",
         "⮚ Portability: Can it Department⮚of⮚CSE⮚–⮚UE23CS341A be used on another machine?",
         "⮚ Reusability: Can I reuse some/all of the software?",
-        "⮚ Interoperability: Can I interface it with another system?",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ Interoperability: Can I interface it with another system?"
       ],
       "notes": null,
-      "raw_text": "Software Product quality perspective ….\nProduct Revision Perspective\n⮚ Maintainability: Can I fix it?\n⮚ Testability: Can I test it?\n⮚ Flexibility: Can I change it?\nProduct Transition Perspective\n⮚ Portability: Can it Department⮚of⮚CSE⮚–⮚UE23CS341A be used on another machine?\n⮚ Reusability: Can I reuse some/all of the software?\n⮚ Interoperability: Can I interface it with another system?\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 479,
+      "raw_text": "Software Product quality perspective ….\nProduct Revision Perspective\n⮚ Maintainability: Can I fix it?\n⮚ Testability: Can I test it?\n⮚ Flexibility: Can I change it?\nProduct Transition Perspective\n⮚ Portability: Can it Department⮚of⮚CSE⮚–⮚UE23CS341A be used on another machine?\n⮚ Reusability: Can I reuse some/all of the software?\n⮚ Interoperability: Can I interface it with another system?",
+      "char_count": 388,
       "module_id": null
     },
     {
@@ -5355,19 +5136,17 @@
         "Verification, Validation and Audits",
         "Improvement in quality could be achieved by improving the product or process",
         "Quality Attributes (FLURPS+)",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ Functionality: features of system",
         "⮚ Localization: Localizable to local language",
         "⮚ Usability: Intuitive, documentation",
         "⮚ Reliability: Frequency of failure in intended time",
         "⮚ Performance: Speed, throughput, resource consumption",
         "⮚ Supportability: Serviceability, maintainability",
-        "⮚ The + could include Extensibility and so on",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ The + could include Extensibility and so on"
       ],
       "notes": null,
-      "raw_text": "Approaches to look at quality\nQuality of a software product can be visualized as “Quality of the Product” vs “Quality of the\nProcess”\nQuality actions could include checking whether it conforms to certain norms\nVerification, Validation and Audits\nImprovement in quality could be achieved by improving the product or process\nQuality Attributes (FLURPS+)\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Functionality: features of system\n⮚ Localization: Localizable to local language\n⮚ Usability: Intuitive, documentation\n⮚ Reliability: Frequency of failure in intended time\n⮚ Performance: Speed, throughput, resource consumption\n⮚ Supportability: Serviceability, maintainability\n⮚ The + could include Extensibility and so on\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 797,
+      "raw_text": "Approaches to look at quality\nQuality of a software product can be visualized as “Quality of the Product” vs “Quality of the\nProcess”\nQuality actions could include checking whether it conforms to certain norms\nVerification, Validation and Audits\nImprovement in quality could be achieved by improving the product or process\nQuality Attributes (FLURPS+)\n⮚ Functionality: features of system\n⮚ Localization: Localizable to local language\n⮚ Usability: Intuitive, documentation\n⮚ Reliability: Frequency of failure in intended time\n⮚ Performance: Speed, throughput, resource consumption\n⮚ Supportability: Serviceability, maintainability\n⮚ The + could include Extensibility and so on",
+      "char_count": 675,
       "module_id": null
     },
     {
@@ -5380,19 +5159,17 @@
         "Eg: Number of errors",
         "Metric: Quantitative measure of degree to which a system possesses a given attribute",
         "Calculation between two measures",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "Eg: number of errors found per person hours",
         "Why measure?",
         "⮚ Feedback: quantifies some of the attribute to help improve the product",
         "⮚ Diagnostics: helps identify issues towards quality",
         "⮚ Supports evaluating and establishing productivity",
         "⮚ Forecasting: to predict future need and anticipate maintenance",
-        "⮚ Supports estimating, budgeting, costing and scheduling",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "⮚ Supports estimating, budgeting, costing and scheduling"
       ],
       "notes": null,
-      "raw_text": "Software quality - Terminology\nAttribute: measurable physical or abstract property of an entity\nMeasure: Quantitative indication of extent, amount, dimension, capacity or size\nEg: Number of errors\nMetric: Quantitative measure of degree to which a system possesses a given attribute\nCalculation between two measures\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nEg: number of errors found per person hours\nWhy measure?\n⮚ Feedback: quantifies some of the attribute to help improve the product\n⮚ Diagnostics: helps identify issues towards quality\n⮚ Supports evaluating and establishing productivity\n⮚ Forecasting: to predict future need and anticipate maintenance\n⮚ Supports estimating, budgeting, costing and scheduling\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 793,
+      "raw_text": "Software quality - Terminology\nAttribute: measurable physical or abstract property of an entity\nMeasure: Quantitative indication of extent, amount, dimension, capacity or size\nEg: Number of errors\nMetric: Quantitative measure of degree to which a system possesses a given attribute\nCalculation between two measures\nEg: number of errors found per person hours\nWhy measure?\n⮚ Feedback: quantifies some of the attribute to help improve the product\n⮚ Diagnostics: helps identify issues towards quality\n⮚ Supports evaluating and establishing productivity\n⮚ Forecasting: to predict future need and anticipate maintenance\n⮚ Supports estimating, budgeting, costing and scheduling",
+      "char_count": 671,
       "module_id": null
     },
     {
@@ -5406,18 +5183,16 @@
         "Understandable: Metric computation should be defined and easily understood",
         "⮚",
         "Applicability: Should be applicable at all stages of software development",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Repeatable: Metrics are consistent and same when measured again",
         "⮚",
         "Economical: Computation of metric should be economical",
         "⮚",
-        "Language Independent: Metrics should not depend on programming language",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Language Independent: Metrics should not depend on programming language"
       ],
       "notes": null,
-      "raw_text": "Characteristics of software measure and metrics\n⮚\nQuantitative: Metrics should be quantitative and expressible in values\n⮚\nUnderstandable: Metric computation should be defined and easily understood\n⮚\nApplicability: Should be applicable at all stages of software development\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nRepeatable: Metrics are consistent and same when measured again\n⮚\nEconomical: Computation of metric should be economical\n⮚\nLanguage Independent: Metrics should not depend on programming language\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 592,
+      "raw_text": "Characteristics of software measure and metrics\n⮚\nQuantitative: Metrics should be quantitative and expressible in values\n⮚\nUnderstandable: Metric computation should be defined and easily understood\n⮚\nApplicability: Should be applicable at all stages of software development\n⮚\nRepeatable: Metrics are consistent and same when measured again\n⮚\nEconomical: Computation of metric should be economical\n⮚\nLanguage Independent: Metrics should not depend on programming language",
+      "char_count": 470,
       "module_id": null
     },
     {
@@ -5432,18 +5207,16 @@
         "⮚",
         "Maintainability",
         "Mean time to change, Cost to correct",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Integrity",
         "Fault tolerance, security and threats",
         "⮚",
         "Usability",
-        "Training time, skill level, productivity",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Training time, skill level, productivity"
       ],
       "notes": null,
-      "raw_text": "Characteristics of software measure and metrics\nExamples of Measures\n⮚\nCorrectness\nDefects/KLoC, Failures/Hours of operation\n⮚\nMaintainability\nMean time to change, Cost to correct\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nIntegrity\nFault tolerance, security and threats\n⮚\nUsability\nTraining time, skill level, productivity\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 404,
+      "raw_text": "Characteristics of software measure and metrics\nExamples of Measures\n⮚\nCorrectness\nDefects/KLoC, Failures/Hours of operation\n⮚\nMaintainability\nMean time to change, Cost to correct\n⮚\nIntegrity\nFault tolerance, security and threats\n⮚\nUsability\nTraining time, skill level, productivity",
+      "char_count": 282,
       "module_id": null
     },
     {
@@ -5458,18 +5231,16 @@
         "or services, and that result from internal and external failures.",
         "⮚",
         "Having such information allows an organization to determine the potential",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "savings to be gained by implementing process improvements.",
         "⮚",
         "Cost of Good Quality (COGQ) and Cost of Poor Quality (COPQ)",
         "COGQ consists of the cost of quality conformance, including any associated costs",
         "with both appraisal and prevention, whereas COPQ involves all the",
-        "nonconformance costs that are both internal and external to the company.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "nonconformance costs that are both internal and external to the company."
       ],
       "notes": null,
-      "raw_text": "Cost of quality\n⮚\nCost of quality (COQ) is defined as a methodology that allows an organization\nto determine the extent to which its resources are used for activities that\nprevent poor quality, that appraise the quality of the organization's products\nor services, and that result from internal and external failures.\n⮚\nHaving such information allows an organization to determine the potential\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nsavings to be gained by implementing process improvements.\n⮚\nCost of Good Quality (COGQ) and Cost of Poor Quality (COPQ)\nCOGQ consists of the cost of quality conformance, including any associated costs\nwith both appraisal and prevention, whereas COPQ involves all the\nnonconformance costs that are both internal and external to the company.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 855,
+      "raw_text": "Cost of quality\n⮚\nCost of quality (COQ) is defined as a methodology that allows an organization\nto determine the extent to which its resources are used for activities that\nprevent poor quality, that appraise the quality of the organization's products\nor services, and that result from internal and external failures.\n⮚\nHaving such information allows an organization to determine the potential\nsavings to be gained by implementing process improvements.\n⮚\nCost of Good Quality (COGQ) and Cost of Poor Quality (COPQ)\nCOGQ consists of the cost of quality conformance, including any associated costs\nwith both appraisal and prevention, whereas COPQ involves all the\nnonconformance costs that are both internal and external to the company.",
+      "char_count": 733,
       "module_id": null
     },
     {
@@ -5498,12 +5269,11 @@
         "E.g.: contract reviews, gating/release criteria E.g.: Structural problems, Increased Complexity",
         "Management failures: costs incurred by personnel due to poor quality",
         "software",
-        "Eg: Unplanned costs, customer damages",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Eg: Unplanned costs, customer damages"
       ],
       "notes": null,
-      "raw_text": "Cost of software quality\n⮚\nMeasure of quantifying and calculating business value of quality activities\n⮚\nCosts incurred through meeting and not meeting customer quality\n⮚\nIsolates the state of quality in the company and helps eliminate waste due to\npoor quality\nCost of Good Quality Cost of Bad Quality\nPrevention costs: Investments to Internal failure costs: costs associated with defects found before the\nprevent/avoid quality Department⮚of⮚CSE⮚–⮚UE23CS341A problems customer receives the product\nE.g.: Error proofing (forewarning of errors), E.g.: Rework, Re-testing\nimprovement initiatives\nAppraisal costs: costs to determine degree of External failure costs: costs associated with defects found after customer\nconformance to requirements and quality receives product\nstandards E.g.: Support Calls, Patches\nE.g.: Quality Assurance, Inspection\nManagement Control costs: costs to prevent Technical debt: cost of fixing a problem, which left unfixed, puts the\nor reduce failures in management functions business at risk\nE.g.: contract reviews, gating/release criteria E.g.: Structural problems, Increased Complexity\nManagement failures: costs incurred by personnel due to poor quality\nsoftware\nEg: Unplanned costs, customer damages\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 1323,
+      "raw_text": "Cost of software quality\n⮚\nMeasure of quantifying and calculating business value of quality activities\n⮚\nCosts incurred through meeting and not meeting customer quality\n⮚\nIsolates the state of quality in the company and helps eliminate waste due to\npoor quality\nCost of Good Quality Cost of Bad Quality\nPrevention costs: Investments to Internal failure costs: costs associated with defects found before the\nprevent/avoid quality Department⮚of⮚CSE⮚–⮚UE23CS341A problems customer receives the product\nE.g.: Error proofing (forewarning of errors), E.g.: Rework, Re-testing\nimprovement initiatives\nAppraisal costs: costs to determine degree of External failure costs: costs associated with defects found after customer\nconformance to requirements and quality receives product\nstandards E.g.: Support Calls, Patches\nE.g.: Quality Assurance, Inspection\nManagement Control costs: costs to prevent Technical debt: cost of fixing a problem, which left unfixed, puts the\nor reduce failures in management functions business at risk\nE.g.: contract reviews, gating/release criteria E.g.: Structural problems, Increased Complexity\nManagement failures: costs incurred by personnel due to poor quality\nsoftware\nEg: Unplanned costs, customer damages",
+      "char_count": 1232,
       "module_id": null
     },
     {
@@ -5530,12 +5300,11 @@
         "Halstead’s⮚software⮚science⮚(entropy⮚measures)",
         "Program length, volume, vocabulary",
         "Details on Halstead’s metrics can be found at:",
-        "https://www.geeksforgeeks.org/software-engineering-halsteads-software-metrics/",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "https://www.geeksforgeeks.org/software-engineering-halsteads-software-metrics/"
       ],
       "notes": null,
-      "raw_text": "Software metrics categorization\n⮚ Direct Measures (internal attributes)\nDepends only on value\nOther attributes are measured with respect to these\nE.g.: Cost, Effort, LoC, Duration of testing\n⮚ Indirect Measures (External Attributes)\nNote:\nDerived from direct measures Halstead’s metrics are based on\nthe number of distinct operators\nE.g.: Defect density, productivity\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A and operands in the program and\nare used to estimate the effort\n⮚ Size Oriented (size of software in LoC) required to develop and maintain\nthe program.\nE.g.: Errors/KLoC, Cost/LoC\n⮚ Complexity Oriented (LoC⮚–⮚function⮚of⮚Complexity)\nFan-In, Fan-out\nHalstead’s⮚software⮚science⮚(entropy⮚measures)\nProgram length, volume, vocabulary\nDetails on Halstead’s metrics can be found at:\nhttps://www.geeksforgeeks.org/software-engineering-halsteads-software-metrics/\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 946,
+      "raw_text": "Software metrics categorization\n⮚ Direct Measures (internal attributes)\nDepends only on value\nOther attributes are measured with respect to these\nE.g.: Cost, Effort, LoC, Duration of testing\n⮚ Indirect Measures (External Attributes)\nNote:\nDerived from direct measures Halstead’s metrics are based on\nthe number of distinct operators\nE.g.: Defect density, productivity\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A and operands in the program and\nare used to estimate the effort\n⮚ Size Oriented (size of software in LoC) required to develop and maintain\nthe program.\nE.g.: Errors/KLoC, Cost/LoC\n⮚ Complexity Oriented (LoC⮚–⮚function⮚of⮚Complexity)\nFan-In, Fan-out\nHalstead’s⮚software⮚science⮚(entropy⮚measures)\nProgram length, volume, vocabulary\nDetails on Halstead’s metrics can be found at:\nhttps://www.geeksforgeeks.org/software-engineering-halsteads-software-metrics/",
+      "char_count": 855,
       "module_id": null
     },
     {
@@ -5550,7 +5319,6 @@
         "Adjusting workflow or tasks",
         "Evaluating⮚team’s⮚ability⮚to⮚control⮚quality",
         "⮚ Project Metrics",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "Number of software developers",
         "Staffing pattern over the lifecycle of software",
         "Cost",
@@ -5558,12 +5326,11 @@
         "Productivity",
         "⮚ Process Metrics",
         "Insights of software engineering tasks, work product or milestones?",
-        "Long term process improvements",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Long term process improvements"
       ],
       "notes": null,
-      "raw_text": "Software metrics categorization …\n⮚ Product Metrics\nAssessing the state of the project\nTracking potential risks\nUncovering problem areas\nAdjusting workflow or tasks\nEvaluating⮚team’s⮚ability⮚to⮚control⮚quality\n⮚ Project Metrics\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nNumber of software developers\nStaffing pattern over the lifecycle of software\nCost\nSchedule\nProductivity\n⮚ Process Metrics\nInsights of software engineering tasks, work product or milestones?\nLong term process improvements\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 571,
+      "raw_text": "Software metrics categorization …\n⮚ Product Metrics\nAssessing the state of the project\nTracking potential risks\nUncovering problem areas\nAdjusting workflow or tasks\nEvaluating⮚team’s⮚ability⮚to⮚control⮚quality\n⮚ Project Metrics\nNumber of software developers\nStaffing pattern over the lifecycle of software\nCost\nSchedule\nProductivity\n⮚ Process Metrics\nInsights of software engineering tasks, work product or milestones?\nLong term process improvements",
+      "char_count": 449,
       "module_id": null
     },
     {
@@ -5583,18 +5350,16 @@
         "Analyze",
         "⮚",
         "Interpret",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Course-Correction",
         "⮚",
         "Feedback",
         "Food for thought: Why are we concerned with analyzing and interpreting",
-        "metrics?",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "metrics?"
       ],
       "notes": null,
-      "raw_text": "Usage of metrics\n⮚\nUnderstand the environment/product\n⮚\nFormulate and/or select appropriate metrics for a problem\n⮚\nEducate\n⮚\nCollect\n⮚\nAnalyze\n⮚\nInterpret\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nCourse-Correction\n⮚\nFeedback\nFood for thought: Why are we concerned with analyzing and interpreting\nmetrics?\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 388,
+      "raw_text": "Usage of metrics\n⮚\nUnderstand the environment/product\n⮚\nFormulate and/or select appropriate metrics for a problem\n⮚\nEducate\n⮚\nCollect\n⮚\nAnalyze\n⮚\nInterpret\n⮚\nCourse-Correction\n⮚\nFeedback\nFood for thought: Why are we concerned with analyzing and interpreting\nmetrics?",
+      "char_count": 266,
       "module_id": null
     },
     {
@@ -5610,16 +5375,14 @@
         "⮚",
         "Encompasses",
         "Entire software development processes and activities",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "Planning oversight, record keeping, analysis and reporting",
         "Auditing designated software work to verify compliance",
         "Ensuring deviations from documented procedure are recorded and",
-        "noncompliance is reported",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "noncompliance is reported"
       ],
       "notes": null,
-      "raw_text": "Software Quality Assurance\nSoftware Quality Assurance: methods to monitor software engineering process to\nensure quality\n⮚\nInvolves planning (setting up of goals, commitments, activities,\nmeasurements and verifications)\n⮚\nEncompasses\nEntire software development processes and activities\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nPlanning oversight, record keeping, analysis and reporting\nAuditing designated software work to verify compliance\nEnsuring deviations from documented procedure are recorded and\nnoncompliance is reported\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 611,
+      "raw_text": "Software Quality Assurance\nSoftware Quality Assurance: methods to monitor software engineering process to\nensure quality\n⮚\nInvolves planning (setting up of goals, commitments, activities,\nmeasurements and verifications)\n⮚\nEncompasses\nEntire software development processes and activities\nPlanning oversight, record keeping, analysis and reporting\nAuditing designated software work to verify compliance\nEnsuring deviations from documented procedure are recorded and\nnoncompliance is reported",
+      "char_count": 489,
       "module_id": null
     },
     {
@@ -5635,19 +5398,17 @@
         "Document Management and Control",
         "Requirements Scope",
         "Design Control",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "Development Control and Rigor",
         "Testing and Quality Assurance",
         "Risks and Mitigation",
         "Quality Audits",
         "Defect Management",
         "Training Requirements",
-        "An SQA Plan template (as per IEEE standards) is here.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "An SQA Plan template (as per IEEE standards) is here."
       ],
       "notes": null,
-      "raw_text": "Contents of the SQA plan\n⮚\nQuality cannot be plugged in and needs to happen throughout the lifecycle\n⮚\nAddresses the following\nResponsibility Management\nDocument Management and Control\nRequirements Scope\nDesign Control\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDevelopment Control and Rigor\nTesting and Quality Assurance\nRisks and Mitigation\nQuality Audits\nDefect Management\nTraining Requirements\nAn SQA Plan template (as per IEEE standards) is here.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 530,
+      "raw_text": "Contents of the SQA plan\n⮚\nQuality cannot be plugged in and needs to happen throughout the lifecycle\n⮚\nAddresses the following\nResponsibility Management\nDocument Management and Control\nRequirements Scope\nDesign Control\nDevelopment Control and Rigor\nTesting and Quality Assurance\nRisks and Mitigation\nQuality Audits\nDefect Management\nTraining Requirements\nAn SQA Plan template (as per IEEE standards) is here.",
+      "char_count": 408,
       "module_id": null
     },
     {
@@ -5655,65 +5416,52 @@
       "slide_number": 270,
       "title": "Technical Debt",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA",
         "Education"
       ],
       "notes": null,
-      "raw_text": "Technical Debt\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA\nEducation",
-      "char_count": 131,
+      "raw_text": "Technical Debt\nDDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA\nEducation",
+      "char_count": 100,
       "module_id": null
     },
     {
       "slide_id": 270,
       "slide_number": 271,
       "title": "Technical Debt",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Technical Debt\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 136,
+      "raw_text": "Technical Debt",
+      "char_count": 14,
       "module_id": null
     },
     {
       "slide_id": 271,
       "slide_number": 272,
       "title": "A better analogy?: Pollution",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "A better analogy?: Pollution\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 150,
+      "raw_text": "A better analogy?: Pollution",
+      "char_count": 28,
       "module_id": null
     },
     {
       "slide_id": 272,
       "slide_number": 273,
       "title": "Technical Debt",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Technical Debt\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 136,
+      "raw_text": "Technical Debt",
+      "char_count": 14,
       "module_id": null
     },
     {
       "slide_id": 273,
       "slide_number": 274,
       "title": "Internal quality makes it easier to add features",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Internal quality makes it easier to add features\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 170,
+      "raw_text": "Internal quality makes it easier to add features",
+      "char_count": 48,
       "module_id": null
     },
     {
@@ -5721,13 +5469,12 @@
       "slide_number": 275,
       "title": "Examples of Technical Debt",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA",
         "Education"
       ],
       "notes": null,
-      "raw_text": "Examples of Technical Debt\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA\nEducation",
-      "char_count": 143,
+      "raw_text": "Examples of Technical Debt\nDDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA\nEducation",
+      "char_count": 112,
       "module_id": null
     },
     {
@@ -5739,39 +5486,31 @@
         "implementation constructs that are expedient in the short term but that set up",
         "a technical context that can make a future change more costly or impossible. “",
         "“Technical⮚debt⮚is⮚a⮚contingent⮚liability⮚whose⮚impact⮚is⮚limited to internal",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "system qualities –⮚primarily,⮚but⮚not⮚only,⮚maintainability and evolvability.”",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "system qualities –⮚primarily,⮚but⮚not⮚only,⮚maintainability and evolvability.”"
       ],
       "notes": null,
-      "raw_text": "Technical Debt != Bad Internal Quality\n“In⮚software-intensive⮚systems,⮚technical⮚de⮚bt⮚consists⮚of⮚design or\nimplementation constructs that are expedient in the short term but that set up\na technical context that can make a future change more costly or impossible. “\n“Technical⮚debt⮚is⮚a⮚contingent⮚liability⮚whose⮚impact⮚is⮚limited to internal\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nsystem qualities –⮚primarily,⮚but⮚not⮚only,⮚maintainability and evolvability.”\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 545,
+      "raw_text": "Technical Debt != Bad Internal Quality\n“In⮚software-intensive⮚systems,⮚technical⮚de⮚bt⮚consists⮚of⮚design or\nimplementation constructs that are expedient in the short term but that set up\na technical context that can make a future change more costly or impossible. “\n“Technical⮚debt⮚is⮚a⮚contingent⮚liability⮚whose⮚impact⮚is⮚limited to internal\nsystem qualities –⮚primarily,⮚but⮚not⮚only,⮚maintainability and evolvability.”",
+      "char_count": 423,
       "module_id": null
     },
     {
       "slide_id": 276,
       "slide_number": 277,
       "title": "High Internal Quality is an Investment",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "High Internal Quality is an Investment\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 160,
+      "raw_text": "High Internal Quality is an Investment",
+      "char_count": 38,
       "module_id": null
     },
     {
       "slide_id": 277,
       "slide_number": 278,
       "title": "What actions cause technical debt?",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "What actions cause technical debt?\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 156,
+      "raw_text": "What actions cause technical debt?",
+      "char_count": 34,
       "module_id": null
     },
     {
@@ -5785,29 +5524,25 @@
         "⮚ Lack of process",
         "⮚ Lack of documentation",
         "⮚ Lack of automated testing",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚ Lack of knowledge",
         "⮚ Lack of ownership",
         "⮚ Delayed refactoring",
         "⮚ Multiple, long-lived development",
-        "branches",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "branches"
       ],
       "notes": null,
-      "raw_text": "What actions cause technical debt?\n⮚ Tightly-coupled components\n⮚ Poorly-specified requirements\n⮚ Business pressure\n⮚ Lack of process\n⮚ Lack of documentation\n⮚ Lack of automated testing\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚ Lack of knowledge\n⮚ Lack of ownership\n⮚ Delayed refactoring\n⮚ Multiple, long-lived development\nbranches\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 413,
+      "raw_text": "What actions cause technical debt?\n⮚ Tightly-coupled components\n⮚ Poorly-specified requirements\n⮚ Business pressure\n⮚ Lack of process\n⮚ Lack of documentation\n⮚ Lack of automated testing\n⮚ Lack of knowledge\n⮚ Lack of ownership\n⮚ Delayed refactoring\n⮚ Multiple, long-lived development\nbranches",
+      "char_count": 291,
       "module_id": null
     },
     {
       "slide_id": 279,
       "slide_number": 280,
-      "title": "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A"
-      ],
+      "title": null,
+      "bullets": [],
       "notes": null,
-      "raw_text": "Department⮚of⮚CSE⮚–⮚UE23CS341A\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A",
-      "char_count": 61,
+      "raw_text": "",
+      "char_count": 0,
       "module_id": null
     },
     {
@@ -5821,18 +5556,16 @@
         "Conversations with the client become awkward",
         "⮚",
         "Team infighting",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Turnover and attrition",
         "⮚",
         "Development speed",
         "⮚",
-        "…",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "…"
       ],
       "notes": null,
-      "raw_text": "Bad: Too much technical debt\n⮚\nBad code can be demoralizing\n⮚\nConversations with the client become awkward\n⮚\nTeam infighting\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nTurnover and attrition\n⮚\nDevelopment speed\n⮚\n…\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 295,
+      "raw_text": "Bad: Too much technical debt\n⮚\nBad code can be demoralizing\n⮚\nConversations with the client become awkward\n⮚\nTeam infighting\n⮚\nTurnover and attrition\n⮚\nDevelopment speed\n⮚\n…",
+      "char_count": 173,
       "module_id": null
     },
     {
@@ -5840,26 +5573,22 @@
       "slide_number": 282,
       "title": "How to manage Technical Debt?",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA",
         "Education"
       ],
       "notes": null,
-      "raw_text": "How to manage Technical Debt?\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA\nEducation",
-      "char_count": 146,
+      "raw_text": "How to manage Technical Debt?\nDDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA\nEducation",
+      "char_count": 115,
       "module_id": null
     },
     {
       "slide_id": 282,
       "slide_number": 283,
       "title": "When should we reduce technical debt?",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "When should we reduce technical debt?\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 159,
+      "raw_text": "When should we reduce technical debt?",
+      "char_count": 37,
       "module_id": null
     },
     {
@@ -5871,26 +5600,21 @@
         "Recognizing technical debt",
         "Making technical debt visible",
         "Deciding when and how to resolve debt",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "Living with technical debt",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Living with technical debt"
       ],
       "notes": null,
-      "raw_text": "Managing Technical Debt\nOrganizations needs to address the following challenges continuously:\nRecognizing technical debt\nMaking technical debt visible\nDeciding when and how to resolve debt\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nLiving with technical debt\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 337,
+      "raw_text": "Managing Technical Debt\nOrganizations needs to address the following challenges continuously:\nRecognizing technical debt\nMaking technical debt visible\nDeciding when and how to resolve debt\nLiving with technical debt",
+      "char_count": 215,
       "module_id": null
     },
     {
       "slide_id": 284,
       "slide_number": 285,
       "title": "Not all Technical Debt is same",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Not all Technical Debt is same\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 152,
+      "raw_text": "Not all Technical Debt is same",
+      "char_count": 30,
       "module_id": null
     },
     {
@@ -5898,13 +5622,12 @@
       "slide_number": 286,
       "title": "How can we avoid (inadvertent) technical debt?",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA",
         "Education"
       ],
       "notes": null,
-      "raw_text": "How can we avoid (inadvertent) technical debt?\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA\nEducation",
-      "char_count": 163,
+      "raw_text": "How can we avoid (inadvertent) technical debt?\nDDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA\nEducation",
+      "char_count": 132,
       "module_id": null
     },
     {
@@ -5913,13 +5636,11 @@
       "title": "Common Anti-Patterns",
       "bullets": [
         "⮚",
-        "Not having a QA process! Or no-one follows it",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Not having a QA process! Or no-one follows it"
       ],
       "notes": null,
-      "raw_text": "Common Anti-Patterns\n⮚\nNot having a QA process! Or no-one follows it\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 190,
+      "raw_text": "Common Anti-Patterns\n⮚\nNot having a QA process! Or no-one follows it",
+      "char_count": 68,
       "module_id": null
     },
     {
@@ -5933,13 +5654,11 @@
         "Bad version control practices",
         "Everyone commits to the main branch",
         "Long-lived feature branches",
-        "Huge PRs",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "Huge PRs"
       ],
       "notes": null,
-      "raw_text": "Common Anti-Patterns\n⮚\nNot having a QA process! Or no-one follows it\n⮚\nBad version control practices\nEveryone commits to the main branch\nLong-lived feature branches\nHuge PRs\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 295,
+      "raw_text": "Common Anti-Patterns\n⮚\nNot having a QA process! Or no-one follows it\n⮚\nBad version control practices\nEveryone commits to the main branch\nLong-lived feature branches\nHuge PRs",
+      "char_count": 173,
       "module_id": null
     },
     {
@@ -5954,13 +5673,11 @@
         "⮚",
         "Slow and encumbering QA processes",
         "changes take forever to get merged",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "time could be better spent on new features",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "time could be better spent on new features"
       ],
       "notes": null,
-      "raw_text": "Common Anti-Patterns\n⮚\nNot having a QA process! Or no-one follows it\n⮚\nBad version control practices\n⮚\nSlow and encumbering QA processes\nchanges take forever to get merged\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\ntime could be better spent on new features\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 336,
+      "raw_text": "Common Anti-Patterns\n⮚\nNot having a QA process! Or no-one follows it\n⮚\nBad version control practices\n⮚\nSlow and encumbering QA processes\nchanges take forever to get merged\ntime could be better spent on new features",
+      "char_count": 214,
       "module_id": null
     },
     {
@@ -5974,18 +5691,16 @@
         "Bad version control practices",
         "⮚",
         "Slow and encumbering QA processes",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Reliance on repetitive manual labor",
         "focused on superficial problems rather than",
         "structural ones",
         "results may vary (e.g., manual testing)",
-        "mistakes will happen!",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "mistakes will happen!"
       ],
       "notes": null,
-      "raw_text": "Common Anti-Patterns\n⮚\nNot having a QA process! Or no-one follows it\n⮚\nBad version control practices\n⮚\nSlow and encumbering QA processes\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nReliance on repetitive manual labor\nfocused on superficial problems rather than\nstructural ones\nresults may vary (e.g., manual testing)\nmistakes will happen!\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 418,
+      "raw_text": "Common Anti-Patterns\n⮚\nNot having a QA process! Or no-one follows it\n⮚\nBad version control practices\n⮚\nSlow and encumbering QA processes\n⮚\nReliance on repetitive manual labor\nfocused on superficial problems rather than\nstructural ones\nresults may vary (e.g., manual testing)\nmistakes will happen!",
+      "char_count": 296,
       "module_id": null
     },
     {
@@ -6020,13 +5735,12 @@
       "slide_number": 292,
       "title": "Test-driven Development",
       "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "DDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA",
         "Education"
       ],
       "notes": null,
-      "raw_text": "Test-driven Development\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA\nEducation",
-      "char_count": 140,
+      "raw_text": "Test-driven Development\nDDIeeSppFaaCrrRttmm Eeexnnettc⮚⮚uootffi⮚⮚vCCeSSEE⮚⮚––⮚⮚UUEE2233CCSS334411AA\nEducation",
+      "char_count": 109,
       "module_id": null
     },
     {
@@ -6040,32 +5754,27 @@
         "⮚",
         "Tests are written before code and ‘passing’⮚the tests is the critical driver of",
         "development.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "You develop code incrementally, along with a test for that increment. You",
         "don’t⮚move on to the next increment until the code that you have developed",
         "passes its test.",
         "⮚",
         "TDD was introduced as part of agile methods such as Extreme Programming.",
-        "However, it can also be used in plan-driven development processes.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "However, it can also be used in plan-driven development processes."
       ],
       "notes": null,
-      "raw_text": "Test-driven Development\n⮚\nTest-driven development (TDD) is an approach to program development in\nwhich you inter-leave testing and code development.\n⮚\nTests are written before code and ‘passing’⮚the tests is the critical driver of\ndevelopment.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nYou develop code incrementally, along with a test for that increment. You\ndon’t⮚move on to the next increment until the code that you have developed\npasses its test.\n⮚\nTDD was introduced as part of agile methods such as Extreme Programming.\nHowever, it can also be used in plan-driven development processes.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 675,
+      "raw_text": "Test-driven Development\n⮚\nTest-driven development (TDD) is an approach to program development in\nwhich you inter-leave testing and code development.\n⮚\nTests are written before code and ‘passing’⮚the tests is the critical driver of\ndevelopment.\n⮚\nYou develop code incrementally, along with a test for that increment. You\ndon’t⮚move on to the next increment until the code that you have developed\npasses its test.\n⮚\nTDD was introduced as part of agile methods such as Extreme Programming.\nHowever, it can also be used in plan-driven development processes.",
+      "char_count": 553,
       "module_id": null
     },
     {
       "slide_id": 293,
       "slide_number": 294,
       "title": "Test-driven Development",
-      "bullets": [
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
-      ],
+      "bullets": [],
       "notes": null,
-      "raw_text": "Test-driven Development\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 145,
+      "raw_text": "Test-driven Development",
+      "char_count": 23,
       "module_id": null
     },
     {
@@ -6080,18 +5789,16 @@
         "Write a test for this functionality and implement this as an automated test.",
         "⮚",
         "Run the test, along with all other tests that have been implemented. Initially,",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "you have not implemented the functionality so the new test will fail.",
         "⮚",
         "Implement the functionality and re-run the test.",
         "⮚",
         "Once all tests run successfully, you move on to implementing the next chunk",
-        "of functionality.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "of functionality."
       ],
       "notes": null,
-      "raw_text": "TDD process activities\n⮚\nStart by identifying the increment of functionality that is required. This should\nnormally be small and implementable in a few lines of code.\n⮚\nWrite a test for this functionality and implement this as an automated test.\n⮚\nRun the test, along with all other tests that have been implemented. Initially,\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\nyou have not implemented the functionality so the new test will fail.\n⮚\nImplement the functionality and re-run the test.\n⮚\nOnce all tests run successfully, you move on to implementing the next chunk\nof functionality.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 666,
+      "raw_text": "TDD process activities\n⮚\nStart by identifying the increment of functionality that is required. This should\nnormally be small and implementable in a few lines of code.\n⮚\nWrite a test for this functionality and implement this as an automated test.\n⮚\nRun the test, along with all other tests that have been implemented. Initially,\nyou have not implemented the functionality so the new test will fail.\n⮚\nImplement the functionality and re-run the test.\n⮚\nOnce all tests run successfully, you move on to implementing the next chunk\nof functionality.",
+      "char_count": 544,
       "module_id": null
     },
     {
@@ -6107,7 +5814,6 @@
         "Regression testing",
         "A regression test suite is developed incrementally as a program is",
         "developed.",
-        "Department⮚of⮚CSE⮚–⮚UE23CS341A",
         "⮚",
         "Simplified debugging",
         "When a test fails, it should be obvious where the problem lies. The newly",
@@ -6115,12 +5821,11 @@
         "⮚",
         "System documentation",
         "The tests themselves are a form of documentation that describe what the",
-        "code should be doing.",
-        "DDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA"
+        "code should be doing."
       ],
       "notes": null,
-      "raw_text": "Benefits of test-driven development\n⮚\nCode coverage\nEvery code segment that you write has at least one associated test so all\ncode written has at least one test.\n⮚\nRegression testing\nA regression test suite is developed incrementally as a program is\ndeveloped.\nDepartment⮚of⮚CSE⮚–⮚UE23CS341A\n⮚\nSimplified debugging\nWhen a test fails, it should be obvious where the problem lies. The newly\nwritten code needs to be checked and modified.\n⮚\nSystem documentation\nThe tests themselves are a form of documentation that describe what the\ncode should be doing.\nDDDeeepppaaarrrtttmmmeeennnttt⮚⮚⮚ooofff⮚⮚⮚CCCSSSEEE⮚⮚⮚–––⮚⮚⮚UUUEEE222333CCCSSS333444111AAA",
-      "char_count": 643,
+      "raw_text": "Benefits of test-driven development\n⮚\nCode coverage\nEvery code segment that you write has at least one associated test so all\ncode written has at least one test.\n⮚\nRegression testing\nA regression test suite is developed incrementally as a program is\ndeveloped.\n⮚\nSimplified debugging\nWhen a test fails, it should be obvious where the problem lies. The newly\nwritten code needs to be checked and modified.\n⮚\nSystem documentation\nThe tests themselves are a form of documentation that describe what the\ncode should be doing.",
+      "char_count": 521,
       "module_id": null
     },
     {

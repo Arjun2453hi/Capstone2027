@@ -33,6 +33,22 @@ How title/bullet splitting works:
     size data and treats the largest-font line(s) at the top of each page
     as the title; everything below that is a bullet (with leading marker
     characters like "•" or "-" stripped).
+
+Boilerplate stripping (two-pass) — see DocumentParsing/claude.md:
+    Real slide exports almost always carry a repeated course/unit banner
+    and a page-number footer on every page. When that banner renders in
+    a bigger font than the slide's actual heading (common with
+    university deck templates), the "largest font at the top" rule above
+    would pick the banner as the title instead of the real heading, and
+    the real title falls through and gets misclassified as a bullet.
+    extract_deck() runs two passes to avoid this: pass 1 collects every
+    page's lines with no classification yet; a line that recurs (after
+    digit-normalizing, so page numbers don't dodge detection) on enough
+    distinct pages is flagged as boilerplate and stripped from every
+    page's lines; pass 2 runs title/bullet detection on what's left.
+    Order matters — stripping has to happen before classification, or
+    the banner has already won the title slot by the time anyone tries
+    to remove it.
 """
 import json
 import os
@@ -60,6 +76,15 @@ TITLE_SIZE_TOLERANCE = 0.5    # px: font-size slack when matching the page's max
 BULLET_MARKER_RE = re.compile(
     r"^(?:[\u2022\u25CF\u2023\u2043\-\*]|\(cid:\d+\))\s*"
 )
+
+# Boilerplate detection (see module docstring). Both a fraction *and* an
+# absolute floor are required: fraction alone breaks on small decks (2
+# pages out of 5 looks like 40%, but that's not enough evidence a line
+# is structural repetition rather than coincidence); an absolute floor
+# alone breaks on huge decks (3 occurrences out of 500 pages is noise).
+BOILERPLATE_MIN_FRACTION = 0.30
+BOILERPLATE_MIN_ABSOLUTE = 3
+_DIGIT_RE = re.compile(r"\d+")
 
 
 # ─────────────────────────────────────────────
@@ -132,6 +157,35 @@ def _group_words_into_lines(words):
     return result
 
 
+def _normalize_for_boilerplate(text: str) -> str:
+    """Collapse digit runs so a page-number footer normalizes to the
+    same key on every page (e.g. "Page 3 of 45" and "Page 4 of 45" both
+    become "page # of #") — without this, exact-string matching would
+    never see a footer as "repeated" at all, since the number changes
+    on every single page."""
+    return _DIGIT_RE.sub("#", text.strip().lower())
+
+
+def _detect_boilerplate_line_keys(all_page_lines, num_pages) -> set:
+    """A line is boilerplate if its normalized form appears on at least
+    max(BOILERPLATE_MIN_ABSOLUTE, BOILERPLATE_MIN_FRACTION * num_pages)
+    DISTINCT pages.
+
+    Counting distinct pages (not raw occurrences) matters: a line
+    repeated twice on one page but nowhere else must not be flagged —
+    that's topical repetition on a single slide, not the deck-wide
+    structural repetition (a banner/footer) this is meant to catch.
+    """
+    page_counts = {}
+    for page_lines in all_page_lines:
+        seen_this_page = {_normalize_for_boilerplate(l["text"]) for l in page_lines}
+        for key in seen_this_page:
+            page_counts[key] = page_counts.get(key, 0) + 1
+
+    threshold = max(BOILERPLATE_MIN_ABSOLUTE, int(BOILERPLATE_MIN_FRACTION * num_pages))
+    return {key for key, count in page_counts.items() if count >= threshold}
+
+
 def _split_title_and_bullets(lines):
     """Title = topmost contiguous run of lines at the page's max font size.
     Everything after that is bullet text (marker characters stripped)."""
@@ -158,13 +212,31 @@ def _split_title_and_bullets(lines):
 
 
 def extract_deck(pdf_path: str) -> DeckDocument:
-    slides = []
+    """Two-pass parse (see module docstring for why one pass isn't
+    enough): pass 1 collects every page's lines with no classification;
+    boilerplate is detected once across the whole deck; pass 2 strips
+    it and *then* runs title/bullet detection. Reversing this order
+    would let a boilerplate banner already win the "largest font"
+    title check before anyone tried to remove it."""
     with pdfplumber.open(pdf_path) as pdf:
         num_pages = len(pdf.pages)
-        for slide_id, page in enumerate(pdf.pages):
-            words = page.extract_words(extra_attrs=["size"])
-            lines = _group_words_into_lines(words)
-            title, bullets = _split_title_and_bullets(lines)
+
+        # Pass 1: no classification yet, just gather lines per page.
+        all_page_lines = [
+            _group_words_into_lines(page.extract_words(extra_attrs=["size"]))
+            for page in pdf.pages
+        ]
+
+        boilerplate_keys = _detect_boilerplate_line_keys(all_page_lines, num_pages)
+
+        # Pass 2: strip boilerplate, then classify what's left.
+        slides = []
+        for slide_id, page_lines in enumerate(all_page_lines):
+            clean_lines = [
+                line for line in page_lines
+                if _normalize_for_boilerplate(line["text"]) not in boilerplate_keys
+            ]
+            title, bullets = _split_title_and_bullets(clean_lines)
             slides.append(Slide(
                 slide_id=slide_id,
                 slide_number=slide_id + 1,
