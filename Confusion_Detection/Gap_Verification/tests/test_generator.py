@@ -34,6 +34,27 @@ def test_is_degenerate_catches_prompt_echo():
     assert FlanT5Generator._is_degenerate(echoed, prompt)
 
 
+def test_is_degenerate_catches_looping_repetition():
+    # Real output observed in a generated gap_report.md (not
+    # hypothetical) -- long enough and not a prompt echo, but a short
+    # phrase looping past the point of usefulness.
+    looping = (
+        "Test-driven Development Assessment [Slide 294] Test-driven Development Assessment "
+        "[Slide 294] Test-driven Development Assessment [Slide 294] Test-driven Development "
+        "Assessment [Slide 294] Test-driven Development Assessment [Slide 294]"
+    )
+    assert FlanT5Generator._is_degenerate(looping, "unrelated prompt text")
+
+
+def test_is_degenerate_does_not_flag_normal_prose_as_repetitive():
+    normal = (
+        "Technical debt accrues like financial debt: shortcuts taken now create "
+        "interest that must be paid later in the form of slower development and "
+        "more bugs down the line."
+    )
+    assert not FlanT5Generator._is_degenerate(normal, "unrelated prompt text")
+
+
 def test_generate_does_not_crash_on_garbled_context(generator):
     garbled = "DDIeeSppFaaCrrRttmm Eeexnnettc??uootffi??vCCeSSEE??" * 5
     result = generator.generate("What is technical debt?", garbled, "complete_omission", ["q1"])

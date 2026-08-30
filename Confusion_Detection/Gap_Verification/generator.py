@@ -12,12 +12,20 @@ from __future__ import annotations
 
 import re
 from abc import ABC, abstractmethod
+from collections import Counter
 from typing import List
 
 from .schema import GeneratedContent
 
 MAX_CONTEXT_CHARS = 1500  # keep the prompt well inside a small model's real window
 MIN_USABLE_LENGTH = 8  # shorter than this isn't a usable draft, just noise
+# A small generator's classic failure mode isn't just "too short" or a
+# refusal -- it can also loop a short phrase past the point of
+# usefulness (e.g. "X [Slide N] X [Slide N] X [Slide N] ..."). Found by
+# reading a real generated gap_report.md end to end (Gap_Reporting
+# claude.md's own instruction) and seeing exactly this in a live
+# guidance field -- not a hypothetical case.
+MAX_TRIGRAM_REPEATS = 3
 
 _REFUSAL_RE = re.compile(
     r"^(i don't know|i do not know|n/a|none|unknown|unclear|cannot|unable to|no information)\b",
@@ -105,4 +113,20 @@ class FlanT5Generator(GapContentGenerator):
             # of producing new content -- a known small-model failure
             # mode, not a usable draft.
             return True
+        if FlanT5Generator._has_excessive_repetition(normalized):
+            return True
         return False
+
+    @staticmethod
+    def _has_excessive_repetition(normalized_text: str) -> bool:
+        """Catches a small model looping the same short phrase past the
+        point of usefulness (e.g. "X [Slide N] X [Slide N] ..."), which
+        `len() < MIN_USABLE_LENGTH` and the refusal/echo checks above
+        don't catch -- the output can be long and not an echo of the
+        prompt, just repetitive garbage."""
+        words = normalized_text.split()
+        if len(words) < 6:
+            return False
+        trigrams = [" ".join(words[i : i + 3]) for i in range(len(words) - 2)]
+        most_common_count = Counter(trigrams).most_common(1)[0][1]
+        return most_common_count > MAX_TRIGRAM_REPEATS
