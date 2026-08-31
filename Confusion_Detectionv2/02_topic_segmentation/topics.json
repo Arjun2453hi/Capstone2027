@@ -1,0 +1,474 @@
+[
+  {
+    "topic_id": 0,
+    "start_slide_id": 0,
+    "end_slide_id": 11,
+    "slide_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "boundary_confidence": 0.0
+  },
+  {
+    "topic_id": 1,
+    "start_slide_id": 12,
+    "end_slide_id": 15,
+    "slide_ids": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "boundary_confidence": 0.36820494949817656
+  },
+  {
+    "topic_id": 2,
+    "start_slide_id": 16,
+    "end_slide_id": 21,
+    "slide_ids": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "boundary_confidence": 0.36511325657367705
+  },
+  {
+    "topic_id": 3,
+    "start_slide_id": 22,
+    "end_slide_id": 27,
+    "slide_ids": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "boundary_confidence": 0.3814277648925781
+  },
+  {
+    "topic_id": 4,
+    "start_slide_id": 28,
+    "end_slide_id": 49,
+    "slide_ids": [
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "boundary_confidence": 0.5302050691843032
+  },
+  {
+    "topic_id": 5,
+    "start_slide_id": 50,
+    "end_slide_id": 79,
+    "slide_ids": [
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ],
+    "boundary_confidence": 0.7573887091875076
+  },
+  {
+    "topic_id": 6,
+    "start_slide_id": 80,
+    "end_slide_id": 106,
+    "slide_ids": [
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106
+    ],
+    "boundary_confidence": 0.765631256699562
+  },
+  {
+    "topic_id": 7,
+    "start_slide_id": 107,
+    "end_slide_id": 126,
+    "slide_ids": [
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126
+    ],
+    "boundary_confidence": 0.9959415179491042
+  },
+  {
+    "topic_id": 8,
+    "start_slide_id": 127,
+    "end_slide_id": 133,
+    "slide_ids": [
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133
+    ],
+    "boundary_confidence": 1.1706416589021682
+  },
+  {
+    "topic_id": 9,
+    "start_slide_id": 134,
+    "end_slide_id": 139,
+    "slide_ids": [
+      134,
+      135,
+      136,
+      137,
+      138,
+      139
+    ],
+    "boundary_confidence": 0.869236050248146
+  },
+  {
+    "topic_id": 10,
+    "start_slide_id": 140,
+    "end_slide_id": 146,
+    "slide_ids": [
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146
+    ],
+    "boundary_confidence": 0.9494763594865798
+  },
+  {
+    "topic_id": 11,
+    "start_slide_id": 147,
+    "end_slide_id": 170,
+    "slide_ids": [
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170
+    ],
+    "boundary_confidence": 1.2690048795938491
+  },
+  {
+    "topic_id": 12,
+    "start_slide_id": 171,
+    "end_slide_id": 177,
+    "slide_ids": [
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177
+    ],
+    "boundary_confidence": 0.8785637003183364
+  },
+  {
+    "topic_id": 13,
+    "start_slide_id": 178,
+    "end_slide_id": 182,
+    "slide_ids": [
+      178,
+      179,
+      180,
+      181,
+      182
+    ],
+    "boundary_confidence": 0.9935052973031997
+  },
+  {
+    "topic_id": 14,
+    "start_slide_id": 183,
+    "end_slide_id": 200,
+    "slide_ids": [
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200
+    ],
+    "boundary_confidence": 0.9532015305757522
+  },
+  {
+    "topic_id": 15,
+    "start_slide_id": 201,
+    "end_slide_id": 207,
+    "slide_ids": [
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207
+    ],
+    "boundary_confidence": 0.9494763594865798
+  },
+  {
+    "topic_id": 16,
+    "start_slide_id": 208,
+    "end_slide_id": 238,
+    "slide_ids": [
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221,
+      222,
+      223,
+      224,
+      225,
+      226,
+      227,
+      228,
+      229,
+      230,
+      231,
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      238
+    ],
+    "boundary_confidence": 1.2690048795938491
+  },
+  {
+    "topic_id": 17,
+    "start_slide_id": 239,
+    "end_slide_id": 243,
+    "slide_ids": [
+      239,
+      240,
+      241,
+      242,
+      243
+    ],
+    "boundary_confidence": 0.9935052973031997
+  },
+  {
+    "topic_id": 18,
+    "start_slide_id": 244,
+    "end_slide_id": 249,
+    "slide_ids": [
+      244,
+      245,
+      246,
+      247,
+      248,
+      249
+    ],
+    "boundary_confidence": 0.9532015305757522
+  },
+  {
+    "topic_id": 19,
+    "start_slide_id": 250,
+    "end_slide_id": 256,
+    "slide_ids": [
+      250,
+      251,
+      252,
+      253,
+      254,
+      255,
+      256
+    ],
+    "boundary_confidence": 0.8172643166780471
+  },
+  {
+    "topic_id": 20,
+    "start_slide_id": 257,
+    "end_slide_id": 268,
+    "slide_ids": [
+      257,
+      258,
+      259,
+      260,
+      261,
+      262,
+      263,
+      264,
+      265,
+      266,
+      267,
+      268
+    ],
+    "boundary_confidence": 0.41178345680236816
+  },
+  {
+    "topic_id": 21,
+    "start_slide_id": 269,
+    "end_slide_id": 283,
+    "slide_ids": [
+      269,
+      270,
+      271,
+      272,
+      273,
+      274,
+      275,
+      276,
+      277,
+      278,
+      279,
+      280,
+      281,
+      282,
+      283
+    ],
+    "boundary_confidence": 0.5517811757326125
+  },
+  {
+    "topic_id": 22,
+    "start_slide_id": 284,
+    "end_slide_id": 287,
+    "slide_ids": [
+      284,
+      285,
+      286,
+      287
+    ],
+    "boundary_confidence": 0.366424560546875
+  }
+]

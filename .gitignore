@@ -1,10 +1,11 @@
-Confusion_Detection/backend/.env
+# Secrets — never commit real values
 .env
 **/.env
-__pycache__/
-*.pyc
+Confusion_Detection/backend/.env
 
 # Python
+__pycache__/
+*.pyc
 *.pyo
 .pytest_cache/
 *.egg-info/
@@ -13,14 +14,15 @@ __pycache__/
 venv/
 .venv/
 
-# Similarity_gen: on-disk embedding cache — regenerated per (deck, model, content hash)
+# Downloaded model caches / embedding caches — regenerated per run, not source
+**/.cache/
 **/.cache/embeddings/
 
 # Node (frontend)
 node_modules/
 dist/
-.DS_Store
 
 # Editors
 .vscode/
 .idea/
+.DS_Store

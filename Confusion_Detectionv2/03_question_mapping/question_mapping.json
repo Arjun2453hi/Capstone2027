@@ -1,0 +1,2379 @@
+{
+  "generated_at": "2026-08-31T07:36:21.321543+00:00",
+  "total_questions": 140,
+  "total_topics": 23,
+  "high_threshold": 0.6395065486431122,
+  "low_threshold": 0.4977603629231453,
+  "topics": [
+    {
+      "topic_id": 0,
+      "start_slide_id": 0,
+      "end_slide_id": 11,
+      "slide_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "boundary_confidence": 0.0,
+      "matched_questions": [
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.6486731767654419,
+          "method": "semantic"
+        },
+        {
+          "question": "How does KVM extend the Linux kernel to provide hypervisor functionality?",
+          "score": 0.6524795293807983,
+          "method": "semantic"
+        },
+        {
+          "question": "What did Popek and Goldberg's theorems establish?",
+          "score": 0.5169080495834351,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a hypercall?",
+          "score": 0.5117920637130737,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a shadow page table and why is it needed?",
+          "score": 0.5388780236244202,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a bare-metal hypervisor?",
+          "score": 0.5989744663238525,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a hybrid hypervisor and give an example?",
+          "score": 0.6533816456794739,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Type 1 and a Type 2 hypervisor?",
+          "score": 0.6781871318817139,
+          "method": "semantic"
+        },
+        {
+          "question": "Why is a hosted hypervisor called Type 2?",
+          "score": 0.6729041337966919,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 1,
+      "start_slide_id": 12,
+      "end_slide_id": 15,
+      "slide_ids": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "boundary_confidence": 0.36820494949817656,
+      "matched_questions": [
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.6456185579299927,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization require modifying the guest OS?",
+          "score": 0.6586750745773315,
+          "method": "semantic"
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.6428297758102417,
+          "method": "semantic"
+        },
+        {
+          "question": "What triggers an update to the shadow page table?",
+          "score": 0.600622296333313,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How does Xen implement paravirtualization?",
+          "score": 0.6789197325706482,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.712186336517334,
+          "method": "semantic"
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.6791964769363403,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.7055701017379761,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 2,
+      "start_slide_id": 16,
+      "end_slide_id": 21,
+      "slide_ids": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "boundary_confidence": 0.36511325657367705,
+      "matched_questions": [
+        {
+          "question": "How is file system migration handled during VM migration?",
+          "score": 0.6632658839225769,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.7575373649597168,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the benefits of using Kubernetes, like horizontal scaling and rollbacks?",
+          "score": 0.6502422094345093,
+          "method": "semantic"
+        },
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.7017301321029663,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the three main approaches to I/O virtualization?",
+          "score": 0.7173145413398743,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization require modifying the guest OS?",
+          "score": 0.8381911516189575,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6505368947982788,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the disadvantages of paravirtualization?",
+          "score": 0.7362027168273926,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.7548158764839172,
+          "method": "semantic"
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.700663685798645,
+          "method": "semantic"
+        },
+        {
+          "question": "How does KVM extend the Linux kernel to provide hypervisor functionality?",
+          "score": 0.7060906887054443,
+          "method": "semantic"
+        },
+        {
+          "question": "How does hardware-assisted virtualization like Intel VT-x work?",
+          "score": 0.7035272121429443,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the difference between full device emulation and direct I/O passthrough?",
+          "score": 0.6437784433364868,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does the hypervisor write-protect the guest page table?",
+          "score": 0.6463249921798706,
+          "method": "semantic"
+        },
+        {
+          "question": "What is workload mobility in the context of VM migration?",
+          "score": 0.6714775562286377,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.666911244392395,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the split-driver model for I/O virtualization?",
+          "score": 0.7283179759979248,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Xen implement paravirtualization?",
+          "score": 0.724685788154602,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.8825349807739258,
+          "method": "semantic"
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.7078020572662354,
+          "method": "semantic"
+        },
+        {
+          "question": "How does the hypervisor keep the shadow page table in sync with the guest page table?",
+          "score": 0.652276337146759,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a container and a virtual machine?",
+          "score": 0.6401268839836121,
+          "method": "semantic"
+        },
+        {
+          "question": "How does pre-copy VM migration work?",
+          "score": 0.6703706979751587,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does direct I/O virtualization achieve near-native performance?",
+          "score": 0.7937564253807068,
+          "method": "semantic"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.7280498743057251,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a VM exit condition?",
+          "score": 0.6542256474494934,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.6832866668701172,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.7145040035247803,
+          "method": "semantic"
+        },
+        {
+          "question": "Why would you migrate a VM?",
+          "score": 0.6693177223205566,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.789292573928833,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the role of the Xen hypervisor versus Dom0?",
+          "score": 0.6547775268554688,
+          "method": "semantic"
+        },
+        {
+          "question": "Why is a hosted hypervisor called Type 2?",
+          "score": 0.6498052477836609,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 3,
+      "start_slide_id": 22,
+      "end_slide_id": 27,
+      "slide_ids": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "boundary_confidence": 0.3814277648925781,
+      "matched_questions": [
+        {
+          "question": "How is file system migration handled during VM migration?",
+          "score": 0.6530259847640991,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.7354583144187927,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the benefits of using Kubernetes, like horizontal scaling and rollbacks?",
+          "score": 0.654254674911499,
+          "method": "semantic"
+        },
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.6842267513275146,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the three main approaches to I/O virtualization?",
+          "score": 0.6831613779067993,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization require modifying the guest OS?",
+          "score": 0.7168760895729065,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the disadvantages of paravirtualization?",
+          "score": 0.7032536268234253,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.709535539150238,
+          "method": "semantic"
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.6947117447853088,
+          "method": "semantic"
+        },
+        {
+          "question": "How does KVM extend the Linux kernel to provide hypervisor functionality?",
+          "score": 0.7209272384643555,
+          "method": "semantic"
+        },
+        {
+          "question": "How does hardware-assisted virtualization like Intel VT-x work?",
+          "score": 0.6869717240333557,
+          "method": "semantic"
+        },
+        {
+          "question": "What is workload mobility in the context of VM migration?",
+          "score": 0.6423937678337097,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.6671513915061951,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the split-driver model for I/O virtualization?",
+          "score": 0.6627023220062256,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Xen implement paravirtualization?",
+          "score": 0.6836191415786743,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.8108627200126648,
+          "method": "semantic"
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.7264724969863892,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the disadvantages of pre-copy migration compared to post-copy?",
+          "score": 0.6438710689544678,
+          "method": "semantic"
+        },
+        {
+          "question": "How does pre-copy VM migration work?",
+          "score": 0.6604611873626709,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does direct I/O virtualization achieve near-native performance?",
+          "score": 0.7358968257904053,
+          "method": "semantic"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.6595613956451416,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do almost all VMMs use hardware assist today?",
+          "score": 0.6449887752532959,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.6544736623764038,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6847756505012512,
+          "method": "semantic"
+        },
+        {
+          "question": "Why would you migrate a VM?",
+          "score": 0.6984330415725708,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.7564709186553955,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 4,
+      "start_slide_id": 28,
+      "end_slide_id": 49,
+      "slide_ids": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "boundary_confidence": 0.5302050691843032,
+      "matched_questions": [
+        {
+          "question": "Why are control flow changes a challenge for binary translation?",
+          "score": 0.6474581956863403,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a basic block in the context of binary translation?",
+          "score": 0.6152607798576355,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is binary translation and how does it differ from trap-and-emulate?",
+          "score": 0.6511886119842529,
+          "method": "semantic"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.6561918258666992,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 5,
+      "start_slide_id": 50,
+      "end_slide_id": 79,
+      "slide_ids": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "boundary_confidence": 0.7573887091875076,
+      "matched_questions": [
+        {
+          "question": "How is file system migration handled during VM migration?",
+          "score": 0.7021573781967163,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.6886027455329895,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are control flow changes a challenge for binary translation?",
+          "score": 0.6412370204925537,
+          "method": "semantic"
+        },
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.6586825847625732,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the three main approaches to I/O virtualization?",
+          "score": 0.6965149641036987,
+          "method": "semantic"
+        },
+        {
+          "question": "What exactly happens on the ring diagram when a guest app makes a syscall in the trap-and-emulate example?",
+          "score": 0.5970228910446167,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why does paravirtualization require modifying the guest OS?",
+          "score": 0.7668702006340027,
+          "method": "semantic"
+        },
+        {
+          "question": "What are VMX root and non-root modes?",
+          "score": 0.7337335348129272,
+          "method": "semantic"
+        },
+        {
+          "question": "What does a VMM actually do?",
+          "score": 0.6494834423065186,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.6777926683425903,
+          "method": "semantic"
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.7174447774887085,
+          "method": "semantic"
+        },
+        {
+          "question": "How does KVM extend the Linux kernel to provide hypervisor functionality?",
+          "score": 0.7118918895721436,
+          "method": "semantic"
+        },
+        {
+          "question": "How does hardware-assisted virtualization like Intel VT-x work?",
+          "score": 0.7420212030410767,
+          "method": "semantic"
+        },
+        {
+          "question": "What is workload mobility in the context of VM migration?",
+          "score": 0.6667530536651611,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the split-driver model for I/O virtualization?",
+          "score": 0.7061876058578491,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Xen implement paravirtualization?",
+          "score": 0.7404580116271973,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.7411038875579834,
+          "method": "semantic"
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.6993327736854553,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does the guest OS run in Ring 1 instead of Ring 0 under Xen?",
+          "score": 0.6720463037490845,
+          "method": "semantic"
+        },
+        {
+          "question": "What ring does the VMM run in under trap-and-emulate?",
+          "score": 0.6149942874908447,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why doesn't the original x86 architecture satisfy the Popek-Goldberg requirements?",
+          "score": 0.6020251512527466,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What are the performance problems with trap-and-emulate?",
+          "score": 0.5402482151985168,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How does pre-copy VM migration work?",
+          "score": 0.7093791961669922,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does direct I/O virtualization achieve near-native performance?",
+          "score": 0.7114651799201965,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does a privileged instruction cause a trap?",
+          "score": 0.5357065796852112,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.7349511384963989,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do almost all VMMs use hardware assist today?",
+          "score": 0.6487722396850586,
+          "method": "semantic"
+        },
+        {
+          "question": "Can you walk through the full worked example of why x86 doesn't satisfy Popek-Goldberg, step by step with the ring diagram?",
+          "score": 0.5946646928787231,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How many sensitive-but-unprivileged instructions did x86 have?",
+          "score": 0.6082141399383545,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a VM exit condition?",
+          "score": 0.7037588357925415,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.6561360359191895,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.667972207069397,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the equivalence property a VMM must satisfy?",
+          "score": 0.6062641143798828,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why would you migrate a VM?",
+          "score": 0.692639946937561,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Dom0 in Xen architecture?",
+          "score": 0.6040849089622498,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Is there a diagram showing why an unmodified guest OS breaks isolation if it's mapped into the same address space as guest apps?",
+          "score": 0.6453907489776611,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.7109183073043823,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 6,
+      "start_slide_id": 80,
+      "end_slide_id": 106,
+      "slide_ids": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "boundary_confidence": 0.765631256699562,
+      "matched_questions": [
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.6415214538574219,
+          "method": "semantic"
+        },
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.6896097660064697,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the three main approaches to I/O virtualization?",
+          "score": 0.8032025694847107,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.6776962876319885,
+          "method": "semantic"
+        },
+        {
+          "question": "How does hardware-assisted virtualization like Intel VT-x work?",
+          "score": 0.7649456262588501,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the difference between full device emulation and direct I/O passthrough?",
+          "score": 0.7084667086601257,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the split-driver model for I/O virtualization?",
+          "score": 0.8004093170166016,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.682245135307312,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does direct I/O virtualization achieve near-native performance?",
+          "score": 0.7796734571456909,
+          "method": "semantic"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.7300642728805542,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.6566627025604248,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6699744462966919,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.6633260250091553,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 7,
+      "start_slide_id": 107,
+      "end_slide_id": 126,
+      "slide_ids": [
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126
+      ],
+      "boundary_confidence": 0.9959415179491042,
+      "matched_questions": [
+        {
+          "question": "How is file system migration handled during VM migration?",
+          "score": 0.6816577911376953,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.6540819406509399,
+          "method": "semantic"
+        },
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.649422287940979,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.6558061838150024,
+          "method": "semantic"
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.6398919820785522,
+          "method": "semantic"
+        },
+        {
+          "question": "What is workload mobility in the context of VM migration?",
+          "score": 0.6798602342605591,
+          "method": "semantic"
+        },
+        {
+          "question": "What is active push in post-copy migration?",
+          "score": 0.6028165817260742,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.6609842777252197,
+          "method": "semantic"
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.6492100358009338,
+          "method": "semantic"
+        },
+        {
+          "question": "How does pre-copy VM migration work?",
+          "score": 0.679182767868042,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between pre-copy and post-copy migration?",
+          "score": 0.5909125804901123,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.6443377733230591,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.64045649766922,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can repeated dirty page copying increase pre-copy migration time?",
+          "score": 0.5865145921707153,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why would you migrate a VM?",
+          "score": 0.665213406085968,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.6563303470611572,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 8,
+      "start_slide_id": 127,
+      "end_slide_id": 133,
+      "slide_ids": [
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133
+      ],
+      "boundary_confidence": 1.1706416589021682,
+      "matched_questions": [
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.657577395439148,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6546312570571899,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.6431481242179871,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.6589082479476929,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a container and a virtual machine?",
+          "score": 0.6561410427093506,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+          "score": 0.5813143849372864,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.669579803943634,
+          "method": "semantic"
+        },
+        {
+          "question": "What does a typical CI/CD pipeline for a containerized application look like?",
+          "score": 0.6529746055603027,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.7461979389190674,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6471577882766724,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6466424465179443,
+          "method": "semantic"
+        },
+        {
+          "question": "Can you give a concrete example of setting up a VETH device between two containers?",
+          "score": 0.6012325286865234,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How do you configure a veth pair step by step to let two namespaces talk to each other?",
+          "score": 0.5704561471939087,
+          "method": "llm_fallback"
+        }
+      ]
+    },
+    {
+      "topic_id": 9,
+      "start_slide_id": 134,
+      "end_slide_id": 139,
+      "slide_ids": [
+        134,
+        135,
+        136,
+        137,
+        138,
+        139
+      ],
+      "boundary_confidence": 0.869236050248146,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.7259417772293091,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.6624546051025391,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.659893274307251,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.7126047611236572,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.7392198443412781,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.7717453241348267,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.7193738222122192,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.6899737119674683,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.7070038318634033,
+          "method": "semantic"
+        },
+        {
+          "question": "How do the Docker client and daemon communicate?",
+          "score": 0.6593650579452515,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.702567458152771,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.6540989875793457,
+          "method": "semantic"
+        },
+        {
+          "question": "What does a typical CI/CD pipeline for a containerized application look like?",
+          "score": 0.6506314873695374,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.6989219188690186,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6515320539474487,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.8048866987228394,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6495344638824463,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6869896650314331,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 10,
+      "start_slide_id": 140,
+      "end_slide_id": 146,
+      "slide_ids": [
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146
+      ],
+      "boundary_confidence": 0.9494763594865798,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.6518218517303467,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.7023239135742188,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.6594254374504089,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6741688251495361,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.7533246278762817,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6723262071609497,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.65035080909729,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.740047812461853,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6531217098236084,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.6505084037780762,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.7404524683952332,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.6729121804237366,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 11,
+      "start_slide_id": 147,
+      "end_slide_id": 170,
+      "slide_ids": [
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170
+      ],
+      "boundary_confidence": 1.2690048795938491,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.7241208553314209,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.7065553665161133,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.7034665942192078,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.7016434073448181,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6708600521087646,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.7503119707107544,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6774029731750488,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.7245914340019226,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.7479382753372192,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6818993091583252,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.8050497770309448,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.7238976955413818,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.7155778408050537,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 12,
+      "start_slide_id": 171,
+      "end_slide_id": 177,
+      "slide_ids": [
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177
+      ],
+      "boundary_confidence": 0.8785637003183364,
+      "matched_questions": [
+        {
+          "question": "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+          "score": 0.7567412853240967,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a cgroup and what is it used for?",
+          "score": 0.7337756156921387,
+          "method": "semantic"
+        },
+        {
+          "question": "How are cgroups structured hierarchically?",
+          "score": 0.7527328729629517,
+          "method": "semantic"
+        },
+        {
+          "question": "What kinds of resources can a cgroup limit?",
+          "score": 0.8295688629150391,
+          "method": "semantic"
+        },
+        {
+          "question": "What would an actual cgroup resource-limit example look like in practice?",
+          "score": 0.8026957511901855,
+          "method": "semantic"
+        },
+        {
+          "question": "Is there a worked example showing how cgroups restrict a group of processes?",
+          "score": 0.7852073311805725,
+          "method": "semantic"
+        },
+        {
+          "question": "How is a specific CPU or memory limit actually enforced through a cgroup example?",
+          "score": 0.8123812675476074,
+          "method": "semantic"
+        },
+        {
+          "question": "Does a child process inherit its parent's cgroup?",
+          "score": 0.7232105731964111,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 13,
+      "start_slide_id": 178,
+      "end_slide_id": 182,
+      "slide_ids": [
+        178,
+        179,
+        180,
+        181,
+        182
+      ],
+      "boundary_confidence": 0.9935052973031997,
+      "matched_questions": [
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.8705762624740601,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.656613826751709,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.6828435659408569,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6412098407745361,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a union filesystem and how does it work?",
+          "score": 0.8677151203155518,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the weaknesses of union filesystems?",
+          "score": 0.7499662637710571,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.6639025807380676,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 14,
+      "start_slide_id": 183,
+      "end_slide_id": 200,
+      "slide_ids": [
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200
+      ],
+      "boundary_confidence": 0.9532015305757522,
+      "matched_questions": [
+        {
+          "question": "Why would you group multiple containers into one Pod?",
+          "score": 0.6406391859054565,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.8473799824714661,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.6658279895782471,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the namespace hierarchy look like before and after a process calls unshare()?",
+          "score": 0.6552643179893494,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the PID namespace isolate?",
+          "score": 0.6919437646865845,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Pod in Kubernetes?",
+          "score": 0.6436727046966553,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6582365036010742,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.8293603658676147,
+          "method": "semantic"
+        },
+        {
+          "question": "If a nested namespace changes its hostname, does the parent namespace ever see that change?",
+          "score": 0.6476025581359863,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.7254946231842041,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6499953866004944,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.6986421346664429,
+          "method": "semantic"
+        },
+        {
+          "question": "Is there a diagram showing how setns() lets a process join an existing namespace?",
+          "score": 0.6760178804397583,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.6588644981384277,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the illustrated example of creating and joining a Linux namespace?",
+          "score": 0.6845741868019104,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.6444362998008728,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.6403239965438843,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.6596393585205078,
+          "method": "semantic"
+        },
+        {
+          "question": "What kinds of resources can a cgroup limit?",
+          "score": 0.648383617401123,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a container and a virtual machine?",
+          "score": 0.6587862968444824,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6592571139335632,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.6499072313308716,
+          "method": "semantic"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.6558746099472046,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between the NET namespace and the USR namespace?",
+          "score": 0.6620569229125977,
+          "method": "semantic"
+        },
+        {
+          "question": "How deep does UTS namespace isolation go across multiple nested namespaces?",
+          "score": 0.6799275279045105,
+          "method": "semantic"
+        },
+        {
+          "question": "Can you walk through what actually happens step by step when a process calls clone() with CLONE_NEWNS to create a new mount namespace?",
+          "score": 0.6309719085693359,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What does the MNT namespace isolate?",
+          "score": 0.6811074018478394,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6723517179489136,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.6921188831329346,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6739007830619812,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6486033201217651,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 15,
+      "start_slide_id": 201,
+      "end_slide_id": 207,
+      "slide_ids": [
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207
+      ],
+      "boundary_confidence": 0.9494763594865798,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.6518218517303467,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.7023239135742188,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.6594254374504089,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6741688251495361,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.7533246278762817,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6723262071609497,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.65035080909729,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.740047812461853,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6531217098236084,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.6505084037780762,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.7404524683952332,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.6729121804237366,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 16,
+      "start_slide_id": 208,
+      "end_slide_id": 238,
+      "slide_ids": [
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238
+      ],
+      "boundary_confidence": 1.2690048795938491,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.7241208553314209,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.7065553665161133,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.703466534614563,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.7016435265541077,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6708600521087646,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.7503119707107544,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6774029731750488,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.7245914936065674,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.7479382753372192,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6818993091583252,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.8050495982170105,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.7238977551460266,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.7155775427818298,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 17,
+      "start_slide_id": 239,
+      "end_slide_id": 243,
+      "slide_ids": [
+        239,
+        240,
+        241,
+        242,
+        243
+      ],
+      "boundary_confidence": 0.9935052973031997,
+      "matched_questions": [
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.8705763816833496,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.656613826751709,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.6828434467315674,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6412098407745361,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a union filesystem and how does it work?",
+          "score": 0.8677151203155518,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the weaknesses of union filesystems?",
+          "score": 0.7499662637710571,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.6639026403427124,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 18,
+      "start_slide_id": 244,
+      "end_slide_id": 249,
+      "slide_ids": [
+        244,
+        245,
+        246,
+        247,
+        248,
+        249
+      ],
+      "boundary_confidence": 0.9532015305757522,
+      "matched_questions": [
+        {
+          "question": "Why would you group multiple containers into one Pod?",
+          "score": 0.6406393051147461,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.8473801612854004,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.6658279895782471,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the namespace hierarchy look like before and after a process calls unshare()?",
+          "score": 0.6552643179893494,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the PID namespace isolate?",
+          "score": 0.6919435858726501,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Pod in Kubernetes?",
+          "score": 0.6436726450920105,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6582363843917847,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.8293604850769043,
+          "method": "semantic"
+        },
+        {
+          "question": "If a nested namespace changes its hostname, does the parent namespace ever see that change?",
+          "score": 0.6476026773452759,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.7254945039749146,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6499953866004944,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.6986420750617981,
+          "method": "semantic"
+        },
+        {
+          "question": "Is there a diagram showing how setns() lets a process join an existing namespace?",
+          "score": 0.6760177612304688,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.6588644981384277,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the illustrated example of creating and joining a Linux namespace?",
+          "score": 0.6845743656158447,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.6444363594055176,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.6403241753578186,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.6596393585205078,
+          "method": "semantic"
+        },
+        {
+          "question": "What kinds of resources can a cgroup limit?",
+          "score": 0.648383617401123,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a container and a virtual machine?",
+          "score": 0.6587862968444824,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6592571139335632,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.6499072313308716,
+          "method": "semantic"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.6558747291564941,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between the NET namespace and the USR namespace?",
+          "score": 0.6620569229125977,
+          "method": "semantic"
+        },
+        {
+          "question": "How deep does UTS namespace isolation go across multiple nested namespaces?",
+          "score": 0.6799274682998657,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the MNT namespace isolate?",
+          "score": 0.6811074018478394,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6723517179489136,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.6921188831329346,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6739009618759155,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6486033201217651,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 19,
+      "start_slide_id": 250,
+      "end_slide_id": 256,
+      "slide_ids": [
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256
+      ],
+      "boundary_confidence": 0.8172643166780471,
+      "matched_questions": [
+        {
+          "question": "What is a Pod in Kubernetes?",
+          "score": 0.6653158068656921,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6437720656394958,
+          "method": "semantic"
+        },
+        {
+          "question": "What is DevOps?",
+          "score": 0.8836038112640381,
+          "method": "semantic"
+        },
+        {
+          "question": "What does DevOps aim to shorten?",
+          "score": 0.7879736423492432,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do development and operations teams historically have conflicting goals?",
+          "score": 0.6357014775276184,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.6454063057899475,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Kubernetes?",
+          "score": 0.6716991662979126,
+          "method": "semantic"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.6696853637695312,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6636418104171753,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 20,
+      "start_slide_id": 257,
+      "end_slide_id": 268,
+      "slide_ids": [
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268
+      ],
+      "boundary_confidence": 0.41178345680236816,
+      "matched_questions": [
+        {
+          "question": "How do you actually automate wherever possible in a CI/CD pipeline?",
+          "score": 0.6214714050292969,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Is Jenkins only for continuous delivery, or can it automate other tasks too?",
+          "score": 0.6590299010276794,
+          "method": "semantic"
+        },
+        {
+          "question": "What is continuous development and why does it matter for distributed teams?",
+          "score": 0.6702383756637573,
+          "method": "semantic"
+        },
+        {
+          "question": "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?",
+          "score": 0.6301050186157227,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What's the reasoning behind each of the four continuous delivery principles?",
+          "score": 0.6574136018753052,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between continuous integration, continuous delivery, and continuous deployment?",
+          "score": 0.6781116127967834,
+          "method": "semantic"
+        },
+        {
+          "question": "Can you explain what makes automated tests 'trustworthy' in continuous delivery?",
+          "score": 0.7782424688339233,
+          "method": "semantic"
+        },
+        {
+          "question": "Why exactly does 'every build is a potential release' matter in continuous delivery?",
+          "score": 0.7498894929885864,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 21,
+      "start_slide_id": 269,
+      "end_slide_id": 283,
+      "slide_ids": [
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283
+      ],
+      "boundary_confidence": 0.5517811757326125,
+      "matched_questions": [
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6577746272087097,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a container orchestrator and what problem does it solve?",
+          "score": 0.5991462469100952,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.6438820958137512,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Kubernetes?",
+          "score": 0.65659499168396,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the kubelet do?",
+          "score": 0.537516713142395,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.657884955406189,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6510423421859741,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6528908014297485,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 22,
+      "start_slide_id": 284,
+      "end_slide_id": 287,
+      "slide_ids": [
+        284,
+        285,
+        286,
+        287
+      ],
+      "boundary_confidence": 0.366424560546875,
+      "matched_questions": [
+        {
+          "question": "What are the benefits of using Kubernetes, like horizontal scaling and rollbacks?",
+          "score": 0.8232545256614685,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Pod in Kubernetes?",
+          "score": 0.7007834911346436,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6972301602363586,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.66411954164505,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between the master node and worker nodes in a Kubernetes cluster?",
+          "score": 0.6781255602836609,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6528509855270386,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.6487499475479126,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.7500797510147095,
+          "method": "semantic"
+        },
+        {
+          "question": "What does kube-proxy do?",
+          "score": 0.6348615884780884,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How does live migration preserve open network connections?",
+          "score": 0.6438256502151489,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Kubernetes?",
+          "score": 0.7414023876190186,
+          "method": "semantic"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.6680246591567993,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do Pod IP addresses change, and how does a Service handle that?",
+          "score": 0.6106377243995667,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6736849546432495,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.6660479307174683,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6464505195617676,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.7290775179862976,
+          "method": "semantic"
+        }
+      ]
+    }
+  ],
+  "unmatched_questions": [
+    {
+      "question": "What is normalization in database design?",
+      "best_score": 0.544051468372345,
+      "best_topic_id": 0
+    },
+    {
+      "question": "What's the difference between cold migration and live migration?",
+      "best_score": 0.5311201810836792,
+      "best_topic_id": 3
+    },
+    {
+      "question": "What is Jenkins used for?",
+      "best_score": 0.6063319444656372,
+      "best_topic_id": 19
+    },
+    {
+      "question": "Why is pivot_root often used instead of chroot?",
+      "best_score": 0.5866247415542603,
+      "best_topic_id": 12
+    },
+    {
+      "question": "How do I center a div in CSS?",
+      "best_score": 0.4735475778579712,
+      "best_topic_id": 1
+    },
+    {
+      "question": "What is server consolidation?",
+      "best_score": 0.5994769334793091,
+      "best_topic_id": 2
+    },
+    {
+      "question": "What's the difference between chroot and pivot_root?",
+      "best_score": 0.5615180730819702,
+      "best_topic_id": 10
+    },
+    {
+      "question": "What are the actual differences between Amazon ECS and Google Container Engine?",
+      "best_score": 0.5903854370117188,
+      "best_topic_id": 18
+    },
+    {
+      "question": "What's the difference between TCP and UDP?",
+      "best_score": 0.5175349116325378,
+      "best_topic_id": 17
+    },
+    {
+      "question": "What are the main reasons companies use VMs?",
+      "best_score": 0.6252669095993042,
+      "best_topic_id": 3
+    },
+    {
+      "question": "What's the difference between user instructions and system instructions?",
+      "best_score": 0.5661870241165161,
+      "best_topic_id": 21
+    },
+    {
+      "question": "How does chroot work?",
+      "best_score": 0.5586655139923096,
+      "best_topic_id": 12
+    },
+    {
+      "question": "What's the time complexity of quicksort in the average case?",
+      "best_score": 0.5457193851470947,
+      "best_topic_id": 20
+    },
+    {
+      "question": "How does garbage collection work in Java?",
+      "best_score": 0.5698155164718628,
+      "best_topic_id": 4
+    },
+    {
+      "question": "How exactly does the child process's view of the filesystem change right after CLONE_NEWNS is used?",
+      "best_score": 0.6163488626480103,
+      "best_topic_id": 13
+    },
+    {
+      "question": "What are the two levels of address translation in EPT?",
+      "best_score": 0.618274450302124,
+      "best_topic_id": 4
+    },
+    {
+      "question": "What's the exact procedure for moving one end of a veth pair into a namespace?",
+      "best_score": 0.5970182418823242,
+      "best_topic_id": 14
+    },
+    {
+      "question": "What is an Extended Page Table (EPT) and how is it different from shadow paging?",
+      "best_score": 0.5608075857162476,
+      "best_topic_id": 0
+    },
+    {
+      "question": "What's the difference between a privileged instruction and a sensitive instruction?",
+      "best_score": 0.5786793828010559,
+      "best_topic_id": 1
+    }
+  ]
+}

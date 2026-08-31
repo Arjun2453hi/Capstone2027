@@ -1,0 +1,140 @@
+Why would you group multiple containers into one Pod?
+How is file system migration handled during VM migration?
+What is normalization in database design?
+Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?
+Why does EPT improve memory virtualization performance over shadow paging?
+How do you actually automate wherever possible in a CI/CD pipeline?
+What's the difference between cold migration and live migration?
+What are the main types of namespaces Docker uses?
+Why are control flow changes a challenge for binary translation?
+How does UnionFS relate to Docker's image layers?
+What does the namespace hierarchy look like before and after a process calls unshare()?
+What are the benefits of using Kubernetes, like horizontal scaling and rollbacks?
+What does the PID namespace isolate?
+What is a Pod in Kubernetes?
+What tasks does container orchestration automate?
+What is a Linux namespace and why does Docker use them?
+What is DevOps?
+What is virtualization in simple terms?
+If a nested namespace changes its hostname, does the parent namespace ever see that change?
+What are the three main approaches to I/O virtualization?
+What exactly happens on the ring diagram when a guest app makes a syscall in the trap-and-emulate example?
+What do containers share with the host OS?
+What's the difference between the master node and worker nodes in a Kubernetes cluster?
+Why does paravirtualization require modifying the guest OS?
+How does Docker improve application portability?
+What are VMX root and non-root modes?
+What are the disadvantages of paravirtualization?
+What does a VMM actually do?
+Is Jenkins only for continuous delivery, or can it automate other tasks too?
+What is a basic block in the context of binary translation?
+Why does virtualization increase resource utilization?
+What is continuous development and why does it matter for distributed teams?
+Why was the x86 pushf/popf instruction a problem for virtualization?
+How do image layers work in Docker?
+How does KVM extend the Linux kernel to provide hypervisor functionality?
+How does hardware-assisted virtualization like Intel VT-x work?
+What is Jenkins used for?
+Why is pivot_root often used instead of chroot?
+Is there a diagram showing how setns() lets a process join an existing namespace?
+How do I center a div in CSS?
+What is a container orchestrator and what problem does it solve?
+What is the difference between full device emulation and direct I/O passthrough?
+What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?
+What does DevOps aim to shorten?
+Why does the hypervisor write-protect the guest page table?
+What is a cgroup and what is it used for?
+What triggers an update to the shadow page table?
+What is workload mobility in the context of VM migration?
+What did Popek and Goldberg's theorems establish?
+Why do development and operations teams historically have conflicting goals?
+Why do containers have less overhead than VMs?
+What is the split-driver model for I/O virtualization?
+What is server consolidation?
+What is active push in post-copy migration?
+How does Xen implement paravirtualization?
+Why does paravirtualization improve performance over full virtualization?
+What's the illustrated example of creating and joining a Linux namespace?
+What is KVM and how does it relate to paravirtualization?
+Why can multiple containers share the same image?
+How does the hypervisor keep the shadow page table in sync with the guest page table?
+What is the Docker daemon and what does it do?
+What's the reasoning behind each of the four continuous delivery principles?
+Why does the guest OS run in Ring 1 instead of Ring 0 under Xen?
+What is a Kubernetes Service and why is it needed?
+What's the difference between a Docker image and a Docker container?
+What ring does the VMM run in under trap-and-emulate?
+How are cgroups structured hierarchically?
+What are the disadvantages of pre-copy migration compared to post-copy?
+What kinds of resources can a cgroup limit?
+What does kube-proxy do?
+What's the difference between a container and a virtual machine?
+How do the Docker client and daemon communicate?
+What's the difference between chroot and pivot_root?
+How does live migration preserve open network connections?
+What's the difference between continuous integration, continuous delivery, and continuous deployment?
+What is Kubernetes?
+What is Docker and what problem does it solve?
+What does the kubelet do?
+What are the actual differences between Amazon ECS and Google Container Engine?
+Why doesn't the original x86 architecture satisfy the Popek-Goldberg requirements?
+What are the performance problems with trap-and-emulate?
+How does pre-copy VM migration work?
+What's the difference between pre-copy and post-copy migration?
+What is a hypercall?
+What's the difference between TCP and UDP?
+What would an actual cgroup resource-limit example look like in practice?
+What is a Docker registry?
+Can you explain what makes automated tests 'trustworthy' in continuous delivery?
+Why does direct I/O virtualization achieve near-native performance?
+What is a shadow page table and why is it needed?
+What are the actual commands to create a VETH pair and attach each end to a different namespace?
+What are the main reasons companies use VMs?
+What is cluster management in the context of container orchestration?
+What's the difference between user instructions and system instructions?
+Why does a privileged instruction cause a trap?
+Is there a worked example showing how cgroups restrict a group of processes?
+What is binary translation and how does it differ from trap-and-emulate?
+How is a specific CPU or memory limit actually enforced through a cgroup example?
+Why exactly does 'every build is a potential release' matter in continuous delivery?
+What's the difference between the NET namespace and the USR namespace?
+What is a union filesystem and how does it work?
+What is a bare-metal hypervisor?
+How deep does UTS namespace isolation go across multiple nested namespaces?
+How does chroot work?
+How does trap-and-emulate virtualization work?
+Why do almost all VMMs use hardware assist today?
+What does a typical CI/CD pipeline for a containerized application look like?
+Can you walk through the full worked example of why x86 doesn't satisfy Popek-Goldberg, step by step with the ring diagram?
+What are the weaknesses of union filesystems?
+What is a Dockerfile and what does it specify?
+Can you walk through what actually happens step by step when a process calls clone() with CLONE_NEWNS to create a new mount namespace?
+What does the MNT namespace isolate?
+Why do Pod IP addresses change, and how does a Service handle that?
+How many sensitive-but-unprivileged instructions did x86 have?
+What's the time complexity of quicksort in the average case?
+How does garbage collection work in Java?
+What is a VM exit condition?
+What are the Popek and Goldberg requirements for virtualization?
+Why are containers considered lightweight virtualization?
+Why can repeated dirty page copying increase pre-copy migration time?
+What are the main benefits of using Docker?
+Which container orchestration tool should I pick and why, based on their tradeoffs?
+What is the equivalence property a VMM must satisfy?
+How exactly does the child process's view of the filesystem change right after CLONE_NEWNS is used?
+Why would you migrate a VM?
+What are the two levels of address translation in EPT?
+What is a hybrid hypervisor and give an example?
+What is Dom0 in Xen architecture?
+How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?
+Can you give a concrete example of setting up a VETH device between two containers?
+What's the exact procedure for moving one end of a veth pair into a namespace?
+Does a child process inherit its parent's cgroup?
+Is there a diagram showing why an unmodified guest OS breaks isolation if it's mapped into the same address space as guest apps?
+What's the difference between a Type 1 and a Type 2 hypervisor?
+What's the difference between paravirtualization and full virtualization?
+What's the role of the Xen hypervisor versus Dom0?
+What is an Extended Page Table (EPT) and how is it different from shadow paging?
+What's the difference between a privileged instruction and a sensitive instruction?
+How do you configure a veth pair step by step to let two namespaces talk to each other?
+Why is a hosted hypervisor called Type 2?
