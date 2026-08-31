@@ -1,0 +1,2401 @@
+{
+  "generated_at": "2026-08-31T10:39:03.109288+00:00",
+  "source_deck": "data/cc-unit2-slides.pdf",
+  "total_topics": 23,
+  "total_questions": 140,
+  "topics": [
+    {
+      "topic_id": 0,
+      "slide_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "slide_range": "Slides 1-12",
+      "boundary_confidence": 0.0,
+      "window_text": "Compute Virtualization - Types of Hypervisors\nDr. Prafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nAcknowledgements:\nSignificant information in the slide deck presented through the Unit 2 of the course have been created by Dr. H.L. Phalachandra and would like to acknowledge and\nthank him for the same. There have been some information which I might have leveraged from the content of Dr. K.V. Subramaniam’s lecture contents too. I may have\nsupplemented the same with contents from books and other sources from Internet and would like to sincerely thank, acknowledge and reiterate that the credit/rights for\nthe same remain with the original authors/publishers only. These are intendedfor classroom presentationonly.\n\nWhat is Virtualization?\n▪ Virtualization is a technique of abstracting physical resources (this could be compute, memory, storage\ndisks, networking) in to a logical view\n▪ Virtualization increases utilization\nVirtual\nEach application sees its own logical\nMemory memory, independent of physical memory\nand capability of the IT infrastructure\n▪ Simplifies resource management by\nEach application sees its own logical\nVirtual\npooling and sharing resources network, independent of physical\nNetworks\nnetwork\n▪ Significantly reduces downtime both\nPlanned and unplanned Virtual\nEach application sees its own logical\nServers server, independent of physical servers\n▪ Improves performance of IT\ninfrastructure\nVirtual Each application sees its own logical\nstorage, independent of physical\nStorage\nstorage\n\nCompute Virtualization : Its relationship to Cloud Computing\n▪ Compute (sometimes also known as Server) virtualization :\n▪ Can be considered as a framework or methodology of dividing the resources of a computer/server into\nmultiple execution environments\n▪ Its achieved by applying one or more concepts or technologies such as hardware and software\npartitioning, time-sharing, partial or complete machine simulation, emulation, quality of service, and\nmany others.\n▪ Can be looked at as a practice of presenting and partitioning computing resources in a logical way\nrather than partitioning according to physical reality\n▪ VM (or a Virtual Machine) is the coarse granular view of the Virtual Compute at the next abstract level, and\nis logically identical to a Physical machine with an ability to run an OS\n▪ Virtualization enables sharing of the same physical resources across different users and is a key technology\nfor Cloud Computing\n▪ VM which uses this virtualization technology is one of the prominent ways in which compute resources are\nprovisioned in a cloud environment\n\nTraditional computer without virtualization (bare metal) & After Virtualization Before Server Virtualization: After Server Virtualization::\nApplication 1 Application 2\nApplication\nOperating system\nSingle operating system image per machine\nVirtual Machines (VMs) break dependencies between operating system\nSoftware and hardware tightly couple\nand hardware\nOS handles the bare hardware (CPU, memory, and\nManages operating system and application as single unit by\nI/O) directly.\nencapsulating them into VMs\nRunning multiple applications on same machine can\nStrong fault and security isolation\ncreate conflicts\nHardware-independent\nUnderutilized resources\n\nCompute Virtualization : Why VM\nIncrease hardware utilization by running multiple\nServer consolidation\napplications in isolation on same physical server\nWorkload mobility Move applications from one server to another\nDevelopment and test • Easily provision virtual resources for test and dev\nBusiness Continuity •\nAbility to granularly live-migrate a VM to other physical\nManagement servers which are part of a Business Continuity environment\nConsolidation\nSupport OS diversity • Can run both Linux and Windows on same h/w\nSecurity/Isolation •\nHypervisor separates the VMs from each Workload other and isolates\nVMs from H/W\nMobility\nHigh Availability/Load Ability to live-migrate a VM to other physical server\nBalancing\nRapid provisioning On demand provisioning of hardware resources\nEncapsulation • The execution environment of an application is encapsulated\nwithin VM\nLower Costs •\nIncreased Efficiencies, flexibility and responsiveness\n\nCompute Virtualization : How is this implemented?\nTypically, a layer of software that provides the illusion of a “real” machine to multiple instances of\n“virtual machines is traditionally called a Virtual Machine Monitor (VMM) or a “Hypervisor”\nHardware-level virtualization inserts the VMM (or the virtualization layer) between real hardware\nand traditional operating systems. This VMM directly interacts with the Hardware and thus is also\ncalled Bare Metal VMM or Hypervisor of Type 1.\nVMM manages the hardware resources of a computing system. Each time\nprograms access the hardware, the VMM captures the process Guest Guest Guest\nVM VM VM\nVMM acts as a traditional OS & leading to three requirements for a VMM:\nVMM should provide an environment for programs which is\nessentially identical to the original machine.\nVMM\nPrograms running in this environment should show at worst, only\nminor reduction in performance.\nHardware\nVMM should be in complete control of the system resources.\nE.g. Xen, VMWare ESX server, IBM CP/CMS, Windows Virtualization (2008)\n\nCompute Virtualization : How is this implemented? - II\n▪ This VMM when implemented on top of the OS as in the figure would\ntypically be called as Hosted VMM or Hosted Hypervisor or\nGuest Guest Guest\nHypervisor of Type 2\nVM VM VM\n▪ VMM maintains a software level representation of physical hardware\nVMM\nand interposes on the operations and redirects it as per the policies\nE.g. VMWare workstation or Oracle VirtualBox\nHost OS\n▪ VMM could also be implemented as part of the OS too.\nHardware\nE.g. KVM (Kernel Based Virtual Machine) for Linux\n\nHypervisor Type 1 vs. Type 2\nType 1\nType 2\n\nTHANK YOU\nPrafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nprafullatak@pes.edu",
+      "cluster_size": 9,
+      "matched_questions": [
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.6486731767654419,
+          "method": "semantic"
+        },
+        {
+          "question": "How does KVM extend the Linux kernel to provide hypervisor functionality?",
+          "score": 0.6524795293807983,
+          "method": "semantic"
+        },
+        {
+          "question": "What did Popek and Goldberg's theorems establish?",
+          "score": 0.5169080495834351,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a hypercall?",
+          "score": 0.5117920637130737,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a shadow page table and why is it needed?",
+          "score": 0.5388780236244202,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a bare-metal hypervisor?",
+          "score": 0.5989744663238525,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a hybrid hypervisor and give an example?",
+          "score": 0.6533816456794739,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Type 1 and a Type 2 hypervisor?",
+          "score": 0.6781871318817139,
+          "method": "semantic"
+        },
+        {
+          "question": "Why is a hosted hypervisor called Type 2?",
+          "score": 0.6729041337966919,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 1,
+      "slide_ids": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "slide_range": "Slides 13-16",
+      "boundary_confidence": 0.36820494949817656,
+      "window_text": "Paravirtualization and Transparent Virtualization\nDr. Prafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nAcknowledgements:\nSignificant information in the slide deck presented through the Unit 2 of the course have been created by Dr. H.L. Phalachandra and would like to acknowledge and\nthank him for the same. There have been some information which I might have leveraged from the content of Dr. K.V. Subramaniam’s lecture contents too. I may have\nsupplemented the same with contents from books and other sources from Internet and would like to sincerely thank, acknowledge and reiterate that the credit/rights for\nthe same remain with the original authors/publishers only. These are intendedfor classroom presentationonly.\n\nContext of different types of Virtualization ▪\nApplications based on their functioning call different instructions as part of execution, where some of the instructions modify part\nof machines resources. These instructions (also called privileged instructions) can harm the system when executed maliciously or\nwhen improperly used\n▪\nThese applications or User processes are not trusted with executing these privileged instructions, and will need to be run with\nprivileges assigned by the OS.\n▪\nTypically the OS is responsible for managing the hardware and, to ensure these privileged instructions are safely executed, uses\nfour instruction execution privilege rings- Ring 0, 1, 2, and 3 as offered by traditional x86 processor, with ring 0 having the highest\nprivileges as needed for the privileged instructions and ring 3 where applications are run with minimal privileges.\n▪\nWhen any privileged instructions is executed in the user mode by an application, they will trap .. Aka.. they will not be executed,\nand will be treated as an illegal instruction, and the Hardware traps .. in a sense the operating system is alerted and the machine is\nforced into system mode (moved to ring 0) whereby it executes some code of the operating system to deal with the situation.\n▪\nHypervisors facilitating the Virtualizations, will manage the interactions of multiple VMs (running different OS’es) with the\nHardware, by handling both the privileged and non-privileged instructions and use the traps generated for the privileged\ninstructions.\n▪\nUnfortunately based on the CPU architectures, not all of these privileged instructions are virtualizable leading to different\napproaches for Virtualization to support, like the Full or transparent virtualization where the hardware I/O is emulated or a\nparavirtualization for performance and other considerations.\n\nOther types of Virtualization\nParavirtualization\nIt’s a virtualization technique that presents a software interface\nto VMs that is similar but not identical to that of the underlying\nhardware\nOS to be explicitly ported to run on top of the VMM/Hypervisor\nXen\nVMM provides APIs for guest OS\nUseful if source code of OS is modifiable\nIBM: MVS, VM\nLinux\nMicrosoft: Windows\nFull (transparent) virtualization\nProvides complete simulation of the underlying hardware\nOS runs without modification\nOracle Virtual Box\n\nMore details of Full and Para Virtualization\n▪ Full virtualization architecture intercepts & emulates privileged and sensitive instructions at runtime\n▪ Para-virtualization handles these privileged and sensitive instructions at compile time of the guest OS.\n▪ The guest OS kernel is modified to replace privileged and sensitive instructions with hypercalls to\nthe hypervisor or VMM.\n▪ Xen assumes such a para-virtualization architecture.",
+      "cluster_size": 8,
+      "matched_questions": [
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.6456185579299927,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization require modifying the guest OS?",
+          "score": 0.6586750745773315,
+          "method": "semantic"
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.6428297758102417,
+          "method": "semantic"
+        },
+        {
+          "question": "What triggers an update to the shadow page table?",
+          "score": 0.600622296333313,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How does Xen implement paravirtualization?",
+          "score": 0.6789197325706482,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.712186336517334,
+          "method": "semantic"
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.6791964769363403,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.7055701017379761,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 2,
+      "slide_ids": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "slide_range": "Slides 17-22",
+      "boundary_confidence": 0.36511325657367705,
+      "window_text": "Paravirtualization Overview ▪ Performance degradation is a critical issue of a virtualized system. ▪ No one wants to use a VM if it is much slower than using a physical machine. ▪ Para-virtualization attempts to reduce the virtualization overhead, and thus improve performance by modifying the guest OS kernel and putting any requests on the applications. ▪ Modify the guest OS (used with paravirtualization) so that it interfaces better with the hypervisor • Access non-virtualizable OS instructions using hypervisor APIs (hypercall) which are special I/O APIs (does not emulate hardware I/O) • This would support improved performance ▪ There is no requirement for modification of user applications for performance in an paravirtualized VM with modified OS\n\nParavirtualization Architecture\n\nParavirtualization with Guest OS Compiler Support\nThe guest OS running in a guest domain may run at Ring 1 instead of at Ring 0.\nThis implies that the guest OS may not be able to execute some privileged and sensitive instructions.\nThe privileged instructions are implemented by hypercalls to the hypervisor.\nThe guest OS is compiled with changes, replacing some of these privileged instructions with hypercalls to\nthe hypervisor\nAfter replacing the instructions with hypercalls, the modified guest OS emulates the behavior of the\noriginal guest OS.\nOn an UNIX system, a system call involves an interrupt or service routine. The hypercalls apply a\ndedicated service routine.\nXen assumes such a para-virtualization architecture.\n\nParavirtualization Illustration with Memory handling\nXen writeable page tables :\nGuestOS\nGuest OS has page tables initially as readable.\nGuest OS\nGuest OS has enabled writeable page tables option Read Write\nPage Table\nAccess Access\nGuest OS tries to write to the guest page tables and\nHypercall\ngenerates a trap\nXen based on the trap makes that guest page table\npage temporarily writeable\nVMM will\nBut removes the page from the physical page table update PT\nDirect\nRe-starts guest Access\nGuest can continue to modify guest page table and at VMM\ncompletion generates a trap which will generate a\ntrigger to Xen\nXen then updates the physical page table (Played back\nVirtual to Physical Page Table\nin the real environment)\n\nParavirtualization Example (Cont.) Suppose Guest OS wants to start Oracle; Oracle needs 1GB of virtual memory\n▪\nPage table stores mapping of virtual memory to physical memory\n▪\nAssuming 4K as page size, there are 1GB/4K = 250,000 page table entries\n▪\nUnder pure trap and emulate virtualization, there will be a trap for each entry\n▪\n250,000 traps\n▪\n\nParavirtualization Example (Cont.)\nSince we need a page table with 250,000 entries, the page table itself is stored in memory\nSuppose we need 4MB for the page table\nThis is 4MB/4K = 1000 pages\nWith Xen writeable page table support\nThe first time the guest OS tries to write a page in the page table, there will be a trap\nXen will remove page from page table\nAfter that, the guest OS can modify entries in page as needed\nWhen completed; guest OS will call Xen API\nXen will validate page table entries and put page back in page table\nSo using hypercalls, the performance got significantly improved with the reduction of need of handling\nof the following number of traps\n1000 traps vs 250,000 traps",
+      "cluster_size": 32,
+      "matched_questions": [
+        {
+          "question": "How is file system migration handled during VM migration?",
+          "score": 0.6632658839225769,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.7575373649597168,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the benefits of using Kubernetes, like horizontal scaling and rollbacks?",
+          "score": 0.6502422094345093,
+          "method": "semantic"
+        },
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.7017301321029663,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the three main approaches to I/O virtualization?",
+          "score": 0.7173145413398743,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization require modifying the guest OS?",
+          "score": 0.8381911516189575,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6505368947982788,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the disadvantages of paravirtualization?",
+          "score": 0.7362027168273926,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.7548158764839172,
+          "method": "semantic"
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.700663685798645,
+          "method": "semantic"
+        },
+        {
+          "question": "How does KVM extend the Linux kernel to provide hypervisor functionality?",
+          "score": 0.7060906887054443,
+          "method": "semantic"
+        },
+        {
+          "question": "How does hardware-assisted virtualization like Intel VT-x work?",
+          "score": 0.7035272121429443,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the difference between full device emulation and direct I/O passthrough?",
+          "score": 0.6437784433364868,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does the hypervisor write-protect the guest page table?",
+          "score": 0.6463249921798706,
+          "method": "semantic"
+        },
+        {
+          "question": "What is workload mobility in the context of VM migration?",
+          "score": 0.6714775562286377,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.666911244392395,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the split-driver model for I/O virtualization?",
+          "score": 0.7283179759979248,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Xen implement paravirtualization?",
+          "score": 0.724685788154602,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.8825349807739258,
+          "method": "semantic"
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.7078020572662354,
+          "method": "semantic"
+        },
+        {
+          "question": "How does the hypervisor keep the shadow page table in sync with the guest page table?",
+          "score": 0.652276337146759,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a container and a virtual machine?",
+          "score": 0.6401268839836121,
+          "method": "semantic"
+        },
+        {
+          "question": "How does pre-copy VM migration work?",
+          "score": 0.6703706979751587,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does direct I/O virtualization achieve near-native performance?",
+          "score": 0.7937564253807068,
+          "method": "semantic"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.7280498743057251,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a VM exit condition?",
+          "score": 0.6542256474494934,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.6832866668701172,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.7145040035247803,
+          "method": "semantic"
+        },
+        {
+          "question": "Why would you migrate a VM?",
+          "score": 0.6693177223205566,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.789292573928833,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the role of the Xen hypervisor versus Dom0?",
+          "score": 0.6547775268554688,
+          "method": "semantic"
+        },
+        {
+          "question": "Why is a hosted hypervisor called Type 2?",
+          "score": 0.6498052477836609,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 3,
+      "slide_ids": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "slide_range": "Slides 23-28",
+      "boundary_confidence": 0.3814277648925781,
+      "window_text": "Paravirtualization Issues and Advantages\nFirst, its compatibility and portability may be in doubt, because it must support the un-\nmodified OS as well.\nSecond, the cost of maintaining para-virtualized OSes is high, because they may require deep\nOS kernel modifications.\nFinally, the performance advantage of para-virtualization varies greatly due to workload\nvariations.\nAdvantages\nCompared with full virtualization, para-virtualization is relatively easy and more practical.\nThe main problem in full virtualization is its low performance in binary translation. To speed up binary\ntranslation is difficult. Therefore, many virtualization products employ the para-virtualization\narchitecture.\nThe popular Xen, KVM, and VMware ESX are good examples.\n\nKVM\nThis is a Linux para-virtualization system—a part of the Linux version 2.6.20 kernel.\nMemory management and scheduling activities are carried out by the existing Linux\nkernel. The KVM does the rest, which makes it simpler than the hypervisor that\ncontrols the hardware.\nKVM is a hardware-assisted para-virtualization tool, which improves performance and\nsupports unmodified guest OSes such as Windows, Linux, Solaris, and other UNIX\nvariants.\n\nVMware ESX Server architecture using Para-Virtualization\n▪ ESX is a VMM or a hypervisor for bare-metal x86\nsymmetric multiprocessing (SMP) servers.\n▪ It accesses hardware resources such as I/O\ndirectly and has complete resource management\ncontrol.\n▪ To improve performance, the ESX server employs\na para-virtualization architecture in which the VM\nkernel interacts directly with the hardware\nwithout involving the host OS.\nhttps://www.brainkart.com/article/Para-Virtualization-with-Compiler-Support_11336/\n\nVMware ESX Server architecture using Para-Virtualization (Cont.)\n▪ The VMM layer virtualizes the physical hardware\nresources such as CPU, memory, network and disk\ncontrollers, and human interface devices. Every VM\nhas its own set of virtual hardware resources.\nVirtualization Layer\n▪ The resource manager allocates CPU, memory disk,\nResource Manager\nand network bandwidth and maps them to the\nvirtual hardware resource set of each VM created.\nHardware Interface Components\n▪ Hardware interface components are the device\ndrivers and the VMware ESX Server File System.\n▪ The service console is responsible for booting the\nsystem, initiating the execution of the VMM and\nAn ESX-enabled server consists of four\nresource manager, and relinquishing control to\ncomponents: a virtualization layer, a\nthose layers. It also facilitates the process for\nresource manager, hardware interface\nsystem administrators.\ncomponents, and a service console.\n\nSummary Transparent virtualization\nTrap-and-emulate (to be discussed in detail in the next lecture)\nBinary translation\nParavirtualization\nExample: Page tables\nTransparent: shadow page tables (to be discussed in detail under\nMemory virtualization)\nParavirtualization: special page table APIs (Xen)\n\nAdditional References Para vs Full vs Transparent virtualization https://www.geeksforgeeks.org/difference-between-full- virtualization-and-paravirtualization/ https://www.vmware.com/content/dam/digitalmarketing/vmw are/en/pdf/techpaper/VMware_paravirtualization.pdf",
+      "cluster_size": 26,
+      "matched_questions": [
+        {
+          "question": "How is file system migration handled during VM migration?",
+          "score": 0.6530259847640991,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.7354583144187927,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the benefits of using Kubernetes, like horizontal scaling and rollbacks?",
+          "score": 0.654254674911499,
+          "method": "semantic"
+        },
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.6842267513275146,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the three main approaches to I/O virtualization?",
+          "score": 0.6831613779067993,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization require modifying the guest OS?",
+          "score": 0.7168760895729065,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the disadvantages of paravirtualization?",
+          "score": 0.7032536268234253,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.709535539150238,
+          "method": "semantic"
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.6947117447853088,
+          "method": "semantic"
+        },
+        {
+          "question": "How does KVM extend the Linux kernel to provide hypervisor functionality?",
+          "score": 0.7209272384643555,
+          "method": "semantic"
+        },
+        {
+          "question": "How does hardware-assisted virtualization like Intel VT-x work?",
+          "score": 0.6869717240333557,
+          "method": "semantic"
+        },
+        {
+          "question": "What is workload mobility in the context of VM migration?",
+          "score": 0.6423937678337097,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.6671513915061951,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the split-driver model for I/O virtualization?",
+          "score": 0.6627023220062256,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Xen implement paravirtualization?",
+          "score": 0.6836191415786743,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.8108627200126648,
+          "method": "semantic"
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.7264724969863892,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the disadvantages of pre-copy migration compared to post-copy?",
+          "score": 0.6438710689544678,
+          "method": "semantic"
+        },
+        {
+          "question": "How does pre-copy VM migration work?",
+          "score": 0.6604611873626709,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does direct I/O virtualization achieve near-native performance?",
+          "score": 0.7358968257904053,
+          "method": "semantic"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.6595613956451416,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do almost all VMMs use hardware assist today?",
+          "score": 0.6449887752532959,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.6544736623764038,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6847756505012512,
+          "method": "semantic"
+        },
+        {
+          "question": "Why would you migrate a VM?",
+          "score": 0.6984330415725708,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.7564709186553955,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 4,
+      "slide_ids": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "slide_range": "Slides 29-50",
+      "boundary_confidence": 0.5302050691843032,
+      "window_text": "THANK YOU\nPrafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nprafullatak@pes.edu\n\nVirtualization Software Techniques Trap & emulate, binary translation\nDr. Prafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nAcknowledgements:\nSignificant information in the slide deck presented through the Unit 2 of the course have been created by Dr. H.L. Phalachandra and would like to acknowledge and\nthank him for the same. There have been some information which I might have leveraged from the content of Dr. K.V. Subramaniam’s lecture contents too. I may have\nsupplemented the same with contents from books and other sources from Internet and would like to sincerely thank, acknowledge and reiterate that the credit/rights for\nthe same remain with the original authors/publishers only. These are intendedfor classroom presentationonly.\n\nDirect Execution (Recap) Idea: Run most instructions of the VM directly on the hardware Advantage: Performance close to native execution Challenge: How to ensure isolation/protection ? If all instructions of the VM are directly executed then VMM has no control !\nWhere the original intent for a VMM and VM is to run an unmodified guest OS on the VM as if it were executing directly\non the hardware, an alternative is to modify the guest OS replacing hard to virtualize instructions and/or providing more\nconvenient abstractions especially of IO devices. Paravirtualization often results in more efficient code, but of course\nlimits the range of usable guest OSs and the convenience of their use.\n\nDirect Execution + Trap and Emulate (Recap) Idea:\n▪ Trap to hypervisor when the VM tries to execute an instruction that could change the state of the\nsystem/take control (i.e., impact safety/isolation).\n▪ Emulate execution of these instruction in hypervisor\n▪ Direct execution of any other innocuous instructions on h/w that cannot impact other VMs or the\nhypervisor\n\nVirtualization (Types) - Recap Paravirtualization\nIt’s a virtualization technique that presents an software interface\nto VMs that is similar but not identical to that of the underlying\nhardware\nOS to be explicitly ported to run on top of the VMM/Hypervisor\nXen\nVMM provides APIs for guest OS\nUseful if source code of OS is modifiable\nIBM: MVS, VM\nLinux\nMicrosoft: Windows\nFull (transparent) virtualization\nProvides complete simulation of the underlying hardware\nOS runs without modification\nVMWare\nkvm\n\nHow to do Trap and Emulate?\n▪ Generally two categories of instructions(assembly):\nUser instructions:\no Typically compute instructions\ne.g. add, mult, ld, store, jmp\nSystem instructions:\no Typically for system management\ne.g. iret, invlpg, hlt, in, out\ninvlpg— priviledged instruction to invalidate TLB Entries\n\nHow to do Trap and Emulate? (Cont.)\nTwo modes of CPU operation:\nUser mode (in x86-64 typically ring 3)\nPrivileged mode (in x86-64 ring 0)\nAttempt to execute system instructions in user mode generates trap/general protection fault (gpf)\nSystem state:\nExample, control registers like cr3\nAccess to system state in user mode trigger gpf\nIdea:\nRun the VM in user mode (ring 3), while the hypervisor in privileged mode (ring 0)\nAnytime VM tries to execute a system instruction or tries to access system state, trap to VMM\n\nTrap and Emulate\n▪ Privilege Rings in Hardware\n▪ Ring 0,1,2,3 in x86 CPUs\n▪ Typically OS runs in high privilege mode (Ring 0)\n▪ User applications run in Ring 3 (less privilege)\n▪ But with a VMM (functioning like OS), the\nVMM runs in ring 0\nWhich ring does Guest OS run in?\n▪ Guest OS will need to run with privileges but not fully\nprivileged like host OS/VMM\n▪ Guest OS will also need to be protected from guest\napps which would be in ring 3\n▪ Typically would run in Ring 1 and traps to VMM – at 0\n\nTrap and Emulate Contd.\n▪ If Guest application has to handle syscall/interrupt\nSpecial trap instr (int n), traps to VMM\nGuest Application\nVMM doesn’t know how to handle trap\nVMM jumps to guest OS trap handler\nTrap handled by guest OS normally\n▪ Guest OS performs return from trap\nPrivileged instr, traps to VMM\nVMM jumps to corresponding user process\n▪ Any privileged action by guest OS traps to VMM\nExample: set IDT, set CR3, access hardware\nemulated by VMM\nThen go back to the Guest OS\n\nIssues/Problems with Trap and Emulate Virtualization technique\n1. Performance Overhead\nE.g. trapping privileged instructions\n▪ Trap costs may be high\n2. Not all architectures support it\nx86 architecture was easily or not completely virtualizable and needed workarounds\nDepends on the fact that executing an instruction at a lower privilege than required will cause a\ntrap to the VMM.\nRecent x86 systems try to facilitate virtualization by dealing with the sensitive instructions that are not privileged\nand by facilitating memory management with hardware. They have introduced a new mode, root mode. Now the\nmode will consist of the usual four levels paired with a normal/root mode. All sensitive instructions cause transfer\nto the root mode.\n\nIssues/Problems with Trap and Emulate Virtualization technique\nSome x86 instructions which change hardware state (sensitive instructions) run in both privileged\n3.\nand unprivileged modes\n▪ Will behave differently when guest OS is in ring 0 vs in less privileged ring 1\n▪ OS behaves incorrectly in ring1, will not trap to VMM\nExample: popf (pop flags)\nCan be used in user mode to change ALU flags\nCan be used in privileged mode to change system state flag (e.g., interrupt delivery flag)\nTrouble: No trap if popf is attempted to alter interrupt flag in user mode --- CPU just ignores it !\nBehavior sensitive instruction but is not privileged\nExample: pushf\nsimply reveals that the kernel is running in user mode\n▪ There were about 17 such instructions in x86 E.g. SGDT, SIDT, SLDT, SMSW, PUSHF, POPF, LAR, LSL,\nVERR, VERW, POP, PUSH, CALL, JMP, INT, RET, STR, MOV in the initial architecuture\n▪ X86 ISA (pre-2005) does not meet the Popek & Goldberg requirements for virtualization",
+      "cluster_size": 4,
+      "matched_questions": [
+        {
+          "question": "Why are control flow changes a challenge for binary translation?",
+          "score": 0.6474581956863403,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a basic block in the context of binary translation?",
+          "score": 0.6152607798576355,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is binary translation and how does it differ from trap-and-emulate?",
+          "score": 0.6511886119842529,
+          "method": "semantic"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.6561918258666992,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 5,
+      "slide_ids": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "slide_range": "Slides 51-80",
+      "boundary_confidence": 0.7573887091875076,
+      "window_text": "Techniques to virtualize x86 • Paravirtualization: rewrite guest OS code to be virtualizable • Guest OS won’t invoke privileged operations, makes “hypercalls” to VMM • Needs OS source code changes, cannot work with unmodified OS • Example: Xen hypervisor • Full virtualization: CPU instructions of guest OS are translated to be virtualizable • Sensitive instructions translated to trap to VMM • Dynamic (on the fly) binary translation, so works with unmodified OS • Higher overhead than paravirtualization • Example: VMWare workstation\n\nTechniques to virtualize x86 (Cont.)\nHardware assisted virtualization: Eg. KVM in Linux\nCPU has a special VMX mode of execution\nTwo kinds of VMX transitions: VMX Root and VMX Non-Root\nX86 has 4 rings in both VMX root and Non-root modes\nVMM enters VMX mode to run guest OS in (special) ring 0\nExit back to VMM on triggers (VMM retains control)\nProcessor behavior in VMX non-root operation is\nrestricted and modified to facilitate virtualization.\nInstead of their ordinary operation, certain\ninstructions (such as the new VMCALL instruction)\nand events cause VM exits to the VMM. Because\nthese VM exits replace ordinary behavior, the\nfunctionality of software in VMX non-root operation\nis limited. It is this limitation that allows the VMM to\nretain control of processor resources.\n\nWorkaround for x86-32: Paravirtualization\nCo-design of guest OS and hypervisor\nAdvantage: Simplicity, work around corner cases\nDisadvantage: Need modified guest OS\nExample: Xen hypervisor\nTrick to virtualize x86-32:\nBlock all 17 instructions that are sensitive but not\nprivileged\nJust modify the guest OS to #undef them\nInstead provide hypercalls from guest OS to VMM\nHypercalls are like system calls but from guest OS to VMM\n\nHardware assisted virtualization: Intel VT-x/AMD-v for x86-64 Two challenges of virtualizing x86-64 ISA: How to hide system/privileged state from the VM? How to ensure a VM cannot directly change system state (e.g., interrupt flags) of the processor?\n\nHardware assisted virtualization (Cont.)\nSolution idea:\nTwo new modes of operation: root and non-root\nEach mode has complete set of execution rings (0-3)\nNew instructions to switch between modes\nH/W state is duplicated for each operation mode\nHypervisor runs in root mode and VMs in non-root\nmode\nWhen any “sensitive” instruction executed in non-root\nmode it either (1) executed by processor on duplicated\nstate or (2) trap to hypervisor\n\nHardware assisted virtualization (Cont.)\nVM 1\nVM 0\ne\nd\no Ring 3 Guest app Ring 3 Guest app\nm\nt Ring 2\no Ring 2\no\nr\nRing 1\nn Ring 1\no\nN\nRing 0 Guest OS\nRing 0 Guest OS\nRing 3 (Legacy/un-virtualized) User program\ne\nd Ring 2\no\nm\nRing 1\nt\no\no\nR\nRing 0 Hypervisor/VMM\n\nUsing Intel VT-x/AMD-v (KVM way)\n(1)VMM initializes/modifies\ne\nd\no Ring 3 Guest app VMCS\nm\nt (2)VMM executes\no Ring 2\no\nr vmlaunch/vmresume\nn Ring 1\no instr.\nN\nRing 0 Guest OS (3)The VM runs until it hits\na vmexit condition\n(4)VMM analyzes and takes\nvmexit\nvmlaunch/\naction on vmexit\nvmresume\nRoot mode, vmread VMM\nVMCS\nring 0 Memory vmwrite\n\nCurrent status of H/W assist Almost all VMMs make use of h/w assist today KVM is integrated part of Linux and makes heavy use of h/w assist Even Xen and VMWare workstation uses it\n\nXen architecture • Paravirtualization hypervisor • VMs called domains • Dom0 • Special domain • Based upon Linux • Handles all I/O • Windows: uses filter drivers • Xen hypervisor • All functions other than I/O • Trap and emulate • Binary translation • Sensitive instructions replaced by hypervisor calls\n\nKVM Architecture – Processor Support • Extends Linux kernel to add hypervisor functionality • Leverage Linux code for scheduling, paging, … • Uses VT-x, EPT • Each VM appears as a Linux process\n\nAdditional Reading\nwww.vmware.com/pdf/asplos235_adams.pdf\nhttps://www.cse.iitb.ac.in/~cs695/slides_pdf/04-hwvirt-\nkvmqemu.pdf\nhttps://www.intel.com/content/dam/www/public/us/en/docu\nments/white-papers/virtualization-tech-converged-application-\nplatforms-paper.pdf\n\nTHANK YOU\nPrafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nprafullatak@pes.edu\n\nVirtualization – Memory and I/O\nDr. Prafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nAcknowledgements:\nSignificant information in the slide deck presented through the Unit 2 of the course have been created by Dr. H.L. Phalachandra and would like to acknowledge and\nthank him for the same. There have been some information which I might have leveraged from the content of Dr. K.V. Subramaniam’s lecture contents too. I may have\nsupplemented the same with contents from books and other sources from Internet and would like to sincerely thank, acknowledge and reiterate that the credit/rights for\nthe same remain with the original authors/publishers only. These are intendedfor classroom presentationonly.\n\nRecap of Virtualization in Un-virtualized system\nProcess A’s virtual address space Process B’s virtual address space\nPage table\nPage table\nManaged by the OS\nPhysical memory\n\nRecap of Performing address translation in unvirtualized machine\nVA TLB\nVirtual Address\nHit?\nMiss?\nPTW (Page Table Walking)\nPTW\nPage Table\nCR3\nPA\nPhysical Address\n\nPage Walking (Recap) • Software page walker is a OS handler that walks the page table • slower than hardware page table walker due to large address translation overhead • Example: SPARC (Sun/Oracle Machines) • Hardware page walker generates load-like “instructions” to access page table • Example: x86 and ARM processors • During the page walk, the page walker encounters physical addresses in CR3 register and in page table entries which point to the next level of the walk. The page walk ends when the data or leaf page is reached. • Address translation is a very memory intensive operation because the page walker must access the memory hierarchy many times. To reduce this overhead, processors automatically store recent translations in an internal translation look-aside buffer (TLB).",
+      "cluster_size": 37,
+      "matched_questions": [
+        {
+          "question": "How is file system migration handled during VM migration?",
+          "score": 0.7021573781967163,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.6886027455329895,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are control flow changes a challenge for binary translation?",
+          "score": 0.6412370204925537,
+          "method": "semantic"
+        },
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.6586825847625732,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the three main approaches to I/O virtualization?",
+          "score": 0.6965149641036987,
+          "method": "semantic"
+        },
+        {
+          "question": "What exactly happens on the ring diagram when a guest app makes a syscall in the trap-and-emulate example?",
+          "score": 0.5970228910446167,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why does paravirtualization require modifying the guest OS?",
+          "score": 0.7668702006340027,
+          "method": "semantic"
+        },
+        {
+          "question": "What are VMX root and non-root modes?",
+          "score": 0.7337335348129272,
+          "method": "semantic"
+        },
+        {
+          "question": "What does a VMM actually do?",
+          "score": 0.6494834423065186,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.6777926683425903,
+          "method": "semantic"
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.7174447774887085,
+          "method": "semantic"
+        },
+        {
+          "question": "How does KVM extend the Linux kernel to provide hypervisor functionality?",
+          "score": 0.7118918895721436,
+          "method": "semantic"
+        },
+        {
+          "question": "How does hardware-assisted virtualization like Intel VT-x work?",
+          "score": 0.7420212030410767,
+          "method": "semantic"
+        },
+        {
+          "question": "What is workload mobility in the context of VM migration?",
+          "score": 0.6667530536651611,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the split-driver model for I/O virtualization?",
+          "score": 0.7061876058578491,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Xen implement paravirtualization?",
+          "score": 0.7404580116271973,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.7411038875579834,
+          "method": "semantic"
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.6993327736854553,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does the guest OS run in Ring 1 instead of Ring 0 under Xen?",
+          "score": 0.6720463037490845,
+          "method": "semantic"
+        },
+        {
+          "question": "What ring does the VMM run in under trap-and-emulate?",
+          "score": 0.6149942874908447,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why doesn't the original x86 architecture satisfy the Popek-Goldberg requirements?",
+          "score": 0.6020251512527466,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What are the performance problems with trap-and-emulate?",
+          "score": 0.5402482151985168,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How does pre-copy VM migration work?",
+          "score": 0.7093791961669922,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does direct I/O virtualization achieve near-native performance?",
+          "score": 0.7114651799201965,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does a privileged instruction cause a trap?",
+          "score": 0.5357065796852112,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.7349511384963989,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do almost all VMMs use hardware assist today?",
+          "score": 0.6487722396850586,
+          "method": "semantic"
+        },
+        {
+          "question": "Can you walk through the full worked example of why x86 doesn't satisfy Popek-Goldberg, step by step with the ring diagram?",
+          "score": 0.5946646928787231,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How many sensitive-but-unprivileged instructions did x86 have?",
+          "score": 0.6082141399383545,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a VM exit condition?",
+          "score": 0.7037588357925415,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.6561360359191895,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.667972207069397,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the equivalence property a VMM must satisfy?",
+          "score": 0.6062641143798828,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why would you migrate a VM?",
+          "score": 0.692639946937561,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Dom0 in Xen architecture?",
+          "score": 0.6040849089622498,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Is there a diagram showing why an unmodified guest OS breaks isolation if it's mapped into the same address space as guest apps?",
+          "score": 0.6453907489776611,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.7109183073043823,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 6,
+      "slide_ids": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "slide_range": "Slides 81-107",
+      "boundary_confidence": 0.765631256699562,
+      "window_text": "I/O virtualization\n▪ I/O virtualization (IOV), or input/output virtualization, is technology that uses software to abstract upper-\nlayer protocols from physical connections or physical transports.\n▪ I/O virtualization involves managing the routing of I/O requests between virtual devices and the shared\nphysical hardware.\n▪ Three ways to implement I/O virtualization:\n1. Full device Emulation\n2. Para-Virtualization\n3. Direct I/O\n1. Full device emulation\n▪ Full device emulates well-known, real-world devices.\n▪ All the functions of a device or bus infrastructure, such as device enumeration, identification,\ninterrupts, and DMA, are replicated in software.\n▪ This software is located in the VMM and acts as a virtual device. The I/O access requests of the guest OS\nare trapped in the VMM which interacts with the I/O devices.\n\n1. Full Device emulation for I/O Virtualization Device emulation for I/O virtualization implemented inside the middle layer that maps real I/O devices into the virtual devices for the guest device driver to use.\n\n2. Para-I/O-Virtualization or Split Driver or Hosted I/O Virtualization\n▪ It is also known as Hosted or the split driver model consisting of a frontend driver and a backend\ndriver.\n▪ The frontend driver is running in Domain U (User/Guest) and the\nbackend driver is running in Domain 0. They interact with each\nother via a block of shared memory.\n▪ The frontend driver manages the I/O requests of the guest OSes and\nthe backend driver is responsible for managing the real I/O devices\nand multiplexing the I/O data of different VMs.\n▪ Although para-I/O-virtualization achieves better device\nperformance than full device emulation, it comes with a higher CPU\noverhead.\n▪ Para virtualization method of I/O virtualization is typically used in\nXen\n\n3. Direct I/O (or Passthrough) I/O Virtualization\n▪ Direct I/O virtualization lets the VM access devices directly.\n▪ It can achieve close-to-native performance without high CPU costs.\n▪ Enables a device to directly DMA to/from host memory.\nThis technique thus provides an ability to bypass the VMM’s I/O emulation layer and\ntherefore shows improved throughput for the VM’s.\n▪ The Intel VT-x technology allows a VM to have direct access to a physical address (if so\nconfigured by the VMM).\n▪ This ability allows a device driver within a VM to be able to write directly to registers IO\ndevice (such as configuring DMA descriptors).\n▪ VT-d extensions add virtualization support to Intel chipsets that can assign specific I/O\ndevices to specific virtual machines\n▪ The mechanism for doing direct assignment varies from one vendor to another. However, the basic idea is that\nthe VMM utilizes and configures technologies such as Intel VT-x and Intel VT-d to perform address translation\nwhen sending data to and from an IO device.\nThe main concern with direct assignment is that it has limited scalability, a physical device can only be\nassigned to one VM. https://download3.vmware.com/vmworld/2006/tac0080.pdf\nRef: https://virtualizationdeepdive.wordpress.com/about/6-2/\n\nI/O virtualization : Advantages\nFlexibility: Since I/O virtualization involves abstracting the upper layer protocols from the underlying\nphysical connections, it offers greater flexibility in terms of hardware independence, utilization and\nfaster provisioning in comparison with normal NIC and HBA cards.\nCost minimization: I/O virtualization methodology involves using fewer cables, cards and switch ports\nwithout compromising on network I/O performance.\nIncreased density: I/O virtualization increases the practical density of I/O by allowing more\nconnections to exist in a given space.\nMinimizing cables: The I/O virtualization helps to reduce the multiple cables needed to connect\nservers to storage and network.\n\nAdditional References https://www.cse.iitb.ac.in/~cs695/slides_pdf/06-memvirt.pdf https://www.cse.iitb.ac.in/~cs695/papers/iovirt.pdf\n\nXen I/O Virtualization\n▪ Xen does not emulate hardware devices\n▪ Exposes device abstractions for simplicity and performance\n▪ I/O data transferred to/from guest via Xen using shared-memory buffers\n▪ Virtualized interrupts: light-weight event delivery mechanism from Xen-guest\n▪ Update a bitmap in shared memory\n▪ Optional call-back handlers registered by O/S\n\nTHANK YOU\nPrafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nprafullatak@pes.edu\n\nVirtualization – Goldberg/Popek Principles\nDr. Prafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nAcknowledgements:\nSignificant information in the slide deck presented through the Unit 2 of the course have been created by Dr. H.L. Phalachandra and would like to acknowledge and\nthank him for the same. There have been some information which I might have leveraged from the content of Dr. K.V. Subramaniam’s lecture contents too. I may have\nsupplemented the same with contents from books and other sources from Internet and would like to sincerely thank, acknowledge and reiterate that the credit/rights for\nthe same remain with the original authors/publishers only. These are intendedfor classroom presentationonly.\n\nBackground ▪ We discussed Cloud Computing as a paradigm which provides large number of benefits as discussed earlier, where • Computation happens somewhere in the cloud • Scalable Resources are made available to applications as a Service and at different service levels • We also discussed that Virtualization is one of the fundamental technologies which enables Cloud Computing • Virtualisation divides the resources of a computer into multiple execution environments using partial or complete machine simulation or emulation and allows it to be shared between different tenants or users. • The typical granularity of the compute to which the resources of a single physical server is divided would be a Virtual Machine • This is typically achieved using a layer of software, the Virtual Machine Manager or the hypervisor that provides illusion of a \"real\" machine to multiple instances of \"virtual machines“",
+      "cluster_size": 13,
+      "matched_questions": [
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.6415214538574219,
+          "method": "semantic"
+        },
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.6896097660064697,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the three main approaches to I/O virtualization?",
+          "score": 0.8032025694847107,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.6776962876319885,
+          "method": "semantic"
+        },
+        {
+          "question": "How does hardware-assisted virtualization like Intel VT-x work?",
+          "score": 0.7649456262588501,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the difference between full device emulation and direct I/O passthrough?",
+          "score": 0.7084667086601257,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the split-driver model for I/O virtualization?",
+          "score": 0.8004093170166016,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.682245135307312,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does direct I/O virtualization achieve near-native performance?",
+          "score": 0.7796734571456909,
+          "method": "semantic"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.7300642728805542,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.6566627025604248,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6699744462966919,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.6633260250091553,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 7,
+      "slide_ids": [
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126
+      ],
+      "slide_range": "Slides 108-127",
+      "boundary_confidence": 0.9959415179491042,
+      "window_text": "Virtualization – VM Migration\nDr. Prafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nAcknowledgements:\nSignificant information in the slide deck presented through the Unit 2 of the course have been created by Dr. H.L. Phalachandra and would like to acknowledge and\nthank him for the same. There have been some information which I might have leveraged from the content of Dr. K.V. Subramaniam’s lecture contents too. I may have\nsupplemented the same with contents from books and other sources from Internet and would like to sincerely thank, acknowledge and reiterate that the credit/rights for\nthe same remain with the original authors/publishers only. These are intendedfor classroom presentationonly.\n\nVM Migration\n▪ VM migration is the process of moving a virtual machine from one host to another.\n▪ There can be different kinds of migrations\n▪ Cold migration –migrating a powered-off VM (migrations can be across different CPU families)\n▪ Non-live(Off-line) VM Migration: Virtual machine at the source host is paused and then all\nstates of source host is transferred to the target or destination host, and then working of virtual\nmachine at the target host is resumed. This could have the drawback of a larger down time\n▪ Live or Hot migration – migrates a powered-on VM with no disruption to service.\n▪ including the memory content and all the information that define the virtual machine, such\nas BIOS, devices, MAC addresses, etc.\n▪ There are no dropped network connections and applications continue to run uninterrupted.\n▪ End users are not even aware that the VM has been migrated between two physical\neg. vSphere vMotion\n\nVM Migration – Why?\n▪ Migrations are done for reasons such as\n▪ Hardware Maintenance\n▪ Migrates the VMs and the applications running on them to allow maintenance of the\nphysical server\n▪ Balancing of the workload\n▪ Workload on a specific server or on few of the servers in the cluster of nodes can get\nunbalanced and live migrations are done to dynamically adjusting loads among nodes\n▪ Scaling to a changing workload\n▪ Changes in the workload or requirements of the Server may necessitate migration to a\nphysical server which has the required resources needed\n▪ By supporting automatic scale-up and scale-down of a virtual cluster\n▪ Consolidating the Servers for utilization\n▪ Effective and optimal utilization of Servers for cost\n\nVM Migration - Why\n▪ Migrations are done for reasons such as (Cont.)\n▪ Workload Mobility\n▪ Applications based on the compliance requirements may need to move their VMs to different\nmachines or locations\n▪ Performance\n▪ Mapping VMs onto the most appropriate physical node having the necessary resources to\npromote performance.\n▪ Migrating to nodes from nodes whose resources are over-utilized or environments where\nnetworks are clogged to shorten the response time of systems.\n▪ Energy efficiencies\n▪ Given that sustainability is the need for all data center’s migrations are used to reduce the\nenergy consumption (Servers, Zones, Airconditioning, Location)\n▪ Availability Support, Business Continuity\n▪ To support Availability requirements arising out of failures to equipment or environments\n\nNon-Live or Cold migration process\n▪ Non live migration is easiest of the migration technique.\n▪ In this technique the current execution of VMs are suspended before migration and resumed after\nthe migration phase.\n▪ It is a simple technique as the service provided is stopped while migration process continues.\n▪ The state of VM does not resume on the destination server until the migration process completes.\n▪ Memory pages need to be migrated only once using this technique.\n▪ The migration time is also very short and predictable.\n▪ This technique simplifies the migration process but as the service provided is paused during the\nmigration phase, application performance is degraded\n\nLive migration process of VMs\nLive migration is the current need in significant use case scenarios as significant number of applications\nand the services have availability expectations and Live migration supports offering of the same. In\nother words, the intention would be to migrate without impacting or even making aware the User\napplication running on the VM.\n▪ The live migration of VMs allows workloads of one node to transfer to another node.\n▪ The considerations for choosing to migrate and where to migrate would be the cost or overhead\ninvolved for the migration and the total time taken for migration.\n▪ VM migration is a resource-intensive procedure as VM’s continuously demand appropriate CPU\ncycles, cache memory, memory capacity, and communication bandwidth.\n▪ VM migration process typically degrades the performance of running applications and adversely\naffects efficiency of the data centers, particularly when Service Level Agreements (SLA) and critical\nbusiness objectives are to be met.\n\nLive VM migrations :\n▪ Live migration used in significant use case scenarios as this supports availability expectations needed\nfor significant number of applications.\n▪ These are few objectives of Live migration\n▪ Migrate by efficiently utilizing the bandwidth to optimize the application performance\n▪ Minimize the application downtime\n▪ Reducing the overall time required for transfer by maximum factor\n▪ Summarily migrate without significantly impacting the User application running on the VM.\n▪ There are two technique of live migration\n▪ Pre-copy technique\n▪ Post-copy technique\n\nLive VM migrations : Pre-Copy technique - 3\nAdvantages :\n▪ Low VM downtime (required for copying the remaining dirty pages)\n▪ Pre copy migration is advantageous in cases of few memory transfers\nDisadvantage :\n▪ Repeated copying of dirty pages can increase the whole migration time\n▪ This could result in greater transfer time and downtime in case of\nmore memory transfers\nE.g. KVM, Xen, and VMware hypervisor use the pre-copy technique for\nlive VM migration.",
+      "cluster_size": 16,
+      "matched_questions": [
+        {
+          "question": "How is file system migration handled during VM migration?",
+          "score": 0.6816577911376953,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.6540819406509399,
+          "method": "semantic"
+        },
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.649422287940979,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.6558061838150024,
+          "method": "semantic"
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.6398919820785522,
+          "method": "semantic"
+        },
+        {
+          "question": "What is workload mobility in the context of VM migration?",
+          "score": 0.6798602342605591,
+          "method": "semantic"
+        },
+        {
+          "question": "What is active push in post-copy migration?",
+          "score": 0.6028165817260742,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.6609842777252197,
+          "method": "semantic"
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.6492100358009338,
+          "method": "semantic"
+        },
+        {
+          "question": "How does pre-copy VM migration work?",
+          "score": 0.679182767868042,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between pre-copy and post-copy migration?",
+          "score": 0.5909125804901123,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.6443377733230591,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.64045649766922,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can repeated dirty page copying increase pre-copy migration time?",
+          "score": 0.5865145921707153,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why would you migrate a VM?",
+          "score": 0.665213406085968,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.6563303470611572,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 8,
+      "slide_ids": [
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133
+      ],
+      "slide_range": "Slides 128-134",
+      "boundary_confidence": 1.1706416589021682,
+      "window_text": "Lightweight virtualization – Containers, namespaces, cgroups & Deployment of cloud native applications through Docker, UnionFS\nDr. Prafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nAcknowledgements:\nSignificant information in the slide deck presented through the Unit 2 of the course have been created by Dr. H.L. Phalachandra and would like to acknowledge and\nthank him for the same. There have been some information which I might have leveraged from the content of Dr. K.V. Subramaniam’s lecture contents too. I may have\nsupplemented the same with contents from books and other sources from Internet and would like to sincerely thank, acknowledge and reiterate that the credit/rights for\nthe same remain with the original authors/publishers only. These are intendedfor classroom presentationonly.\n\nContainers – Definitions\n▪ Linux Containers or LXC is an operating-system-level virtualization method for running multiple isolated\nLinux systems (containers) which can run multiple workloads, on a control host running a single linux OS\ninstance\n▪ LXC provides a virtual environment that has its own process and network space and does not create a full-\nfledged virtual machine.\n▪ LXC uses Linux kernel cgroups and namespace isolation functionality to achieve the same.\nMotivation\n▪ VMs support the objective of virtualizing the physical systems and allowing multiple tenants/applications\nto be isolated and share the physical resources along with Access control\n▪ One of the challenges as observed is, this isolation achieved by or provided by VM is expensive\n▪ Traditional OSs supporting multiple application processes, but share a disk, with all the processes capable\nof seeing the entire filesystem with access control built on top, and also share a network.\n▪ Containers using a light weight mechanism, provide this virtualization extending the isolation provided by\nour traditional OS\nLxc (tools) is an user space toolset for creating & managing Linux Containers – different from LXC Linux containers\n\nContainer Characteristics\n▪ Containers sit on top of a physical server and its host OS.\n▪ Each container shares the host OS kernel and, usually, the binaries\nand libraries too, but as read-only. This reduces the management\noverhead where a single OS needs to be maintained for bug fixes,\npatches, and so on.\n▪ Containers are thus exceptionally “light”—they are only megabytes\nin size and take just seconds to start, versus gigabytes and minutes\nfor a VM.\n▪ Container creation is similar to process creation and it has\nspeed, agility and portability.\n▪ Thus containers have higher provisioning performance\n\nContainers (Cont.) A basic computer stack running two programs that were started from the command line • Notice that the command-line interface, or CLI, runs in what is called user space memory, just like other programs that run on top of the operating system. • Ideally, programs running in user space can’t modify kernel space memory. • Broadly speaking, the operating system is the interface between all user programs and the hardware that the computer is running on.\n\nContrasting Containers vs VMs\n1. Each VM includes a separate OS image, which adds\noverhead in memory and storage footprint.\nContainers reduce management overhead as they share a\ncommon OS, only a single OS needs to be maintained for\nbug fixes, patches, and so on.\n2. In terms of performance, VMs have to boot when provisioned\nmaking it slower, and also have I/O performance overhead\nContainers have higher performance as its creation is similar\nto process creation, so boots quickly and it has speed, agility\nand portability\n3. VMs are more flexible as Hardware is virtualized to run\nmultiple OS instances.\nContainers run on a single OS and also can support only\nUbuntu containers of that type of OS where its running or\ncontainers cannot be of different OS variants\n4. VMs consume more resources and come up slower than Containers which come up more quickly and consume fewer\nresources\n\nVM vs Docker\nMore resource usage Less resource usage\n\nDocker ▪ Docker is an open platform tool which makes it easier to create, test, ship, deploy and to execute applications using containers. ▪ Docker containers allow us to separate the applications from the infrastructure enabling faster deployment of applications/software ▪ It significantly reduces the time between writing code and running it in production by providing methodologies for shipping, testing and deploying code quickly ▪ It can be considered as a tool that helps to package and run an application in a loosely isolated environment called a container. ▪ It could be looked at as a PaaS product that uses OS level virtualization to deliver S/W packages ▪ Docker provides the isolation and security to allow many containers to run on a single server or virtual machine ▪ Its typical to find between 8 -18 containers running simultaneously on a single server/VM",
+      "cluster_size": 13,
+      "matched_questions": [
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.657577395439148,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6546312570571899,
+          "method": "semantic"
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.6431481242179871,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.6589082479476929,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a container and a virtual machine?",
+          "score": 0.6561410427093506,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+          "score": 0.5813143849372864,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.669579803943634,
+          "method": "semantic"
+        },
+        {
+          "question": "What does a typical CI/CD pipeline for a containerized application look like?",
+          "score": 0.6529746055603027,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.7461979389190674,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6471577882766724,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6466424465179443,
+          "method": "semantic"
+        },
+        {
+          "question": "Can you give a concrete example of setting up a VETH device between two containers?",
+          "score": 0.6012325286865234,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How do you configure a veth pair step by step to let two namespaces talk to each other?",
+          "score": 0.5704561471939087,
+          "method": "llm_fallback"
+        }
+      ]
+    },
+    {
+      "topic_id": 9,
+      "slide_ids": [
+        134,
+        135,
+        136,
+        137,
+        138,
+        139
+      ],
+      "slide_range": "Slides 135-140",
+      "boundary_confidence": 0.869236050248146,
+      "window_text": "Docker (Cont.) ▪ Containers created using Docker can contain everything needed to run an application, so you do not need to rely on what is currently installed on the host system ▪ Docker allows these containers to be shared in a way that it would work identically. ▪ Docker can be used with network applications such as web servers, databases, mail servers, with terminal applications like text editors, compilers, network analysis tools, and scripts. ▪ In some cases, it’s even used to run GUI applications such as web browsers and productivity software. ▪ Docker runs on Linux software on most systems. ▪ Docker is also available as a native application for both macOS and Windows ▪ Docker can run native Windows applications on modern Windows server machines.\n\nDocker Benefits Portability, Shipping Applications Portability\nDevelopers use Version Control Systems (VCS) like Git. DevOps also uses VCS for docs, scripts and Dockerfiles.\nDevOps could use Dockerfile to describes how to build the image, and something like docker-compose.yml to describe how to orchestrate them.\n\nDocker Architecture\n▪ Docker uses a client-server architecture.\n▪ The Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and\ndistributing your Docker containers.\n▪ The Docker client and daemon can run on\nthe same system, or you can connect a\nDocker client to a remote Docker daemon.\n▪ Docker client and daemon communicate\nusing a REST API, over UNIX sockets or a\nnetwork interface.\n▪ Another Docker client is Docker Compose,\nthat lets you work with applications consisting\nof a set of containers.\nReference:https://docs.docker.com/get-started/overview/\n\nDocker Architecture The Docker daemon ▪ The Docker daemon (dockerd) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. ▪ A daemon can also communicate with other daemons to manage Docker services. The Docker client ▪ The Docker client (docker) is the primary way that many Docker users interact with Docker. ▪ When you use commands such as docker run, the client sends these commands to ’dockerd’ (docker daemon), which carries them out. ▪ The docker command uses the Docker API. ▪ The Docker client can communicate with more than one daemon.\n\nDocker Architecture\nDocker Host\n▪ Docker Host has the Docker Daemon running and can host (like a private hub/registry) or connect\n(like to a public docker_hub/registry) to a Docker Registry which stores the Docker Images.\n▪ The Docker Daemon running within Docker Host is responsible for the Docker Objects images and\ncontainers.\nDocker Objects :\nThere are objects like\n▪ Images\n▪ Containers\n▪ Networks\n▪ Volumes\n▪ Plugins and other objects which are created and used while using docker.\n\nDocker Objects : Images\nImages : This is a read-only template with instructions for creating a Docker container. This could be\nbased on another image (available in the registry) with additional customizations. Eg. Image for a\nWebserver .. Original image of Ubuntu customized with installation and configuration of the\nwebserver which is created only as a read-only image which can be deployed and an application can\nbe run in the same.\nThis is done using a Dockerfile a script file which defines the syntax to indicate steps needed to\ncreate the image (and run using a run command).\nEach instruction in a Dockerfile creates a layer in the image.\nThese Dockerfiles are distributed along with software that the author wants to be put into an image.\nIn this case, you’re not technically installing an image. Instead, you’re following instructions to build\nan image.",
+      "cluster_size": 18,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.7259417772293091,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.6624546051025391,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.659893274307251,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.7126047611236572,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.7392198443412781,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.7717453241348267,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.7193738222122192,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.6899737119674683,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.7070038318634033,
+          "method": "semantic"
+        },
+        {
+          "question": "How do the Docker client and daemon communicate?",
+          "score": 0.6593650579452515,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.702567458152771,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.6540989875793457,
+          "method": "semantic"
+        },
+        {
+          "question": "What does a typical CI/CD pipeline for a containerized application look like?",
+          "score": 0.6506314873695374,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.6989219188690186,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6515320539474487,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.8048866987228394,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6495344638824463,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6869896650314331,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 10,
+      "slide_ids": [
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146
+      ],
+      "slide_range": "Slides 141-147",
+      "boundary_confidence": 0.9494763594865798,
+      "window_text": "Docker Objects : Images – More on Dockerfile\n▪ Distributing a Dockerfile is similar to distributing image files using your own distribution mechanisms. A\ncommon pattern is to distribute a Dockerfile with software from common version-control systems like Git.\nIf you have Git installed, you can try this by running an example from a public repository:\no git clone https://github.com/dockerinaction/ch3_dockerfile.git\no docker build -t dia_ch3/dockerfile:latest ch3_dockerfile\nIn this example, you copy the project from a public source repository onto your computer and then build and\ninstall a Docker image by using the Dockerfile included with that project. The value provided to the -t option\nof docker build is the repository where you want to install the image.\n▪ Building images from Dockerfile is a light way to move projects around that fits into existing workflows. Could\nlead to an unfavourable experience in case of a drift in dependencies between the time when the Dockerfile\nwas authored and when an image is built on a user’s computer.\n▪ Docker Images can be removed or cleaned up with\no docker rmi dia_ch3/dockerfile\no rm -rf ch3_dockerfile\nDocker Commands – Video Ref: https://www.youtube.com/watch?v=nXV6qihj5uw\n\nDocker Objects : Images - layers\n▪ Specification for a Docker Image is stored in Dockerfile\nShould be only one for a container\nOnly the definition of the image\n▪ Image is built from Dockerfile\n▪ Specifies the read-only file systems in which various programs\nare installed E.g. web server + libraries\n▪ Each instruction in a Dockerfile creates a layer in the image.\n▪ A layer is set of files and file metadata that is packaged and\ndistributed as an atomic unit.\nInternally, Docker treats each layer like an image, and layers are often called intermediate images.\nYou can even promote a layer to an image by tagging it.\nMost layers build upon a parent layer by applying filesystem changes to the parent.\nWhenever there is a change in the Dockerfile and the image is rebuilt, only the incremental changes are\nrebuilt (making it light weight, small and fast when compared to other virtualized technologies)",
+      "cluster_size": 12,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.6518218517303467,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.7023239135742188,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.6594254374504089,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6741688251495361,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.7533246278762817,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6723262071609497,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.65035080909729,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.740047812461853,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6531217098236084,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.6505084037780762,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.7404524683952332,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.6729121804237366,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 11,
+      "slide_ids": [
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170
+      ],
+      "slide_range": "Slides 148-171",
+      "boundary_confidence": 1.2690048795938491,
+      "window_text": "Docker Objects : Images & Docker Registries\n▪ Image + temporary R/W file system\nUsed as temporary storage\nDeleted when container is destroyed\n▪ Multiple containers can use the same image & their own\ntemporary storage\nDocker registries:\nA Docker registry stores Docker images.\nDocker Hub is a public registry that anyone can use, and\nDocker is configured to look for images on Docker Hub by\ndefault.\nYou can even run your own private registry.\nWhen you use the docker pull or docker run commands, the\nrequired images are pulled from your configured registry.\nWhen you use the docker push command, your image is\npushed to your configured registry.\nhttps://docs.docker.com/storage/storagedriver/\n\nDocker Objects : Containers\n▪ Docker Containers are the ready applications created from Docker Images.\nOr you can say they are running instances of the Images and they hold the\nentire package needed to run the application Or it could also be looked at\nas a runnable instance of an image Or an execution environment (sandbox).\n▪ We can create, start, stop, move, or delete a container using the Docker API or CLI.\n▪ A container can be connected to one or more networks. Storage could be attached to it, or even new image\ncould be created based on its current state.\n▪ A container is relatively well isolated from other containers and its host machine and this isolation can also\nbe controlled. Processes in the container cannot access non-shared objects of other containers, and can only\naccess a subset of the objects (like files) on the physical machine.\n▪ Docker creates a set of name spaces when a container is created. These namespaces restrict what the\nobjects processes in a container can see e.g. a subset of files\n▪ A container is defined by its image and the configuration options provided to it when its created or started.\nWhen a container is removed, any changes to its state that are not stored in persistent storage will disappear\n\nDocker running three containers on a basic Linux computer system\n▪ Running Docker means running two\nprograms in user space.\nThe first is the Docker engine that\nshould always be running.\nThe second is the Docker CLI. This is the\nDocker program that users interact\nwith to start, stop, or install software\n▪ Each container is running as a child process\nof the Docker engine, wrapped with a\ncontainer, and the delegate process is\nrunning in its own memory subspace of the\nuser space.\nDocker can be looked at as a set of PaaS products\nPrograms running inside a container\nthat use OS-level virtualization to deliver software in\ncan access only their own memory and\npackages called containers.\nresources as scoped by the container.\n\nRunning a program with Docker\n▪ What happens after running\ndocker run\n▪ The image itself is a collection\nof files and metadata which\nincludes the specific program\nto execute and other relevant\nconfiguration details\n▪ Running docker run a\nsecond time.\n▪ The image is already\ninstalled, so Docker can start\nthe new container right\naway.\n\nNamespaces – What’s in a Name in CS?\n▪ If you can’t name an object, you can’t access it. E.g. Web site – if name is hidden, can’t access\n▪ Paging : Processes can access only pages in its name spaces but cannot access physical page 1 (i.e. frame number 1 in\nthe diagram)\n▪ Namespaces are a feature of the Linux kernel that partitions kernel resources such that one set of\nprocesses sees one set of resources and another set of processes sees a different set of resources.\n▪ A namespace wraps a global system resource in an abstraction that makes it appear to the processes within the\nnamespace that they have their own isolated instance of the global resource\n▪ The feature works by having the same namespace (with a name) for a group of resources and\nprocesses, but those namespaces refer to distinct resources\n▪ A physical computer can have more than one namespaces (two or more)\n▪ All the resources that a process sees can be considered a namespace\nThe files seen by a process is the file namespace\nThe network connections are part of network namespace\nContainer Access is restricted to only subset of objects (e.g., files) on the physical machine using\nthese namespaces. Restriction is applied on what can be seen by the object processes in a container e.g.\nTo restrict process (and container) to a subset of files use file namespace\n\nDocker used Namespaces\n▪ Docker builds containers at runtime using 10 major system features. Docker commands can be\nused to illustrate and modify features to suit the needs of the contained software and to fit the\nenvironment where the container will run.\n▪ The specific features are as follows (a few of them are discussed in a little more detail):\nPID namespace—Process isolation through identifiers (PID number) – not aware of what\nhappens outside its own processes\nUTS namespace—allows for having multiple hostnames on a single physical host - Host and\ndomain name (as other things like IP can change)\nMNT namespace—isolate a set of mount points such that processes in different namespaces\ncannot view each others files. (almost like chroot) (Filesystem access & structure)\nIPC namespace—provides isolation to container process communication over shared\nmemory and having an ability to invite other processes to read from the shared memory\nhttps://www.redhat.com/sysadmin/7-linux-namespaces\n\nAccess Control of objects : Illustration of name space (in this case MNT) Processes\nContainer 1\nContainer 2\nin container 1 can access\nShared files in /usr\nNon-shared /mnt\n/ /\nCannot access /mnt2\nin container 2 can access\nmnt mnt usr usr mnt2 mnt2\nShared files in /usr\nbin bin src src\nNon-shared /mnt2\nCannot access /mnt\ndir1 dir1 dir2 dir2 Dir3 Dir3\nThese are two different namespaces",
+      "cluster_size": 13,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.7241208553314209,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.7065553665161133,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.7034665942192078,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.7016434073448181,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6708600521087646,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.7503119707107544,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6774029731750488,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.7245914340019226,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.7479382753372192,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6818993091583252,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.8050497770309448,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.7238976955413818,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.7155778408050537,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 12,
+      "slide_ids": [
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177
+      ],
+      "slide_range": "Slides 172-178",
+      "boundary_confidence": 0.8785637003183364,
+      "window_text": "Linux cgroups - Functionality Access\nwhich devices can be used per cgroup\nResource limiting\nmemory, CPU, device accessibility, block I/O, etc.\nPrioritization\nwho gets more of the CPU, memory, etc.\nAccounting\nresource usage per cgroup\nControl\nfreezing & check pointing\nInjection\npacket tagging\n\nLinux cgroups - usage cgroups are hierarchically structured where each of the groups are created for a\nresource with a number.\nTasks are assigned to cgroups\nEach cgroups has a resource limitation\nThere is a hierarchy for each resource\n\nWhat resources can we limit? All of the following can be limited for a Cgroup Memory\nCPU\nBlock IO\nDevices (which of the devices and allowing creation of devices ..)\nNetwork\n\ncgroup Examples\nEach cgroup has a resource limitation associated with it\n\nWhat resources can we limit?\nWhen a process creates a child process, the child\nprocess stays in the same cgroup\nGood for servers such as NFS\nTypical operation\nReceive request\nFork child to process request\nChild terminates when request complete\nAll children will have resource limitation\nof parent => the resource limitation of\nparent will apply to processing requests\n\nTry the following on your docker command line: docker run -d --name mycontainer --cpus=\"0.5\" ubuntu sleep 1000 docker run -d --name mycontainer --memory=100m ubuntu sleep 1000 docker exec mycontainer cat /sys/fs/cgroup/cpu/cpu.cfs_quota_us docker exec mycontainer cat /sys/fs/cgroup/memory/memory.limit_in_bytes docker stats mycontainer docker rm -f mycontainer Example With stress test: docker run -d --name mem_test --memory=100m ubuntu sleep 1000 docker exec -it mem_test apt update && apt install -y stress docker exec -it mem_test stress --vm 1 --vm-bytes 150m --timeout 30s (The container should be killed by the Out of Memory (OOM) killer.) docker logs mem_test docker ps -a | grep mem_test (It should show Exited (137), meaning it was terminated due to OOM.)\n\nContainer Filesystem • Programs running inside containers know nothing about image layers. • From inside a container, the filesystem operates as though it’s not running in a container or operating on an image. • From the perspective of the container, it has exclusive copies of the files provided by the image. This is made possible with something called a union filesystem (UFS). • Docker uses a variety of union filesystems and will select the best fit for your system. • A union filesystem is part of a critical set of tools that combine to create effective filesystem isolation. • The other tools are MNT namespaces and the chroot system call.",
+      "cluster_size": 8,
+      "matched_questions": [
+        {
+          "question": "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+          "score": 0.7567412853240967,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a cgroup and what is it used for?",
+          "score": 0.7337756156921387,
+          "method": "semantic"
+        },
+        {
+          "question": "How are cgroups structured hierarchically?",
+          "score": 0.7527328729629517,
+          "method": "semantic"
+        },
+        {
+          "question": "What kinds of resources can a cgroup limit?",
+          "score": 0.8295688629150391,
+          "method": "semantic"
+        },
+        {
+          "question": "What would an actual cgroup resource-limit example look like in practice?",
+          "score": 0.8026957511901855,
+          "method": "semantic"
+        },
+        {
+          "question": "Is there a worked example showing how cgroups restrict a group of processes?",
+          "score": 0.7852073311805725,
+          "method": "semantic"
+        },
+        {
+          "question": "How is a specific CPU or memory limit actually enforced through a cgroup example?",
+          "score": 0.8123812675476074,
+          "method": "semantic"
+        },
+        {
+          "question": "Does a child process inherit its parent's cgroup?",
+          "score": 0.7232105731964111,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 13,
+      "slide_ids": [
+        178,
+        179,
+        180,
+        181,
+        182
+      ],
+      "slide_range": "Slides 179-183",
+      "boundary_confidence": 0.9935052973031997,
+      "window_text": "Union Filesystem ▪ Union is a type of a filesystem that can create an illusion of merging contents of several directories (created in layers) into one without modifying its original (physical) sources which can be shown in single, merged view ▪ Union file system operates by creating layers, making them very lightweight and fast. ▪ Docker Engine uses UnionFS to provide the building blocks for containers. ▪ Docker Engine can use multiple UnionFS variants, including AUFS, overlay2, btrfs, vfs, and DeviceMapper.\nhttps://martinheinz.dev/blog/44\nReference:https://docs.docker.com/get-started/overview/\n\nunionfs features - Layering\n▪ unionfs permits layering of file systems /Fruits\n/Fruits contains files Apple, Tomato\nApple Tomatoes\n/Vegetables contains Carrots, Tomato\nmount –t unionfs –o dirs=/Fruits:/Vegetables none /mnt/healthy\n/Vegetables\n/mnt/healthy has 3 files – Apple, Tomato, Carrots\nTomato comes from /Fruits (1 st in dirs option) Carrots Tomatoes\n▪ As if /Fruits is layered on top of /Vegetables\nCoW layer\n▪ -o cow option on mount command enables copy on write\n/Fruits\nIf change is made to a file\nApple Tomatoes\nOriginal file is not modified\nNew file is created in a hidden location\n/Vegetables\n▪ If /Fruits is mounted ro (read-only), then changes will be recorded in a\nCarrots Tomatoes\ntemporary layer\nhttp://www.linuxjournal.com/article/7714\n\nDocker and UnionFS\nIncremental Images\n▪ Union FS\nFiles from separate FS (branches) can be overlaid\nForming a single coherent FS\nBranches may be read-only or read-write\n▪ Docker Layers\nEach layer is mounted on top of prior\nlayers\nFirst layer = base image (scratch, busybox,\nubuntu, …)\nA read-only layer = an image\nThe top read-write layer = container https://www.slideshare.net/cm13/introduction-to-docker-48784005\n\nWeaknesses of Union Filesystem ▪ Different filesystems have different rules about file attributes, sizes, names, and characters. ▪ Union filesystems are in a position where they often need to translate between the rules of different filesystems. In the best cases, they’re able to provide acceptable translations. In the worst cases, features are omitted. ▪ Union filesystems use a pattern called copy-on-write, and that makes implementing memory-mapped files (the mmap system call) difficult. ▪ Most issues that arise with writing to the union filesystem can be addressed without changing the storage provider. These can be solved with volumes ▪ The union filesystem is not appropriate for working with long-lived data or sharing data between containers, or a container and the host.",
+      "cluster_size": 7,
+      "matched_questions": [
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.8705762624740601,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.656613826751709,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.6828435659408569,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6412098407745361,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a union filesystem and how does it work?",
+          "score": 0.8677151203155518,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the weaknesses of union filesystems?",
+          "score": 0.7499662637710571,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.6639025807380676,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 14,
+      "slide_ids": [
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200
+      ],
+      "slide_range": "Slides 184-201",
+      "boundary_confidence": 0.9532015305757522,
+      "window_text": "Summary Use namespaces for controlling resource access\nDocker has developed their own namespace technology called namespaces to\nprovide the isolated workspace called the container.\nWhen you run a container, Docker creates a set of namespaces for that\ncontainer.\nThese namespaces provide a layer of isolation.\nUse cgroups for resource sharing\n\nContainer Software\n1. Docker\n2. AWS Fargate\n3. Google Kubernetes Engine\n4. Amazon ECS\n5. LXC\n6. Microsoft Azure\n7. Google Cloud Platform\n8. Core OS\n\nAdditional References Containers vs VMs https://www.redhat.com/en/topics/containers/containers-vs-vms Docker container https://www.simplilearn.com/tutorials/docker-tutorial/what-is-docker-container https://www.xda-developers.com/best-docker-containers-for-developers/ Understanding Linux containers https://www.redhat.com/en/topics/containers https://www.cio.com/article/2924995/what-are-containers-and-why-do-you-need- them.html\n\nAdditional Reading • https://access.redhat.com/documentation/en- US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec- Relationships_Between_Subsystems_Hierarchies_Control_Groups_and_Tasks.html • https://en.wikipedia.org/wiki/Cgroups https://www.youtube.com/watch?v=sK5i-N34im8\nCgroups, namespaces and beyond: What are containers made from – Jerome\nPettazzoni, Docker\nhttps://www.youtube.com/watch?v=nXV6qihj5uw\nhttps://access.redhat.com/documentation/en-\nUS/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec-\nRelationships_Between_Subsystems_Hierarchies_Control_Groups_and_Tasks.html\n\nTHANK YOU\nPrafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nprafullatak@pes.edu\n\nLightweight virtualization – Containers, namespaces, cgroups & Deployment of cloud native applications through Docker, UnionFS\nDr. Prafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nAcknowledgements:\nSignificant information in the slide deck presented through the Unit 2 of the course have been created by Dr. H.L. Phalachandra and would like to acknowledge and\nthank him for the same. There have been some information which I might have leveraged from the content of Dr. K.V. Subramaniam’s lecture contents too. I may have\nsupplemented the same with contents from books and other sources from Internet and would like to sincerely thank, acknowledge and reiterate that the credit/rights for\nthe same remain with the original authors/publishers only. These are intendedfor classroom presentationonly.\n\nContainers – Definitions\n▪ Linux Containers or LXC is an operating-system-level virtualization method for running multiple isolated\nLinux systems (containers) which can run multiple workloads, on a control host running a single linux OS\ninstance\n▪ LXC provides a virtual environment that has its own process and network space and does not create a full-\nfledged virtual machine.\n▪ LXC uses Linux kernel cgroups and namespace isolation functionality to achieve the same.\nMotivation\n▪ VMs support the objective of virtualizing the physical systems and allowing multiple tenants/applications\nto be isolated and share the physical resources along with Access control\n▪ One of the challenges as observed is, this isolation achieved by or provided by VM is expensive\n▪ Traditional OSs supporting multiple application processes, but share a disk, with all the processes capable\nof seeing the entire filesystem with access control built on top, and also share a network.\n▪ Containers using a light weight mechanism, provide this virtualization extending the isolation provided by\nour traditional OS\nLxc (tools) is an user space toolset for creating & managing Linux Containers – different from LXC Linux containers\n\nContainer Characteristics\n▪ Containers sit on top of a physical server and its host OS.\n▪ Each container shares the host OS kernel and, usually, the binaries\nand libraries too, but as read-only. This reduces the management\noverhead where a single OS needs to be maintained for bug fixes,\npatches, and so on.\n▪ Containers are thus exceptionally “light”—they are only megabytes\nin size and take just seconds to start, versus gigabytes and minutes\nfor a VM.\n▪ Container creation is similar to process creation and it has\nspeed, agility and portability.\n▪ Thus containers have higher provisioning performance\n\nContainers (Cont.) A basic computer stack running two programs that were started from the command line • Notice that the command-line interface, or CLI, runs in what is called user space memory, just like other programs that run on top of the operating system. • Ideally, programs running in user space can’t modify kernel space memory. • Broadly speaking, the operating system is the interface between all user programs and the hardware that the computer is running on.\n\nContrasting Containers vs VMs\n1. Each VM includes a separate OS image, which adds\noverhead in memory and storage footprint.\nContainers reduce management overhead as they share a\ncommon OS, only a single OS needs to be maintained for\nbug fixes, patches, and so on.\n2. In terms of performance, VMs have to boot when provisioned\nmaking it slower, and also have I/O performance overhead\nContainers have higher performance as its creation is similar\nto process creation, so boots quickly and it has speed, agility\nand portability\n3. VMs are more flexible as Hardware is virtualized to run\nmultiple OS instances.\nContainers run on a single OS and also can support only\nUbuntu containers of that type of OS where its running or\ncontainers cannot be of different OS variants\n4. VMs consume more resources and come up slower than Containers which come up more quickly and consume fewer\nresources\n\nVM vs Docker\nMore resource usage Less resource usage\n\nDocker Benefits Portability, Shipping Applications Portability\nDevelopers use Version Control Systems (VCS) like Git. DevOps also uses VCS for docs, scripts and Dockerfiles.\nDevOps could use Dockerfile to describes how to build the image, and something like docker-compose.yml to describe how to orchestrate them.",
+      "cluster_size": 31,
+      "matched_questions": [
+        {
+          "question": "Why would you group multiple containers into one Pod?",
+          "score": 0.6406391859054565,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.8473799824714661,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.6658279895782471,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the namespace hierarchy look like before and after a process calls unshare()?",
+          "score": 0.6552643179893494,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the PID namespace isolate?",
+          "score": 0.6919437646865845,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Pod in Kubernetes?",
+          "score": 0.6436727046966553,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6582365036010742,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.8293603658676147,
+          "method": "semantic"
+        },
+        {
+          "question": "If a nested namespace changes its hostname, does the parent namespace ever see that change?",
+          "score": 0.6476025581359863,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.7254946231842041,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6499953866004944,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.6986421346664429,
+          "method": "semantic"
+        },
+        {
+          "question": "Is there a diagram showing how setns() lets a process join an existing namespace?",
+          "score": 0.6760178804397583,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.6588644981384277,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the illustrated example of creating and joining a Linux namespace?",
+          "score": 0.6845741868019104,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.6444362998008728,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.6403239965438843,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.6596393585205078,
+          "method": "semantic"
+        },
+        {
+          "question": "What kinds of resources can a cgroup limit?",
+          "score": 0.648383617401123,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a container and a virtual machine?",
+          "score": 0.6587862968444824,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6592571139335632,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.6499072313308716,
+          "method": "semantic"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.6558746099472046,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between the NET namespace and the USR namespace?",
+          "score": 0.6620569229125977,
+          "method": "semantic"
+        },
+        {
+          "question": "How deep does UTS namespace isolation go across multiple nested namespaces?",
+          "score": 0.6799275279045105,
+          "method": "semantic"
+        },
+        {
+          "question": "Can you walk through what actually happens step by step when a process calls clone() with CLONE_NEWNS to create a new mount namespace?",
+          "score": 0.6309719085693359,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What does the MNT namespace isolate?",
+          "score": 0.6811074018478394,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6723517179489136,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.6921188831329346,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6739007830619812,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6486033201217651,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 15,
+      "slide_ids": [
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207
+      ],
+      "slide_range": "Slides 202-208",
+      "boundary_confidence": 0.9494763594865798,
+      "window_text": "Docker Objects : Images – More on Dockerfile\n▪ Distributing a Dockerfile is similar to distributing image files using your own distribution mechanisms. A\ncommon pattern is to distribute a Dockerfile with software from common version-control systems like Git.\nIf you have Git installed, you can try this by running an example from a public repository:\no git clone https://github.com/dockerinaction/ch3_dockerfile.git\no docker build -t dia_ch3/dockerfile:latest ch3_dockerfile\nIn this example, you copy the project from a public source repository onto your computer and then build and\ninstall a Docker image by using the Dockerfile included with that project. The value provided to the -t option\nof docker build is the repository where you want to install the image.\n▪ Building images from Dockerfile is a light way to move projects around that fits into existing workflows. Could\nlead to an unfavourable experience in case of a drift in dependencies between the time when the Dockerfile\nwas authored and when an image is built on a user’s computer.\n▪ Docker Images can be removed or cleaned up with\no docker rmi dia_ch3/dockerfile\no rm -rf ch3_dockerfile\nDocker Commands – Video Ref: https://www.youtube.com/watch?v=nXV6qihj5uw\n\nDocker Objects : Images - layers\n▪ Specification for a Docker Image is stored in Dockerfile\nShould be only one for a container\nOnly the definition of the image\n▪ Image is built from Dockerfile\n▪ Specifies the read-only file systems in which various programs\nare installed E.g. web server + libraries\n▪ Each instruction in a Dockerfile creates a layer in the image.\n▪ A layer is set of files and file metadata that is packaged and\ndistributed as an atomic unit.\nInternally, Docker treats each layer like an image, and layers are often called intermediate images.\nYou can even promote a layer to an image by tagging it.\nMost layers build upon a parent layer by applying filesystem changes to the parent.\nWhenever there is a change in the Dockerfile and the image is rebuilt, only the incremental changes are\nrebuilt (making it light weight, small and fast when compared to other virtualized technologies)",
+      "cluster_size": 12,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.6518218517303467,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.7023239135742188,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.6594254374504089,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6741688251495361,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.7533246278762817,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6723262071609497,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.65035080909729,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.740047812461853,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6531217098236084,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.6505084037780762,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.7404524683952332,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.6729121804237366,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 16,
+      "slide_ids": [
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238
+      ],
+      "slide_range": "Slides 209-239",
+      "boundary_confidence": 1.2690048795938491,
+      "window_text": "Docker Objects : Images & Docker Registries\n▪ Image + temporary R/W file system\nUsed as temporary storage\nDeleted when container is destroyed\n▪ Multiple containers can use the same image & their own\ntemporary storage\nDocker registries:\nA Docker registry stores Docker images.\nDocker Hub is a public registry that anyone can use, and\nDocker is configured to look for images on Docker Hub by\ndefault.\nYou can even run your own private registry.\nWhen you use the docker pull or docker run commands, the\nrequired images are pulled from your configured registry.\nWhen you use the docker push command, your image is\npushed to your configured registry.\nhttps://docs.docker.com/storage/storagedriver/\n\nDocker Objects : Containers\n▪ Docker Containers are the ready applications created from Docker Images.\nOr you can say they are running instances of the Images and they hold the\nentire package needed to run the application Or it could also be looked at\nas a runnable instance of an image Or an execution environment (sandbox).\n▪ We can create, start, stop, move, or delete a container using the Docker API or CLI.\n▪ A container can be connected to one or more networks. Storage could be attached to it, or even new image\ncould be created based on its current state.\n▪ A container is relatively well isolated from other containers and its host machine and this isolation can also\nbe controlled. Processes in the container cannot access non-shared objects of other containers, and can only\naccess a subset of the objects (like files) on the physical machine.\n▪ Docker creates a set of name spaces when a container is created. These namespaces restrict what the\nobjects processes in a container can see e.g. a subset of files\n▪ A container is defined by its image and the configuration options provided to it when its created or started.\nWhen a container is removed, any changes to its state that are not stored in persistent storage will disappear\n\nDocker running three containers on a basic Linux computer system\n▪ Running Docker means running two\nprograms in user space.\nThe first is the Docker engine that\nshould always be running.\nThe second is the Docker CLI. This is the\nDocker program that users interact\nwith to start, stop, or install software\n▪ Each container is running as a child process\nof the Docker engine, wrapped with a\ncontainer, and the delegate process is\nrunning in its own memory subspace of the\nuser space.\nDocker can be looked at as a set of PaaS products\nPrograms running inside a container\nthat use OS-level virtualization to deliver software in\ncan access only their own memory and\npackages called containers.\nresources as scoped by the container.\n\nRunning a program with Docker\n▪ What happens after running\ndocker run\n▪ The image itself is a collection\nof files and metadata which\nincludes the specific program\nto execute and other relevant\nconfiguration details\n▪ Running docker run a\nsecond time.\n▪ The image is already\ninstalled, so Docker can start\nthe new container right\naway.\n\nNamespaces – What’s in a Name in CS?\n▪ If you can’t name an object, you can’t access it. E.g. Web site – if name is hidden, can’t access\n▪ Paging : Processes can access only pages in its name spaces but cannot access physical page 1 (i.e. frame number 1 in\nthe diagram)\n▪ Namespaces are a feature of the Linux kernel that partitions kernel resources such that one set of\nprocesses sees one set of resources and another set of processes sees a different set of resources.\n▪ A namespace wraps a global system resource in an abstraction that makes it appear to the processes within the\nnamespace that they have their own isolated instance of the global resource\n▪ The feature works by having the same namespace (with a name) for a group of resources and\nprocesses, but those namespaces refer to distinct resources\n▪ A physical computer can have more than one namespaces (two or more)\n▪ All the resources that a process sees can be considered a namespace\nThe files seen by a process is the file namespace\nThe network connections are part of network namespace\nContainer Access is restricted to only subset of objects (e.g., files) on the physical machine using\nthese namespaces. Restriction is applied on what can be seen by the object processes in a container e.g.\nTo restrict process (and container) to a subset of files use file namespace\n\nDocker used Namespaces\n▪ Docker builds containers at runtime using 10 major system features. Docker commands can be\nused to illustrate and modify features to suit the needs of the contained software and to fit the\nenvironment where the container will run.\n▪ The specific features are as follows (a few of them are discussed in a little more detail):\nPID namespace—Process isolation through identifiers (PID number) – not aware of what\nhappens outside its own processes\nUTS namespace—allows for having multiple hostnames on a single physical host - Host and\ndomain name (as other things like IP can change)\nMNT namespace—isolate a set of mount points such that processes in different namespaces\ncannot view each others files. (almost like chroot) (Filesystem access & structure)\nIPC namespace—provides isolation to container process communication over shared\nmemory and having an ability to invite other processes to read from the shared memory\nhttps://www.redhat.com/sysadmin/7-linux-namespaces\n\nAccess Control of objects : Illustration of name space (in this case MNT) Processes\nContainer 1\nContainer 2\nin container 1 can access\nShared files in /usr\nNon-shared /mnt\n/ /\nCannot access /mnt2\nin container 2 can access\nmnt mnt usr usr mnt2 mnt2\nShared files in /usr\nbin bin src src\nNon-shared /mnt2\nCannot access /mnt\ndir1 dir1 dir2 dir2 Dir3 Dir3\nThese are two different namespaces\n\nLinux cgroups - usage cgroups are hierarchically structured where each of the groups are created for a\nresource with a number.\nTasks are assigned to cgroups\nEach cgroups has a resource limitation\nThere is a hierarchy for each resource",
+      "cluster_size": 13,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.7241208553314209,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.7065553665161133,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.703466534614563,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.7016435265541077,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6708600521087646,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.7503119707107544,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6774029731750488,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.7245914936065674,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.7479382753372192,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6818993091583252,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.8050495982170105,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.7238977551460266,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.7155775427818298,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 17,
+      "slide_ids": [
+        239,
+        240,
+        241,
+        242,
+        243
+      ],
+      "slide_range": "Slides 240-244",
+      "boundary_confidence": 0.9935052973031997,
+      "window_text": "Union Filesystem ▪ Union is a type of a filesystem that can create an illusion of merging contents of several directories (created in layers) into one without modifying its original (physical) sources which can be shown in single, merged view ▪ Union file system operates by creating layers, making them very lightweight and fast. ▪ Docker Engine uses UnionFS to provide the building blocks for containers. ▪ Docker Engine can use multiple UnionFS variants, including AUFS, overlay2, btrfs, vfs, and DeviceMapper.\nhttps://martinheinz.dev/blog/44\nReference:https://docs.docker.com/get-started/overview/\n\nunionfs features - Layering\n▪ unionfs permits layering of file systems /Fruits\n/Fruits contains files Apple, Tomato\nApple Tomatoes\n/Vegetables contains Carrots, Tomato\nmount –t unionfs –o dirs=/Fruits:/Vegetables none /mnt/healthy\n/Vegetables\n/mnt/healthy has 3 files – Apple, Tomato, Carrots\nTomato comes from /Fruits (1 st in dirs option) Carrots Tomatoes\n▪ As if /Fruits is layered on top of /Vegetables\nCoW layer\n▪ -o cow option on mount command enables copy on write\n/Fruits\nIf change is made to a file\nApple Tomatoes\nOriginal file is not modified\nNew file is created in a hidden location\n/Vegetables\n▪ If /Fruits is mounted ro (read-only), then changes will be recorded in a\nCarrots Tomatoes\ntemporary layer\nhttp://www.linuxjournal.com/article/7714\n\nDocker and UnionFS\nIncremental Images\n▪ Union FS\nFiles from separate FS (branches) can be overlaid\nForming a single coherent FS\nBranches may be read-only or read-write\n▪ Docker Layers\nEach layer is mounted on top of prior\nlayers\nFirst layer = base image (scratch, busybox,\nubuntu, …)\nA read-only layer = an image\nThe top read-write layer = container https://www.slideshare.net/cm13/introduction-to-docker-48784005\n\nWeaknesses of Union Filesystem ▪ Different filesystems have different rules about file attributes, sizes, names, and characters. ▪ Union filesystems are in a position where they often need to translate between the rules of different filesystems. In the best cases, they’re able to provide acceptable translations. In the worst cases, features are omitted. ▪ Union filesystems use a pattern called copy-on-write, and that makes implementing memory-mapped files (the mmap system call) difficult. ▪ Most issues that arise with writing to the union filesystem can be addressed without changing the storage provider. These can be solved with volumes ▪ The union filesystem is not appropriate for working with long-lived data or sharing data between containers, or a container and the host.",
+      "cluster_size": 7,
+      "matched_questions": [
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.8705763816833496,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.656613826751709,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.6828434467315674,
+          "method": "semantic"
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.6412098407745361,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a union filesystem and how does it work?",
+          "score": 0.8677151203155518,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the weaknesses of union filesystems?",
+          "score": 0.7499662637710571,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.6639026403427124,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 18,
+      "slide_ids": [
+        244,
+        245,
+        246,
+        247,
+        248,
+        249
+      ],
+      "slide_range": "Slides 245-250",
+      "boundary_confidence": 0.9532015305757522,
+      "window_text": "Summary Use namespaces for controlling resource access\nDocker has developed their own namespace technology called namespaces to\nprovide the isolated workspace called the container.\nWhen you run a container, Docker creates a set of namespaces for that\ncontainer.\nThese namespaces provide a layer of isolation.\nUse cgroups for resource sharing\n\nContainer Software\n1. Docker\n2. AWS Fargate\n3. Google Kubernetes Engine\n4. Amazon ECS\n5. LXC\n6. Microsoft Azure\n7. Google Cloud Platform\n8. Core OS\n\nAdditional References Containers vs VMs https://www.redhat.com/en/topics/containers/containers-vs-vms Docker container https://www.simplilearn.com/tutorials/docker-tutorial/what-is-docker-container https://www.xda-developers.com/best-docker-containers-for-developers/ Understanding Linux containers https://www.redhat.com/en/topics/containers https://www.cio.com/article/2924995/what-are-containers-and-why-do-you-need- them.html\n\nAdditional Reading • https://access.redhat.com/documentation/en- US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec- Relationships_Between_Subsystems_Hierarchies_Control_Groups_and_Tasks.html • https://en.wikipedia.org/wiki/Cgroups https://www.youtube.com/watch?v=sK5i-N34im8\nCgroups, namespaces and beyond: What are containers made from – Jerome\nPettazzoni, Docker\nhttps://www.youtube.com/watch?v=nXV6qihj5uw\nhttps://access.redhat.com/documentation/en-\nUS/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec-\nRelationships_Between_Subsystems_Hierarchies_Control_Groups_and_Tasks.html\n\nTHANK YOU\nPrafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nprafullatak@pes.edu\n\nDevOps\nDr. Prafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nAcknowledgements:\nSignificant information in the slide deck presented through the Unit 2 of the course have been created by Dr. H.L. Phalachandra and would like to acknowledge and\nthank him for the same. There have been some information which I might have leveraged from the content of Dr. K.V. Subramaniam’s lecture contents too. I may have\nsupplemented the same with contents from books and other sources from Internet and would like to sincerely thank, acknowledge and reiterate that the credit/rights for\nthe same remain with the original authors/publishers only. These are intendedfor classroom presentationonly.",
+      "cluster_size": 30,
+      "matched_questions": [
+        {
+          "question": "Why would you group multiple containers into one Pod?",
+          "score": 0.6406393051147461,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.8473801612854004,
+          "method": "semantic"
+        },
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.6658279895782471,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the namespace hierarchy look like before and after a process calls unshare()?",
+          "score": 0.6552643179893494,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the PID namespace isolate?",
+          "score": 0.6919435858726501,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Pod in Kubernetes?",
+          "score": 0.6436726450920105,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6582363843917847,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.8293604850769043,
+          "method": "semantic"
+        },
+        {
+          "question": "If a nested namespace changes its hostname, does the parent namespace ever see that change?",
+          "score": 0.6476026773452759,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.7254945039749146,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6499953866004944,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.6986420750617981,
+          "method": "semantic"
+        },
+        {
+          "question": "Is there a diagram showing how setns() lets a process join an existing namespace?",
+          "score": 0.6760177612304688,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.6588644981384277,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the illustrated example of creating and joining a Linux namespace?",
+          "score": 0.6845743656158447,
+          "method": "semantic"
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.6444363594055176,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.6403241753578186,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.6596393585205078,
+          "method": "semantic"
+        },
+        {
+          "question": "What kinds of resources can a cgroup limit?",
+          "score": 0.648383617401123,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between a container and a virtual machine?",
+          "score": 0.6587862968444824,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.6592571139335632,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.6499072313308716,
+          "method": "semantic"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.6558747291564941,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between the NET namespace and the USR namespace?",
+          "score": 0.6620569229125977,
+          "method": "semantic"
+        },
+        {
+          "question": "How deep does UTS namespace isolation go across multiple nested namespaces?",
+          "score": 0.6799274682998657,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the MNT namespace isolate?",
+          "score": 0.6811074018478394,
+          "method": "semantic"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6723517179489136,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.6921188831329346,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6739009618759155,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6486033201217651,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 19,
+      "slide_ids": [
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256
+      ],
+      "slide_range": "Slides 251-257",
+      "boundary_confidence": 0.8172643166780471,
+      "window_text": "Definition ▪ DevOps is a set of practices that combines software development and IT operations (development and operations) where each of them are independent specialist jobs. ▪ It aims to shorten the system development life cycle (SDLC) and increase an organizational ability to deliver (Deploy and Support) applications and services ▪ DevOps is complementary with Agile software development; several DevOps aspects came from Agile methodology\n\nDevOps Definition (Cont.) ▪ DevOps is a set of practices that automates the processes between software development and IT teams, in order that they can build, test, and release software faster and more reliably.\nOperations Org\nDevelopment Org\nHave quite different goals\nand incentives, which often\nconflicted with each other.\n▪ It follows Plan, Build, Deploy, Operate cycle.\n▪ Docker and Kubernetes are 2 of 10 most used DevOps tools now. Git is another one.\n\nMotivational Problem You have built and tested the containerized application\nYou learnt how to deploy your application using Docker\nAs customers require more features,\nWhat do you do?\nLet’s look at some engineering issues\nhttps://www.iltam.org/check_download_nopass.php?forcedownload=1&file=files/DevOpsconfpresentationSandrine1.pptx\n&no_encrypt=true&dlpassword=20426\n\nSDLC – Software Development Life Cycle\nCustomer generates requirements\nDo a design\nDifferent teams work on different components\nIntegrated together\nThen tested for\nFunctionality\nSimilarity to customer deployment\nThen for deployment, need to talk to customers IT team.\nManages deployment, scaling, run time issues with the application\n\nDev & Ops Typical Conversation\nWhat are the\ndependencies?\nPut the current release live, NOW!\nNo machines available…\nIt works on my machine\nWhich DB?\nWe need this Yesterday •\nYou are using the wrong version High Availability?\nScalability?\n\nMake the balance between Dev & Ops In pre-cloud era, requires a lot of manual intervention like procuring machines, etc. With cloud – automation is possible\n\nCloud SDLC\nCustomer generates requirements\nDo a design\nDifferent teams work on different components\nDEV OPS\nIntegrated together\nThen tested for\nFunctionality\nSimilarity to customer deployment\nThen for deployment, need to talk to cloud IT team.\nHandles deployment, scaling, monitoring\nSo, what are the challenges?",
+      "cluster_size": 9,
+      "matched_questions": [
+        {
+          "question": "What is a Pod in Kubernetes?",
+          "score": 0.6653158068656921,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6437720656394958,
+          "method": "semantic"
+        },
+        {
+          "question": "What is DevOps?",
+          "score": 0.8836038112640381,
+          "method": "semantic"
+        },
+        {
+          "question": "What does DevOps aim to shorten?",
+          "score": 0.7879736423492432,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do development and operations teams historically have conflicting goals?",
+          "score": 0.6357014775276184,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.6454063057899475,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Kubernetes?",
+          "score": 0.6716991662979126,
+          "method": "semantic"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.6696853637695312,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6636418104171753,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 20,
+      "slide_ids": [
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268
+      ],
+      "slide_range": "Slides 258-269",
+      "boundary_confidence": 0.41178345680236816,
+      "window_text": "Advantages Faster Time to Market – checkins more often, so can build and test more often.\n▪\nQuality of Code/Release - improved because of frequent testing\n▪\nIntegration Often\n▪\nDeploy Often – changes reach the customers often\n▪\nAutomated – Repeatable and faster\n▪\nEvery one is happy (Hopefully!!)\n▪\n\nAutomation : Principles of Continuous Delivery\nPrinciple #1 Principle #3\nEvery build is a potential release Automate wherever possible\nPrinciple #4\nPrinciple #2 Have automated tests you can trust\nEliminate manual bottlenecks\n\nKeep it Simple • Reduce risk of Release • Make small changes and Test it every cycle • Small changes can make the difference for Ops & Dev\n\nAutomate all the things\nProgramming Model to enable scale\n▪\nManage source code\n▪\nReproducible Build\n▪\nBuild on a Prod-Like environment\n▪\nNo more “Works on my machine”\n▪\nTest\n▪\nTesting reduces risks\n▪\nMake you more confident\n▪\nDeploy\n▪\nDeploy to Dev\n▪\nDeploy to QA\n▪\nDeploy to Pre-Prod\n▪\nProd\n▪\n\nDevOps Pipeline\nTypical pipeline for containerized applications might look like the following:\n1. A developer pushes his/her code changes to Git.\n2. The build system automatically builds the current version of the code and runs some sanity tests.\n3. If all tests pass, the container image will be published into the central container registry.\n4. The newly built container is deployed automatically to a staging environment.\n5. The staging environment undergoes some automated acceptance tests.\n6. The verified container image is deployed to production.\n\nContinuous Development\n▪ This includes continuous code development, continuous integration and continuous Build\n▪ Developers distributed across geographies\n▪ Consistent coding style\n▪ Need to keep the changes in sync\n▪ Can’t rely on mailing individual changes\n▪ Everyone needs to have a common view of the code.\n▪ Continuous integration (CI): the automatic merging of the code, Requires every module to compile\n(Build) correctly and then do sanity testing of developers’ changes against the mainline branch.\n▪ If you’re making changes on a branch that would break the build when merged to the mainline,\ncontinuous integration will let you know that right away, rather than waiting until you finish your\nbranch and do the final merge.\n▪ Tool : Source Code Version Management Systems like git, ClearCase, Maven, ANT, Jenkins, Travis\nCI, or Drone are often used to automate build pipelines\n\nContinuous Delivery / Continuous Testing / Continuous Deployment\nContinuous delivery is the frequent shipping of sanitized builds to a given environment (such as test or\nproduction) for automatic developments.\n▪ This could be done using tools like Jenkins the open source Java based application which automates\nmany parts of the software delivery pipeline\nContinuous Testing\n▪ Continuous testing is the process of executing predominantly automated tests as part of the\nsoftware delivery pipeline for validating the code to ensure that the application works as envisaged\nand is free of bugs or defects and can be continuously deployed\n▪ These tests are typically designed to be executed with minimum wait times and provide the earliest\npossible feedback & support detection (or prevention) of the risks that are most critical for the\nbusiness or organization that is associated with the software release candidate.\n(Cont.)\n\nContinuous Delivery / Continuous Testing / Continuous Deployment\nContinuous testing (Cont.)\nThis would involve activities like\n▪ Copy individual binaries to staging environment to the right directories\n▪ Configure it correctly, ensure dependent libraries are installed\n▪ Execute different categories of the planned tests (e.g. Integration tests, functionality, performance\nor acceptance tests) (Could use tools like Junit, Selenium)\n▪ Generate reports\n▪ Continuous deployment (CD) is the automatic deployment of successful builds to production\nmanaged centrally.\n▪ Developers should be able to deploy new versions by either pushing a button, or merging a merge\nrequest, or pushing a Git release tag.\n\nContinuous Deployment (Cont.)\n▪ This is when the application is actually used\nby the customer Setup the environment\n▪ Specify the type of infrastructure that you\nneed in terms of machine types – Chef\nProvisioning (Machines, storage)\n▪ Consider Immutable infrastructure which\ndoes not change enabling easier automation\n▪ Specify the configuration that you need –\nPuppet, Chef Recipe/Cookbooks\n▪ The set of docker images and their scaling\npolicy, setup load balancer etc. Jenkins: Is the workflow\nautomation server\nTools\nTools to setup the infrastructure: Chef/Puppet/Kubernetes\nDocker – create a docker image with all dependencies for each of the services\n\nJenkins ▪ Jenkins is a very widely adopted CD tool. There is also a newer dedicated side project for running Jenkins in Kubernetes cluster, JenkinsX. ▪ Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. ▪ Jenkins can be installed through native system packages, Docker, or even run standalone by any machine with a Java Runtime Environment (JRE) installed.\n\nAdditional References\nhttps://www.guru99.com/jenkins-tutorial.html\nhttps://www.guru99.com/devops-tutorial.html\nReferences: (useful for Cloud lab experiment)\nhttps://www.jenkins.io/doc/\nhttps://www.jenkins.io/doc/book/pipeline/\nhttps://jenkins-x.io/\n\nTHANK YOU\nPrafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nprafullatak@pes.edu",
+      "cluster_size": 8,
+      "matched_questions": [
+        {
+          "question": "How do you actually automate wherever possible in a CI/CD pipeline?",
+          "score": 0.6214714050292969,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Is Jenkins only for continuous delivery, or can it automate other tasks too?",
+          "score": 0.6590299010276794,
+          "method": "semantic"
+        },
+        {
+          "question": "What is continuous development and why does it matter for distributed teams?",
+          "score": 0.6702383756637573,
+          "method": "semantic"
+        },
+        {
+          "question": "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?",
+          "score": 0.6301050186157227,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What's the reasoning behind each of the four continuous delivery principles?",
+          "score": 0.6574136018753052,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between continuous integration, continuous delivery, and continuous deployment?",
+          "score": 0.6781116127967834,
+          "method": "semantic"
+        },
+        {
+          "question": "Can you explain what makes automated tests 'trustworthy' in continuous delivery?",
+          "score": 0.7782424688339233,
+          "method": "semantic"
+        },
+        {
+          "question": "Why exactly does 'every build is a potential release' matter in continuous delivery?",
+          "score": 0.7498894929885864,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 21,
+      "slide_ids": [
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283
+      ],
+      "slide_range": "Slides 270-284",
+      "boundary_confidence": 0.5517811757326125,
+      "window_text": "Orchestration and Kubernetes\nDr. Prafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nAcknowledgements:\nSignificant information in the slide deck presented through the Unit 2 of the course have been created by Dr. H.L. Phalachandra and would like to acknowledge and\nthank him for the same. There have been some information which I might have leveraged from the content of Dr. K.V. Subramaniam’s lecture contents too. I may have\nsupplemented the same with contents from books and other sources from Internet and would like to sincerely thank, acknowledge and reiterate that the credit/rights for\nthe same remain with the original authors/publishers only. These are intendedfor classroom presentationonly.\n\nContainer and Orchestration Recap - Basics\n▪ Containers offer a way to package code, a runtime, system tools, system libraries, and configs\naltogether. This shipment is a lightweight, standalone executable. This way, your application will\nbehave the same every time no matter where it runs (e.g. Ubuntu, Windows, etc.).\n▪ Container orchestration automates the deployment, management,\nscaling, and networking of containers.This could involve deploying\ncontainers on a compute cluster consisting of multiple nodes\n▪ Container orchestration can be used in any environment where\nyou use containers, to help deploy the same application across\ndifferent environments without needing to redesign it.\n▪ Managing the lifecycle of containers with Orchestration supports DevOps teams to integrate into\nCI/CD workflows\n▪ Container Management tools extend lifecycle management capabilities to complex, multi-container\nworkloads deployed on a cluster of machines\nhttps://devopedia.org/container-orchestration\n\nContainer orchestration ▪ Container orchestrator: Its a piece of centralized management software that allocates and schedules containers to run on a pool of servers (different machines in a cluster): ▪ Operations teams, too, find their workload greatly simplified by containers. ▪ Instead of having to maintain a sprawling estate of machines of various kinds, architectures, and operating systems, all they have to do is run a container orchestrator ▪ The terms Orchestration and Scheduling are often used loosely as synonyms. • Strictly though, orchestration in this context means coordinating and sequencing different activities in service of a common goal (like the musicians in an orchestra). • Scheduling means managing the resources available and assigning/deploying workloads where they can most efficiently be run.\n\nContainer orchestration (Cont.) ▪ An important activity of container orchestration is cluster management: joining multiple physical or virtual servers into a unified, reliable, fault-tolerant, apparently seamless group. ▪ Containers providing this computation environment is considered Immutable\n▪ Immutable infrastructure is an infrastructure paradigm in which servers are never modified\nafter they’re deployed.\n▪ If something needs to be updated, fixed, or modified in any way, new servers built from a\ncommon image with the appropriate changes are provisioned to replace the old ones.\n▪ The benefits of an immutable infrastructure include more consistency and reliability in your\ninfrastructure and a simpler, more predictable deployment process.\n▪ It mitigates or entirely prevents issues that are common in mutable infrastructures, like\nconfiguration drift\n▪ It also enables comprehensive deployment automation, fast server provisioning in a cloud\ncomputing environment.\n\nContainer orchestration (Cont.) ▪ Kubernetes is the most pervasive container orchestration platform to address these challenges. • Kubernetes is an open-source container management (orchestration) tool. • It’s container management responsibilities include container deployment, scaling & descaling of containers & container load balancing. • It lets you manage complex application deployments quickly in a predictable and reliable manner.\n\nContainer orchestration (Cont.) ▪ Container orchestration is used to control and automate many tasks:\n▪ Provisioning and deployment\n▪ Configuration and scheduling\n▪ Resource allocation between containers and manage the networking between them\n▪ Container availability and redundancy management\n▪ Scaling or removing containers based on balancing workloads across host infrastructure\n▪ Load balancing and traffic routing\n▪ Monitoring container and host health\n▪ Configuring applications based on the container in which they will run\n▪ Keeping interactions between containers secure\n▪ Migration of containers from one host to another for supporting failures, shortage of resources etc.\n\nWhere does Container orchestration fit within the system stack?\nContainer Orchestration mediates between the apps/services and the container runtimes\n▪ Service Management: Labels (represents Key-Value\npairs that are attached to objects such as pods and\nused to specify identifying attributes of objects) ,\ngroups (collection of related functionality),\nnamespaces (a way to organize clusters into virtual\nsub-clusters), dependencies, load balancing,\nreadiness checks.\n▪ Scheduling: Allocation, replication, (container)\nresurrection, rescheduling, rolling deployment,\nupgrades, downgrades.\n▪ Resource Management: Memory, CPU, GPU,\nvolumes, ports, IPs.\n\nContainer orchestration – Different Tools which support Orchestration Docker Swarm: Provides native clustering functionality for Docker containers, which turns a group of Docker engines into a single, virtual Docker engine. Google Container Engine: Google Container Engine, built on Kubernetes, can run Docker containers on the Google Cloud. Kubernetes: An orchestration system for Docker containers. It handles scheduling and manages workloads based on user-defined parameters. Amazon ECS: The ECS supports Docker containers and lets you run applications on a managed cluster of Amazon EC2 instances.",
+      "cluster_size": 8,
+      "matched_questions": [
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6577746272087097,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a container orchestrator and what problem does it solve?",
+          "score": 0.5991462469100952,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.6438820958137512,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Kubernetes?",
+          "score": 0.65659499168396,
+          "method": "semantic"
+        },
+        {
+          "question": "What does the kubelet do?",
+          "score": 0.537516713142395,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.657884955406189,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6510423421859741,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.6528908014297485,
+          "method": "semantic"
+        }
+      ]
+    },
+    {
+      "topic_id": 22,
+      "slide_ids": [
+        284,
+        285,
+        286,
+        287
+      ],
+      "slide_range": "Slides 285-288",
+      "boundary_confidence": 0.366424560546875,
+      "window_text": "Kubernetes Benefits\nHorizontal scaling. Scale your application as needed from command line or UI.\nAutomated rollouts and rollbacks. Roll out changes in a controlled fashion while monitoring the health of\nyour application in the container and if something goes wrong, K8S automatically rolls back the change.\nService discovery and load balancing. Kubernetes can expose a containers using a DNS name or IP and based\non the load, can do load balancing by distribute traffic.\nStorage orchestration. Automatically mount local or public cloud or a network storage.\nSecret and configuration management. Kubernetes lets you store and manage sensitive information, such as\npasswords, OAuth tokens, and SSH keys. You can deploy and update secrets and application configuration\nwithout rebuilding your container images, and without exposing secrets in your stack configuration.\nSelf-healing. The platform heals many problems: restarting failed containers, replacing and rescheduling\ncontainers as nodes die, killing containers that don’t respond to your user-defined health check, and waiting\nto advertise containers to clients until they’re ready.\nBatch execution. Manage your batch and Continuous Integration workloads and replace failed containers.\nAutomatic binpacking. Automatically schedules containers based on resource requirements like CPU and\nmemory which the containers need along with other constraints into the same host\n\nTHANK YOU\nPrafullata Kiran Auradkar\nDepartment of Computer Science and Engineering\nprafullatak@pes.edu",
+      "cluster_size": 17,
+      "matched_questions": [
+        {
+          "question": "What are the benefits of using Kubernetes, like horizontal scaling and rollbacks?",
+          "score": 0.8232545256614685,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Pod in Kubernetes?",
+          "score": 0.7007834911346436,
+          "method": "semantic"
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.6972301602363586,
+          "method": "semantic"
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.66411954164505,
+          "method": "semantic"
+        },
+        {
+          "question": "What's the difference between the master node and worker nodes in a Kubernetes cluster?",
+          "score": 0.6781255602836609,
+          "method": "semantic"
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.6528509855270386,
+          "method": "semantic"
+        },
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.6487499475479126,
+          "method": "semantic"
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.7500797510147095,
+          "method": "semantic"
+        },
+        {
+          "question": "What does kube-proxy do?",
+          "score": 0.6348615884780884,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "How does live migration preserve open network connections?",
+          "score": 0.6438256502151489,
+          "method": "semantic"
+        },
+        {
+          "question": "What is Kubernetes?",
+          "score": 0.7414023876190186,
+          "method": "semantic"
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.6680246591567993,
+          "method": "semantic"
+        },
+        {
+          "question": "Why do Pod IP addresses change, and how does a Service handle that?",
+          "score": 0.6106377243995667,
+          "method": "llm_fallback"
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.6736849546432495,
+          "method": "semantic"
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.6660479307174683,
+          "method": "semantic"
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.6464505195617676,
+          "method": "semantic"
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.7290775179862976,
+          "method": "semantic"
+        }
+      ]
+    }
+  ],
+  "unmatched_questions": [
+    {
+      "question": "What is normalization in database design?",
+      "best_score": 0.544051468372345,
+      "best_topic_id": 0
+    },
+    {
+      "question": "What's the difference between cold migration and live migration?",
+      "best_score": 0.5311201810836792,
+      "best_topic_id": 3
+    },
+    {
+      "question": "What is Jenkins used for?",
+      "best_score": 0.6063319444656372,
+      "best_topic_id": 19
+    },
+    {
+      "question": "Why is pivot_root often used instead of chroot?",
+      "best_score": 0.5866247415542603,
+      "best_topic_id": 12
+    },
+    {
+      "question": "How do I center a div in CSS?",
+      "best_score": 0.4735475778579712,
+      "best_topic_id": 1
+    },
+    {
+      "question": "What is server consolidation?",
+      "best_score": 0.5994769334793091,
+      "best_topic_id": 2
+    },
+    {
+      "question": "What's the difference between chroot and pivot_root?",
+      "best_score": 0.5615180730819702,
+      "best_topic_id": 10
+    },
+    {
+      "question": "What are the actual differences between Amazon ECS and Google Container Engine?",
+      "best_score": 0.5903854370117188,
+      "best_topic_id": 18
+    },
+    {
+      "question": "What's the difference between TCP and UDP?",
+      "best_score": 0.5175349116325378,
+      "best_topic_id": 17
+    },
+    {
+      "question": "What are the main reasons companies use VMs?",
+      "best_score": 0.6252669095993042,
+      "best_topic_id": 3
+    },
+    {
+      "question": "What's the difference between user instructions and system instructions?",
+      "best_score": 0.5661870241165161,
+      "best_topic_id": 21
+    },
+    {
+      "question": "How does chroot work?",
+      "best_score": 0.5586655139923096,
+      "best_topic_id": 12
+    },
+    {
+      "question": "What's the time complexity of quicksort in the average case?",
+      "best_score": 0.5457193851470947,
+      "best_topic_id": 20
+    },
+    {
+      "question": "How does garbage collection work in Java?",
+      "best_score": 0.5698155164718628,
+      "best_topic_id": 4
+    },
+    {
+      "question": "How exactly does the child process's view of the filesystem change right after CLONE_NEWNS is used?",
+      "best_score": 0.6163488626480103,
+      "best_topic_id": 13
+    },
+    {
+      "question": "What are the two levels of address translation in EPT?",
+      "best_score": 0.618274450302124,
+      "best_topic_id": 4
+    },
+    {
+      "question": "What's the exact procedure for moving one end of a veth pair into a namespace?",
+      "best_score": 0.5970182418823242,
+      "best_topic_id": 14
+    },
+    {
+      "question": "What is an Extended Page Table (EPT) and how is it different from shadow paging?",
+      "best_score": 0.5608075857162476,
+      "best_topic_id": 0
+    },
+    {
+      "question": "What's the difference between a privileged instruction and a sensitive instruction?",
+      "best_score": 0.5786793828010559,
+      "best_topic_id": 1
+    }
+  ]
+}
