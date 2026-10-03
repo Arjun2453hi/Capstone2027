@@ -1,0 +1,35 @@
+{
+  "topic_id": 1,
+  "assigned_slide_ids": [
+    12,
+    13,
+    14,
+    15
+  ],
+  "discovered_slide_ids": [
+    11,
+    12,
+    13,
+    14,
+    16,
+    17,
+    23,
+    29,
+    32,
+    38,
+    49,
+    63,
+    69,
+    71,
+    72,
+    77,
+    78,
+    79,
+    96,
+    103,
+    104
+  ],
+  "gap_type": "shallow_coverage",
+  "confidence": 0.8,
+  "report_text": "The slides for Topic 1 (slides 12‑15) provide a solid overview of the two main virtualization styles—full (transparent) and paravirtualization.  They explain the need for privileged‑instruction trapping, the role of the hypervisor, and the basic trade‑off that paravirtualization achieves by modifying the guest OS to replace non‑virtualizable instructions with hypercalls.  This covers the questions about why paravirtualization requires OS changes, the difference between the two styles, and why it can outperform full virtualization.\n\nHowever, several student questions are only partially answered or not addressed within this slide range:\n\n* **EPT vs. shadow paging** – The slides do not mention EPT at all.  A search expanding the window around slide 12 found slide 11, which contains a concise explanation of EPT and its performance advantage over shadow paging.  Adding a brief reference to that slide or moving the EPT discussion into this topic would close the gap.\n\n* **x86 pushf/popf** – The slides list privileged instructions and the trap mechanism but do not discuss the specific problem with pushf/popf.  Slide 103 contains the relevant detail.  Including a short note or a link to that slide would satisfy the question.\n\n* **Shadow page‑table updates** – The slides mention shadow tables but not the trigger for updates.  Slide 72 explains that guest modifications to page tables are trapped and cause the VMM to sync the shadow tables.  A quick mention of this trigger would make the answer complete.\n\n* **Xen implementation** – The slides state that Xen provides APIs for the guest OS, but they do not describe the architecture.  Slide 17 gives a fuller picture of Xen’s paravirtualization model.  Adding a sentence or a reference to that slide would clarify how Xen implements the technique.\n\n* **KVM and paravirtualization** – The slides list KVM among OS that can use paravirtualization but do not explain what KVM is.  Slide 23 provides the necessary background.  A brief description or a pointer would resolve the question.\n\nIn summary, the core concepts of paravirtualization are well covered, but the topic would benefit from brief cross‑references or concise additions for the EPT, pushf/popf, shadow‑table update triggers, Xen, and KVM questions.  This would transform the coverage from shallow to comprehensive without fragmenting the narrative."
+}

@@ -19,24 +19,28 @@ import json
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import List, Union
+from typing import List, Optional, Union
 
 from .mapper import topic_text
 from .schema import MappingResult, QuestionMatch, UnmatchedQuestion
 
-# Deliberately larger than mapper.py's MAX_TOPIC_CHARS (1500) -- that
-# budget was tuned for Stage 3's own use (embedding a topic + a
-# per-candidate LLM-fallback prompt, where compactness across several
-# candidates matters). window_text here feeds 04_gap_reporting_agent's
-# get_topic_slides tool -- a single topic read into one agent's own
-# context, not a multi-candidate prompt -- so it can afford a much
-# larger budget. Real bug found in practice at the smaller budget: a
-# long early slide (an acknowledgements paragraph) could exceed 1500
-# chars almost by itself, leaving no room for the topic's actual
-# content; 6000 comfortably covers most real topics' full content on
-# the actual 288-slide deck (topic 0's real content, for example, is
-# ~8000 chars across 12 slides).
-GAP_INPUT_MAX_TOPIC_CHARS = 6000
+# Deliberately UNBOUNDED, unlike mapper.py's MAX_TOPIC_CHARS (1500) --
+# that budget was tuned for Stage 3's own different use (embedding many
+# topics at once + fitting several candidates into one LLM-fallback
+# prompt, where compactness across candidates genuinely matters).
+# window_text here feeds 04_gap_reporting_agent's get_topic_slides tool
+# -- a single topic read once by one agent, not a multi-candidate
+# prompt -- so completeness matters more than compactness, and a fixed
+# budget can't actually guarantee completeness anyway: measured
+# directly against the real deck, a 6000-char budget (tried first)
+# silently dropped 10 of a real 22-slide topic's slides -- not just
+# trailing boilerplate, but the topic's substantive middle content --
+# because that topic's true total (12,494 chars) simply exceeded the
+# budget. The largest real topic on this deck is 16,128 chars, well
+# within any modern LLM's context for a single tool call -- there is no
+# real constraint here that justifies truncating and risking another
+# silent content gap.
+GAP_INPUT_MAX_TOPIC_CHARS = None
 
 
 @dataclass
@@ -77,7 +81,7 @@ def _slide_range_label(slide_ids: List[int], deck) -> str:
 
 
 def build_gap_verification_input(
-    result: MappingResult, topics: List, deck, max_topic_chars: int = GAP_INPUT_MAX_TOPIC_CHARS
+    result: MappingResult, topics: List, deck, max_topic_chars: Optional[int] = GAP_INPUT_MAX_TOPIC_CHARS
 ) -> GapVerificationInput:
     topics_by_id = {t.topic_id: t for t in topics}
     dossiers = []

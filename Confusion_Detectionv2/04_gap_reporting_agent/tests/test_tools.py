@@ -80,13 +80,17 @@ def test_search_similar_slides_ranks_by_cosine_similarity_and_respects_top_k():
 
 
 def test_write_report_returns_its_arguments_as_a_dict():
+    # slide_ids_examined is deliberately NOT one of write_report's own
+    # arguments (remediation, Phase 3): a model self-reporting what it
+    # "examined" could claim slides it never looked at. agent.py fills
+    # in assigned_slide_ids/discovered_slide_ids afterward from real
+    # data instead -- see test_agent_loop.py's report-construction tests.
     ctx = make_fake_context()
     tools = {t.name: t for t in build_tools(ctx)}
 
     result = tools["write_report"].invoke(
         {
             "topic_id": 5,
-            "slide_ids_examined": [10, 11, 12],
             "gap_type": "shallow_coverage",
             "confidence": 0.7,
             "report_text": "This topic briefly mentions X but never explains Y.",
@@ -96,4 +100,4 @@ def test_write_report_returns_its_arguments_as_a_dict():
     assert result["topic_id"] == 5
     assert result["gap_type"] == "shallow_coverage"
     assert result["confidence"] == 0.7
-    assert result["slide_ids_examined"] == [10, 11, 12]
+    assert "slide_ids_examined" not in result

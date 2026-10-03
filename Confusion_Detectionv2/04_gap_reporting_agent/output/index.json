@@ -1,0 +1,119 @@
+[
+  {
+    "topic_id": 9,
+    "filename": "topic_09_report.json",
+    "gap_type": "fragmented_context",
+    "confidence": 0.8,
+    "backed_by_questions": 18,
+    "outcome": "completed",
+    "severity": 4.711102366666305
+  },
+  {
+    "topic_id": 22,
+    "filename": "topic_22_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.9,
+    "backed_by_questions": 17,
+    "outcome": "completed",
+    "severity": 2.6013345821065483
+  },
+  {
+    "topic_id": 7,
+    "filename": "topic_07_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.9,
+    "backed_by_questions": 16,
+    "outcome": "completed",
+    "severity": 2.549892009650595
+  },
+  {
+    "topic_id": 10,
+    "filename": "topic_10_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.9,
+    "backed_by_questions": 12,
+    "outcome": "completed",
+    "severity": 2.3084544217153833
+  },
+  {
+    "topic_id": 11,
+    "filename": "topic_11_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.8,
+    "backed_by_questions": 13,
+    "outcome": "completed",
+    "severity": 2.111245863692207
+  },
+  {
+    "topic_id": 20,
+    "filename": "topic_20_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.85,
+    "backed_by_questions": 8,
+    "outcome": "completed",
+    "severity": 1.8676408907357867
+  },
+  {
+    "topic_id": 19,
+    "filename": "topic_19_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.8,
+    "backed_by_questions": 9,
+    "outcome": "completed",
+    "severity": 1.842068074395237
+  },
+  {
+    "topic_id": 13,
+    "filename": "topic_13_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.8,
+    "backed_by_questions": 7,
+    "outcome": "completed",
+    "severity": 1.6635532333438687
+  },
+  {
+    "topic_id": 17,
+    "filename": "topic_17_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.8,
+    "backed_by_questions": 7,
+    "outcome": "completed",
+    "severity": 1.6635532333438687
+  },
+  {
+    "topic_id": 18,
+    "filename": "topic_18_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.35,
+    "backed_by_questions": 30,
+    "outcome": "cap_hit",
+    "severity": 1.201895521569801
+  },
+  {
+    "topic_id": 8,
+    "filename": "topic_08_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.0,
+    "backed_by_questions": 13,
+    "outcome": "cap_hit",
+    "severity": 0.0
+  },
+  {
+    "topic_id": 12,
+    "filename": "topic_12_report.json",
+    "gap_type": "covered",
+    "confidence": 0.9,
+    "backed_by_questions": 8,
+    "outcome": "completed",
+    "severity": 0.0
+  },
+  {
+    "topic_id": 15,
+    "filename": "topic_15_report.json",
+    "gap_type": "covered",
+    "confidence": 0.9,
+    "backed_by_questions": 12,
+    "outcome": "completed",
+    "severity": 0.0
+  }
+]

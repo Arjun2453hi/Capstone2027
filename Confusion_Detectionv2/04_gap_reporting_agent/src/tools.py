@@ -89,8 +89,16 @@ class InvestigationContext:
 
 
 class GapReportArgs(BaseModel):
+    """Deliberately does NOT include slide_ids_examined -- a model
+    self-reporting what it "examined" could claim slides it never
+    actually looked at. assigned_slide_ids/discovered_slide_ids are
+    filled in by agent.py from real data (this topic's own known slide
+    range, and the actual slide_ids returned by real
+    search_expanding_context/search_similar_slides tool calls made
+    during this investigation) after write_report is called, not from
+    the model's own arguments."""
+
     topic_id: int
-    slide_ids_examined: List[int] = Field(default_factory=list)
     gap_type: str
     confidence: float
     report_text: str
@@ -105,11 +113,7 @@ def build_tools(ctx: InvestigationContext) -> list:
         with the exact slide_ids that text came from. Pass -1 for the
         synthetic unmatched-questions "topic" (which has no assigned
         slide range and returns an empty list/string). Always the
-        obvious first call in any real-topic investigation. Record
-        slide_ids from here (plus any window_slide_ids from
-        search_expanding_context you actually used) in write_report's
-        slide_ids_examined -- don't guess at the topic's range, report
-        exactly what these tools gave you."""
+        obvious first call in any real-topic investigation."""
         dossier = ctx.dossiers_by_id.get(topic_id)
         if dossier is None or not dossier.slide_ids:
             return {"slide_ids": [], "text": ""}
@@ -190,16 +194,19 @@ def build_tools(ctx: InvestigationContext) -> list:
         return [{"slide_id": s.slide_id, "title": s.title, "score": float(score)} for score, s in scored[:top_k]]
 
     @tool(args_schema=GapReportArgs)
-    def write_report(
-        topic_id: int, slide_ids_examined: List[int], gap_type: str, confidence: float, report_text: str
-    ) -> dict:
+    def write_report(topic_id: int, gap_type: str, confidence: float, report_text: str) -> dict:
         """Terminal tool -- ends this topic's investigation. Call this
         only after you've actually investigated per the system prompt's
         checklist. gap_type must be one of: complete_omission,
-        shallow_coverage, fragmented_context, covered."""
+        shallow_coverage, fragmented_context, covered. Do not set
+        gap_type to complete_omission, or claim in report_text that a
+        concept is "not covered" or "omitted," unless you have actually
+        called search_similar_slides or search_expanding_context at
+        least once in this investigation to verify that -- an
+        unverified omission claim will be rejected and you'll be asked
+        to actually search first."""
         return {
             "topic_id": topic_id,
-            "slide_ids_examined": slide_ids_examined,
             "gap_type": gap_type,
             "confidence": confidence,
             "report_text": report_text,

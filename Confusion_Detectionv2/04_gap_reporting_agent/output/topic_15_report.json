@@ -1,0 +1,36 @@
+{
+  "topic_id": 15,
+  "assigned_slide_ids": [
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207
+  ],
+  "discovered_slide_ids": [
+    151,
+    152,
+    153,
+    154,
+    162,
+    178,
+    179,
+    181,
+    183,
+    200,
+    201,
+    202,
+    212,
+    214,
+    215,
+    223,
+    239,
+    242,
+    244
+  ],
+  "gap_type": "covered",
+  "confidence": 0.9,
+  "report_text": "The 12 student questions matched to Topic 15 (slides 201‑207) are largely answered within the slide content or in the immediately adjacent topic (Topic 14). \n\n* Containers share the host OS kernel and read‑only binaries – covered in the \"Docker Objects : Images\" section.\n* Docker’s portability, shipping, and problem‑solving role are explicitly discussed in the \"Docker Benefits\" and \"Docker Architecture\" slides.\n* Image layers are explained: each Dockerfile instruction creates a layer, incremental rebuilds, and the read‑only nature of layers – all present in the \"Docker Objects : Images – layers\" portion.\n* The relationship between multiple containers and a single image, the distinction between images and containers, and the role of the Docker daemon are all addressed in the architecture slides.\n* Dockerfile syntax and purpose are described in the early part of the topic.\n* The Docker registry is mentioned in the architecture discussion.\n\nThe only two questions that do not appear in the 201‑207 range are about Docker namespaces and UnionFS. Those concepts are covered in the preceding topic (Topic 14, slides 183‑200), which is the natural neighbor for this material. Therefore, there is no omission within Topic 15 itself; the content is complete for the matched questions.\n\nRecommendation: No additional material is required for this topic. If a student specifically asks about namespaces or UnionFS while studying Topic 15, direct them to the earlier slides in Topic 14 for the detailed explanation."
+}

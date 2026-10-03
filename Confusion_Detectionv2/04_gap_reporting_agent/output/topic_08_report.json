@@ -1,0 +1,40 @@
+{
+  "topic_id": 8,
+  "assigned_slide_ids": [
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133
+  ],
+  "discovered_slide_ids": [
+    1,
+    4,
+    89,
+    126,
+    127,
+    128,
+    132,
+    154,
+    158,
+    167,
+    178,
+    179,
+    181,
+    193,
+    219,
+    228,
+    239,
+    242,
+    270,
+    271,
+    273,
+    274,
+    276
+  ],
+  "gap_type": "shallow_coverage",
+  "confidence": 0.0,
+  "report_text": "Investigation was cut short at the maximum step count and the model did not conclude with a verifiable report even after a forced-conclusion nudge."
+}

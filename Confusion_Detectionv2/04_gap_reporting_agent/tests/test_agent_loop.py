@@ -9,7 +9,14 @@ import pytest
 
 from ..src import agent as agent_module
 from ..src.agent import MAX_ITERATIONS, run_topic_investigation
-from .fixtures.mock_groq_responses import FakeRateLimitError, ScriptedChatModel, ai_text, ai_tool_call, make_fake_context
+from .fixtures.mock_groq_responses import (
+    FakeRateLimitError,
+    ScriptedChatModel,
+    ai_text,
+    ai_tool_call,
+    make_dossier,
+    make_fake_context,
+)
 
 
 @pytest.fixture(autouse=True)
@@ -78,34 +85,6 @@ def test_hitting_max_iterations_forces_a_capped_confidence_conclusion():
     assert result["outcome"] == "cap_hit"
     assert result["report"].confidence <= 0.4  # capped regardless of what the model sent
     assert model.call_count == MAX_ITERATIONS + 1
-
-
-def test_invalid_write_report_arguments_are_rejected_and_retried_not_crashed():
-    # GapReport(**args) is built directly from whatever the model sent
-    # -- an invalid gap_type must not raise uncaught and crash the
-    # investigation; it should be rejected with a corrective ToolMessage
-    # and retried, same shape as the malformed-JSON case.
-    ctx = make_fake_context()
-    model = ScriptedChatModel(
-        [
-            ai_tool_call(
-                "write_report",
-                {"topic_id": 0, "slide_ids_examined": [], "gap_type": "not_a_real_gap_type", "confidence": 0.5, "report_text": "x"},
-                "c1",
-            ),
-            ai_tool_call(
-                "write_report",
-                {"topic_id": 0, "slide_ids_examined": [0], "gap_type": "covered", "confidence": 0.5, "report_text": "fixed"},
-                "c2",
-            ),
-        ]
-    )
-
-    result = run_topic_investigation(model, ctx, topic_id=0, kickoff_message="investigate")
-
-    assert result["outcome"] == "completed"
-    assert result["report"].gap_type == "covered"
-    assert result["report"].report_text == "fixed"
 
 
 def test_hitting_max_iterations_without_any_write_report_call_produces_a_flagged_report():
@@ -207,6 +186,114 @@ def test_malformed_tool_call_json_during_forced_conclusion_falls_back_to_flagged
     assert result["outcome"] == "cap_hit"
     assert result["report"].confidence == 0.0
     assert "did not conclude" in result["report"].report_text or "cut short" in result["report"].report_text
+
+
+def test_omission_claim_without_any_search_tool_call_is_rejected():
+    # The exact fabrication pattern Phase 3 remediation targets: a
+    # confident "not covered" / "found it in topic 79" style claim with
+    # zero search_similar_slides/search_expanding_context calls
+    # anywhere in the trace must be rejected, not accepted as final --
+    # regardless of how specific-sounding the claim is.
+    ctx = make_fake_context()
+    model = ScriptedChatModel(
+        [
+            ai_tool_call(
+                "write_report",
+                {
+                    "topic_id": 0,
+                    "gap_type": "complete_omission",
+                    "confidence": 0.9,
+                    "report_text": "This concept is not covered here; I found it in topic 79 instead.",
+                },
+                "c1",
+            ),
+            ai_tool_call("search_similar_slides", {"query_text": "the concept in question"}, "c2"),
+            ai_tool_call(
+                "write_report",
+                {
+                    "topic_id": 0,
+                    "gap_type": "complete_omission",
+                    "confidence": 0.9,
+                    "report_text": "Confirmed via search: this concept is not covered anywhere in the deck.",
+                },
+                "c3",
+            ),
+        ]
+    )
+
+    result = run_topic_investigation(model, ctx, topic_id=0, kickoff_message="investigate")
+
+    assert result["outcome"] == "completed"
+    assert result["report"].gap_type == "complete_omission"
+    assert model.call_count == 3  # the first write_report was rejected, forcing the search + retry
+
+
+def test_forced_conclusion_omission_claim_without_search_is_discarded_not_accepted():
+    ctx = make_fake_context()
+    non_terminal = [ai_tool_call("get_topic_slides", {"topic_id": 0}, f"c{i}") for i in range(MAX_ITERATIONS)]
+    forced_omission = ai_tool_call(
+        "write_report",
+        {"topic_id": 0, "gap_type": "complete_omission", "confidence": 0.9, "report_text": "Not covered anywhere."},
+        "cf",
+    )
+    model = ScriptedChatModel(non_terminal + [forced_omission])
+
+    result = run_topic_investigation(model, ctx, topic_id=0, kickoff_message="investigate")
+
+    assert result["outcome"] == "cap_hit"
+    assert result["report"].gap_type == "shallow_coverage"  # the omission claim was discarded, not accepted
+    assert result["report"].confidence == 0.0
+
+
+def test_invalid_gap_type_is_rejected_and_retried_not_crashed():
+    ctx = make_fake_context()
+    model = ScriptedChatModel(
+        [
+            ai_tool_call(
+                "write_report",
+                {"topic_id": 0, "gap_type": "not_a_real_gap_type", "confidence": 0.5, "report_text": "x"},
+                "c1",
+            ),
+            ai_tool_call(
+                "write_report",
+                {"topic_id": 0, "gap_type": "covered", "confidence": 0.5, "report_text": "fixed"},
+                "c2",
+            ),
+        ]
+    )
+
+    result = run_topic_investigation(model, ctx, topic_id=0, kickoff_message="investigate")
+
+    assert result["outcome"] == "completed"
+    assert result["report"].gap_type == "covered"
+    assert result["report"].report_text == "fixed"
+    assert model.call_count == 2  # rejected once, then a valid retry
+
+
+def test_assigned_and_discovered_slide_ids_come_from_real_tracking_not_the_model():
+    # write_report's own arguments no longer even include a slide-ids
+    # field (a model self-report could claim slides it never looked
+    # at) -- assigned_slide_ids must come from this topic's own known
+    # range (ctx), and discovered_slide_ids from the real return value
+    # of an actual search tool call, tracked as it happens.
+    dossier = make_dossier(topic_id=0, slide_ids=[10, 11, 12], window_text="assigned content")
+    ctx = make_fake_context(dossiers=[dossier])
+    model = ScriptedChatModel(
+        [
+            ai_tool_call("search_similar_slides", {"query_text": "anything", "top_k": 3}, "c1"),
+            ai_tool_call(
+                "write_report",
+                {"topic_id": 0, "gap_type": "covered", "confidence": 0.9, "report_text": "fine"},
+                "c2",
+            ),
+        ]
+    )
+
+    result = run_topic_investigation(model, ctx, topic_id=0, kickoff_message="investigate")
+
+    assert result["report"].assigned_slide_ids == [10, 11, 12]
+    assert len(result["report"].discovered_slide_ids) > 0
+    assert all(isinstance(sid, int) for sid in result["report"].discovered_slide_ids)
 
 
 def test_rate_limit_exhausted_produces_a_clearly_marked_failed_report(monkeypatch):

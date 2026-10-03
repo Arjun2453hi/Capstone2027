@@ -1,0 +1,42 @@
+{
+  "topic_id": 20,
+  "assigned_slide_ids": [
+    257,
+    258,
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265,
+    266,
+    267,
+    268
+  ],
+  "discovered_slide_ids": [
+    4,
+    17,
+    79,
+    250,
+    251,
+    252,
+    253,
+    254,
+    255,
+    256,
+    257,
+    258,
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265,
+    266
+  ],
+  "gap_type": "shallow_coverage",
+  "confidence": 0.85,
+  "report_text": "The slides for Topic 20 provide a high‑level overview of continuous delivery concepts, listing the four core principles, a typical CI/CD pipeline, and a brief discussion of Jenkins and related tooling. They also touch on continuous development and the distinction between CI, CD, and continuous deployment.\n\nHowever, the matched student questions reveal that the material is often too surface‑level. For example, the slides state \"Automate wherever possible\" and \"Eliminate manual bottlenecks\" but do not explain concrete ways to achieve these goals (e.g., which stages to script, how to integrate linting or static analysis, or how to use feature toggles). The principle of \"trustworthy tests\" is mentioned, yet no criteria or best practices (test isolation, deterministic results, test data management) are provided. Likewise, the rationale behind \"every build is a potential release\" is not elaborated—students ask why this matters, but the slides only list it as a principle.\n\nBecause the missing depth is not found in adjacent slides or elsewhere in the deck (search_expanding_context and search_similar_slides returned no additional explanations), the gaps are best classified as shallow coverage rather than omission.\n\n**Suggested additions**:\n1. A dedicated slide or two that walks through a concrete pipeline example, showing how each step is automated (e.g., Git hooks, build scripts, test runners, container registry, deployment scripts). Include a diagram.\n2. A short section on Jenkins capabilities beyond CD—build triggers, pipeline as code, integration with other tools, and how it can orchestrate non‑delivery tasks.\n3. A brief explanation of what makes tests trustworthy: deterministic output, isolation, fast feedback, and coverage metrics.\n4. A rationale for \"every build is a potential release\": risk reduction, faster feedback, and the ability to roll back.\n5. Practical tips for eliminating manual bottlenecks: automated approvals, self‑service deployment, and infrastructure as code.\n\nAdding these details will help students connect the high‑level principles to actionable practices and address the specific questions that remain unanswered by the current slides."
+}

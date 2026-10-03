@@ -1,0 +1,28 @@
+{
+  "topic_id": 17,
+  "assigned_slide_ids": [
+    239,
+    240,
+    241,
+    242,
+    243
+  ],
+  "discovered_slide_ids": [
+    129,
+    137,
+    138,
+    139,
+    140,
+    141,
+    146,
+    148,
+    181,
+    199,
+    200,
+    207,
+    209
+  ],
+  "gap_type": "shallow_coverage",
+  "confidence": 0.8,
+  "report_text": "The Union Filesystem topic (slides 239‑243) gives a concise overview of UnionFS: its layering model, copy‑on‑write behavior, and the variants Docker can use. It also touches on Docker layers, noting that each layer is mounted on top of the previous one and that the top layer is read‑write for a container. However, the slides stop short of explaining several key concepts that students asked about:\n\n* **How image layers work in Docker** – the slides mention layers but do not describe how a Dockerfile’s RUN/ADD/COPY instructions generate new layers, how layers are cached, or how the union of layers forms the final image.\n* **Why multiple containers can share the same image** – the slides do not discuss the read‑only nature of image layers and the copy‑on‑write mechanism that allows many containers to share a single image while keeping their own writable layer.\n* **What containers share with the host OS** – the slides do not cover the shared kernel, namespaces, cgroups, or the fact that containers use the host’s OS binaries.\n* **What a Dockerfile specifies** – the UnionFS slides do not mention Dockerfiles at all.\n* **Weaknesses of UnionFS** – while the slides list some weaknesses, they are brief and lack concrete examples of how these affect container performance or data persistence.\n\nOther slides in the deck (e.g., 146, 207 for image layers; 138‑139 for container–host sharing; 139‑141 for Dockerfile details) provide the missing depth. Therefore, the current topic slides offer a high‑level introduction but leave students with unanswered questions about the mechanics of Docker images, container sharing, and Dockerfile syntax.\n\n**Recommendation**: Add a dedicated slide or a short subsection within this topic that explains:\n1. How Dockerfile instructions create layers and how those layers are stored.\n2. The copy‑on‑write mechanism that lets many containers share a single image.\n3. The shared kernel and namespace model that links containers to the host OS.\n4. A brief overview of Dockerfile syntax and what each directive does.\nLinking to or referencing the existing slides (146, 207, 139‑141, 138‑139) will give students a clear, cohesive narrative without duplicating content."
+}

@@ -1,0 +1,24 @@
+{
+  "topic_id": 12,
+  "assigned_slide_ids": [
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177
+  ],
+  "discovered_slide_ids": [
+    170,
+    171,
+    172,
+    174,
+    231,
+    233,
+    235
+  ],
+  "gap_type": "covered",
+  "confidence": 0.9,
+  "report_text": "The slides for Topic 12 (171‑177) provide a comprehensive overview of cgroups that directly addresses each of the eight matched student questions.  The text explains what a cgroup is, its primary functions (resource limiting, prioritization, accounting, control, injection), and lists the resource types that can be constrained (memory, CPU, block I/O, devices, network).  It describes the hierarchical nature of cgroups and notes that child processes inherit their parent’s cgroup, satisfying the inheritance question.  Practical examples are included: Docker commands that set CPU and memory limits, commands to inspect the corresponding cgroup files, and a stress‑test scenario that demonstrates OOM killing.  These examples illustrate how limits are enforced and how a group of processes is restricted.  The search_expanding_context call confirmed that the immediate neighboring slides (170‑172) contain additional detail on hierarchy structure, reinforcing the coverage.  No significant gaps were found, and the content aligns well with the semantic similarity of the matched questions.  Therefore, the topic is fully covered."
+}

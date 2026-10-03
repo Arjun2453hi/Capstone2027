@@ -1,0 +1,30 @@
+{
+  "topic_id": 2,
+  "assigned_slide_ids": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "discovered_slide_ids": [
+    4,
+    63,
+    67,
+    79,
+    86,
+    108,
+    112,
+    114,
+    121,
+    273,
+    277,
+    280,
+    283,
+    284
+  ],
+  "gap_type": "complete_omission",
+  "confidence": 0.9,
+  "report_text": "The six slides for Topic 2 (Paravirtualization) focus narrowly on the concept of paravirtualization: why it is used, how the guest OS is modified, the role of hypercalls, and a memory‑handling example.  None of the 32 student questions that were matched to this topic are answered by the slide text.  The questions cover a wide range of unrelated subjects—VM migration mechanics, EPT, Kubernetes, basic virtualization terminology, I/O virtualization models, and container vs. VM distinctions.  I performed targeted semantic searches for the key concepts that appeared in the questions:\n\n* VM migration – slides 108, 112, 121 discuss live migration, pre‑copy, and file‑system migration.\n* EPT – slide 79 explains how EPT improves memory‑virtualization performance over shadow paging.\n* Kubernetes – slides 277‑284 cover Kubernetes basics, benefits, and orchestration.\n\nThese topics are present elsewhere in the deck, confirming that the matched questions are not meant to be answered by the paravirtualization slides.  Consequently, the topic’s slide set provides a shallow (in fact, no) coverage of the matched questions.  To improve alignment, the matched questions should be reassigned to the appropriate topics (e.g., VM migration, memory virtualization, container orchestration).  If the instructor wishes to keep some of these questions under the paravirtualization topic, the slides would need to be expanded to include brief explanations of how paravirtualization interacts with VM migration, EPT, and containerization, but that would blur the topic’s focus."
+}

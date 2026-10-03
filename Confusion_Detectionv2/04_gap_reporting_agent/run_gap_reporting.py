@@ -36,7 +36,14 @@ DEFAULT_OUTPUT_DIR = Path(__file__).resolve().parent / "output"
 DEFAULT_INDEX_PATH = None  # resolved from output_dir if not given
 
 
-def run(deck_path: Path, gap_input_path: Path, output_dir: Path, index_path: Path = None, limit: int = None):
+def run(
+    deck_path: Path,
+    gap_input_path: Path,
+    output_dir: Path,
+    index_path: Path = None,
+    limit: int = None,
+    topic_ids: list = None,
+):
     index_path = index_path or (output_dir / "index.json")
 
     deck = deck_storage.load_deck_json(deck_path)
@@ -47,10 +54,22 @@ def run(deck_path: Path, gap_input_path: Path, output_dir: Path, index_path: Pat
         f"({gap_input.total_topics} topics, {len(gap_input.unmatched_questions)} unmatched)"
     )
 
-    topics_to_run = gap_input.topics[:limit] if limit is not None else gap_input.topics
-    unmatched_to_run = gap_input.unmatched_questions if limit is None else []
-    if limit is not None:
+    if topic_ids is not None:
+        wanted = set(topic_ids)
+        topics_to_run = [t for t in gap_input.topics if t.topic_id in wanted]
+        found_ids = {t.topic_id for t in topics_to_run}
+        missing = wanted - found_ids
+        if missing:
+            print(f"[warn] --topic-ids requested {sorted(missing)} but no such topic(s) exist in gap_verification_input.json")
+        unmatched_to_run = []
+        print(f"Scoped run: only topic_id(s) {sorted(found_ids)} (--topic-ids); unmatched-questions topic skipped this run.")
+    elif limit is not None:
+        topics_to_run = gap_input.topics[:limit]
+        unmatched_to_run = []
         print(f"Scoped run: only the first {limit} topic(s) (--limit); unmatched-questions topic skipped this run.")
+    else:
+        topics_to_run = gap_input.topics
+        unmatched_to_run = gap_input.unmatched_questions
 
     embedding_model = common_emb.RetrievalEmbeddingModel()
     print(f"Embedding model: {embedding_model.name}")
@@ -107,9 +126,16 @@ def main():
     parser.add_argument(
         "--limit", type=int, default=None, help="Only run the first N topics (skips the unmatched-questions topic)."
     )
+    parser.add_argument(
+        "--topic-ids",
+        type=int,
+        nargs="+",
+        default=None,
+        help="Only run these exact topic_id(s), e.g. --topic-ids 0 2 3 4 (skips the unmatched-questions topic). Takes precedence over --limit.",
+    )
     args = parser.parse_args()
 
-    run(args.deck, args.gap_input, args.output_dir, args.index_out, limit=args.limit)
+    run(args.deck, args.gap_input, args.output_dir, args.index_out, limit=args.limit, topic_ids=args.topic_ids)
 
 
 if __name__ == "__main__":

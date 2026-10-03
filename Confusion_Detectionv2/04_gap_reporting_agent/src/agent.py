@@ -23,9 +23,13 @@ from __future__ import annotations
 
 import json
 import time
-from typing import List
+from typing import List, Optional
+from uuid import uuid4
+
+from common.llm_monitoring import invoke_monitored
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage
+from pydantic import ValidationError
 
 from .prompts import FORCED_CONCLUSION_NUDGE, SYSTEM_PROMPT
 from .schema import GapReport
@@ -34,14 +38,41 @@ from .tools import InvestigationContext, build_tools
 MAX_ITERATIONS = 10  # claude.md Section 3: AgentExecutor(max_iterations=10) -- same cap, hand-rolled
 MAX_RATE_LIMIT_RETRIES = 5  # claude.md Section 11: "e.g. 3 attempts" -- raised after measuring the real backoff needed
 
-# Deliberate pacing between successive LLM calls within one
-# investigation -- on request, to spread requests out rather than
-# bursting through the account's real token budget as fast as possible.
-# Doesn't fix an exhausted daily quota by itself (see
-# _retry_after_seconds' docstring for that story), but reduces the
-# chance of tripping a shorter-window burst limit on top of it, and is
-# generally more considerate of the API than firing calls back-to-back.
-INTER_STEP_DELAY_SECONDS = 3.0
+# Remediation (Phase 3): the agent must not claim a concept is missing
+# from the deck without having actually searched for it. Checked
+# against both gap_type and report_text -- a model could technically
+# set gap_type="shallow_coverage" while still asserting in prose that
+# some specific concept is "not covered," which is the same unverified
+# claim under a different label.
+SEARCH_TOOL_NAMES = {"search_similar_slides", "search_expanding_context"}
+OMISSION_KEYWORDS = [
+    "not covered",
+    "not addressed",
+    "omitted",
+    "completely absent",
+    "does not cover",
+    "doesn't cover",
+    "no mention of",
+    "not mentioned",
+    "isn't covered",
+    "isn't addressed",
+    "not present in",
+    "not found in the slides",
+]
+OMISSION_GUARD_NUDGE = (
+    "You claimed something is not covered, omitted, or missing, but you haven't made any "
+    "search_similar_slides or search_expanding_context call in this investigation yet. You "
+    "must actually search before concluding something is missing -- it may exist elsewhere "
+    "in the deck, or just outside this topic's slide range. Investigate further with one of "
+    "those tools, then call write_report again."
+)
+
+
+def _claims_unverified_omission(gap_type: str, report_text: str) -> bool:
+    if gap_type == "complete_omission":
+        return True
+    lowered = (report_text or "").lower()
+    return any(kw in lowered for kw in OMISSION_KEYWORDS)
 
 
 def _is_rate_limit_error(exc: Exception) -> bool:
@@ -85,9 +116,9 @@ def _is_tool_call_parse_error(exc: Exception) -> bool:
     """Groq returns HTTP 400 "tool_use_failed" when the model's own
     generated tool-call arguments aren't valid JSON -- observed in
     practice when report_text is long enough that generation gets cut
-    off mid-string before the closing braces. Distinct from a rate
-    limit: retrying the *same* messages would just reproduce the same
-    truncation, so this needs a corrective nudge, not a backoff."""
+    off mid-string. Distinct from a rate limit: retrying the *same*
+    messages would just reproduce the same truncation, so this needs a
+    corrective nudge, not a backoff."""
     status = getattr(exc, "status_code", None)
     text = str(exc)
     return status == 400 and ("tool_use_failed" in text or "Failed to parse tool call" in text)
@@ -101,28 +132,33 @@ TOOL_CALL_PARSE_ERROR_NUDGE = (
 )
 
 
-def _try_build_gap_report(args: dict):
-    """GapReport(**args) is built directly from whatever the model sent
-    write_report -- Pydantic validation (an out-of-range confidence, an
-    invalid gap_type string, a missing field) must not be allowed to
-    raise uncaught here: that would crash this one topic's
-    investigation, or worse the entire multi-topic run, over a
-    malformed argument the model can simply be asked to fix. Returns
-    (report, None) on success, (None, error_message) on failure."""
-    try:
-        return GapReport(**args), None
-    except Exception as e:
-        return None, str(e)
-
-
-def _invoke_with_retry(model_with_tools, messages, topic_label: str):
+def _invoke_with_retry(model_with_tools, messages, topic_label: str, *, topic_id=None, invocation_number=None):
     """Exponential backoff on a detected rate limit (claude.md Section
     11): detect specifically, retry a small bounded number of times,
     logged clearly each attempt -- never silently and never
-    infinitely."""
+    infinitely.
+
+    This is the ONLY real Groq call site in this stage's investigation
+    loop -- confirmed by review: none of the 5 tools (tools.py) make
+    their own Groq call. search_expanding_context/search_similar_slides
+    call ctx.embed(), which goes to the injected embedding model (a
+    local sentence-transformers/BGE model, no network call at all), not
+    Groq. The only OTHER real Groq call in this whole stage is
+    common/llm_client.py's one-time startup model-list validation
+    (get_validated_chat_groq), which runs once per orchestrator run
+    (not per topic) and already degrades gracefully on its own failure
+    (warns and skips validation, never raises) -- it doesn't need this
+    same retry/backoff treatment since it isn't on the per-investigation
+    critical path.
+    """
+    request_id = uuid4().hex
     for attempt in range(1, MAX_RATE_LIMIT_RETRIES + 1):
         try:
-            return model_with_tools.invoke(messages)
+            return invoke_monitored(
+                model_with_tools, messages, topic_id=topic_id, topic_attempt=1,
+                invocation_number=invocation_number, application_retry_attempt=attempt,
+                request_id=request_id,
+            )
         except Exception as e:
             if not _is_rate_limit_error(e) or attempt == MAX_RATE_LIMIT_RETRIES:
                 raise
@@ -132,16 +168,42 @@ def _invoke_with_retry(model_with_tools, messages, topic_label: str):
     raise RuntimeError("unreachable")  # the loop above always returns or re-raises
 
 
-def _rate_limit_failed_report(topic_id: int, when: str) -> GapReport:
+def _rate_limit_failed_report(topic_id: int, assigned_slide_ids: List[int], discovered_slide_ids: List[int], when: str) -> GapReport:
     return GapReport(
         topic_id=topic_id,
-        slide_ids_examined=[],
+        assigned_slide_ids=assigned_slide_ids,
+        discovered_slide_ids=discovered_slide_ids,
         gap_type="shallow_coverage",
         confidence=0.0,
         report_text=(
             f"Investigation failed due to persistent Groq rate limiting {when} "
             f"after {MAX_RATE_LIMIT_RETRIES} retries; this is not a content judgment."
         ),
+    )
+
+
+def _extract_discovered_slide_ids(tool_name: str, result) -> List[int]:
+    """Real telemetry, not a model self-report: pulls the actual
+    slide_ids a search tool's result claims to have found. Only
+    search_expanding_context and search_similar_slides contribute here
+    -- get_topic_slides returns the topic's ASSIGNED range (tracked
+    separately, from ctx, not from tool output) and
+    get_matched_questions/write_report don't reference slides at all."""
+    if tool_name == "search_expanding_context" and isinstance(result, dict):
+        return [sid for sid in result.get("window_slide_ids", []) if isinstance(sid, int)]
+    if tool_name == "search_similar_slides" and isinstance(result, list):
+        return [item["slide_id"] for item in result if isinstance(item, dict) and "slide_id" in item]
+    return []
+
+
+def _build_report(topic_id: int, args: dict, assigned_slide_ids: List[int], discovered_slide_ids: List[int]) -> GapReport:
+    return GapReport(
+        topic_id=args.get("topic_id", topic_id),
+        assigned_slide_ids=assigned_slide_ids,
+        discovered_slide_ids=sorted(set(discovered_slide_ids)),
+        gap_type=args["gap_type"],
+        confidence=args["confidence"],
+        report_text=args["report_text"],
     )
 
 
@@ -154,6 +216,11 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
     tool_lookup = {t.name: t for t in tools}
     model_with_tools = chat_model.bind_tools(tools)
 
+    dossier = ctx.dossiers_by_id.get(topic_id)
+    assigned_slide_ids: List[int] = list(dossier.slide_ids) if dossier is not None else []
+    discovered_slide_ids: List[int] = []
+    search_tool_calls_made = 0
+
     messages: List = [
         SystemMessage(content=SYSTEM_PROMPT.format(MAX_STEPS=MAX_ITERATIONS)),
         HumanMessage(content=kickoff_message),
@@ -161,14 +228,14 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
     topic_label = f"topic {topic_id}"
 
     for step in range(1, MAX_ITERATIONS + 1):
-        if step > 1:
-            time.sleep(INTER_STEP_DELAY_SECONDS)
         try:
-            response: AIMessage = _invoke_with_retry(model_with_tools, messages, topic_label)
+            response: AIMessage = _invoke_with_retry(
+                model_with_tools, messages, topic_label, topic_id=topic_id, invocation_number=step
+            )
         except Exception as e:
             if _is_rate_limit_error(e):
                 return {
-                    "report": _rate_limit_failed_report(topic_id, f"at step {step}"),
+                    "report": _rate_limit_failed_report(topic_id, assigned_slide_ids, discovered_slide_ids, f"at step {step}"),
                     "outcome": "rate_limit_failed",
                     "n_tool_calls": step - 1,
                 }
@@ -181,6 +248,42 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
         messages.append(response)
         tool_calls = getattr(response, "tool_calls", None) or []
 
+        write_report_call = next((c for c in tool_calls if c["name"] == "write_report"), None)
+        if write_report_call is not None:
+            args = write_report_call["args"]
+            if _claims_unverified_omission(args.get("gap_type", ""), args.get("report_text", "")) and search_tool_calls_made == 0:
+                print(f"[warn] {topic_label}: rejected an unverified omission claim (no search tool calls made yet)")
+                # Respond to the pending tool_call_id with a rejection
+                # (not a duplicate AIMessage) -- every tool_call in an
+                # AIMessage needs a matching ToolMessage response before
+                # the next AIMessage, or the API rejects the next call.
+                messages.append(
+                    ToolMessage(
+                        content=json.dumps({"error": "rejected", "reason": OMISSION_GUARD_NUDGE}),
+                        tool_call_id=write_report_call["id"],
+                    )
+                )
+                continue
+            try:
+                report = _build_report(topic_id, args, assigned_slide_ids, discovered_slide_ids)
+            except ValidationError as e:
+                # e.g. an invalid gap_type -- GapReportArgs types it as
+                # a plain str (the tool schema can't express the
+                # Literal constraint as a hard reject), so this is
+                # where an invalid value actually surfaces. Reject and
+                # retry, same shape as the other corrective nudges --
+                # must not crash the whole investigation over one bad
+                # argument.
+                print(f"[warn] {topic_label}: write_report arguments failed validation -- asking for a retry")
+                messages.append(
+                    ToolMessage(
+                        content=json.dumps({"error": "invalid_arguments", "reason": str(e)}),
+                        tool_call_id=write_report_call["id"],
+                    )
+                )
+                continue
+            return {"report": report, "outcome": "completed", "n_tool_calls": step}
+
         if not tool_calls:
             # Plain-text reply instead of a tool call -- nudge back
             # toward the checklist rather than silently treating a
@@ -188,42 +291,27 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
             messages.append(HumanMessage(content="Continue your investigation, or call write_report to conclude."))
             continue
 
-        # Every tool_call in this response needs exactly one ToolMessage
-        # reply before the next invoke -- including a write_report call
-        # that fails Pydantic validation, which is why that case appends
-        # an error ToolMessage and keeps looping rather than returning.
         for call in tool_calls:
-            if call["name"] == "write_report":
-                report, error = _try_build_gap_report(call["args"])
-                if report is not None:
-                    return {"report": report, "outcome": "completed", "n_tool_calls": step}
-                print(f"[warn] invalid write_report arguments on {topic_label}, step {step}: {error}")
-                messages.append(
-                    ToolMessage(
-                        content=(
-                            f"Invalid write_report arguments: {error}. Call write_report again with valid "
-                            "fields (gap_type must be exactly one of complete_omission, shallow_coverage, "
-                            "fragmented_context, covered; confidence must be a number between 0 and 1)."
-                        ),
-                        tool_call_id=call["id"],
-                    )
-                )
-                continue
-
             tool_fn = tool_lookup.get(call["name"])
             result = {"error": f"unknown tool {call['name']}"} if tool_fn is None else tool_fn.invoke(call["args"])
+            if call["name"] in SEARCH_TOOL_NAMES:
+                search_tool_calls_made += 1
+                discovered_slide_ids.extend(_extract_discovered_slide_ids(call["name"], result))
             messages.append(ToolMessage(content=json.dumps(result, default=str), tool_call_id=call["id"]))
 
     # Hit MAX_ITERATIONS without the model calling write_report on its own.
     messages.append(HumanMessage(content=FORCED_CONCLUSION_NUDGE))
-    time.sleep(INTER_STEP_DELAY_SECONDS)
     response = None
     try:
-        response = _invoke_with_retry(model_with_tools, messages, topic_label)
+        response = _invoke_with_retry(
+            model_with_tools, messages, topic_label, topic_id=topic_id, invocation_number=MAX_ITERATIONS + 1
+        )
     except Exception as e:
         if _is_rate_limit_error(e):
             return {
-                "report": _rate_limit_failed_report(topic_id, "during forced conclusion"),
+                "report": _rate_limit_failed_report(
+                    topic_id, assigned_slide_ids, discovered_slide_ids, "during forced conclusion"
+                ),
                 "outcome": "rate_limit_failed",
                 "n_tool_calls": MAX_ITERATIONS,
             }
@@ -239,25 +327,33 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
     if write_report_call is not None:
         args = dict(write_report_call["args"])
         args["confidence"] = min(float(args.get("confidence", 0.4)), 0.4)  # cap enforced regardless of what the model sent
-        report, error = _try_build_gap_report(args)
-        if report is not None:
-            return {"report": report, "outcome": "cap_hit", "n_tool_calls": MAX_ITERATIONS + 1}
-        # No further loop iteration to retry into here -- fall through
-        # to the flagged fallback below, same as any other forced-
-        # conclusion failure.
-        print(f"[warn] invalid write_report arguments on {topic_label} during forced conclusion: {error}")
+        # An unverified omission claim is rejected here too -- there's no
+        # further loop iteration to nudge into, so it falls through to
+        # the generic cut-short report below instead of being accepted.
+        if not (_claims_unverified_omission(args.get("gap_type", ""), args.get("report_text", "")) and search_tool_calls_made == 0):
+            try:
+                report = _build_report(topic_id, args, assigned_slide_ids, discovered_slide_ids)
+                return {"report": report, "outcome": "cap_hit", "n_tool_calls": MAX_ITERATIONS + 1}
+            except ValidationError:
+                # No further loop iteration to retry into here either --
+                # fall through to the generic cut-short report below.
+                print(f"[warn] {topic_label}: forced-conclusion write_report arguments failed validation -- discarded")
+        else:
+            print(f"[warn] {topic_label}: forced-conclusion write_report claimed unverified omission -- discarded")
 
-    # Model still didn't call write_report even after the forced nudge --
-    # construct a minimal, clearly-flagged report ourselves rather than
-    # crash or silently drop this topic from the run.
+    # Model still didn't call write_report even after the forced nudge
+    # (or its forced conclusion was an unverified omission claim, which
+    # is not accepted either) -- construct a minimal, clearly-flagged
+    # report ourselves rather than crash or silently drop this topic.
     report = GapReport(
         topic_id=topic_id,
-        slide_ids_examined=[],
+        assigned_slide_ids=assigned_slide_ids,
+        discovered_slide_ids=sorted(set(discovered_slide_ids)),
         gap_type="shallow_coverage",
         confidence=0.0,
         report_text=(
             "Investigation was cut short at the maximum step count and the model did not "
-            "conclude with a report even after a forced-conclusion nudge."
+            "conclude with a verifiable report even after a forced-conclusion nudge."
         ),
     )
     return {"report": report, "outcome": "cap_hit", "n_tool_calls": MAX_ITERATIONS + 1}
