@@ -24,12 +24,12 @@ Investigate before concluding. Do not call write_report until you have:
 You have at most {MAX_STEPS} tool calls before you must conclude with
 whatever you've gathered.
 
-When you call write_report, slide_ids_examined must be the actual
-slide_ids returned to you by get_topic_slides and any
-window_slide_ids from search_expanding_context calls you made --
-concatenate and report exactly what those tools gave you, not a guess
-at the topic's overall range and not an empty list if you did read
-content.
+Do not set gap_type to complete_omission, or say in report_text that a
+specific concept is "not covered," "omitted," or similar, unless you
+have actually called search_similar_slides or search_expanding_context
+at least once in this investigation to check for it elsewhere. An
+omission claim with no search behind it will be rejected and you'll be
+asked to actually search before concluding.
 
 When ready, call write_report with a genuinely substantial write-up:
 what you checked, what you found, and -- if you're confident -- a

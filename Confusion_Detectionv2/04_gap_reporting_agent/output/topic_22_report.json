@@ -1,0 +1,21 @@
+{
+  "topic_id": 22,
+  "assigned_slide_ids": [
+    284,
+    285,
+    286,
+    287
+  ],
+  "discovered_slide_ids": [
+    273,
+    277,
+    278,
+    279,
+    280,
+    281,
+    282
+  ],
+  "gap_type": "shallow_coverage",
+  "confidence": 0.9,
+  "report_text": "The four slides for Topic 22 focus almost exclusively on the *benefits* of Kubernetes—horizontal scaling, automated rollouts/rollbacks, service discovery, storage orchestration, secrets, self‑healing, batch execution, and automatic bin‑packing.  They do not provide the foundational concepts that many of the matched student questions ask for.\n\nKey gaps:\n* **Pod definition** – Students ask \"What is a Pod in Kubernetes?\" and \"Why do Pod IP addresses change?\".  The definition and IP dynamics are covered in slides 278–279, not in the benefit slides.\n* **Service and kube‑proxy** – Questions about \"What is a Kubernetes Service and why is it needed?\" and \"What does kube‑proxy do?\" are answered in slides 280 and 282, respectively.\n* **Container orchestration tasks** – The question \"What tasks does container orchestration automate?\" is addressed in earlier slides (e.g., 273) that describe deployment, scaling, and load balancing.\n* **Docker‑specific questions** – Topics such as image layers, portability, and Swarm vs. Kubernetes are discussed in slides outside this range.\n\nThus, while the benefit slide set is accurate, it provides only a shallow, partial view of the broader Kubernetes ecosystem.  To give students a complete understanding, the topic should be expanded to include the core building blocks (Pod, Service, kube‑proxy) and a brief overview of container orchestration responsibilities.  Adding a short definition slide or a concise summary paragraph within this topic would bridge the gap and align the content with the matched questions.\n"
+}

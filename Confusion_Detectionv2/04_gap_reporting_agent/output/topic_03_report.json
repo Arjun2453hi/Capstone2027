@@ -1,0 +1,33 @@
+{
+  "topic_id": 3,
+  "assigned_slide_ids": [
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "discovered_slide_ids": [
+    4,
+    17,
+    63,
+    67,
+    79,
+    86,
+    96,
+    104,
+    108,
+    112,
+    114,
+    121,
+    132,
+    193,
+    254,
+    277,
+    284
+  ],
+  "gap_type": "covered",
+  "confidence": 0.9,
+  "report_text": "The six slides for Topic 3 (slides 22‑27) focus on the fundamentals of paravirtualization: its compatibility and portability concerns, maintenance costs, performance variability, and the main advantages over full virtualization. The slides describe the architecture of KVM and VMware ESX as examples of hardware‑assisted paravirtualization, and they provide a concise comparison of transparent, trap‑and‑emulate, binary translation, and paravirtualization approaches. In short, the content fully addresses the core concepts of paravirtualization.\n\nNone of the 26 student questions matched to this topic are about paravirtualization itself. They instead ask about VM migration, EPT, Kubernetes, Popek‑Goldberg requirements, and other virtualization topics. A quick semantic search across the entire deck shows that these subjects appear in other sections: VM migration is covered in slides 108, 112, 121; EPT in slide 79; Kubernetes benefits in slide 284; Popek‑Goldberg requirements in slide 96. Thus the matched questions are a result of semantic similarity mis‑alignment rather than a gap in the topic.\n\nBecause the topic’s slides adequately cover the intended subject matter and the unmatched questions are addressed elsewhere, there is no substantive coverage gap within this topic. The only recommendation is to refine the semantic matching process so that questions about unrelated topics are not assigned to this paravirtualization topic.\n"
+}

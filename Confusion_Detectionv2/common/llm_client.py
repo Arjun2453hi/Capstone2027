@@ -61,7 +61,9 @@ def validate_model(client, model_name: str) -> None:
     try:
         available = {m.id for m in client.models.list().data}
     except Exception as e:
-        print(f"[warn] Could not verify Groq model availability ({e}); skipping startup model check.")
+        from .llm_monitoring import sanitize_text
+
+        print(f"[warn] Could not verify Groq model availability ({sanitize_text(e)}); skipping startup model check.")
         return
     if model_name not in available:
         raise RuntimeError(
@@ -107,14 +109,26 @@ def get_validated_chat_groq(
     get_validated_groq_client uses -- so a drifted model name fails
     loudly at startup here too, not as a LangChain-wrapped exception
     three tool calls into a real investigation."""
-    resolved_key = api_key or os.getenv("GROQ_API_KEY")
-    if not resolved_key:
+    from .groq_rotation import RotatingCompletions, load_credentials
+
+    credentials = load_credentials(fallback_key=api_key or os.getenv("GROQ_API_KEY"))
+    if api_key:
+        # Explicit dependency injection takes precedence over file credentials.
+        from .groq_rotation import Credential
+
+        credentials = [Credential("PRIMARY", api_key)]
+    if not credentials:
         raise RuntimeError(
-            "GROQ_API_KEY not set. Copy .env.example to .env and fill in a real key."
+            "No Groq key configured. Set GROQ_API_KEY or populate .env.groq-rotation."
         )
+    resolved_key = credentials[0].value
     resolved_model = resolve_model_name(model_name)
     validate_model(build_groq_client(resolved_key), resolved_model)
 
     from langchain_groq import ChatGroq
 
-    return ChatGroq(model=resolved_model, api_key=resolved_key, temperature=temperature, max_tokens=max_tokens)
+    adapter = RotatingCompletions(credentials)
+    print(f"[groq] {len(credentials)} configured key(s); quota independence unverified")
+    print(f"[groq] monitoring: {adapter.monitor.path}")
+    return ChatGroq(model=resolved_model, api_key=resolved_key, temperature=temperature,
+                    max_tokens=max_tokens, client=adapter)

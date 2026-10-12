@@ -1,0 +1,41 @@
+{
+  "topic_id": 13,
+  "assigned_slide_ids": [
+    178,
+    179,
+    180,
+    181,
+    182
+  ],
+  "discovered_slide_ids": [
+    4,
+    23,
+    39,
+    52,
+    59,
+    63,
+    73,
+    96,
+    123,
+    128,
+    133,
+    138,
+    139,
+    140,
+    146,
+    148,
+    179,
+    181,
+    189,
+    199,
+    200,
+    201,
+    207,
+    209,
+    242,
+    278
+  ],
+  "gap_type": "shallow_coverage",
+  "confidence": 0.8,
+  "report_text": "Topic 13 (slides 178‑182) provides a solid overview of UnionFS and its role in Docker image layering, including the layering model, copy‑on‑write mechanics, and the weaknesses of union filesystems. It also explains how Docker layers are built on top of UnionFS and how a read‑only image layer becomes a container when a top read‑write layer is added.\n\nHowever, the topic does not address two of the matched questions:\n\n* **What is a Dockerfile and what does it specify?** – The slides contain no mention of Dockerfiles. A search across the deck shows that Dockerfile concepts are covered in slides 140, 201, 139, 200, and 133, which are outside this topic’s range.\n\n* **What do containers share with the host OS?** – The slides do not discuss the shared kernel or other host resources that containers use. Similar content appears in slides 138 and 199 (Docker Architecture) and in slides 148, 209, 128, and 189 (Containers). \n\nBecause these concepts are present elsewhere in the deck, the omission is not a failure of the deck as a whole but a segmentation issue. Adding a brief reference or a short slide that links to the Dockerfile and container‑sharing material would make the topic self‑contained and improve the learning flow.\n\nOverall, the topic is well covered for UnionFS and image layers but is shallow for Dockerfile and container‑host sharing concepts."
+}

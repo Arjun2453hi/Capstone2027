@@ -45,21 +45,34 @@ MAX_TOPIC_CHARS = 1500
 LLM_CANDIDATE_COUNT = 3
 
 
-def topic_text(topic, deck, max_chars: int = MAX_TOPIC_CHARS) -> str:
+def topic_text(topic, deck, max_chars: Optional[int] = MAX_TOPIC_CHARS) -> str:
     """Assembles a topic's representative text from Stage 1's slide
     data via slide_ids -- Stage 2 deliberately excludes slide text from
     its own output, so this is the one place that resolves slide_ids
     back into real content for this stage's purposes. Public: also used
     by export.py to embed representative content directly into the
-    final consolidated JSON handed to Stage 4."""
-    # Real bug found in practice: this used to `break` here instead of
-    # `continue` -- one early slide big enough to blow the budget (e.g.
-    # a long acknowledgements paragraph on a topic's first slide) would
-    # silently drop every remaining slide in the topic, no matter how
-    # short, producing a "representative" text that was really just
-    # boilerplate front matter. Skipping only the individual
-    # over-budget slide and continuing to try the rest is the whole
-    # fix -- the budget itself still bounds total length.
+    final consolidated JSON handed to Stage 4 (called there with
+    max_chars=None -- see export.py's docstring for why a bounded
+    budget is wrong for that caller specifically).
+
+    max_chars=None means unlimited: every assigned slide's real content
+    is included, full stop. A bounded budget still has two real
+    per-slide protections: (1) an individual over-budget slide is
+    skipped, not treated as a hard stop (the earlier `break`-instead-
+    of-`continue` bug: one long early slide, e.g. an acknowledgements
+    paragraph, would silently drop every remaining slide no matter how
+    short); (2) that per-slide skip does NOT mean "the topic's total
+    content always fits" -- measured in practice against the real deck:
+    a 6000-char default budget silently dropped 10 of 22 slides from a
+    real topic's real content (mostly its substantive middle, not just
+    trailing boilerplate), because the topic's true total (12,494
+    chars) simply exceeded the budget. A fixed budget can protect
+    against one pathological slide; it cannot make an inherently large
+    topic's real content fit without dropping some of it -- only a
+    caller that genuinely doesn't need every slide's content (Stage 3's
+    own bulk-embedding-plus-LLM-prompt use, which needs compactness
+    across many topics at once) should pass a bound at all.
+    """
     parts: List[str] = []
     total = 0
     for sid in topic.slide_ids:
@@ -67,7 +80,7 @@ def topic_text(topic, deck, max_chars: int = MAX_TOPIC_CHARS) -> str:
         if slide is None or not slide.raw_text.strip():
             continue
         text = slide.raw_text.strip()
-        if parts and total + len(text) > max_chars:
+        if max_chars is not None and parts and total + len(text) > max_chars:
             continue
         parts.append(text)
         total += len(text)

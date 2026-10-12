@@ -1,0 +1,37 @@
+{
+  "topic_id": 0,
+  "assigned_slide_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "discovered_slide_ids": [
+    0,
+    1,
+    4,
+    9,
+    18,
+    23,
+    52,
+    54,
+    59,
+    69,
+    71,
+    72,
+    77,
+    79,
+    96
+  ],
+  "gap_type": "shallow_coverage",
+  "confidence": 0.85,
+  "report_text": "The slides for Topic 0 (slides 0‑11) provide a solid overview of virtualization concepts, hypervisor types, and the distinction between Type 1 (bare‑metal) and Type 2 (hosted) hypervisors. They also mention KVM as a Linux‑based hypervisor and give a brief example of a hybrid hypervisor.\n\nHowever, several student questions that are semantically linked to this topic are not addressed within the slide range.  A search for the phrase *\"EPT improve memory virtualization performance over shadow paging\"* returned slide 79, which discusses EPT performance benefits and shadow paging.  Similarly, the Popek‑Goldberg theorems are covered in slide 96, hypercalls are described in slide 18, and shadow page tables are explained in slide 72.  None of these concepts appear in slides 0‑11, indicating that the topic’s coverage is incomplete for those questions.\n\nBecause the missing material exists elsewhere in the deck, the issue is one of fragmented context rather than a total omission.  To improve the coherence of the topic, the instructor could either (a) add concise explanations of EPT vs. shadow paging, Popek‑Goldberg theorems, hypercalls, and shadow page tables to the current slide set, or (b) provide explicit cross‑references to the relevant slides (e.g., \"See slide 79 for EPT vs shadow paging\") so that students can locate the information without confusion.\n\nOverall, the topic is partially covered: it addresses hypervisor types and basic virtualization principles but lacks depth on several key concepts that students are asking about."
+}

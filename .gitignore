@@ -2,6 +2,12 @@
 .env
 **/.env
 Confusion_Detection/backend/.env
+.env.groq-rotation
+**/.env.groq-rotation
+# Other local environment variants; keep credential-free example templates.
+.env.*
+!.env.example
+!.env.*.example
 
 # Python
 __pycache__/
