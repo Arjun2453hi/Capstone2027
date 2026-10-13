@@ -1,4 +1,4 @@
-"""tools.py — the 5 tools each topic-investigation agent can call.
+"""tools.py — the 6 tools each topic-investigation agent can call.
 
 Each is a thin wrapper over logic that already exists elsewhere in this
 pipeline: get_topic_slides/get_matched_questions read Stage 3's own
@@ -21,6 +21,11 @@ from pydantic import BaseModel, Field
 from ._upstream import block_similarity, cosine_similarity, depth_score
 
 MAX_RADIUS = 8  # claude.md Section 6: "pin MAX_RADIUS, e.g. 8"
+
+# get_slides returns full slide text, so it is bounded per call: the
+# whole conversation is resent on every step and has to stay inside the
+# provider's per-request token limit (see common/llm_client.py).
+MAX_SLIDES_PER_CALL = 3
 
 
 def l2_normalize(embeddings: np.ndarray) -> np.ndarray:
@@ -104,7 +109,12 @@ class GapReportArgs(BaseModel):
     report_text: str
 
 
-def build_tools(ctx: InvestigationContext) -> list:
+def build_tools(ctx: InvestigationContext, own_topic_id: Optional[int] = None) -> list:
+    """own_topic_id: the topic this investigation is about. When given,
+    get_topic_slides only serves that topic -- a real run fetched two
+    neighbouring topics' entire text this way (~3000 tokens each) just
+    to read a couple of slides, which is what get_slides is for."""
+
     @tool
     def get_topic_slides(topic_id: int) -> dict:
         """Returns {"slide_ids": [...], "text": "..."} -- the topic's
@@ -114,10 +124,31 @@ def build_tools(ctx: InvestigationContext) -> list:
         synthetic unmatched-questions "topic" (which has no assigned
         slide range and returns an empty list/string). Always the
         obvious first call in any real-topic investigation."""
+        if own_topic_id is not None and topic_id != own_topic_id:
+            return {
+                "error": f"This investigation is about topic {own_topic_id}. To read slides outside it, "
+                "call get_slides with the specific slide_ids a search returned."
+            }
         dossier = ctx.dossiers_by_id.get(topic_id)
         if dossier is None or not dossier.slide_ids:
             return {"slide_ids": [], "text": ""}
         return {"slide_ids": list(dossier.slide_ids), "text": dossier.window_text}
+
+    @tool
+    def get_slides(slide_ids: List[int]) -> List[dict]:
+        """Returns the full text of specific slides anywhere in the
+        deck, at most 3 per call. search_similar_slides and
+        search_expanding_context only tell you WHICH slides look
+        relevant (ids, titles, scores) -- call this to actually read
+        them before you say what they do or don't explain."""
+        slides = []
+        for slide_id in slide_ids[:MAX_SLIDES_PER_CALL]:
+            slide = ctx.deck.get(slide_id)
+            if slide is None:
+                slides.append({"slide_id": slide_id, "error": "no such slide"})
+            else:
+                slides.append({"slide_id": slide.slide_id, "title": slide.title, "text": slide.raw_text})
+        return slides
 
     @tool
     def get_matched_questions(topic_id: int) -> List[dict]:
@@ -212,4 +243,11 @@ def build_tools(ctx: InvestigationContext) -> list:
             "report_text": report_text,
         }
 
-    return [get_topic_slides, get_matched_questions, search_expanding_context, search_similar_slides, write_report]
+    return [
+        get_topic_slides,
+        get_matched_questions,
+        get_slides,
+        search_expanding_context,
+        search_similar_slides,
+        write_report,
+    ]

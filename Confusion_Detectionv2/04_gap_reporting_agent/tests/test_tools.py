@@ -101,3 +101,26 @@ def test_write_report_returns_its_arguments_as_a_dict():
     assert result["gap_type"] == "shallow_coverage"
     assert result["confidence"] == 0.7
     assert "slide_ids_examined" not in result
+
+
+def test_get_topic_slides_refuses_other_topics_when_scoped_to_one():
+    dossiers = [
+        make_dossier(topic_id=0, slide_ids=[0], window_text="topic 0 text"),
+        make_dossier(topic_id=1, slide_ids=[1], window_text="topic 1 text"),
+    ]
+    ctx = make_fake_context(dossiers=dossiers)
+    tools = {t.name: t for t in build_tools(ctx, own_topic_id=0)}
+
+    assert tools["get_topic_slides"].invoke({"topic_id": 0})["text"] == "topic 0 text"
+    other = tools["get_topic_slides"].invoke({"topic_id": 1})
+    assert "text" not in other and "get_slides" in other["error"]
+
+
+def test_get_slides_returns_full_text_bounded_per_call():
+    ctx = make_fake_context()  # 10 fake slides
+    tools = {t.name: t for t in build_tools(ctx)}
+
+    result = tools["get_slides"].invoke({"slide_ids": [4, 5, 6, 7, 99]})
+
+    assert [s["slide_id"] for s in result] == [4, 5, 6]
+    assert result[0]["text"] == ctx.deck.get(4).raw_text
