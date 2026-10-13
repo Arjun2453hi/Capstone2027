@@ -17,8 +17,9 @@ from typing import List, Optional
 @dataclass
 class QuestionMatch:
     question: str
-    score: float
+    score: float  # the topic's best member slide's score for this question
     method: str  # "semantic" | "llm_fallback"
+    best_slide_id: Optional[int] = None  # that slide; None only in files written before slide-level scoring
 
 
 @dataclass
