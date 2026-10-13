@@ -15,9 +15,18 @@
     268
   ],
   "discovered_slide_ids": [
-    4,
+    12,
     17,
+    60,
+    63,
     79,
+    88,
+    96,
+    127,
+    132,
+    188,
+    193,
+    249,
     250,
     251,
     252,
@@ -34,9 +43,9 @@
     263,
     264,
     265,
-    266
+    269
   ],
   "gap_type": "shallow_coverage",
   "confidence": 0.85,
-  "report_text": "The slides for Topic 20 provide a high‑level overview of continuous delivery concepts, listing the four core principles, a typical CI/CD pipeline, and a brief discussion of Jenkins and related tooling. They also touch on continuous development and the distinction between CI, CD, and continuous deployment.\n\nHowever, the matched student questions reveal that the material is often too surface‑level. For example, the slides state \"Automate wherever possible\" and \"Eliminate manual bottlenecks\" but do not explain concrete ways to achieve these goals (e.g., which stages to script, how to integrate linting or static analysis, or how to use feature toggles). The principle of \"trustworthy tests\" is mentioned, yet no criteria or best practices (test isolation, deterministic results, test data management) are provided. Likewise, the rationale behind \"every build is a potential release\" is not elaborated—students ask why this matters, but the slides only list it as a principle.\n\nBecause the missing depth is not found in adjacent slides or elsewhere in the deck (search_expanding_context and search_similar_slides returned no additional explanations), the gaps are best classified as shallow coverage rather than omission.\n\n**Suggested additions**:\n1. A dedicated slide or two that walks through a concrete pipeline example, showing how each step is automated (e.g., Git hooks, build scripts, test runners, container registry, deployment scripts). Include a diagram.\n2. A short section on Jenkins capabilities beyond CD—build triggers, pipeline as code, integration with other tools, and how it can orchestrate non‑delivery tasks.\n3. A brief explanation of what makes tests trustworthy: deterministic output, isolation, fast feedback, and coverage metrics.\n4. A rationale for \"every build is a potential release\": risk reduction, faster feedback, and the ability to roll back.\n5. Practical tips for eliminating manual bottlenecks: automated approvals, self‑service deployment, and infrastructure as code.\n\nAdding these details will help students connect the high‑level principles to actionable practices and address the specific questions that remain unanswered by the current slides."
+  "report_text": "The slides for Topic 20 (257‑268) give a solid high‑level overview of continuous delivery principles, the role of Jenkins, and a generic CI/CD pipeline for containerised apps. They adequately answer questions about the definitions of CI, CD, and CD (continuous deployment), the purpose of Jenkins, and what a typical pipeline looks like. However, several student queries expose thin treatment of key concepts:\n\n* The principle “Automate wherever possible” and “Eliminate manual bottlenecks” are listed but lack concrete examples (e.g., automating environment provisioning, secret management, or roll‑back procedures). Slide 255 hints at manual intervention pre‑cloud but does not flesh out practical steps.\n* The four CD principles are enumerated without the underlying rationale. Learners ask for the reasoning behind each principle, which is not explained beyond the bullet text.\n* “Have automated tests you can trust” is mentioned, yet the slides do not discuss test reliability metrics, flakiness mitigation, or how to assess test trustworthiness.\n* The importance of “Every build is a potential release” is stated but not justified; students seek an explanation of risk reduction and faster feedback.\n\nTo close these gaps, the deck should add a short supplemental slide (or two) after slide 260 that:\n1. Provides concrete automation examples that replace manual bottlenecks (e.g., IaC with Terraform/Chef, automated database migrations, container image scanning).\n2. Explains the rationale for each of the four CD principles, linking them to risk mitigation, faster feedback, and team velocity.\n3. Details criteria for trustworthy automated tests (high pass rate, low flakiness, code coverage thresholds, deterministic environments).\n4. Clarifies why treating every build as a releasable artifact enables rapid rollback, continuous feedback, and reduces release anxiety.\n\nThese additions would transform the current shallow coverage into a more complete, actionable treatment of the students’ concerns while preserving the existing high‑level flow."
 }

@@ -9,26 +9,22 @@
     139
   ],
   "discovered_slide_ids": [
+    4,
+    128,
+    129,
+    130,
+    131,
+    132,
     133,
     134,
     135,
-    152,
-    153,
-    178,
-    179,
-    181,
-    183,
-    214,
-    239,
-    242,
-    244,
-    270,
-    271,
-    273,
-    274,
-    276
+    136,
+    137,
+    138,
+    189,
+    190
   ],
   "gap_type": "fragmented_context",
-  "confidence": 0.8,
-  "report_text": "The six slides (134‑139) focus on Docker’s high‑level architecture, the client‑daemon communication, the role of Dockerfiles, images, containers, registries, and a brief mention of portability. They answer questions about the Docker daemon, client‑daemon communication, image vs. container, Dockerfile purpose, and the general benefits of Docker. However, several matched questions are not addressed within this slide range:\n\n* **Linux namespaces** – The slides do not explain what namespaces are or why Docker uses them. The nearest coverage appears in slide 153 (and 152/153), which is outside the current topic.\n* **UnionFS and image layers** – While the slides mention that each Dockerfile instruction creates a layer, they do not discuss UnionFS or how layers are stored. Relevant material is found in slides 181/242.\n* **Container orchestration tasks** – The slides mention Docker Compose but do not describe the automation tasks performed by orchestration tools. Slides 274‑276 cover these topics.\n* **Shared resources with the host OS** – The slides state that containers contain everything needed but do not detail what is shared (e.g., kernel, host filesystem). This is covered in other slides.\n* **Typical CI/CD pipeline** – Not covered in this range; slides 280‑285 discuss pipelines.\n* **Lightweight virtualization** – The slides do not explain why containers are lightweight; this is addressed elsewhere.\n* **Orchestration tool selection and Swarm vs. Kubernetes** – These comparative questions are not answered here; slides 274‑276 provide the needed information.\n\nIn short, the topic’s slides provide solid coverage for core Docker concepts but leave out several key areas that are addressed in adjacent or later slides. The missing content is not a true omission of the deck; it is a segmentation issue where related material is split across topics. To improve coherence, the instructor could either expand this slide set to include the namespace, UnionFS, and orchestration details or provide explicit cross‑references to the relevant slides.\n"
+  "confidence": 0.9,
+  "report_text": "The five student questions map well to the material in slides 134‑139 except for the first one about what containers share with the host OS. The current topic slides focus on Docker architecture, client‑daemon interaction, images, containers, and Dockerfiles, and they do not explicitly state that containers share the host kernel. That information appears in the preceding slides (130‑133), where slide 130 explains the user‑space vs kernel‑space distinction and slide 131 notes that containers \"share a common OS\" and therefore the kernel. Because the answer lives just outside the topic boundary, a learner consulting only slides 134‑139 would miss the kernel‑sharing detail. This is a classic fragmented‑context situation: the concept is present in the deck but split across adjacent topics without a clear cross‑reference.\n\nRecommendation: add a concise statement to the start of the Docker Architecture section (e.g., \"Containers share the host operating system’s kernel, running in isolated user‑space processes\") and optionally a forward‑reference to slide 130 for deeper OS fundamentals. This will make the answer self‑contained within the topic and eliminate the fragmentation.\n"
 }

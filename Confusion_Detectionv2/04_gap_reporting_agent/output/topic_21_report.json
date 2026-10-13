@@ -1,0 +1,39 @@
+{
+  "topic_id": 21,
+  "assigned_slide_ids": [
+    269,
+    270,
+    271,
+    272,
+    273,
+    274,
+    275,
+    276,
+    277,
+    278,
+    279,
+    280,
+    281,
+    282,
+    283
+  ],
+  "discovered_slide_ids": [
+    132,
+    184,
+    245,
+    265,
+    269,
+    270,
+    271,
+    272,
+    273,
+    274,
+    276,
+    277,
+    282,
+    284
+  ],
+  "gap_type": "shallow_coverage",
+  "confidence": 0.7,
+  "report_text": "Part 1 of 2 -- slides 270-279, 8 question(s): shallow_coverage (confidence 0.70)\n\nThe slide set 270‑279 gives a solid overview of what a container orchestrator is, the problems it solves, the core tasks it automates, and the key concepts of cluster management, Kubernetes, and Pods. These slides answer most of the matched questions directly.\n\nHowever, the deck falls short on the comparative aspects that students asked about. The questions about choosing a tool, the trade‑offs between Docker Swarm, Kubernetes, Amazon ECS, and Google Container Engine, and the specific differences between ECS and GKE are only touched on in slide 276, which lists the tools but does not explain their relative strengths, weaknesses, or use‑case fit. I performed targeted searches for \"tradeoffs Docker Swarm Kubernetes\" and \"Amazon ECS Google Container Engine differences\"; the only relevant slide was the same slide 276, which contains no comparative detail. No other slide in the deck provides a side‑by‑side comparison.\n\nBecause the missing information is not scattered across distant slides but simply absent, the appropriate gap type is **shallow_coverage**.\n\n**Recommendation**: Add a new slide (or extend slide 276) that explicitly compares the four major orchestration options. Include criteria such as ease of setup, scalability, networking model, native cloud integration, and typical use cases. A concise table or bullet list would give students the decision framework they need to answer the unanswered questions.\n\nPart 2 of 2 -- slides 277-283, 6 question(s): covered (confidence 0.90)\n\nThe slides for Topic 21 (277‑283) provide a comprehensive overview of the core Kubernetes objects and cluster components that directly answer all six matched student questions.  The Pod section defines a pod as a group of one or more containers that share storage, network, and lifecycle, which satisfies the question about what a pod is.  The Service section explains that a service is an abstraction that exposes a logical set of pods, gives it a stable virtual IP, and handles the dynamic IP changes of individual pods—covering both the definition and the reason for its existence.  The cluster architecture slides clearly distinguish the master node (API server, scheduler, controller manager, etcd) from worker nodes (kubelet, kube‑proxy, container runtime), answering the question about their differences.  The kube‑proxy slide states that it acts as a network proxy and load balancer for services on a worker node, and the kube‑let slide describes it as the agent that pulls pod configuration from the API server and ensures containers run, directly addressing the respective questions.  No additional context beyond the slide range is required to answer these queries, so the topic’s coverage is complete and coherent."
+}

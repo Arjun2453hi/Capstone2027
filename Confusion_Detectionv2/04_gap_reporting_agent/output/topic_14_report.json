@@ -1,0 +1,40 @@
+{
+  "topic_id": 14,
+  "assigned_slide_ids": [
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200
+  ],
+  "discovered_slide_ids": [
+    152,
+    153,
+    182,
+    183,
+    184,
+    188,
+    189,
+    190,
+    191,
+    192,
+    213,
+    244
+  ],
+  "gap_type": "fragmented_context",
+  "confidence": 0.9,
+  "report_text": "I examined slides 183‑200, which form Topic 14. The material covers Docker’s overall purpose, benefits, lightweight nature, container vs VM comparison, Docker architecture (client‑server model, daemon responsibilities, REST API communication), Docker images and Dockerfiles, and high‑level mentions of namespaces and cgroups. These sections answer most of the matched student questions: the problem Docker solves, why containers are lightweight, differences between containers, VMs, and images, the role of the Docker daemon, client‑daemon interaction, and the benefits of portability and isolation.\n\nThe only notable shortfall is the lack of a concrete enumeration of the Linux namespace types Docker employs (PID, UTS, MNT, IPC, NET, USER, etc.). Slide 183 only states that Docker creates “a set of namespaces” without listing them. A detailed breakdown appears in other parts of the deck (slides 152, 153, and 213) where each namespace is described. Because the answer exists elsewhere but is not integrated into this topic, the coverage is fragmented across the deck.\n\nRecommendation: add a concise bullet list of the main Docker namespaces (PID, UTS, MNT, IPC, NET, USER) with a one‑sentence purpose for each to the current topic (e.g., after the “Summary Use namespaces for controlling resource access” slide). This will consolidate the information, eliminate the fragmented context, and ensure students can find the complete answer within the topic.\n"
+}
