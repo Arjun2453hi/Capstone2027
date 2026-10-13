@@ -1,0 +1,20 @@
+numpy
+scikit-learn
+sentence-transformers
+pdfplumber
+matplotlib
+pydantic
+python-dotenv
+groq
+httpx
+langchain-core
+langchain-groq
+
+# tests
+# pytest 8.1+ stops building a package path through a folder whose name
+# is not a Python identifier (01_deck_parsing, ...), so every stage test
+# fails at import with "attempted relative import beyond top-level
+# package" -- even with --import-mode=importlib. Verified: 7.4.4 passes;
+# 8.1.1, 8.3.5 and 8.4.2 fail.
+pytest<8.1
+reportlab
