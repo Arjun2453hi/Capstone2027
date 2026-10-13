@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import importlib
+import json
 import sys
 from pathlib import Path
 
@@ -36,6 +37,15 @@ DEFAULT_OUTPUT_DIR = Path(__file__).resolve().parent / "output"
 DEFAULT_INDEX_PATH = None  # resolved from output_dir if not given
 
 
+def _previous_outcomes(index_path: Path) -> dict:
+    """topic_id -> outcome from an earlier run's index.json, so reports
+    this run didn't touch keep the outcome they were written with."""
+    if not index_path.exists():
+        return {}
+    with index_path.open("r", encoding="utf-8") as f:
+        return {e["topic_id"]: e.get("outcome", "unknown") for e in json.load(f)}
+
+
 def run(
     deck_path: Path,
     gap_input_path: Path,
@@ -58,11 +68,14 @@ def run(
         wanted = set(topic_ids)
         topics_to_run = [t for t in gap_input.topics if t.topic_id in wanted]
         found_ids = {t.topic_id for t in topics_to_run}
-        missing = wanted - found_ids
+        missing = wanted - found_ids - {-1}
         if missing:
             print(f"[warn] --topic-ids requested {sorted(missing)} but no such topic(s) exist in gap_verification_input.json")
-        unmatched_to_run = []
-        print(f"Scoped run: only topic_id(s) {sorted(found_ids)} (--topic-ids); unmatched-questions topic skipped this run.")
+        unmatched_to_run = gap_input.unmatched_questions if -1 in wanted else []
+        print(
+            f"Scoped run: only topic_id(s) {sorted(found_ids)} (--topic-ids); unmatched-questions topic "
+            f"{'included' if -1 in wanted else 'skipped'} this run."
+        )
     elif limit is not None:
         topics_to_run = gap_input.topics[:limit]
         unmatched_to_run = []
@@ -87,21 +100,28 @@ def run(
     summary = orchestrator_module.summarize_outcomes(results)
     print(f"\nrun summary: {summary}")
 
-    dossiers_by_id = {d.topic_id: d for d in gap_input.topics}
+    # Index every report on disk, not just this run's -- a scoped run
+    # (--topic-ids/--limit) used to overwrite index.json with only its
+    # own topics, dropping every earlier report from the ranking.
+    outcomes = _previous_outcomes(index_path)
+    outcomes.update({r["topic_id"]: r["outcome"] for r in results})
+    backed_by = {d.topic_id: d.cluster_size for d in gap_input.topics}
+    backed_by[-1] = len(gap_input.unmatched_questions)
     index_entries = []
-    for r in results:
-        topic_id = r["topic_id"]
-        backed_by_questions = (
-            len(gap_input.unmatched_questions) if topic_id == -1 else dossiers_by_id[topic_id].cluster_size
-        )
+    for topic_id, backed_by_questions in backed_by.items():
+        report_path = output_dir / orchestrator_module.report_filename(topic_id)
+        if not backed_by_questions or not report_path.exists():
+            continue
+        with report_path.open("r", encoding="utf-8") as f:
+            report = json.load(f)
         index_entries.append(
             {
                 "topic_id": topic_id,
-                "filename": orchestrator_module.report_filename(topic_id),
-                "gap_type": r["report"].gap_type,
-                "confidence": r["report"].confidence,
+                "filename": report_path.name,
+                "gap_type": report["gap_type"],
+                "confidence": report["confidence"],
                 "backed_by_questions": backed_by_questions,
-                "outcome": r["outcome"],
+                "outcome": outcomes.get(topic_id, "unknown"),
             }
         )
     index = severity_module.build_index(index_entries)
@@ -131,7 +151,7 @@ def main():
         type=int,
         nargs="+",
         default=None,
-        help="Only run these exact topic_id(s), e.g. --topic-ids 0 2 3 4 (skips the unmatched-questions topic). Takes precedence over --limit.",
+        help="Only run these exact topic_id(s), e.g. --topic-ids 0 2 3 4. Include -1 to also run the unmatched-questions topic. Takes precedence over --limit.",
     )
     args = parser.parse_args()
 
