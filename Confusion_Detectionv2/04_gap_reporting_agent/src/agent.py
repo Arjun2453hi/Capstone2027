@@ -26,6 +26,7 @@ import time
 from typing import List, Optional
 from uuid import uuid4
 
+from common.groq_rotation import GroqRequestTooLarge
 from common.llm_monitoring import invoke_monitored
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage
@@ -37,6 +38,12 @@ from .tools import InvestigationContext, build_tools
 
 MAX_ITERATIONS = 10  # claude.md Section 3: AgentExecutor(max_iterations=10) -- same cap, hand-rolled
 MAX_RATE_LIMIT_RETRIES = 5  # claude.md Section 11: "e.g. 3 attempts" -- raised after measuring the real backoff needed
+
+# A per-minute limit clears in under a minute. A wait longer than this
+# is a per-day quota: measured on a real run, Groq asked for ~640s on
+# every attempt once the daily token limit was reached, so 5 retries
+# would have spent ~50 minutes per topic only to fail anyway.
+MAX_RATE_LIMIT_WAIT_SECONDS = 120.0
 
 # Remediation (Phase 3): the agent must not claim a concept is missing
 # from the deck without having actually searched for it. Checked
@@ -132,6 +139,60 @@ TOOL_CALL_PARSE_ERROR_NUDGE = (
 )
 
 
+ELIDED_TOOL_RESULT = json.dumps(
+    {"elided": "Removed to keep the request within the provider's size limit. Call the tool again if you still need it."}
+)
+
+
+def _elide_old_tool_results(messages: List) -> bool:
+    """The whole conversation is resent on every step, so it only
+    grows; a provider with a small per-request token limit eventually
+    rejects it outright (GroqRequestTooLarge -- retrying the same
+    messages can never succeed). Drops the content of every earlier
+    tool result except the two the rest of the investigation depends
+    on: the first one (the topic's own slides) and the most recent
+    round. Returns False if there was nothing left to drop."""
+    tool_rows = [i for i, m in enumerate(messages) if isinstance(m, ToolMessage)]
+    last_ai_row = max((i for i, m in enumerate(messages) if isinstance(m, AIMessage)), default=-1)
+    elided_any = False
+    for i in tool_rows[1:]:
+        if i > last_ai_row or messages[i].content == ELIDED_TOOL_RESULT:
+            continue
+        messages[i] = ToolMessage(content=ELIDED_TOOL_RESULT, tool_call_id=messages[i].tool_call_id)
+        elided_any = True
+    return elided_any
+
+
+def _request_too_large_report(topic_id: int, assigned_slide_ids: List[int], discovered_slide_ids: List[int]) -> GapReport:
+    return GapReport(
+        topic_id=topic_id,
+        assigned_slide_ids=assigned_slide_ids,
+        discovered_slide_ids=sorted(set(discovered_slide_ids)),
+        gap_type="shallow_coverage",
+        confidence=0.0,
+        report_text=(
+            "Investigation failed because the request exceeded the provider's per-request size "
+            "limit even after dropping earlier tool results; this is not a content judgment."
+        ),
+    )
+
+
+# Sent before the last regular step. The system prompt states the step
+# budget once, up front, but the model does not count its own calls:
+# measured on the real deck, the parts that hit the cap were mostly the
+# ones with a real gap -- the agent kept searching for content that is
+# not in the deck until the budget ran out, and its (correct) finding
+# was then capped at confidence 0.4 as "cut short". Nine steps of
+# searching is an investigation, not a cut-short one; this lets the
+# model conclude it on its own terms. The forced-conclusion path and
+# its confidence cap still apply if it ignores this.
+LAST_STEP_NOTICE = (
+    "This is your last tool call before the step limit. Call write_report now, based on "
+    "everything you have gathered. Searches that found nothing relevant are evidence too: "
+    "say what you searched for and set confidence according to how thoroughly you checked."
+)
+
+
 def _invoke_with_retry(model_with_tools, messages, topic_label: str, *, topic_id=None, invocation_number=None):
     """Exponential backoff on a detected rate limit (claude.md Section
     11): detect specifically, retry a small bounded number of times,
@@ -163,6 +224,9 @@ def _invoke_with_retry(model_with_tools, messages, topic_label: str, *, topic_id
             if not _is_rate_limit_error(e) or attempt == MAX_RATE_LIMIT_RETRIES:
                 raise
             wait = _retry_after_seconds(e, attempt)
+            if wait > MAX_RATE_LIMIT_WAIT_SECONDS:
+                print(f"[warn] rate limit on {topic_label} needs a {wait:.0f}s wait -- daily quota exhausted, not retrying")
+                raise
             print(f"[warn] rate limit hit on {topic_label} -- waiting {wait:.1f}s, attempt {attempt}/{MAX_RATE_LIMIT_RETRIES}")
             time.sleep(wait)
     raise RuntimeError("unreachable")  # the loop above always returns or re-raises
@@ -184,15 +248,16 @@ def _rate_limit_failed_report(topic_id: int, assigned_slide_ids: List[int], disc
 
 def _extract_discovered_slide_ids(tool_name: str, result) -> List[int]:
     """Real telemetry, not a model self-report: pulls the actual
-    slide_ids a search tool's result claims to have found. Only
-    search_expanding_context and search_similar_slides contribute here
+    slide_ids a tool's result actually returned. Only
+    search_expanding_context, search_similar_slides and get_slides
+    contribute here
     -- get_topic_slides returns the topic's ASSIGNED range (tracked
     separately, from ctx, not from tool output) and
     get_matched_questions/write_report don't reference slides at all."""
     if tool_name == "search_expanding_context" and isinstance(result, dict):
         return [sid for sid in result.get("window_slide_ids", []) if isinstance(sid, int)]
-    if tool_name == "search_similar_slides" and isinstance(result, list):
-        return [item["slide_id"] for item in result if isinstance(item, dict) and "slide_id" in item]
+    if tool_name in ("search_similar_slides", "get_slides") and isinstance(result, list):
+        return [item["slide_id"] for item in result if isinstance(item, dict) and "slide_id" in item and "error" not in item]
     return []
 
 
@@ -211,8 +276,8 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
     """Runs one topic's fresh, isolated investigation -- no memory
     shared with any other topic (claude.md Section 5). Returns
     {"report": GapReport, "outcome": "completed" | "cap_hit" |
-    "rate_limit_failed", "n_tool_calls": int}."""
-    tools = build_tools(ctx)
+    "rate_limit_failed" | "request_too_large", "n_tool_calls": int}."""
+    tools = build_tools(ctx, own_topic_id=topic_id)
     tool_lookup = {t.name: t for t in tools}
     model_with_tools = chat_model.bind_tools(tools)
 
@@ -228,6 +293,8 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
     topic_label = f"topic {topic_id}"
 
     for step in range(1, MAX_ITERATIONS + 1):
+        if step == MAX_ITERATIONS:
+            messages.append(HumanMessage(content=LAST_STEP_NOTICE))
         try:
             response: AIMessage = _invoke_with_retry(
                 model_with_tools, messages, topic_label, topic_id=topic_id, invocation_number=step
@@ -243,6 +310,15 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
                 print(f"[warn] malformed tool-call JSON on {topic_label}, step {step} -- asking for a more concise retry")
                 messages.append(HumanMessage(content=TOOL_CALL_PARSE_ERROR_NUDGE))
                 continue
+            if isinstance(e, GroqRequestTooLarge):
+                if _elide_old_tool_results(messages):
+                    print(f"[warn] request too large on {topic_label}, step {step} -- dropped earlier tool results, retrying")
+                    continue
+                return {
+                    "report": _request_too_large_report(topic_id, assigned_slide_ids, discovered_slide_ids),
+                    "outcome": "request_too_large",
+                    "n_tool_calls": step - 1,
+                }
             raise
 
         messages.append(response)
@@ -296,7 +372,7 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
             result = {"error": f"unknown tool {call['name']}"} if tool_fn is None else tool_fn.invoke(call["args"])
             if call["name"] in SEARCH_TOOL_NAMES:
                 search_tool_calls_made += 1
-                discovered_slide_ids.extend(_extract_discovered_slide_ids(call["name"], result))
+            discovered_slide_ids.extend(_extract_discovered_slide_ids(call["name"], result))
             messages.append(ToolMessage(content=json.dumps(result, default=str), tool_call_id=call["id"]))
 
     # Hit MAX_ITERATIONS without the model calling write_report on its own.
@@ -315,12 +391,12 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
                 "outcome": "rate_limit_failed",
                 "n_tool_calls": MAX_ITERATIONS,
             }
-        if not _is_tool_call_parse_error(e):
+        if not (_is_tool_call_parse_error(e) or isinstance(e, GroqRequestTooLarge)):
             raise
-        # A parse error here has no further loop iteration to retry
-        # into -- fall through to the "model didn't conclude" flagged
-        # report below rather than raising past the step budget.
-        print(f"[warn] malformed tool-call JSON on {topic_label} during forced conclusion -- giving up on this topic")
+        # Neither has a further loop iteration to retry into here --
+        # fall through to the "model didn't conclude" flagged report
+        # below rather than raising past the step budget.
+        print(f"[warn] {type(e).__name__} on {topic_label} during forced conclusion -- giving up on this topic")
 
     tool_calls = getattr(response, "tool_calls", None) or []
     write_report_call = next((c for c in tool_calls if c["name"] == "write_report"), None)

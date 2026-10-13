@@ -308,3 +308,77 @@ def test_rate_limit_exhausted_produces_a_clearly_marked_failed_report(monkeypatc
     assert result["report"].topic_id == 3
     assert "rate limit" in result["report"].report_text.lower()
     assert model.call_count == agent_module.MAX_RATE_LIMIT_RETRIES  # never crashed the whole run
+
+
+def test_oversized_request_drops_earlier_tool_results_and_continues():
+    """A provider with a small per-request limit rejects the grown
+    conversation outright. That must not crash the run (it used to
+    abort every remaining topic): earlier tool results are dropped,
+    keeping the topic's own slides, and the investigation carries on."""
+    from common.groq_rotation import GroqRequestTooLarge
+
+    dossier = make_dossier(topic_id=0, slide_ids=[0, 1], window_text="the topic's own slides")
+    ctx = make_fake_context(dossiers=[dossier])
+    seen = []
+
+    class _Recording(ScriptedChatModel):
+        def invoke(self, messages):
+            seen.append([m.content for m in messages if m.type == "tool"])
+            return super().invoke(messages)
+
+    model = _Recording(
+        [
+            ai_tool_call("get_topic_slides", {"topic_id": 0}, "c1"),
+            ai_tool_call("search_similar_slides", {"query_text": "x"}, "c2"),
+            ai_tool_call("get_slides", {"slide_ids": [5]}, "c3"),
+            GroqRequestTooLarge("too large"),
+            ai_tool_call("write_report", {"topic_id": 0, "gap_type": "covered", "confidence": 0.8, "report_text": "ok"}, "c4"),
+        ]
+    )
+
+    result = run_topic_investigation(model, ctx, topic_id=0, kickoff_message="investigate topic 0")
+
+    assert result["outcome"] == "completed"
+    before, after = seen[3], seen[4]
+    assert len(before) == len(after) == 3
+    assert after[0] == before[0] and "the topic's own slides" in after[0]  # own slides kept
+    assert after[1] == agent_module.ELIDED_TOOL_RESULT  # earlier search dropped
+    assert after[2] == before[2]  # most recent round kept
+    assert result["report"].discovered_slide_ids  # telemetry survives the drop
+
+
+def test_oversized_request_with_nothing_left_to_drop_fails_only_that_topic():
+    from common.groq_rotation import GroqRequestTooLarge
+
+    ctx = make_fake_context()
+    model = ScriptedChatModel([GroqRequestTooLarge("too large")])
+
+    result = run_topic_investigation(model, ctx, topic_id=0, kickoff_message="investigate topic 0")
+
+    assert result["outcome"] == "request_too_large"
+    assert result["report"].confidence == 0.0
+
+
+def test_model_is_told_when_it_reaches_its_last_step_and_can_conclude_uncapped():
+    """Nine searches then a report on the tenth step: the model is
+    warned before that step, and a report written there is a normal
+    completion with the model's own confidence, not a capped one."""
+    ctx = make_fake_context()
+    seen_last_messages = []
+
+    class _Recording(ScriptedChatModel):
+        def invoke(self, messages):
+            seen_last_messages.append(messages[-1].content)
+            return super().invoke(messages)
+
+    searches = [ai_tool_call("search_similar_slides", {"query_text": f"q{i}"}, f"c{i}") for i in range(MAX_ITERATIONS - 1)]
+    final = ai_tool_call(
+        "write_report", {"topic_id": 0, "gap_type": "complete_omission", "confidence": 0.85, "report_text": "searched, nothing"}, "cf"
+    )
+    model = _Recording(searches + [final])
+
+    result = run_topic_investigation(model, ctx, topic_id=0, kickoff_message="investigate topic 0")
+
+    assert [m == agent_module.LAST_STEP_NOTICE for m in seen_last_messages] == [False] * (MAX_ITERATIONS - 1) + [True]
+    assert result["outcome"] == "completed"
+    assert result["report"].confidence == 0.85
