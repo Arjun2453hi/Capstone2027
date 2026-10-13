@@ -94,7 +94,16 @@ def get_validated_groq_client(api_key: Optional[str] = None, model_name: Optiona
 # substitute for it -- a token cap alone can't stop a model from trying
 # to write something long, only reduce how badly it gets cut off if it
 # does.
-DEFAULT_CHAT_MAX_TOKENS = 4096
+#
+# Not higher than this, though: Groq counts the reserved output against
+# the per-minute token limit of the request itself, and rejects any
+# single request whose input + max_tokens exceeds it (HTTP 413, no
+# retry can fix it). Measured on a free-tier key, every chat model is
+# limited to 8000 tokens/minute, so the earlier 4096 left under 3900
+# tokens for system prompt + tools + slides + history -- less than one
+# large topic's own slide text. The longest real response observed in
+# this stage was 1791 tokens.
+DEFAULT_CHAT_MAX_TOKENS = 2048
 
 
 def get_validated_chat_groq(
