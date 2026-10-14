@@ -1,0 +1,6 @@
+# MCP 1.x supplies the FastMCP API used by this archived server.
+mcp[cli]==1.28.1
+python-pptx==1.0.2
+Pillow
+fonttools
+PyMuPDF

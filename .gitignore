@@ -26,3 +26,6 @@ venv/
 .vscode/
 .idea/
 .DS_Store
+
+# Converted PowerPoint is regenerated with 05_agentic_editor/convert_pdf.py.
+Confusion_Detectionv2/data/cc-unit2-slides.pptx
