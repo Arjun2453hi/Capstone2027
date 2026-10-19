@@ -9,6 +9,9 @@ groq
 httpx
 langchain-core
 langchain-groq
+python-pptx
+streamlit
+pypdfium2
 
 # tests
 # pytest 8.1+ stops building a package path through a folder whose name

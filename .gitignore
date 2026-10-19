@@ -32,3 +32,7 @@ dist/
 .vscode/
 .idea/
 .DS_Store
+
+# Agentic editor: the edited deck is regenerated from edit_plan.json
+Confusion_Detectionv2/05_agentic_editor/output/*.pptx
+Confusion_Detectionv2/05_agentic_editor/output/demo_*
