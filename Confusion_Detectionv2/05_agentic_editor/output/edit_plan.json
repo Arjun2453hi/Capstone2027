@@ -1,0 +1,346 @@
+{
+  "edits": [
+    {
+      "topic_id": 14,
+      "after_slide_id": 183,
+      "title": "Docker Namespace Types",
+      "bullets": [
+        "PID namespace isolates process IDs, giving each container its own independent process numbering.",
+        "UTS namespace provides a separate hostname and domain name for each container.",
+        "MNT namespace gives each container its own mount point hierarchy.",
+        "IPC namespace isolates inter‑process communication resources such as shared memory and semaphores.",
+        "NET namespace supplies each container with its own network stack, interfaces, and routing tables.",
+        "USER namespace maps container user IDs to host IDs, allowing non‑root processes inside containers."
+      ],
+      "addresses_questions": [
+        "What are the main types of namespaces Docker uses?",
+        "What is a Linux namespace and why does Docker use them?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.9,
+      "accepted": true,
+      "problems": []
+    },
+    {
+      "topic_id": 8,
+      "after_slide_id": 132,
+      "title": "Docker Enables True Application Portability",
+      "bullets": [
+        "Docker images bundle application code, runtime, libraries, and configuration into a single immutable artifact.",
+        "The same image can be run on any host that has the Docker engine installed.",
+        "Docker abstracts away differences in host operating‑system versions and underlying hardware.",
+        "Because the container shares the host kernel, no guest OS is needed for each deployment.",
+        "This consistency lets developers move images from a laptop to a server to any cloud provider without changes."
+      ],
+      "addresses_questions": [
+        "How does Docker improve application portability?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.85,
+      "accepted": false,
+      "problems": [
+        "fact-check, bullet 3: Docker does not fully abstract away host OS version differences; containers rely on the host kernel and may be incompatible with differing kernel versions"
+      ]
+    },
+    {
+      "topic_id": 9,
+      "after_slide_id": 134,
+      "title": "Containers Share Host Kernel",
+      "bullets": [
+        "Containers run as isolated user‑space processes on the host.",
+        "They share the host operating system’s kernel rather than bundling their own.",
+        "Kernel sharing enables lightweight isolation using namespaces and cgroups.",
+        "For deeper OS fundamentals see slide 130 on user‑space vs kernel‑space."
+      ],
+      "addresses_questions": [
+        "What do containers share with the host OS?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.9,
+      "accepted": true,
+      "problems": []
+    },
+    {
+      "topic_id": 6,
+      "after_slide_id": 98,
+      "title": "Trap‑and‑Emulate Syscall Flow (Ring Diagram)",
+      "bullets": [
+        "Guest application in Ring 3 executes a syscall instruction such as int 0x80.",
+        "CPU raises a trap, switches to Ring 0, and saves guest registers on the guest stack.",
+        "Control transfers to the VMM trap handler, which records the full guest state.",
+        "VMM forwards the request to the guest OS kernel handler running in Ring 0.",
+        "Guest OS processes the syscall and places the result in a register or memory.",
+        "VMM restores the saved guest state, switches back to Ring 3, and resumes the guest app."
+      ],
+      "addresses_questions": [
+        "What exactly happens on the ring diagram when a guest app makes a syscall in the trap-and-emulate example?",
+        "How does trap-and-emulate virtualization work?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.85,
+      "accepted": false,
+      "problems": [
+        "fact-check, bullet 2: The slide says the CPU saves guest registers on the guest stack, but in trap‑and‑emulate the CPU saves state in hardware structures (e.g., VMCS) or a hypervisor stack, not on the guest's own stack."
+      ]
+    },
+    {
+      "topic_id": 6,
+      "after_slide_id": 103,
+      "title": "Worked Example: PUSHF Failure on x86",
+      "bullets": [
+        "Guest OS in Ring 3 executes PUSHF to save the EFLAGS register on its stack.",
+        "PUSHF is a sensitive‑but‑unprivileged instruction, so the CPU does not generate a trap.",
+        "The pushed EFLAGS includes IOPL bits, revealing the current privilege level to the guest.",
+        "Guest can read those bits and infer it is not executing in Ring 0, breaking isolation.",
+        "A VMM must intercept or emulate PUSHF via binary translation to maintain security.",
+        "Emulated PUSHF updates a virtual EFLAGS copy and optionally raises a trap for the VMM to handle."
+      ],
+      "addresses_questions": [
+        "Why was the x86 pushf/popf instruction a problem for virtualization?",
+        "Why doesn't the original x86 architecture satisfy the Popek-Goldberg requirements?",
+        "Can you walk through the full worked example of why x86 doesn't satisfy Popek-Goldberg, step by step with the ring diagram?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.85,
+      "accepted": false,
+      "problems": [
+        "fact-check, bullet 3: IOPL bits do not reveal the current privilege level; they indicate I/O privilege, not CPL",
+        "fact-check, bullet 4: Guest cannot reliably infer it is not in Ring 0 from IOPL bits, so the claim of breaking isolation is inaccurate"
+      ]
+    },
+    {
+      "topic_id": 16,
+      "after_slide_id": 218,
+      "title": "Detailed Namespace Operations: unshare, setns, clone & UTS nesting",
+      "bullets": [
+        "unshare() creates a new namespace for the calling process, leaving the original hierarchy unchanged for other processes.",
+        "After unshare(CLONE_NEWNS) the child sees a fresh mount namespace with its own root view.",
+        "clone(..., CLONE_NEWNS) forks a child that starts in a separate mount namespace; the child’s filesystem view is isolated from the parent.",
+        "setns(fd, ns_type) attaches an existing process to a target namespace identified by the file descriptor.",
+        "In a nested UTS namespace, a child’s hostname change is visible only inside that child; the parent’s hostname remains unchanged."
+      ],
+      "addresses_questions": [
+        "What does the namespace hierarchy look like before and after a process calls unshare()?",
+        "If a nested namespace changes its hostname, does the parent namespace ever see that change?",
+        "What's the illustrated example of creating and joining a Linux namespace?",
+        "What does the PID namespace isolate?",
+        "Can you walk through what actually happens step by step when a process calls clone() with CLONE_NEWNS to create a new mount namespace?",
+        "How exactly does the child process's view of the filesystem change right after CLONE_NEWNS is used?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.65,
+      "accepted": false,
+      "problems": [
+        "fact-check, bullet 2: unshare() does not directly create a child; it changes the calling process's namespace, so saying the child sees a fresh mount namespace is inaccurate",
+        "fact-check, bullet 4: setns() attaches the calling process to the namespace, not an existing process, making the description incorrect"
+      ]
+    },
+    {
+      "topic_id": 16,
+      "after_slide_id": 233,
+      "title": "Concrete cgroup hierarchy and resource‑limit example",
+      "bullets": [
+        "Create a parent cgroup “/sys/fs/cgroup/memory/parent” and set memory.limit_in_bytes to 200 MB.",
+        "Create a child cgroup “/sys/fs/cgroup/memory/parent/child” and set memory.limit_in_bytes to 100 MB.",
+        "Add a process ID to the child cgroup by writing the PID to child/tasks; the process inherits the 100 MB limit.",
+        "A process started in the child cgroup cannot exceed 100 MB, while a sibling in the parent cgroup can use up to 200 MB.",
+        "Child cgroups inherit all limits from their ancestors; tighter limits in a child override the parent’s higher limits."
+      ],
+      "addresses_questions": [
+        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+        "How are cgroups structured hierarchically?",
+        "What kinds of resources can a cgroup limit?",
+        "What would an actual cgroup resource-limit example look like in practice?",
+        "Is there a worked example showing how cgroups restrict a group of processes?",
+        "Does a child process inherit its parent's cgroup?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.65,
+      "accepted": true,
+      "problems": []
+    },
+    {
+      "topic_id": 18,
+      "after_slide_id": 244,
+      "title": "Linux Namespaces and Docker",
+      "bullets": [
+        "A Linux namespace is a kernel feature that isolates a set of system resources for a group of processes.",
+        "Docker creates a mount namespace so each container sees its own filesystem hierarchy.",
+        "The PID namespace gives containers a separate process ID space, hiding processes outside the container.",
+        "The network namespace provides independent network interfaces, IP addresses, and routing tables per container.",
+        "The IPC, UTS, and user namespaces isolate inter‑process communication, hostname/domain, and user/group IDs respectively, completing Docker’s isolation."
+      ],
+      "addresses_questions": [
+        "What are the main types of namespaces Docker uses?",
+        "What is a Linux namespace and why does Docker use them?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.93,
+      "accepted": true,
+      "problems": []
+    },
+    {
+      "topic_id": 20,
+      "after_slide_id": 260,
+      "title": "Concrete Automation to Eliminate Manual Bottlenecks",
+      "bullets": [
+        "Use Infrastructure‑as‑Code tools (Terraform, CloudFormation) to provision environments automatically.",
+        "Run database migrations with scripts (Flyway, Liquibase) triggered by the pipeline.",
+        "Scan container images for vulnerabilities during the build step.",
+        "Retrieve secrets from a vault (HashiCorp Vault, AWS Secrets Manager) instead of manual entry.",
+        "Define automated rollback steps that redeploy the previous successful image on failure."
+      ],
+      "addresses_questions": [
+        "How do you actually automate wherever possible in a CI/CD pipeline?",
+        "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.85,
+      "accepted": true,
+      "problems": []
+    },
+    {
+      "topic_id": 21,
+      "after_slide_id": 276,
+      "title": "Container Orchestrator Comparison Overview",
+      "bullets": [
+        "Ease of setup: Docker Swarm is simplest for small clusters; Kubernetes requires more initial configuration; ECS and GKE provide managed setups on their clouds.",
+        "Scalability: Kubernetes scales to thousands of nodes; ECS scales within AWS limits; GKE inherits Kubernetes scalability; Swarm handles modest scale well.",
+        "Networking model: Swarm uses an overlay network with built‑in load balancing; Kubernetes uses a flat pod network with Services and Ingress; ECS uses AWS VPC networking; GKE follows Kubernetes networking conventions.",
+        "Native cloud integration: ECS tightly integrates with AWS services (IAM, ELB, CloudWatch); GKE integrates with Google Cloud services (Stackdriver, Cloud Load Balancing); Kubernetes is cloud‑agnostic; Swarm is platform‑agnostic but lacks deep cloud hooks.",
+        "Typical use cases: Swarm for quick on‑premise or dev environments; Kubernetes for complex, multi‑team, multi‑cloud workloads; ECS for AWS‑centric applications; GKE for Google Cloud‑native Kubernetes deployments."
+      ],
+      "addresses_questions": [
+        "What are the actual differences between Amazon ECS and Google Container Engine?",
+        "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+        "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.7,
+      "accepted": false,
+      "problems": [
+        "body is 992 chars and would overflow the slide (max 900)"
+      ]
+    },
+    {
+      "topic_id": 21,
+      "after_slide_id": 276,
+      "title": "Choosing the Right Orchestrator",
+      "bullets": [
+        "Pick Docker Swarm if you need a lightweight, easy‑to‑install solution for small clusters or development labs.",
+        "Pick Kubernetes when you require high scalability, extensibility, and a vibrant ecosystem across clouds.",
+        "Pick Amazon ECS if your workloads run primarily on AWS and you want a fully managed service with tight IAM integration.",
+        "Pick Google Container Engine (GKE) if you are on GCP and want a managed Kubernetes experience with Google‑native tooling.",
+        "Consider team expertise, existing cloud provider, and required features to match the orchestrator to your project goals."
+      ],
+      "addresses_questions": [
+        "What are the actual differences between Amazon ECS and Google Container Engine?",
+        "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+        "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.7,
+      "accepted": false,
+      "problems": [
+        "fact-check, bullet 3: The slide claims Amazon ECS is a fully managed service, but ECS requires you to manage the underlying EC2 instances (unless using Fargate), so the statement is factually inaccurate."
+      ]
+    },
+    {
+      "topic_id": 12,
+      "after_slide_id": 174,
+      "title": "cgroup hierarchy example with limits",
+      "bullets": [
+        "A simple hierarchy: /sys/fs/cgroup/.../myapp (parent), with sub‑cgroups myapp/web and myapp/db (children).",
+        "Set a CPU limit for the parent with echo \"100000\" > myapp/cpu.cfs_quota_us (100 % of one CPU).",
+        "Set a tighter CPU limit for the web child with echo \"50000\" > myapp/web/cpu.cfs_quota_us (50 % of one CPU).",
+        "Set memory limits similarly: echo \"200M\" > myapp/memory.limit_in_bytes and echo \"100M\" > myapp/db/memory.limit_in_bytes.",
+        "A process started in the web cgroup can use at most 50 % CPU and 200 M memory; the parent’s limits cap the child, and the child inherits the parent’s cgroup membership."
+      ],
+      "addresses_questions": [
+        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+        "How are cgroups structured hierarchically?",
+        "What kinds of resources can a cgroup limit?",
+        "What would an actual cgroup resource-limit example look like in practice?",
+        "Is there a worked example showing how cgroups restrict a group of processes?",
+        "How is a specific CPU or memory limit actually enforced through a cgroup example?",
+        "Does a child process inherit its parent's cgroup?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.87,
+      "accepted": false,
+      "problems": [
+        "fact-check, bullet 2: The path to the CPU quota file is incorrect; it should be under the cpu controller directory (e.g., /sys/fs/cgroup/cpu/myapp/cpu.cfs_quota_us) rather than directly under myapp.",
+        "fact-check, bullet 3: Same path error as bullet 2: the CPU quota file resides in the cpu controller subdirectory, not directly under the cgroup name.",
+        "fact-check, bullet 4: The memory limit file path is missing the memory controller directory; it should be /sys/fs/cgroup/memory/myapp/memory.limit_in_bytes (and similarly for the child cgroup)."
+      ]
+    },
+    {
+      "topic_id": 10,
+      "after_slide_id": 146,
+      "title": "Runtime composition of image layers",
+      "bullets": [
+        "Docker uses a UnionFS to mount image layers as a single filesystem when a container starts.",
+        "Each read‑only layer is stacked in order, with the newest layer on top.",
+        "Docker adds a thin writable layer above the stack for container‑specific changes.",
+        "When a file is modified, copy‑on‑write copies it from the lower read‑only layer into the writable layer.",
+        "The container interacts with this merged view as if it were one coherent filesystem."
+      ],
+      "addresses_questions": [
+        "How do image layers work in Docker?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.85,
+      "accepted": false,
+      "problems": [
+        "fact-check, bullet 1: Docker does not always use a UnionFS; it uses a storage driver such as overlay2, and UnionFS is just one possible implementation"
+      ]
+    },
+    {
+      "topic_id": 19,
+      "after_slide_id": 251,
+      "title": "Historical Goals & Incentives of Development vs. Operations",
+      "bullets": [
+        "Developers were measured on speed of feature delivery, sprint velocity, and number of releases per period.",
+        "Operations were measured on system stability, uptime, SLA compliance, and cost efficiency of infrastructure.",
+        "Developers prioritized rapid changes to meet market demand, often pushing code without full testing.",
+        "Operations prioritized reliability and risk mitigation, preferring fewer, well‑tested changes.",
+        "These differing metrics created tension: fast releases threatened stability, while strict stability slowed feature rollout."
+      ],
+      "addresses_questions": [
+        "Why do development and operations teams historically have conflicting goals?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.85,
+      "accepted": true,
+      "problems": []
+    }
+  ],
+  "skipped_topics": {
+    "-1": "no slide range to insert into (the unmatched-questions report)",
+    "0": "covered: nothing to add",
+    "2": "covered: nothing to add",
+    "3": "covered: nothing to add",
+    "4": "covered: nothing to add",
+    "5": "covered: nothing to add",
+    "7": "covered: nothing to add",
+    "11": "confidence 0.57 is below 0.60",
+    "13": "covered: nothing to add",
+    "15": "covered: nothing to add",
+    "17": "covered: nothing to add",
+    "22": "covered: nothing to add"
+  }
+}

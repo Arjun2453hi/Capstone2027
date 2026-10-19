@@ -1,0 +1,109 @@
+{
+  "source_deck": "/Users/aneesh/Capstone2027/Confusion_Detectionv2/data/cc-unit2-slides.pptx",
+  "edited_deck": "/Users/aneesh/Capstone2027/Confusion_Detectionv2/05_agentic_editor/output/cc-unit2-slides.edited.pptx",
+  "slides_added": 6,
+  "edits": [
+    {
+      "topic_id": 14,
+      "after_slide_id": 183,
+      "title": "Docker Namespace Types",
+      "bullets": [
+        "PID namespace isolates process IDs, giving each container its own independent process numbering.",
+        "UTS namespace provides a separate hostname and domain name for each container.",
+        "MNT namespace gives each container its own mount point hierarchy.",
+        "IPC namespace isolates inter‑process communication resources such as shared memory and semaphores.",
+        "NET namespace supplies each container with its own network stack, interfaces, and routing tables.",
+        "USER namespace maps container user IDs to host IDs, allowing non‑root processes inside containers."
+      ],
+      "addresses_questions": [
+        "What are the main types of namespaces Docker uses?",
+        "What is a Linux namespace and why does Docker use them?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.9,
+      "new_slide_numbers": [
+        186,
+        249
+      ],
+      "mirrored_after_slide_ids": [
+        244
+      ]
+    },
+    {
+      "topic_id": 16,
+      "after_slide_id": 233,
+      "title": "Concrete cgroup hierarchy and resource‑limit example",
+      "bullets": [
+        "Create a parent cgroup “/sys/fs/cgroup/memory/parent” and set memory.limit_in_bytes to 200 MB.",
+        "Create a child cgroup “/sys/fs/cgroup/memory/parent/child” and set memory.limit_in_bytes to 100 MB.",
+        "Add a process ID to the child cgroup by writing the PID to child/tasks; the process inherits the 100 MB limit.",
+        "A process started in the child cgroup cannot exceed 100 MB, while a sibling in the parent cgroup can use up to 200 MB.",
+        "Child cgroups inherit all limits from their ancestors; tighter limits in a child override the parent’s higher limits."
+      ],
+      "addresses_questions": [
+        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+        "How are cgroups structured hierarchically?",
+        "What kinds of resources can a cgroup limit?",
+        "What would an actual cgroup resource-limit example look like in practice?",
+        "Is there a worked example showing how cgroups restrict a group of processes?",
+        "Does a child process inherit its parent's cgroup?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.65,
+      "new_slide_numbers": [
+        174,
+        237
+      ],
+      "mirrored_after_slide_ids": [
+        172
+      ]
+    },
+    {
+      "topic_id": 20,
+      "after_slide_id": 260,
+      "title": "Concrete Automation to Eliminate Manual Bottlenecks",
+      "bullets": [
+        "Use Infrastructure‑as‑Code tools (Terraform, CloudFormation) to provision environments automatically.",
+        "Run database migrations with scripts (Flyway, Liquibase) triggered by the pipeline.",
+        "Scan container images for vulnerabilities during the build step.",
+        "Retrieve secrets from a vault (HashiCorp Vault, AWS Secrets Manager) instead of manual entry.",
+        "Define automated rollback steps that redeploy the previous successful image on failure."
+      ],
+      "addresses_questions": [
+        "How do you actually automate wherever possible in a CI/CD pipeline?",
+        "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.85,
+      "new_slide_numbers": [
+        267
+      ],
+      "mirrored_after_slide_ids": []
+    },
+    {
+      "topic_id": 19,
+      "after_slide_id": 251,
+      "title": "Historical Goals & Incentives of Development vs. Operations",
+      "bullets": [
+        "Developers were measured on speed of feature delivery, sprint velocity, and number of releases per period.",
+        "Operations were measured on system stability, uptime, SLA compliance, and cost efficiency of infrastructure.",
+        "Developers prioritized rapid changes to meet market demand, often pushing code without full testing.",
+        "Operations prioritized reliability and risk mitigation, preferring fewer, well‑tested changes.",
+        "These differing metrics created tension: fast releases threatened stability, while strict stability slowed feature rollout."
+      ],
+      "addresses_questions": [
+        "Why do development and operations teams historically have conflicting goals?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.85,
+      "new_slide_numbers": [
+        257
+      ],
+      "mirrored_after_slide_ids": []
+    }
+  ]
+}
