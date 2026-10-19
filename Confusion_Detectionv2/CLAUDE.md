@@ -61,8 +61,8 @@ stage 6 (`06_agentic_editor`) is renumbered to `05_agentic_editor`.
 | 1 | `01_deck_parsing` | PDF → structured slide JSON (title, bullets, raw_text, slide_id) | Built |
 | 2 | `02_topic_segmentation` | Group slides into topics by content shift, not by question clustering | Built |
 | 3 | `03_question_mapping` | Score every question against every topic (topic→question direction), keep matches above a threshold with their score | Built |
-| 4 | `04_gap_reporting_agent` | Agentic per-topic investigation + report generation + deterministic severity ranking (merged verification + reporting) | Building next |
-| 5 | `05_agentic_editor` | Consume the reports, edit the actual deck | Not built — genuinely open design questions, see that folder's CLAUDE.md |
+| 4 | `04_gap_reporting_agent` | Agentic per-topic investigation + report generation + deterministic severity ranking (merged verification + reporting) | Built — reports for all 22 topics with questions + the unmatched group in `output/` |
+| 5 | `05_agentic_editor` | Consume the reports, edit the actual deck | Built — planner, checker, fact-check, applier, and a Streamlit demo (`app.py`) |
 
 ## Test data
 
