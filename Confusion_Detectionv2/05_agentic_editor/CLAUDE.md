@@ -41,9 +41,9 @@ The editor model defaults to `openai/gpt-oss-120b`
 
 - Topics 6, 12, 20 before grounding + fact-check: 3 of 4 applied slides
   had a factual error on reading.
-- All 11 eligible gaps, with grounding + fact-check (output/edit_plan.json):
-  14 slides proposed, 4 accepted, all 4 correct on reading. Rejected:
-  7 by the fact-check -- read by hand, 5 findings are right, 1 is
+- All 12 eligible gaps, with grounding + fact-check (output/edit_plan.json):
+  16 slides proposed, 4 accepted, all 4 correct on reading. Rejected:
+  9 by the fact-check -- read by hand, 7 findings are right, 1 is
   debatable (ECS "fully managed": its control plane is, EC2 hosts are
   not) and 1 is wrong (overlay2 IS a union filesystem) -- 1 for
   overflowing the slide, 1 for "see slide 130" advice, 1 as a repeat of

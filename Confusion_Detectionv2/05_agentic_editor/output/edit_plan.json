@@ -64,6 +64,62 @@
       "problems": []
     },
     {
+      "topic_id": 11,
+      "after_slide_id": 158,
+      "title": "Namespace Creation, Unshare, setns, and CLONE_NEWNS Walkthrough",
+      "bullets": [
+        "Unshare duplicates the calling process’s namespaces; the hierarchy shows original namespaces above and new copies below the unshare call.",
+        "setns opens a namespace file descriptor and attaches the calling process to that existing namespace, joining its hierarchy.",
+        "clone(CLONE_NEWNS) forks a child, copies the parent’s mount namespace, then the child sees a separate mount tree with its own propagation rules.",
+        "A mount namespace starts with the same mounts as the parent; after CLONE_NEWNS the child can mount or unmount without affecting the parent.",
+        "Nested UTS namespaces each have independent hostnames; a change inside a child namespace never propagates to its ancestors.",
+        "Diagram (textual): Parent → [PID, NET, MNT, UTS]; after unshare → Child → [new MNT, new UTS] while other namespaces remain shared."
+      ],
+      "addresses_questions": [
+        "What does the namespace hierarchy look like before and after a process calls unshare()?",
+        "Is there a diagram showing how setns() lets a process join an existing namespace?",
+        "What's the illustrated example of creating and joining a Linux namespace?",
+        "Can you walk through what actually happens step by step when a process calls clone() with CLONE_NEWNS to create a new mount namespace?",
+        "How deep does UTS namespace isolation go across multiple nested namespaces?",
+        "How exactly does the child process's view of the filesystem change right after CLONE_NEWNS is used?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.78,
+      "accepted": false,
+      "problems": [
+        "fact-check, bullet 1: Incorrect: unshare does not duplicate all of the calling process's namespaces; it creates a new namespace of the specified type for the calling process, leaving other namespaces unchanged."
+      ]
+    },
+    {
+      "topic_id": 11,
+      "after_slide_id": 167,
+      "title": "VETH Pair Commands and chroot vs. pivot_root Comparison",
+      "bullets": [
+        "Create a veth pair: ip link add veth0 type veth peer name veth1 (example command).",
+        "Move ends into namespaces: ip link set veth0 netns <ns1>; ip link set veth1 netns <ns2>.",
+        "Inside each namespace assign IPs and bring up interfaces: ip addr add 10.0.0.1/24 dev veth0; ip link set veth0 up (repeat for veth1).",
+        "chroot changes the root directory but leaves a reference to the old root, allowing escape with sufficient privileges.",
+        "pivot_root swaps the current root with a new directory and discards the old root, preventing easy escape and is preferred by containers.",
+        "Both provide filesystem isolation; pivot_root offers stronger security because the previous root is no longer reachable."
+      ],
+      "addresses_questions": [
+        "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+        "What's the exact procedure for moving one end of a veth pair into a namespace?",
+        "How do you configure a veth pair step by step to let two namespaces talk to each other?",
+        "Why is pivot_root often used instead of chroot?",
+        "What's the difference between chroot and pivot_root?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.78,
+      "accepted": false,
+      "problems": [
+        "fact-check, bullet 5: The description of pivot_root is inaccurate; pivot_root swaps the root filesystem but moves the old root to a directory (often /proc/self/fd) under the new root rather than discarding it, so the old root can still be accessed if a reference is kept.",
+        "fact-check, bullet 6: It incorrectly states that the previous root is no longer reachable; after pivot_root the old root remains accessible via the put-old directory unless it is explicitly unmounted, so the claim of stronger security because the old root is unreachable is misleading."
+      ]
+    },
+    {
       "topic_id": 6,
       "after_slide_id": 98,
       "title": "Trap‑and‑Emulate Syscall Flow (Ring Diagram)",
@@ -337,7 +393,6 @@
     "4": "covered: nothing to add",
     "5": "covered: nothing to add",
     "7": "covered: nothing to add",
-    "11": "confidence 0.57 is below 0.60",
     "13": "covered: nothing to add",
     "15": "covered: nothing to add",
     "17": "covered: nothing to add",
