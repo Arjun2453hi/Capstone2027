@@ -11,6 +11,7 @@ from __future__ import annotations
 import html
 import importlib
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -62,8 +63,8 @@ def load_inputs():
 
 
 @st.cache_resource
-def llm():
-    generator = editor.GroqEditGenerator()
+def llm(api_key):
+    generator = editor.GroqEditGenerator(api_key=api_key)
     return editor.EditPlanner(generator), editor.EditVerifier(generator), generator.model
 
 
@@ -118,6 +119,12 @@ with st.sidebar:
     }
     topic_id = st.radio("Gap", list(labels), format_func=labels.get, label_visibility="collapsed")
     st.divider()
+    # .env is not in git, so a fresh clone has no key: ask for one here.
+    # It stays in this browser session only and is never written to disk.
+    api_key = os.getenv("GROQ_API_KEY") or st.text_input(
+        "Groq API key", type="password", help="Needed only to suggest slides. Free at console.groq.com/keys."
+    )
+    st.divider()
     n_approved = sum(state.approved.values())
     st.metric("Slides approved so far", n_approved)
 
@@ -146,8 +153,14 @@ if reason:
 
 # ---- Step 3: suggestions ------------------------------------------------
 st.header("3. Changes the LLM suggests")
-if st.button("Suggest slides for this gap", type="primary", disabled=reason is not None):
-    planner, verifier, model = llm()
+if not api_key:
+    st.info("Enter a Groq API key in the sidebar to have the LLM suggest slides.")
+if st.button("Suggest slides for this gap", type="primary", disabled=reason is not None or not api_key):
+    try:
+        planner, verifier, model = llm(api_key)
+    except Exception as e:  # missing/invalid key, or the model was retired
+        st.error(f"Could not connect to Groq: {e}")
+        st.stop()
     with st.status(f"Working with {model}…", expanded=True) as status:
         st.write("Writing new slides from the report and the topic's slides…")
         edits = planner.plan_topic(report, dossier, deck)
