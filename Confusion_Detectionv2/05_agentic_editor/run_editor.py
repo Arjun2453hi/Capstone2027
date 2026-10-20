@@ -11,9 +11,12 @@ ones to a COPY of the deck. Two-step use, for reviewing before applying:
     python 05_agentic_editor/run_editor.py --plan-only
     python 05_agentic_editor/run_editor.py --apply-plan 05_agentic_editor/output/edit_plan.json
 
-Separately, list slides whose layout looks broken (for a person to check):
+Broken layouts: list candidates, look at them, then repair the ones you
+confirm (slide numbers as shown in PowerPoint; add --topic-ids to plan
+gap edits in the same run):
 
     python 05_agentic_editor/run_editor.py --find-broken
+    python 05_agentic_editor/run_editor.py --repair-slides 5 98 282
 """
 from __future__ import annotations
 
@@ -75,6 +78,16 @@ def plan(deck, dossiers_by_id: dict, reports: dict, topic_ids, min_confidence: f
     return checked, skipped
 
 
+def describe(edit) -> str:
+    """One line naming what an edit does, with 1-indexed slide numbers."""
+    n = edit.after_slide_id + 1
+    if edit.operation == "repair_slide":
+        return f"repair of slide {n}"
+    if edit.operation == "append_bullets":
+        return f"topic {edit.topic_id}, add to slide {n}"
+    return f"topic {edit.topic_id}, new slide after {n}"
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--deck", type=Path, default=DEFAULT_DECK_PATH)
@@ -87,6 +100,10 @@ def main():
     parser.add_argument("--no-fact-check", action="store_true", help="Skip the LLM fact-check of planned edits.")
     parser.add_argument("--plan-only", action="store_true", help="Write edit_plan.json and stop before touching any deck.")
     parser.add_argument("--find-broken", action="store_true", help="List slides whose layout looks broken, then stop.")
+    parser.add_argument(
+        "--repair-slides", type=int, nargs="+", default=None,
+        help="Rebuild these slides (1-indexed, as PowerPoint numbers them) after confirming their layout is broken.",
+    )
     parser.add_argument("--apply-plan", type=Path, default=None, help="Skip planning; apply the accepted edits of this plan file.")
     args = parser.parse_args()
 
@@ -115,14 +132,21 @@ def main():
     else:
         planner_module = importlib.import_module("05_agentic_editor.src.planner")
         min_confidence = args.min_confidence if args.min_confidence is not None else planner_module.MIN_REPORT_CONFIDENCE
-        checked, skipped = plan(deck, dossiers_by_id, load_reports(args.reports_dir), args.topic_ids, min_confidence, fact_check=not args.no_fact_check)
+        checked, skipped = [], {}
+        if args.repair_slides is None or args.topic_ids is not None:
+            checked, skipped = plan(deck, dossiers_by_id, load_reports(args.reports_dir), args.topic_ids, min_confidence, fact_check=not args.no_fact_check)
+        if args.repair_slides:
+            repair = importlib.import_module("05_agentic_editor.src.repair")
+            repairs = repair.plan_repairs(repair.RepairPlanner(editor.GroqEditGenerator()), args.source_pptx, [n - 1 for n in args.repair_slides], deck)
+            print(f"[planned] {len(repairs)} repair(s) of slides {args.repair_slides}")
+            checked += editor.check_edits(repairs, dossiers_by_id, deck)
         editor_storage.save_plan_json(checked, skipped, plan_path)
         print(f"Wrote: {plan_path}")
 
     accepted = [c.edit for c in checked if c.accepted]
     for c in checked:
         status = "accepted" if c.accepted else "REJECTED: " + "; ".join(c.problems)
-        print(f"  topic {c.edit.topic_id}, after slide {c.edit.after_slide_id}: {c.edit.title!r} -- {status}")
+        print(f"  {describe(c.edit)}: {c.edit.title!r} -- {status}")
     print(f"{len(accepted)} of {len(checked)} edit(s) accepted")
     if args.plan_only or not accepted:
         return
@@ -134,7 +158,15 @@ def main():
     editor_storage.save_change_log_json(applied, args.source_pptx, output_pptx, change_log_path)
     for a in applied:
         numbers = ", ".join(str(p + 1) for p in a.new_slide_positions)
-        print(f"  added {a.edit.title!r} as slide(s) {numbers} of the edited deck")
+        if a.edit.operation == "append_bullets" and not a.note:
+            print(f"  added {len(a.edit.bullets)} bullet(s) to slide(s) {numbers} of the edited deck")
+        elif a.edit.operation == "repair_slide":
+            hidden = ", ".join(str(p + 1) for p in a.hidden_slide_positions)
+            print(f"  rebuilt slide {a.edit.after_slide_id + 1} as slide {numbers}; the original, now slide {hidden}, is hidden")
+        else:
+            print(f"  added {a.edit.title!r} as slide(s) {numbers} of the edited deck")
+        if a.note:
+            print(f"    note: {a.note}")
     print(f"Wrote: {output_pptx}\nWrote: {change_log_path}")
 
 

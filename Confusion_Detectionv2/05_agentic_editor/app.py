@@ -39,6 +39,10 @@ OUTPUT_DIR = Path(__file__).resolve().parent / "output"
 DEMO_PPTX = OUTPUT_DIR / "cc-unit2-slides.demo.pptx"
 DEMO_LOG = OUTPUT_DIR / "demo_change_log.json"
 layout_check = importlib.import_module("05_agentic_editor.src.layout_check")
+repair = importlib.import_module("05_agentic_editor.src.repair")
+preview = importlib.import_module("05_agentic_editor.src.preview")
+schema = importlib.import_module("05_agentic_editor.src.schema")
+REPAIRS = schema.REPAIR_TOPIC_ID  # key of the repairs among state.suggestions
 
 GAP_LABELS = {
     "complete_omission": "Missing entirely",
@@ -65,7 +69,21 @@ def load_inputs():
 @st.cache_resource
 def llm(api_key):
     generator = editor.GroqEditGenerator(api_key=api_key)
-    return editor.EditPlanner(generator), editor.EditVerifier(generator), generator.model
+    return editor.EditPlanner(generator), editor.EditVerifier(generator), generator.model, repair.RepairPlanner(generator)
+
+
+def rebuilt_preview(edit):
+    """A drawing of the slide a repair would produce, built by really
+    applying it to a scratch copy of the deck."""
+    import tempfile
+
+    from pptx import Presentation
+
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / "preview.pptx"
+        applied = applier.apply_edits(SOURCE_PPTX, out, [edit], deck)
+        prs = Presentation(str(out))
+        return preview.render_slide(prs.slides[applied[0].new_slide_positions[0]], prs.slide_width, prs.slide_height, width_px=900)
 
 
 @st.cache_data
@@ -157,7 +175,7 @@ if not api_key:
     st.info("Enter a Groq API key in the sidebar to have the LLM suggest slides.")
 if st.button("Suggest slides for this gap", type="primary", disabled=reason is not None or not api_key):
     try:
-        planner, verifier, model = llm(api_key)
+        planner, verifier, model, _ = llm(api_key)
     except Exception as e:  # missing/invalid key, or the model was retired
         st.error(f"Could not connect to Groq: {e}")
         st.stop()
@@ -189,14 +207,23 @@ elif not suggestions:
     st.warning("The LLM proposed no slides for this gap.")
 for i, c in enumerate(suggestions or [], start=1):
     e = c.edit
-    st.subheader(f"Suggestion {i}: insert after slide {e.after_slide_id + 1}")
     before, after = st.columns(2)
-    with before:
-        st.caption(f"Existing slide {e.after_slide_id + 1} (stays as it is)")
-        st.image(slide_image(e.after_slide_id), width="stretch")
-    with after:
-        st.caption("New slide that goes right after it")
-        st.markdown(slide_preview(e), unsafe_allow_html=True)
+    if e.operation == schema.APPEND_BULLETS:
+        st.subheader(f"Suggestion {i}: add {len(e.bullets)} bullet(s) to slide {e.after_slide_id + 1}")
+        with before:
+            st.caption(f"Slide {e.after_slide_id + 1} now")
+            st.image(slide_image(e.after_slide_id), width="stretch")
+        with after:
+            st.caption("Added to the end of its text, in the slide's own bullet style")
+            st.markdown("\n".join(f"- {b}" for b in e.bullets))
+    else:
+        st.subheader(f"Suggestion {i}: new slide after slide {e.after_slide_id + 1}")
+        with before:
+            st.caption(f"Existing slide {e.after_slide_id + 1} (stays as it is)")
+            st.image(slide_image(e.after_slide_id), width="stretch")
+        with after:
+            st.caption("New slide that goes right after it")
+            st.markdown(slide_preview(e), unsafe_allow_html=True)
     st.markdown("**Answers:** " + "; ".join(f"“{q}”" for q in e.addresses_questions))
     if c.accepted:
         st.success("Passed the quality checks and the fact-check.")
@@ -216,27 +243,76 @@ if st.button("Apply approved slides", type="primary", disabled=not approved):
     state.applied = applied
 
 if state.applied:
-    total = sum(len(a.new_slide_positions) for a in state.applied)
+    total = sum(len(a.new_slide_positions) for a in state.applied if a.edit.operation != schema.APPEND_BULLETS or a.note)
     st.success(f"Done: {len(deck.slides)} slides → {len(deck.slides) + total} slides.")
     for a in state.applied:
         where = ", ".join(str(p + 1) for p in a.new_slide_positions)
-        extra = " (also added to the repeated copy of this lecture)" if a.mirrored_after_slide_ids else ""
-        st.markdown(f"- **{a.edit.title}** → now slide {where}{extra}")
+        extra = " (also in the repeated copy of this lecture)" if a.mirrored_after_slide_ids else ""
+        if a.edit.operation == schema.REPAIR_SLIDE:
+            hidden = ", ".join(str(p + 1) for p in a.hidden_slide_positions)
+            st.markdown(f"- **Repaired slide {a.edit.after_slide_id + 1}** → rebuilt as slide {where}; the original (slide {hidden}) is hidden, not deleted")
+        elif a.edit.operation == schema.APPEND_BULLETS and not a.note:
+            st.markdown(f"- **{len(a.edit.bullets)} bullet(s) added** to slide {where}{extra}")
+        else:
+            st.markdown(f"- **{a.edit.title}** → now slide {where}{extra}")
+        if a.note:
+            st.caption(a.note)
     d1, d2 = st.columns(2)
     d1.download_button("Download the edited deck", DEMO_PPTX.read_bytes(), file_name=DEMO_PPTX.name)
     if d2.button("Open it in PowerPoint"):
         subprocess.run(["open", "-a", "Microsoft PowerPoint", str(DEMO_PPTX)], check=False)
 
-# ---- Separate check: slides with a broken layout -------------------------
+# ---- Broken layouts: detect, confirm, repair -----------------------------
 st.divider()
-st.header("Separate check: slides whose layout looks broken")
+st.header("Slides whose layout is broken")
 st.caption(
-    "Text drawn over other text, or pictures covering paragraphs, found from the slide geometry and the PDF rendering. "
-    "These are candidates for a person to confirm and fix by hand; the editor does not change them."
+    "Found from the slide geometry and the PDF rendering: text drawn over other text, pictures covering paragraphs. "
+    "Some candidates are false alarms, so tick only the ones you can see are broken. A repair rebuilds the slide "
+    "from its own text and pictures, puts it right after the original, and hides the original (nothing is deleted)."
 )
 if st.button("Find slides with a broken layout"):
     state.broken = broken_layout_candidates()
+ticked = []
 for issue in state.get("broken") or []:
     image, text = st.columns([1, 2])
     image.image(slide_image(issue.slide_id), width="stretch")
     text.markdown(f"**Slide {issue.slide_id + 1}** · score {issue.score:.2f}\n\n" + "\n".join(f"- {r}" for r in issue.reasons))
+    if text.checkbox("Repair this slide", key=f"repair-{issue.slide_id}"):
+        ticked.append(issue.slide_id)
+if state.get("broken"):
+    if st.button(f"Plan repairs for the {len(ticked)} ticked slide(s)", type="primary", disabled=not ticked or not api_key):
+        try:
+            _, _, model, repairer = llm(api_key)
+        except Exception as e:
+            st.error(f"Could not connect to Groq: {e}")
+            st.stop()
+        with st.status(f"Rebuilding {len(ticked)} slide(s) with {model}…", expanded=True) as status:
+            repairs = repair.plan_repairs(repairer, SOURCE_PPTX, ticked, deck)
+            checked = editor.check_edits(repairs, dossiers, deck)
+            status.update(label=f"{sum(c.accepted for c in checked)} of {len(ticked)} repair(s) passed the checks", state="complete")
+        state.suggestions[REPAIRS] = checked
+        for c in checked:
+            state.approved[edit_key(c.edit)] = c.accepted
+
+for c in state.suggestions.get(REPAIRS, []):
+    e = c.edit
+    st.subheader(f"Repair of slide {e.after_slide_id + 1}")
+    before, after = st.columns(2)
+    before.caption("Now (broken)")
+    before.image(slide_image(e.after_slide_id), width="stretch")
+    after.caption("Rebuilt (drawn from the real rebuilt slide; open the deck for exact fonts)")
+    try:
+        after.image(rebuilt_preview(e), width="stretch")
+    except Exception as err:  # the preview is a convenience; never block the review on it
+        after.warning(f"No preview: {err}")
+    with st.expander("Rebuilt text"):
+        st.markdown(f"**{e.title}**\n\n" + "\n".join(f"- {b}" for b in e.bullets))
+    if c.accepted:
+        st.success("Uses only the slide's own words and keeps most of them. Check the order and meaning before approving.")
+    else:
+        st.error("Flagged — not approved automatically:\n\n" + "\n".join(f"- {p}" for p in c.problems))
+    key = edit_key(e)
+    state.approved[key] = st.checkbox("Approve this repair", value=state.approved.get(key, False), key=f"approve-{key}")
+    st.divider()
+if state.suggestions.get(REPAIRS):
+    st.info("Approved repairs are applied with the other approved changes: use “Apply approved slides” above.")
