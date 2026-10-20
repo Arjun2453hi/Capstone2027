@@ -22,13 +22,16 @@
       "operation": "insert_slide_after",
       "gap_type": "fragmented_context",
       "report_confidence": 0.9,
+      "source_text": null,
       "new_slide_numbers": [
         186,
         249
       ],
       "mirrored_after_slide_ids": [
         244
-      ]
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
     },
     {
       "topic_id": 16,
@@ -52,13 +55,16 @@
       "operation": "insert_slide_after",
       "gap_type": "shallow_coverage",
       "report_confidence": 0.65,
+      "source_text": null,
       "new_slide_numbers": [
         174,
         237
       ],
       "mirrored_after_slide_ids": [
         172
-      ]
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
     },
     {
       "topic_id": 20,
@@ -78,10 +84,13 @@
       "operation": "insert_slide_after",
       "gap_type": "shallow_coverage",
       "report_confidence": 0.85,
+      "source_text": null,
       "new_slide_numbers": [
         267
       ],
-      "mirrored_after_slide_ids": []
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [],
+      "note": null
     },
     {
       "topic_id": 19,
@@ -100,10 +109,13 @@
       "operation": "insert_slide_after",
       "gap_type": "shallow_coverage",
       "report_confidence": 0.85,
+      "source_text": null,
       "new_slide_numbers": [
         257
       ],
-      "mirrored_after_slide_ids": []
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [],
+      "note": null
     }
   ]
 }

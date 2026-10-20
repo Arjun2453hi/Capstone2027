@@ -1,0 +1,133 @@
+{
+  "edits": [
+    {
+      "topic_id": -2,
+      "after_slide_id": 4,
+      "title": "Compute Virtualization : Why VM",
+      "bullets": [
+        "Server consolidation – Increase hardware utilization by running multiple applications in isolation on same physical server.",
+        "Workload mobility – Move applications from one server to another.",
+        "Development and test – Easily provision virtual resources for test and dev.",
+        "Business Continuity Management – Ability to granularly live-migrate a VM to other physical servers which are part of a Business Continuity environment.",
+        "Support OS diversity – Can run both Linux and Windows on same h/w.",
+        "Security/Isolation – Hypervisor separates the VMs from each other and isolates.",
+        "High Availability/Load Balancing – Ability to live-migrate a VM to other physical server.",
+        "Rapid provisioning – On demand provisioning of hardware resources.",
+        "Encapsulation – The execution environment of an application is encapsulated within VM.",
+        "Lower Costs – Increased Efficiencies, flexibility and responsiveness."
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "Compute Virtualization : Why VM\nServer consolidation\nWorkload mobility\nDevelopment and test\nBusiness Continuity Management\nSupport OS diversity\nSecurity/Isolation\n\nHigh Availability/Load Balancing\nRapid provisioning\nEncapsulation\nLower Costs\nIncrease hardware utilization by running multiple\napplications in isolation on same physical server\nMove applications from one server to another\nEasily provision virtual resources for test and\nAbility to granularly live-migrate a VM to other\nservers which are part of a Business Continuity\nCan run both Linux and Windows on same\nHypervisor separates the VMs from eacWh ootrhkelor ad isolates\nAbility to live-migrate a VM to other physical server\nOn demand provisioning of hardware resources\nThe execution environment of an application is encapsulated\nwithin VM\nIncreased Efficiencies, flexibility and responsiveness\nVMs from H/W\nCompute Virtualization : Why VM\nIncrease hardware utilization by running multiple\nServer consolidation\napplications in isolation on same physical server\nWorkload mobility Move applications from one server to another\nDevelopment and test • Easily provision virtual resources for test and dev\nBusiness Continuity •\nAbility to granularly live-migrate a VM to other physical\nManagement servers which are part of a Business Continuity environment\nConsolidation\nSupport OS diversity • Can run both Linux and Windows on same h/w\nSecurity/Isolation •\nHypervisor separates the VMs from each Workload other and isolates\nVMs from H/W\nMobility\nHigh Availability/Load Ability to live-migrate a VM to other physical server\nBalancing\nRapid provisioning On demand provisioning of hardware resources\nEncapsulation • The execution environment of an application is encapsulated\nwithin VM\nLower Costs •\nIncreased Efficiencies, flexibility and responsiveness",
+      "accepted": true,
+      "problems": []
+    },
+    {
+      "topic_id": -2,
+      "after_slide_id": 97,
+      "title": "x86 Ring Privilege Levels",
+      "bullets": [
+        "Observation 1: Only Ring 0 can invoke privileged instructions. Rings 1, 2, and 3 trap when invoking privileged instructions.",
+        "Observation 2: An x86 PTE only has a single bit to indicate user/supervisor! The MMU maps Rings 0, 1, and 2 to “supervisor,” and Ring 3 to “user.”",
+        "The Normal x86 Setup",
+        "User-mode accessible? Writeable? Present?",
+        "However, in Rings 1 or 2 can still access ring 0 memory pages, so isolation is weak in practice without additional segment-based protection (but segment support was dropped in x86-64).",
+        "Also, most non-x86 chips only define two privilege levels, so portable OSes shouldn’t leverage Rings 1 and 2."
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "Observation 1: Only Ring 0 can invoke privileged instructions. Rings 1, 2, and 3 trap when invoking privileged instructions.\nObservation 2: An x86 PTE only has a single bit to\nLeast privileged\nindicate user/supervisor! The MMU maps Rings 0, 1, and 2 to “supervisor,” and Ring 3 to “user.”\nThe Normal x86 Setup\nIntel originally Uthsoeurghatptphsat devicReindgriv3ers could be “isolated” here\nHowever, “isolaNteod”thdirnivgers in RiRnginsg1 2or 2 can still access ring 0 memory pages, so isolation is weakNinotphriancgtice withRouintg 1 additional segment-based protection (but segment support was dropped in x86-64)\nAlso, most non-x86OchSips only deRfiinnegt0wo\nUser-mode accessible?\nWriteable?\nPresent?\n•\n•\n•\nprivilege levels, so portable OSes shouldn’t\nMost privileged\nx86 Rings\nleverage Rings\tanxd862\nObservation 1: Only Ring 0 can invoke privileged instructions. Rings 1, 2, and 3 trap\nwhen invoking privileged instructions.\nObservation 2: An x86 PTE only has a single bit to\nLeast\nindicate user/supervisor! The MMU maps Rings 0, 1,\nprivileged\nand 2 to “supervisor,” and Ring 3 to “user.”\nRing 3\nRing 2\nThe Normal x86 Setup\nUser-mode accessible?\nRing 1\nIntel originally User thought apps that device Ring drivers Writeable? 3\ncould be “isolated” here\nPresent?\nRing 0\nHowever, “isolated” Nothing drivers in Rings Ring 1 2 or 2\ncan still access ring 0 memory pages, so\nisolation is weak in practice without\nNothing Ring 1\nadditional segment-based protection (but\nPTE\n4KB-aligned physFrame addr\nsegment support was dropped in x86-64)\n63 48 47 OS Ring 12 0 11 3 2 1 0\nAlso, most non-x86 chips only define two\nprivilege levels, so portable OSes shouldn’t\nMost\nx86 Rings x86\nleverage Rings 1 and 2\nprivileged",
+      "accepted": true,
+      "problems": []
+    },
+    {
+      "topic_id": -2,
+      "after_slide_id": 98,
+      "title": "Virtual machine monitor",
+      "bullets": [
+        "Guest apps Ring 3 Guest OS VMM Ring 0 x86",
+        "Guest app executes syscall to read from keyboard; Hardware generates trap which is handled by VMM; VMM vectors control to guest OS’s interrupt handler",
+        "Guest OS tries to execute inb to read a key from the keyboard; Hardware traps to VMM; VMM executes real inb",
+        "Theorem: A virtual machine monitor can be constructed for architectures in which every sensitive instruction is privileged."
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "Guest apps\nGuest OS\nVMM\nx86\nGuest app executes syscall to read from keyboard\nHardware generates trap which is handled by VMM\nVMM vectors control to guest OS’s interrupt handler\nGuest OS tries to execute inb to read a key from the keyboard\nHardware traps to VMM\nVMM executes real inb\nTheorem: A virtual machine monitor can be constructed for architectures in which every sensitive instruction is privileged.\nGuest apps\nRing 3\nGuest OS\nVMM Ring 0\nx86\nGuest app executes syscall to read\nfrom keyboard\nHardware generates trap which\nis handled by VMM\nVMM vectors control to guest\nOS’s interrupt handler\nTheorem: A virtual machine monitor can\nGuest OS tries to execute inb to\nbe constructed for architectures in which read a key from the keyboard\nHardware traps to VMM\nevery sensitive instruction is privileged. •\nVMM executes real inb",
+      "accepted": true,
+      "problems": []
+    },
+    {
+      "topic_id": -2,
+      "after_slide_id": 99,
+      "title": "Guest OS mapped into same address space as guest apps",
+      "bullets": [
+        "Guest apps execute in Ring 3.",
+        "VMM runs at Ring 0 on x86 hardware.",
+        "VMM places result where the guest OS expects it to be.",
+        "I still want isolation between the guest OS and the guest apps.",
+        "The guest OS does processing then performs an iret or sysexit.",
+        "Hardware traps are delivered to the VMM.",
+        "The VMM returns control to user‑mode."
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "If the guest OS is mapped into the same address space as the guest apps, then the guest apps can read and write the guest OS’s state!\nGuest apps\nRing 3\nGuest OS\nVMM\nRing 0\nx86\nVMM places result where the guest OS expects it to be\nI still want isolation between the guest OS and the guest apps!\nguest OS\nOS does some processing and then does an iret or sysexit\nHardware traps to VMM\nVMM returns to user-mode\nIf the guest OS is mapped into the\nGuest apps\nRing 3\nsame address space as the guest\nGuest OS\napps, then the guest apps can read\nVMM Ring 0\nand write the guest OS’s state!\nx86\nVMM places result where the\nguest OS expects it to be\nVMM vectors control back to the\nI still want isolation\nguest OS\nbetween the guest OS\nOS does some processing and\nand the guest apps!\nthen does an iret or sysexit\nHardware traps to VMM\nVMM returns to user-mode",
+      "accepted": true,
+      "problems": []
+    },
+    {
+      "topic_id": -2,
+      "after_slide_id": 277,
+      "title": "Kubernetes (also know as K8s) Basics",
+      "bullets": [
+        "Kubernetes is a container or microservice platform that orchestrates computing, networking, and storage workloads. Kubernetes extends how we scale containerized applications to enjoy benefits of immutable infrastructure. Understanding the K8S will need the objects used as the building block of the application lifecycle.",
+        "Pod: A group of one or more containers.",
+        "ReplicaSet (RS): Ensures the desired amount of pod is what’s running.",
+        "Deployment: Offers declarative updates for pods in an RS.",
+        "StatefulSet: A workload API object that manages stateful applications, such as databases.",
+        "DaemonSet: Ensures that all or some worker nodes run a copy of a pod. Useful for daemon applications like Fluentd.",
+        "Job: Creates one or more pods, runs a certain task(s) to completion, then deletes the pod(s).",
+        "Service: An abstraction that defines a logical set of pods as well as the policy and an endpoint for accessing them.",
+        "Volume: An abstraction that lets us persist data. Necessary because containers are ephemeral—meaning data is deleted when the container is deleted.",
+        "Namespace: A segment of the cluster dedicated to a certain purpose, for example a certain project or team of devs. Used to create multiple virtual Kubernetes clusters within a single cluster."
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "Kubernetes (also know as K8s) Basics\nKubernetes as seen earlier is a container or microservice platform that orchestrates computing, networking, and storage infrastructure workloads. Kubernetes extends how we scale containerized applications so that we can enjoy all the benefits of a truly immutable infrastructure\nUnderstanding the K8S, will need the understanding the objects used as the building block of the application lifecycle. This . This include\n1. Basic Building objects\t2.\nControllers which are several higher-level abstractions Basic K8S objects include\nReplicaSet (RS). Ensures the desired amount of pod is what’s running.\nDeployment. Offers declarative updates for pods in an RS.\nStatefulSet. A workload API object that manages stateful applications, such as databases.\nDaemonSet. Ensures that all or some worker nodes run a copy of a pod. This is useful for daemon applications like Fluentd.\nJob. Creates one or more pods, runs a certain task(s) to completion, then deletes the pod(s)\nPod. A group of one or more containers.\nService. An abstraction that defines a logical set of pods as well as the policy and an endpoint for accessing them.\nVolume. An abstraction that lets us persist data. (This is necessary because containers are ephemeral—meaning data is deleted when the container is deleted.)\nNamespace.  A  segment  of  the  cluster  dedicated  to  a certain purpose, for example a certain project or team of devs. Typically used to create multiple virtual Kubernetes clusters within a single cluster\nhttps://www.bmc.com/blogs/what-is-kubernetes/\nhttp://kubernetes.io/docs/concepts/overview/what-is-kubernetes/\nKubernetes (also know as K8s) Basics\nKubernetes as seen earlier is a container or microservice platform that orchestrates computing,\nnetworking, and storage infrastructure workloads. Kubernetes extends how we scale containerized\napplications so that we can enjoy all the benefits of a truly immutable infrastructure\nUnderstanding the K8S, will need the understanding the objects used as the building block of the\napplication lifecycle. This . This include\n1. Basic Building objects 2. Controllers which are several higher-level abstractions\nBasic K8S objects include\n▪ Pod. A group of one or more containers.\n▪ ReplicaSet (RS). Ensures the desired amount of pod is\n▪ Service. An abstraction that defines a logical set of pods as\nwhat’s running.\nwell as the policy and an endpoint for accessing them.\n▪ Deployment. Offers declarative updates for pods in an RS.\n▪ Volume. An abstraction that lets us persist data. (This is\nnecessary because containers are ephemeral—meaning ▪ StatefulSet. A workload API object that manages stateful\ndata is deleted when the container is deleted.) applications, such as databases.\n▪ Namespace. A segment of the cluster dedicated to a ▪ DaemonSet. Ensures that all or some worker nodes run a\ncertain purpose, for example a certain project or team of copy of a pod. This is useful for daemon applications like\ndevs. Typically used to create multiple virtual Kubernetes Fluentd.\nclusters within a single cluster\n▪ Job. Creates one or more pods, runs a certain task(s) to\ncompletion, then deletes the pod(s)\nhttps://www.bmc.com/blogs/what-is-kubernetes/ http://kubernetes.io/docs/concepts/overview/what-is-kubernetes/",
+      "accepted": true,
+      "problems": []
+    },
+    {
+      "topic_id": -2,
+      "after_slide_id": 281,
+      "title": "Kubernetes Architecture",
+      "bullets": [
+        "A K8S cluster is made of a Master node, which exposes the API, schedules deployments, and generally manages the cluster. This is the entry point of all administrative tasks. The master node orchestrates the worker nodes where services run.",
+        "Worker nodes (multiple of them) can be responsible for container runtime, like Docker.",
+        "Kube-apiserver exposes the API as the entry point for all REST commands used to control the cluster.",
+        "etcd stores all cluster data as a key‑value store; it can run on the master or a dedicated server and is used for shared configuration, service discovery, job scheduling, pod/service details, namespaces and replication information.",
+        "Kube-scheduler has information on available resources and schedules new pods on worker nodes.",
+        "Kube-controller-manager runs the controllers, uses the apiserver to watch the shared cluster state and makes corrective changes to move the current state toward the desired state.",
+        "The Replication controller takes care of the number of pods in the system as configured by the user."
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "Kubernetes Architecture\nA K8S cluster is made of a\nMaster node, which exposes the API, schedules deployments, and generally manages the cluster. This is the entry point of all administrative tasks. The master node is the one taking care of orchestrating the worker nodes, where the actual services are running.\nWorker nodes (multiple of them) can be responsible for container runtime, like Docker.\nMaster node components\nThese master node comprises of the following components :\nKube-apiserver. Exposes the API is the entry points for all the REST commands used to control the cluster\netcd. Key value stores all cluster data. (Can be run on the same server as a master node or on a dedicated cluster) It’s mainly used for shared configuration and service discovery with info like jobs being scheduled, created and deployed, pod/service details and state, namespaces and replication information\nKube-scheduler. Has information on the resources available. Schedules new pods on worker nodes.\nKube-controller-manager. Runs the controllers. Uses apiserver to watch the shared state of the cluster and makes corrective changes to the current state to change it to the desired one.\nE.g. of a controller is the Replication controller, which takes care of the number of pods in the system as\nconfigured by the user.\nKubernetes Architecture\nA K8S cluster is made of a\n▪ Master node, which exposes the API, schedules deployments, and generally manages the cluster. This is the\nentry point of all administrative tasks. The master node is the one taking care of orchestrating the worker\nnodes, where the actual services are running.\n▪ Worker nodes (multiple of them) can be responsible for container runtime, like Docker.\nMaster node components\n▪ These master node comprises of the following components :\n▪ Kube-apiserver. Exposes the API is the entry points for all the REST commands used to control the cluster\n▪ etcd. Key value stores all cluster data. (Can be run on the same server as a master node or on a dedicated\ncluster) It’s mainly used for shared configuration and service discovery with info like jobs being scheduled,\ncreated and deployed, pod/service details and state, namespaces and replication information\n▪ Kube-scheduler. Has information on the resources available. Schedules new pods on worker nodes.\n▪ Kube-controller-manager. Runs the controllers. Uses apiserver to watch the shared state of the cluster and\nmakes corrective changes to the current state to change it to the desired one.\nE.g. of a controller is the Replication controller, which takes care of the number of pods in the system as\nconfigured by the user.",
+      "accepted": true,
+      "problems": []
+    }
+  ],
+  "skipped_topics": {}
+}
