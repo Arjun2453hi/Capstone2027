@@ -6,7 +6,7 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import List, Union
 
-from .schema import AppliedEdit, CheckedEdit, SlideEdit
+from .schema import APPEND_BULLETS, AppliedEdit, CheckedEdit, SlideEdit
 
 
 def _write(payload, path: Union[str, Path]) -> None:
@@ -43,13 +43,16 @@ def save_change_log_json(applied: List[AppliedEdit], source_pptx, output_pptx, p
         {
             "source_deck": str(source_pptx),
             "edited_deck": str(output_pptx),
-            "slides_added": sum(len(a.new_slide_positions) for a in applied),
+            "slides_added": sum(len(a.new_slide_positions) for a in applied if a.edit.operation != APPEND_BULLETS or a.note),
             "edits": [
                 {
                     **asdict(a.edit),
-                    # 1-indexed, as a person paging through the edited deck sees them.
+                    # 1-indexed, as a person paging through the edited deck sees them:
+                    # the slides added, or (append_bullets) the slides changed.
                     "new_slide_numbers": [p + 1 for p in a.new_slide_positions],
                     "mirrored_after_slide_ids": a.mirrored_after_slide_ids,
+                    "hidden_slide_numbers": [p + 1 for p in a.hidden_slide_positions],
+                    "note": a.note,
                 }
                 for a in applied
             ],

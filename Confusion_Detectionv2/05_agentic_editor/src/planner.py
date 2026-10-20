@@ -14,7 +14,7 @@ from abc import ABC, abstractmethod
 from typing import List, Optional
 
 from .grounding import slide_context
-from .schema import SlideEdit
+from .schema import APPEND_BULLETS, INSERT_SLIDE_AFTER, SlideEdit
 
 # A report below this is not acted on. Reports cut short at the step
 # cap are written at <= 0.40, and a part-merged topic with one capped
@@ -49,12 +49,18 @@ missing -- not advice to the instructor about what to add.
 Rules:
 - Only cover what the report says is missing or thin. Do not restate
   what the slides already explain.
-- At most {max_edits} new slides. Fewer is better; return none if the
-  report identifies nothing that can be added as a slide.
-- Each slide: a short title and 3 to 6 bullets, each bullet one plain
-  sentence of at most 30 words.
-- after_slide_id must be one of the listed slide ids: the slide the new
-  one should directly follow.
+- At most {max_edits} edits. Fewer is better; return none if the report
+  identifies nothing that can be added.
+- Each edit is one of two operations:
+  * "insert_slide_after": a new slide with a short title and 3 to 6
+    bullets, placed directly after slide after_slide_id. Use this for
+    anything substantial.
+  * "append_bullets": 1 to 3 bullets added to the end of slide
+    after_slide_id itself, when the missing piece is a small detail
+    that belongs on that exact slide and the slide is not already full
+    of text. Its title is ignored (give "").
+- Every bullet is one plain sentence of at most 30 words.
+- after_slide_id must be one of the listed slide ids.
 - addresses_questions must be copied exactly from the question list.
 - Stay consistent with the slides. Where they describe how something
   works, follow their account; never substitute a different one.
@@ -63,7 +69,7 @@ Rules:
   illustration must say so ("for example, a 512 MB limit").
 
 Respond with strict JSON only:
-{{"edits": [{{"after_slide_id": <int>, "title": "<str>", "bullets": ["<str>", ...], "addresses_questions": ["<str>", ...]}}]}}"""
+{{"edits": [{{"operation": "insert_slide_after" | "append_bullets", "after_slide_id": <int>, "title": "<str>", "bullets": ["<str>", ...], "addresses_questions": ["<str>", ...]}}]}}"""
 
 
 class EditGenerator(ABC):
@@ -170,6 +176,7 @@ def parse_edits(raw: Optional[str], report) -> List[SlideEdit]:
             continue
         bullets = item.get("bullets")
         questions = item.get("addresses_questions")
+        operation = item.get("operation") or INSERT_SLIDE_AFTER  # older plans had no operation field
         edits.append(
             SlideEdit(
                 topic_id=report.topic_id,
@@ -177,6 +184,7 @@ def parse_edits(raw: Optional[str], report) -> List[SlideEdit]:
                 title=str(item.get("title") or "").strip(),
                 bullets=[str(b).strip() for b in bullets] if isinstance(bullets, list) else [],
                 addresses_questions=[str(q).strip() for q in questions] if isinstance(questions, list) else [],
+                operation=str(operation),
                 gap_type=report.gap_type,
                 report_confidence=report.confidence,
             )
@@ -199,4 +207,7 @@ class EditPlanner:
         known = [m.question for m in dossier.matched_questions]
         for edit in edits:
             edit.addresses_questions = snap_to_known_questions(edit.addresses_questions, known)
+            anchor = deck.get(edit.after_slide_id)
+            if edit.operation == APPEND_BULLETS and anchor is not None:
+                edit.title = anchor.title or ""  # the slide keeps its own title; recorded for the change log
         return edits

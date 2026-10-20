@@ -17,7 +17,7 @@ from typing import List, Optional
 
 from .grounding import slide_context
 from .planner import EditGenerator
-from .schema import CheckedEdit, SlideEdit
+from .schema import APPEND_BULLETS, REPAIR_SLIDE, CheckedEdit, SlideEdit
 
 # Slides on either side of the insertion point given to the fact-check,
 # beyond the topic's own (a gap is often explained just past a boundary).
@@ -48,9 +48,11 @@ def build_user_prompt(edit: SlideEdit, dossier, deck) -> str:
         "Deck slides:",
         slide_context(deck, ids, focus_slide_id=edit.after_slide_id),
         "",
-        f"Proposed slide, to go after slide {edit.after_slide_id}:",
-        f"Title: {edit.title}",
     ]
+    if edit.operation == APPEND_BULLETS:
+        lines += [f"Proposed bullets, to be added to the end of slide {edit.after_slide_id}:"]
+    else:
+        lines += [f"Proposed slide, to go after slide {edit.after_slide_id}:", f"Title: {edit.title}"]
     lines += [f"{i}. {b}" for i, b in enumerate(edit.bullets, start=1)]
     return "\n".join(lines)
 
@@ -90,8 +92,10 @@ class EditVerifier:
 
 def verify_checked(checked: List[CheckedEdit], verifier: EditVerifier, dossiers_by_id: dict, deck) -> List[CheckedEdit]:
     """Fact-checks the edits that passed the checker (a rejected edit is
-    not worth an LLM call) and adds whatever it finds to their problems."""
+    not worth an LLM call) and adds whatever it finds to their problems.
+    Repairs are skipped: they may only restate their own slide, which
+    the checker already enforces word by word."""
     for c in checked:
-        if c.accepted:
+        if c.accepted and c.edit.operation != REPAIR_SLIDE:
             c.problems.extend(verifier.verify(c.edit, dossiers_by_id[c.edit.topic_id], deck))
     return checked
