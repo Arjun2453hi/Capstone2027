@@ -90,9 +90,15 @@ example, teammates') help.
    is never changed. Download it, or on a Mac with PowerPoint, open it
    directly.
 
+Suggestions are either a **new slide** after an existing one, or a few
+**bullets added to an existing slide** that has room for them.
+
 At the bottom, **Find slides with a broken layout** lists slides whose
-text overlaps other text or is covered by pictures, for a person to
-check.
+text overlaps other text or is covered by pictures. Tick the ones that
+really are broken and click **Plan repairs**: each slide is rebuilt from
+its own text and pictures, shown next to the original with a preview,
+and once approved it is inserted right after the original, which is
+hidden from the slideshow (nothing is deleted).
 
 Each suggestion takes about 10–60 seconds, depending on Groq's rate limits.
 
@@ -139,6 +145,7 @@ Run from the `Confusion_Detectionv2` folder. Use `.venv/bin/python`
 .venv/bin/python 05_agentic_editor/run_editor.py --apply-plan 05_agentic_editor/output/edit_plan.json
 .venv/bin/python 05_agentic_editor/run_editor.py --topic-ids 6 12 20    # plan + apply for some topics
 .venv/bin/python 05_agentic_editor/run_editor.py --find-broken          # list slides with a broken layout
+.venv/bin/python 05_agentic_editor/run_editor.py --repair-slides 5 282  # rebuild slides you confirmed are broken
 ```
 
 A full stage 4 run makes hundreds of LLM calls. On Groq's free tier
@@ -174,7 +181,7 @@ waits, and possibly running out of the daily quota.
 ## What is not done yet
 
 - Gap finding has not been evaluated against the withheld answer key.
-- The editor only adds new slides. It does not rewrite existing slides
-  or repair broken layouts; it only detects broken ones.
-- The fact-check is itself an LLM and is not perfect, so read every slide
-  before approving it.
+- The editor adds slides, adds bullets to existing slides, and rebuilds
+  broken slides. It does not rewrite an existing slide's own text.
+- The fact-check and the layout repairs are LLM output: the checks
+  catch a lot but not everything, so read every change before approving.
