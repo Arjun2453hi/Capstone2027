@@ -55,6 +55,13 @@ GAP_LABELS = {
     "fragmented_context": "Scattered across slides",
     "covered": "Covered",
 }
+GAP_COLOURS = {"complete_omission": "red", "shallow_coverage": "orange", "fragmented_context": "violet", "covered": "green"}
+GAP_MEANINGS = {
+    "complete_omission": "The deck never explains what students asked about.",
+    "shallow_coverage": "The deck mentions it, but too briefly to answer the students' questions.",
+    "fragmented_context": "The explanation exists, but is split across slides far apart.",
+    "covered": "The deck already answers these questions.",
+}
 
 st.set_page_config(page_title="Slide Gap Editor", layout="wide")
 
@@ -170,11 +177,17 @@ row = next(r for r in gaps if r["topic_id"] == topic_id)
 
 # ---- Step 2: the gap report --------------------------------------------
 st.header(f"2. What the gap report found — topic {topic_id}")
-c1, c2, c3, c4 = st.columns(4)
-c1.metric("Gap type", GAP_LABELS.get(report.gap_type, report.gap_type))
-c2.metric("Agent confidence", f"{report.confidence:.0%}")
-c3.metric("Student questions", len(dossier.matched_questions))
-c4.metric("Slides in topic", f"{min(dossier.slide_ids) + 1}–{max(dossier.slide_ids) + 1}")
+# The gap type gets a full-width line: in a metric box the longer names
+# ("Scattered across slides") were cut off.
+colour = GAP_COLOURS.get(report.gap_type, "gray")
+st.markdown(
+    f"**Gap type:** :{colour}-badge[{GAP_LABELS.get(report.gap_type, report.gap_type)}] "
+    f"&nbsp; {GAP_MEANINGS.get(report.gap_type, '')}"
+)
+c1, c2, c3 = st.columns(3)
+c1.metric("Agent confidence", f"{report.confidence:.0%}")
+c2.metric("Student questions", len(dossier.matched_questions))
+c3.metric("Slides in topic", f"{min(dossier.slide_ids) + 1}–{max(dossier.slide_ids) + 1}")
 left, right = st.columns([3, 2])
 with left:
     with st.expander("Full report from the investigating agent", expanded=True):
