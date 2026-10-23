@@ -1,19 +1,19 @@
 {
-  "source_deck": "/Users/aneesh/Capstone2027/Confusion_Detectionv2/data/cc-unit2-slides.pptx",
-  "edited_deck": "/Users/aneesh/Capstone2027/Confusion_Detectionv2/05_agentic_editor/output/cc-unit2-slides.edited.pptx",
-  "slides_added": 6,
+  "source_deck": "data/cc-unit2-slides.pptx",
+  "edited_deck": "05_agentic_editor/output/cc-unit2-slides.edited.pptx",
+  "slides_added": 21,
   "edits": [
     {
       "topic_id": 14,
       "after_slide_id": 183,
-      "title": "Docker Namespace Types",
+      "title": "Docker namespaces and their purposes",
       "bullets": [
-        "PID namespace isolates process IDs, giving each container its own independent process numbering.",
-        "UTS namespace provides a separate hostname and domain name for each container.",
+        "Linux namespaces partition kernel resources, giving each container its own isolated view; Docker uses them to achieve process and resource isolation.",
+        "PID namespace isolates process IDs, giving each container independent process numbering.",
+        "UTS namespace provides separate hostname and domain name for each container.",
         "MNT namespace gives each container its own mount point hierarchy.",
         "IPC namespace isolates inter‑process communication resources such as shared memory and semaphores.",
-        "NET namespace supplies each container with its own network stack, interfaces, and routing tables.",
-        "USER namespace maps container user IDs to host IDs, allowing non‑root processes inside containers."
+        "NET namespace gives each container its own network stack, interfaces, and IP addresses."
       ],
       "addresses_questions": [
         "What are the main types of namespaces Docker uses?",
@@ -23,9 +23,10 @@
       "gap_type": "fragmented_context",
       "report_confidence": 0.9,
       "source_text": null,
+      "keep_pictures": true,
       "new_slide_numbers": [
-        186,
-        249
+        194,
+        261
       ],
       "mirrored_after_slide_ids": [
         244
@@ -34,34 +35,152 @@
       "note": null
     },
     {
-      "topic_id": 16,
-      "after_slide_id": 233,
-      "title": "Concrete cgroup hierarchy and resource‑limit example",
+      "topic_id": 8,
+      "after_slide_id": 132,
+      "title": "Docker Improves Application Portability",
       "bullets": [
-        "Create a parent cgroup “/sys/fs/cgroup/memory/parent” and set memory.limit_in_bytes to 200 MB.",
-        "Create a child cgroup “/sys/fs/cgroup/memory/parent/child” and set memory.limit_in_bytes to 100 MB.",
-        "Add a process ID to the child cgroup by writing the PID to child/tasks; the process inherits the 100 MB limit.",
-        "A process started in the child cgroup cannot exceed 100 MB, while a sibling in the parent cgroup can use up to 200 MB.",
-        "Child cgroups inherit all limits from their ancestors; tighter limits in a child override the parent’s higher limits."
+        "Docker is an open‑platform tool that packages an app, its runtime, libraries, and settings into an immutable image.",
+        "Docker solves the “works on my machine” problem by ensuring the same image runs unchanged on any host with a compatible Docker engine.",
+        "Because Docker images contain only user‑space components, they share the host kernel, avoiding the overhead of a full guest OS used by VMs.",
+        "Containers differ from VMs: VMs virtualize hardware and run separate guest OSes; containers virtualize at the OS level and share the host kernel.",
+        "The shared‑kernel model makes containers lightweight virtualization, requiring fewer resources and starting in seconds.",
+        "Main Docker benefits: portability across environments, fast provisioning, consistent runtime, dependency isolation, and simplified CI/CD workflows."
       ],
       "addresses_questions": [
-        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
-        "How are cgroups structured hierarchically?",
-        "What kinds of resources can a cgroup limit?",
-        "What would an actual cgroup resource-limit example look like in practice?",
-        "Is there a worked example showing how cgroups restrict a group of processes?",
-        "Does a child process inherit its parent's cgroup?"
+        "How does Docker improve application portability?",
+        "Why do containers have less overhead than VMs?",
+        "What's the difference between a container and a virtual machine?",
+        "What is Docker and what problem does it solve?",
+        "Why are containers considered lightweight virtualization?",
+        "What are the main benefits of using Docker?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.85,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        138,
+        205
+      ],
+      "mirrored_after_slide_ids": [
+        193
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 9,
+      "after_slide_id": 136,
+      "title": "Docker Architecture",
+      "bullets": [
+        "Containers share the host operating system’s kernel while running in isolated user‑space processes."
+      ],
+      "addresses_questions": [
+        "What do containers share with the host OS?"
+      ],
+      "operation": "append_bullets",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.9,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        142,
+        209
+      ],
+      "mirrored_after_slide_ids": [
+        197
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 11,
+      "after_slide_id": 167,
+      "title": "Veth pair creation and chroot vs pivot_root comparison",
+      "bullets": [
+        "Create a veth pair: ip link add veth0 type veth peer name veth1",
+        "Move ends into namespaces: ip link set veth0 netns <ns1>; ip link set veth1 netns <ns2>",
+        "Inside each namespace, bring the interface up and assign unique IPs (e.g., veth0 10.0.0.1/24, veth1 10.0.0.2/24)",
+        "Test connectivity with ping from one namespace to the other’s IP address",
+        "chroot changes the apparent root directory but leaves a reference to the original root, allowing escape with sufficient privileges",
+        "pivot_root swaps the current root with a new one and moves the old root to a directory under the new root, which can then be unmounted, making escape harder"
+      ],
+      "addresses_questions": [
+        "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+        "What's the exact procedure for moving one end of a veth pair into a namespace?",
+        "How do you configure a veth pair step by step to let two namespaces talk to each other?",
+        "Why is pivot_root often used instead of chroot?",
+        "What's the difference between chroot and pivot_root?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.78,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        175,
+        242
+      ],
+      "mirrored_after_slide_ids": [
+        228
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 6,
+      "after_slide_id": 103,
+      "title": "Worked Example – PUSHF in Ring 3",
+      "bullets": [
+        "Guest code in Ring 3 executes PUSHF, which pushes the current EFLAGS value onto the stack.",
+        "PUSHF is a sensitive‑but‑unprivileged instruction, so the CPU does not trap when it runs in Ring 3.",
+        "PUSHF pushes EFLAGS, allowing the guest to read flag bits, but POPF in Ring 3 ignores privileged bits, preventing the guest from modifying them.",
+        "Because no trap occurs, the VMM must emulate or binary‑translate PUSHF/POPF to detect and control changes to sensitive flags.",
+        "Emulation lets the VMM supply a safe EFLAGS value and preserve the equivalence property for the guest."
+      ],
+      "addresses_questions": [
+        "Why was the x86 pushf/popf instruction a problem for virtualization?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.85,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        108
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 16,
+      "after_slide_id": 228,
+      "title": "VETH pair and cgroup hierarchy examples",
+      "bullets": [
+        "Create a veth pair: `ip link add veth0 type veth peer name veth1`.",
+        "Move one end into a namespace: `ip link set veth1 netns <ns_name>`; the other end stays in the host.",
+        "Assign IPs and bring interfaces up inside each namespace with `ip addr add …` and `ip link set up`.",
+        "Build a cgroup hierarchy: `mkdir -p /sys/fs/cgroup/memory/parent/child`; set a limit with `echo 209715200 > memory.limit_in_bytes` (200 MiB).",
+        "Processes placed in the child cgroup are limited by that cgroup’s settings, which can be stricter than the parent’s limits."
+      ],
+      "addresses_questions": [
+        "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+        "What's the exact procedure for moving one end of a veth pair into a namespace?",
+        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?"
       ],
       "operation": "insert_slide_after",
       "gap_type": "shallow_coverage",
       "report_confidence": 0.65,
       "source_text": null,
+      "keep_pictures": true,
       "new_slide_numbers": [
-        174,
-        237
+        176,
+        243
       ],
       "mirrored_after_slide_ids": [
-        172
+        167
       ],
       "hidden_slide_numbers": [],
       "note": null
@@ -69,39 +188,130 @@
     {
       "topic_id": 20,
       "after_slide_id": 260,
-      "title": "Concrete Automation to Eliminate Manual Bottlenecks",
+      "title": "Concrete Automation & CD Principles Rationale",
       "bullets": [
-        "Use Infrastructure‑as‑Code tools (Terraform, CloudFormation) to provision environments automatically.",
-        "Run database migrations with scripts (Flyway, Liquibase) triggered by the pipeline.",
-        "Scan container images for vulnerabilities during the build step.",
-        "Retrieve secrets from a vault (HashiCorp Vault, AWS Secrets Manager) instead of manual entry.",
-        "Define automated rollback steps that redeploy the previous successful image on failure."
+        "Use IaC tools such as Terraform or CloudFormation to provision environments, networks, and databases automatically, removing manual setup steps.",
+        "Integrate secret‑management (e.g., HashiCorp Vault) and container image scanning (e.g., Trivy) into pipelines to replace manual credential updates and security checks.",
+        "Treat every build as a releasable artifact so you can roll back instantly, obtain rapid feedback, and keep release anxiety low because production can be updated automatically.",
+        "Trusted automated tests show a stable high pass rate, minimal flakiness, adequate code‑coverage thresholds, and run in deterministic containers that mirror production."
       ],
       "addresses_questions": [
-        "How do you actually automate wherever possible in a CI/CD pipeline?",
-        "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?"
+        "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?",
+        "What's the reasoning behind each of the four continuous delivery principles?",
+        "Can you explain what makes automated tests 'trustworthy' in continuous delivery?",
+        "Why exactly does 'every build is a potential release' matter in continuous delivery?"
       ],
       "operation": "insert_slide_after",
       "gap_type": "shallow_coverage",
       "report_confidence": 0.85,
       "source_text": null,
+      "keep_pictures": true,
       "new_slide_numbers": [
-        267
+        279
       ],
       "mirrored_after_slide_ids": [],
       "hidden_slide_numbers": [],
       "note": null
     },
     {
+      "topic_id": 21,
+      "after_slide_id": 276,
+      "title": "Comparing Container Orchestration Tools",
+      "bullets": [
+        "Docker Swarm offers simple setup with native Docker CLI, limited scalability, and built‑in overlay networking, making it suitable for small clusters or development.",
+        "Kubernetes has a steeper learning curve but provides high extensibility, can scale to thousands of nodes, uses a pluggable CNI networking model, and fits complex production workloads.",
+        "Amazon ECS integrates tightly with AWS services, leverages AWS IAM for permissions, scales within EC2 or Fargate, and is easier on AWS though less flexible than Kubernetes.",
+        "Google Kubernetes Engine (GKE) delivers fully managed Kubernetes on GCP, with automatic upgrades, node provisioning, and deep integration with Google Cloud services.",
+        "Select a tool based on required scalability, cloud‑provider lock‑in, operational expertise, and need for extensibility versus simplicity."
+      ],
+      "addresses_questions": [
+        "What are the actual differences between Amazon ECS and Google Container Engine?",
+        "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+        "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.7,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        296
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 12,
+      "after_slide_id": 174,
+      "title": "cgroup hierarchy example",
+      "bullets": [
+        "Create a parent cgroup /myapp and two child cgroups /myapp/web and /myapp/db under the cpu and memory controllers.",
+        "Set the parent CPU quota to 100000 µs (100 % of a CPU) and memory limit to 1 GB by writing to the appropriate cgroup files.",
+        "Set child /myapp/web CPU quota to 50000 µs and memory limit to 200 MB, and set /myapp/db CPU quota to 30000 µs and memory limit to 300 MB.",
+        "Run a process in /myapp/web (e.g., cgexec -g cpu,memory:/myapp/web myserver); it cannot exceed the child limits, and the parent limits act as an overall cap.",
+        "A forked child inherits its parent’s cgroup, so it automatically follows the same CPU and memory restrictions defined for that hierarchy."
+      ],
+      "addresses_questions": [
+        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+        "How are cgroups structured hierarchically?",
+        "What would an actual cgroup resource-limit example look like in practice?",
+        "Is there a worked example showing how cgroups restrict a group of processes?",
+        "How is a specific CPU or memory limit actually enforced through a cgroup example?",
+        "Does a child process inherit its parent's cgroup?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.87,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        184,
+        251
+      ],
+      "mirrored_after_slide_ids": [
+        235
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 10,
+      "after_slide_id": 146,
+      "title": "Runtime Composition of Image Layers",
+      "bullets": [
+        "Docker uses a Union File System to present all image layers as a single filesystem to the container.",
+        "Each image layer is mounted read‑only and stacked in the order they were created.",
+        "When a container starts, Docker adds a thin writable layer on top of the stack.",
+        "File reads are served from the highest layer containing the file, giving a merged view.",
+        "On write, Docker copies the file from the lower read‑only layer into the writable layer (copy‑on‑write)."
+      ],
+      "addresses_questions": [
+        "How do image layers work in Docker?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.85,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        153,
+        220
+      ],
+      "mirrored_after_slide_ids": [
+        207
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
       "topic_id": 19,
       "after_slide_id": 251,
-      "title": "Historical Goals & Incentives of Development vs. Operations",
+      "title": "Historical Conflict Between Development and Operations",
       "bullets": [
-        "Developers were measured on speed of feature delivery, sprint velocity, and number of releases per period.",
-        "Operations were measured on system stability, uptime, SLA compliance, and cost efficiency of infrastructure.",
-        "Developers prioritized rapid changes to meet market demand, often pushing code without full testing.",
-        "Operations prioritized reliability and risk mitigation, preferring fewer, well‑tested changes.",
-        "These differing metrics created tension: fast releases threatened stability, while strict stability slowed feature rollout."
+        "Developers aim to deliver new features quickly, measuring success by release frequency and lead time.",
+        "Operations aim to keep services stable and cost‑effective, measuring success by uptime, incident rate, and resource utilization.",
+        "These differing metrics created incentives for developers to push changes rapidly while operations preferred cautious, well‑tested releases, leading to friction before DevOps."
       ],
       "addresses_questions": [
         "Why do development and operations teams historically have conflicting goals?"
@@ -110,11 +320,154 @@
       "gap_type": "shallow_coverage",
       "report_confidence": 0.85,
       "source_text": null,
+      "keep_pictures": true,
       "new_slide_numbers": [
-        257
+        269
       ],
       "mirrored_after_slide_ids": [],
       "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": -2,
+      "after_slide_id": 4,
+      "title": "Compute Virtualization : Why VM",
+      "bullets": [
+        "Server consolidation – Increase hardware utilization by running multiple applications in isolation on same physical server",
+        "Workload mobility – Move applications from one server to another",
+        "Development and test – Easily provision virtual resources for test and dev",
+        "Business Continuity Management – Ability to granularly live-migrate a VM to other physical servers which are part of a Business Continuity environment",
+        "Support OS diversity – Can run both Linux and Windows on same h/w",
+        "Security/Isolation – Hypervisor separates the VMs from each other and isolates",
+        "High Availability/Load Balancing – Ability to live-migrate a VM to other physical server",
+        "Rapid provisioning – On demand provisioning of hardware resources",
+        "Encapsulation – The execution environment of an application is encapsulated within VM",
+        "Lower Costs – Increased Efficiencies, flexibility and responsiveness"
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "Compute Virtualization : Why VM\nServer consolidation\nWorkload mobility\nDevelopment and test\nBusiness Continuity Management\nSupport OS diversity\nSecurity/Isolation\n\nHigh Availability/Load Balancing\nRapid provisioning\nEncapsulation\nLower Costs\nIncrease hardware utilization by running multiple\napplications in isolation on same physical server\nMove applications from one server to another\nEasily provision virtual resources for test and\nAbility to granularly live-migrate a VM to other\nservers which are part of a Business Continuity\nCan run both Linux and Windows on same\nHypervisor separates the VMs from eacWh ootrhkelor ad isolates\nAbility to live-migrate a VM to other physical server\nOn demand provisioning of hardware resources\nThe execution environment of an application is encapsulated\nwithin VM\nIncreased Efficiencies, flexibility and responsiveness\nVMs from H/W\nCompute Virtualization : Why VM\nIncrease hardware utilization by running multiple\nServer consolidation\napplications in isolation on same physical server\nWorkload mobility Move applications from one server to another\nDevelopment and test • Easily provision virtual resources for test and dev\nBusiness Continuity •\nAbility to granularly live-migrate a VM to other physical\nManagement servers which are part of a Business Continuity environment\nConsolidation\nSupport OS diversity • Can run both Linux and Windows on same h/w\nSecurity/Isolation •\nHypervisor separates the VMs from each Workload other and isolates\nVMs from H/W\nMobility\nHigh Availability/Load Ability to live-migrate a VM to other physical server\nBalancing\nRapid provisioning On demand provisioning of hardware resources\nEncapsulation • The execution environment of an application is encapsulated\nwithin VM\nLower Costs •\nIncreased Efficiencies, flexibility and responsiveness",
+      "keep_pictures": false,
+      "new_slide_numbers": [
+        6
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [
+        5
+      ],
+      "note": null
+    },
+    {
+      "topic_id": -2,
+      "after_slide_id": 97,
+      "title": "x86 Ring Privilege Levels",
+      "bullets": [
+        "Observation 1: Only Ring 0 can invoke privileged instructions; Rings 1, 2, and 3 trap when invoking privileged instructions.",
+        "Observation 2: An x86 PTE has a single bit to indicate user/supervisor, and the MMU maps Rings 0‑2 to “supervisor” and Ring 3 to “user.”",
+        "The Normal x86 Setup.",
+        "User‑mode accessible? Writeable? Present?",
+        "“Isolated” drivers in Rings 1 or 2 can still access Ring 0 memory pages, so isolation is weak in practice without additional segment‑based protection (segment support was dropped in x86‑64).",
+        "Most non‑x86 chips define only two privilege levels, so portable OSes shouldn’t rely on Rings 1 and 2 for privileged operations."
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "Observation 1: Only Ring 0 can invoke privileged instructions. Rings 1, 2, and 3 trap when invoking privileged instructions.\nObservation 2: An x86 PTE only has a single bit to\nLeast privileged\nindicate user/supervisor! The MMU maps Rings 0, 1, and 2 to “supervisor,” and Ring 3 to “user.”\nThe Normal x86 Setup\nIntel originally Uthsoeurghatptphsat devicReindgriv3ers could be “isolated” here\nHowever, “isolaNteod”thdirnivgers in RiRnginsg1 2or 2 can still access ring 0 memory pages, so isolation is weakNinotphriancgtice withRouintg 1 additional segment-based protection (but segment support was dropped in x86-64)\nAlso, most non-x86OchSips only deRfiinnegt0wo\nUser-mode accessible?\nWriteable?\nPresent?\n•\n•\n•\nprivilege levels, so portable OSes shouldn’t\nMost privileged\nx86 Rings\nleverage Rings\tanxd862\nObservation 1: Only Ring 0 can invoke privileged instructions. Rings 1, 2, and 3 trap\nwhen invoking privileged instructions.\nObservation 2: An x86 PTE only has a single bit to\nLeast\nindicate user/supervisor! The MMU maps Rings 0, 1,\nprivileged\nand 2 to “supervisor,” and Ring 3 to “user.”\nRing 3\nRing 2\nThe Normal x86 Setup\nUser-mode accessible?\nRing 1\nIntel originally User thought apps that device Ring drivers Writeable? 3\ncould be “isolated” here\nPresent?\nRing 0\nHowever, “isolated” Nothing drivers in Rings Ring 1 2 or 2\ncan still access ring 0 memory pages, so\nisolation is weak in practice without\nNothing Ring 1\nadditional segment-based protection (but\nPTE\n4KB-aligned physFrame addr\nsegment support was dropped in x86-64)\n63 48 47 OS Ring 12 0 11 3 2 1 0\nAlso, most non-x86 chips only define two\nprivilege levels, so portable OSes shouldn’t\nMost\nx86 Rings x86\nleverage Rings 1 and 2\nprivileged",
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        100
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [
+        99
+      ],
+      "note": null
+    },
+    {
+      "topic_id": -2,
+      "after_slide_id": 98,
+      "title": "Virtual Machine Monitor Trap",
+      "bullets": [
+        "Guest apps, Guest OS, VMM for x86 architectures",
+        "Guest app executes syscall to read from keyboard; hardware generates trap handled by VMM; VMM vectors control to guest OS’s interrupt handler",
+        "Guest OS tries to execute inb to read a key from the keyboard; hardware traps to VMM; VMM executes inb",
+        "Theorem: A virtual machine monitor can be constructed for architectures in which every sensitive instruction is privileged."
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "Guest apps\nGuest OS\nVMM\nx86\nGuest app executes syscall to read from keyboard\nHardware generates trap which is handled by VMM\nVMM vectors control to guest OS’s interrupt handler\nGuest OS tries to execute inb to read a key from the keyboard\nHardware traps to VMM\nVMM executes real inb\nTheorem: A virtual machine monitor can be constructed for architectures in which every sensitive instruction is privileged.\nGuest apps\nRing 3\nGuest OS\nVMM Ring 0\nx86\nGuest app executes syscall to read\nfrom keyboard\nHardware generates trap which\nis handled by VMM\nVMM vectors control to guest\nOS’s interrupt handler\nTheorem: A virtual machine monitor can\nGuest OS tries to execute inb to\nbe constructed for architectures in which read a key from the keyboard\nHardware traps to VMM\nevery sensitive instruction is privileged. •\nVMM executes real inb",
+      "keep_pictures": false,
+      "new_slide_numbers": [
+        102
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [
+        101
+      ],
+      "note": null
+    },
+    {
+      "topic_id": -2,
+      "after_slide_id": 277,
+      "title": "Kubernetes (also know as K8s) Basics",
+      "bullets": [
+        "Kubernetes as seen earlier is a container or microservice platform that orchestrates computing, networking, and storage infrastructure workloads. Kubernetes extends how we scale containerized applications so that we can enjoy all the benefits of a truly immutable infrastructure.",
+        "Pod: a group of one or more containers.",
+        "ReplicaSet (RS): ensures the desired number of pods is running.",
+        "Deployment: offers declarative updates for pods in a ReplicaSet.",
+        "StatefulSet: a workload API object that manages stateful applications such as databases.",
+        "DaemonSet: ensures all or some worker nodes run a copy of a pod; useful for daemon applications like Fluentd.",
+        "Job: creates one or more pods, runs a task to completion, then deletes the pod(s).",
+        "Service: an abstraction that defines a logical set of pods, the policy, and an endpoint for accessing them.",
+        "Volume: an abstraction that lets us persist data because containers are ephemeral and data is deleted when the container is deleted.",
+        "Namespace: a segment of the cluster dedicated to a certain purpose (e.g., project or team), used to create multiple virtual Kubernetes clusters within a single cluster."
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "Kubernetes (also know as K8s) Basics\nKubernetes as seen earlier is a container or microservice platform that orchestrates computing, networking, and storage infrastructure workloads. Kubernetes extends how we scale containerized applications so that we can enjoy all the benefits of a truly immutable infrastructure\nUnderstanding the K8S, will need the understanding the objects used as the building block of the application lifecycle. This . This include\n1. Basic Building objects\t2.\nControllers which are several higher-level abstractions Basic K8S objects include\nReplicaSet (RS). Ensures the desired amount of pod is what’s running.\nDeployment. Offers declarative updates for pods in an RS.\nStatefulSet. A workload API object that manages stateful applications, such as databases.\nDaemonSet. Ensures that all or some worker nodes run a copy of a pod. This is useful for daemon applications like Fluentd.\nJob. Creates one or more pods, runs a certain task(s) to completion, then deletes the pod(s)\nPod. A group of one or more containers.\nService. An abstraction that defines a logical set of pods as well as the policy and an endpoint for accessing them.\nVolume. An abstraction that lets us persist data. (This is necessary because containers are ephemeral—meaning data is deleted when the container is deleted.)\nNamespace.  A  segment  of  the  cluster  dedicated  to  a certain purpose, for example a certain project or team of devs. Typically used to create multiple virtual Kubernetes clusters within a single cluster\nhttps://www.bmc.com/blogs/what-is-kubernetes/\nhttp://kubernetes.io/docs/concepts/overview/what-is-kubernetes/\nKubernetes (also know as K8s) Basics\nKubernetes as seen earlier is a container or microservice platform that orchestrates computing,\nnetworking, and storage infrastructure workloads. Kubernetes extends how we scale containerized\napplications so that we can enjoy all the benefits of a truly immutable infrastructure\nUnderstanding the K8S, will need the understanding the objects used as the building block of the\napplication lifecycle. This . This include\n1. Basic Building objects 2. Controllers which are several higher-level abstractions\nBasic K8S objects include\n▪ Pod. A group of one or more containers.\n▪ ReplicaSet (RS). Ensures the desired amount of pod is\n▪ Service. An abstraction that defines a logical set of pods as\nwhat’s running.\nwell as the policy and an endpoint for accessing them.\n▪ Deployment. Offers declarative updates for pods in an RS.\n▪ Volume. An abstraction that lets us persist data. (This is\nnecessary because containers are ephemeral—meaning ▪ StatefulSet. A workload API object that manages stateful\ndata is deleted when the container is deleted.) applications, such as databases.\n▪ Namespace. A segment of the cluster dedicated to a ▪ DaemonSet. Ensures that all or some worker nodes run a\ncertain purpose, for example a certain project or team of copy of a pod. This is useful for daemon applications like\ndevs. Typically used to create multiple virtual Kubernetes Fluentd.\nclusters within a single cluster\n▪ Job. Creates one or more pods, runs a certain task(s) to\ncompletion, then deletes the pod(s)\nhttps://www.bmc.com/blogs/what-is-kubernetes/ http://kubernetes.io/docs/concepts/overview/what-is-kubernetes/",
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        298
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [
+        297
+      ],
+      "note": null
+    },
+    {
+      "topic_id": -2,
+      "after_slide_id": 281,
+      "title": "Kubernetes Architecture",
+      "bullets": [
+        "A K8S cluster is made of a Master node, which exposes the API, schedules deployments, and generally manages the cluster. This is the entry point of all administrative tasks. The master node orchestrates the worker nodes where services run.",
+        "Worker nodes (multiple of them) can be responsible for container runtime, like Docker.",
+        "Kube-apiserver exposes the API as the entry point for all REST commands used to control the cluster.",
+        "etcd is a key‑value store for all cluster data, used for shared configuration and service discovery, including jobs, pod/service details, state, namespaces and replication information.",
+        "Kube-scheduler has information on available resources and schedules new pods on worker nodes.",
+        "Kube-controller-manager runs the controllers, uses the apiserver to watch the shared cluster state and makes corrective changes to reach the desired state.",
+        "The Replication controller takes care of the number of pods in the system as configured by the user."
+      ],
+      "addresses_questions": [],
+      "operation": "repair_slide",
+      "gap_type": null,
+      "report_confidence": null,
+      "source_text": "Kubernetes Architecture\nA K8S cluster is made of a\nMaster node, which exposes the API, schedules deployments, and generally manages the cluster. This is the entry point of all administrative tasks. The master node is the one taking care of orchestrating the worker nodes, where the actual services are running.\nWorker nodes (multiple of them) can be responsible for container runtime, like Docker.\nMaster node components\nThese master node comprises of the following components :\nKube-apiserver. Exposes the API is the entry points for all the REST commands used to control the cluster\netcd. Key value stores all cluster data. (Can be run on the same server as a master node or on a dedicated cluster) It’s mainly used for shared configuration and service discovery with info like jobs being scheduled, created and deployed, pod/service details and state, namespaces and replication information\nKube-scheduler. Has information on the resources available. Schedules new pods on worker nodes.\nKube-controller-manager. Runs the controllers. Uses apiserver to watch the shared state of the cluster and makes corrective changes to the current state to change it to the desired one.\nE.g. of a controller is the Replication controller, which takes care of the number of pods in the system as\nconfigured by the user.\nKubernetes Architecture\nA K8S cluster is made of a\n▪ Master node, which exposes the API, schedules deployments, and generally manages the cluster. This is the\nentry point of all administrative tasks. The master node is the one taking care of orchestrating the worker\nnodes, where the actual services are running.\n▪ Worker nodes (multiple of them) can be responsible for container runtime, like Docker.\nMaster node components\n▪ These master node comprises of the following components :\n▪ Kube-apiserver. Exposes the API is the entry points for all the REST commands used to control the cluster\n▪ etcd. Key value stores all cluster data. (Can be run on the same server as a master node or on a dedicated\ncluster) It’s mainly used for shared configuration and service discovery with info like jobs being scheduled,\ncreated and deployed, pod/service details and state, namespaces and replication information\n▪ Kube-scheduler. Has information on the resources available. Schedules new pods on worker nodes.\n▪ Kube-controller-manager. Runs the controllers. Uses apiserver to watch the shared state of the cluster and\nmakes corrective changes to the current state to change it to the desired one.\nE.g. of a controller is the Replication controller, which takes care of the number of pods in the system as\nconfigured by the user.",
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        303
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [
+        302
+      ],
       "note": null
     }
   ]
