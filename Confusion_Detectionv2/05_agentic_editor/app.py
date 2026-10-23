@@ -137,8 +137,9 @@ REPLAY_STEP_SECONDS = 0.8  # pre-checked mode paces its replay so each step can 
 
 
 def _replay(label: str, steps, summary: str) -> None:
-    """Shows, step by step, what the pipeline did when it produced a
-    pre-checked result. Labelled as a replay: nothing is generated now."""
+    """Shows, step by step and in the past tense, what the pipeline did
+    when it produced a pre-checked result. Which mode is on stays visible
+    in the sidebar."""
     with st.status(label, expanded=True) as status:
         for step in steps:
             st.write(step)
@@ -150,32 +151,24 @@ def replay_steps(checked, model_name=None) -> None:
     passed = [c for c in checked if c.accepted]
     corrected = sum(1 for c in passed if c.revisions)
     steps = [
-        f"Reading the gap report, the topic's slides and the students' questions ({model_name or 'LLM'})…",
-        f"Writing {plural(len(checked), 'suggestion')}…",
-        "Running the quality checks (length, fits the slide, real questions, no repeats)…",
-        "Fact-checking against the deck: contradictions, wrong statements, invented numbers, unanswered questions…",
+        f"Read the gap report, the topic's slides and the students' questions ({model_name or 'LLM'}).",
+        f"Wrote {plural(len(checked), 'suggestion')}.",
+        "Ran the quality checks: length, fits the slide, real questions, no repeats.",
+        "Fact-checked against the deck: contradictions, wrong statements, invented numbers, unanswered questions.",
     ]
     if corrected:
-        steps.append(f"The fact-check flagged {plural(corrected, 'first draft')}; the model corrected and re-checked it…")
-    _replay(
-        "Replaying the recorded run for this gap (pre-checked result)…",
-        steps,
-        f"{len(passed)} of {plural(len(checked), 'suggestion')} passed every check (pre-checked result)",
-    )
+        steps.append(f"The fact-check flagged {plural(corrected, 'first draft')}; the model corrected it and it was re-checked.")
+    _replay("What the pipeline did for this gap…", steps, f"{len(passed)} of {plural(len(checked), 'suggestion')} passed every check")
 
 
 def replay_repair_steps(checked, model_name=None) -> None:
     steps = [
-        f"Splitting {plural(len(checked), 'slide')} into text and pictures…",
-        f"Restructuring each slide's own text into a title and bullets ({model_name or 'LLM'})…",
-        "Checking nothing was added and most of the original was kept…",
-        "Laying out the rebuilt slides with the deck's header…",
+        f"Split {plural(len(checked), 'slide')} into text and pictures.",
+        f"Restructured each slide's own text into a title and bullets ({model_name or 'LLM'}).",
+        "Checked that nothing was added and most of the original was kept.",
+        "Laid out the rebuilt slides with the deck's header.",
     ]
-    _replay(
-        "Replaying the recorded repairs (pre-checked result)…",
-        steps,
-        f"{sum(c.accepted for c in checked)} of {plural(len(checked), 'repair')} passed the checks (pre-checked result)",
-    )
+    _replay("What the pipeline did for these slides…", steps, f"{sum(c.accepted for c in checked)} of {plural(len(checked), 'repair')} passed the checks")
 
 
 def edit_key(edit) -> str:
