@@ -8,6 +8,7 @@ approve the ones you want, and apply them to a copy of the deck.
 """
 from __future__ import annotations
 
+import copy
 import html
 import importlib
 import json
@@ -42,6 +43,10 @@ layout_check = importlib.import_module("05_agentic_editor.src.layout_check")
 repair = importlib.import_module("05_agentic_editor.src.repair")
 preview = importlib.import_module("05_agentic_editor.src.preview")
 schema = importlib.import_module("05_agentic_editor.src.schema")
+revise = importlib.import_module("05_agentic_editor.src.revise")
+planner_module = importlib.import_module("05_agentic_editor.src.planner")
+REVIEWED = OUTPUT_DIR / "reviewed_suggestions.json"
+FACT_CHECK_MAX_TOKENS = 1500  # the fact-check's answer is short: a smaller budget waits less on the rate limit
 REPAIRS = schema.REPAIR_TOPIC_ID  # key of the repairs among state.suggestions
 
 GAP_LABELS = {
@@ -69,7 +74,8 @@ def load_inputs():
 @st.cache_resource
 def llm(api_key):
     generator = editor.GroqEditGenerator(api_key=api_key)
-    return editor.EditPlanner(generator), editor.EditVerifier(generator), generator.model, repair.RepairPlanner(generator)
+    verifier = editor.EditVerifier(planner_module.with_max_tokens(generator, FACT_CHECK_MAX_TOKENS))
+    return editor.EditPlanner(generator), verifier, generator.model, repair.RepairPlanner(generator)
 
 
 def rebuilt_preview(edit):
@@ -118,6 +124,7 @@ def edit_key(edit) -> str:
 
 
 deck, dossiers, reports, index = load_inputs()
+reviewed_topics, reviewed_repairs, reviewed_meta = editor_storage.load_reviewed_json(REVIEWED)
 state = st.session_state
 state.setdefault("suggestions", {})  # topic_id -> [CheckedEdit]
 state.setdefault("approved", {})  # edit_key -> bool
@@ -136,6 +143,18 @@ with st.sidebar:
         for row in gaps
     }
     topic_id = st.radio("Gap", list(labels), format_func=labels.get, label_visibility="collapsed")
+    st.divider()
+    use_reviewed = st.toggle(
+        "Use pre-checked results",
+        value=bool(reviewed_topics),
+        disabled=not reviewed_topics,
+        help="Suggestions and repairs generated ahead of time by this same pipeline and read by a person. "
+        "Instant, and no API key or rate limit involved. Switch off to generate live with the LLM.",
+    )
+    if use_reviewed:
+        st.caption(f"Pre-checked results from {(reviewed_meta.get('generated_at') or '')[:10]}, {reviewed_meta.get('model')}.")
+    else:
+        st.caption("Live: every suggestion is generated, checked and fact-checked now (about 1–3 minutes each on a free Groq key).")
     st.divider()
     # .env is not in git, so a fresh clone has no key: ask for one here.
     # It stays in this browser session only and is never written to disk.
@@ -171,45 +190,45 @@ if reason:
 
 # ---- Step 3: suggestions ------------------------------------------------
 st.header("3. Changes the LLM suggests")
-if not api_key:
+cached = reviewed_topics.get(topic_id) if use_reviewed else None
+if use_reviewed and cached is None:
+    st.info("No pre-checked results for this gap; switch off “Use pre-checked results” in the sidebar to generate live.")
+elif not use_reviewed and not api_key:
     st.info("Enter a Groq API key in the sidebar to have the LLM suggest slides.")
-if st.button("Suggest slides for this gap", type="primary", disabled=reason is not None or not api_key):
-    try:
-        planner, verifier, model, _ = llm(api_key)
-    except Exception as e:  # missing/invalid key, or the model was retired
-        st.error(f"Could not connect to Groq: {e}")
-        st.stop()
-    with st.status(f"Working with {model}…", expanded=True) as status:
-        st.write("Writing new slides from the report and the topic's slides…")
-        edits = planner.plan_topic(report, dossier, deck)
-        error = getattr(planner.generator, "last_error", None)
-        if error:
-            status.update(label="The LLM call failed", state="error")
-            st.error(f"Could not get suggestions from {model}: {error}. Wait a minute and try again.")
+can_suggest = reason is None and (cached is not None if use_reviewed else bool(api_key))
+if st.button("Suggest slides for this gap", type="primary", disabled=not can_suggest):
+    if use_reviewed:
+        checked = copy.deepcopy(cached)
+    else:
+        try:
+            planner, verifier, model, _ = llm(api_key)
+        except Exception as e:  # missing/invalid key, or the model was retired
+            st.error(f"Could not connect to Groq: {e}")
             st.stop()
-        st.write(f"{len(edits)} slide(s) proposed. Running the quality checks…")
-        # Checked together with the slides already suggested for other
-        # gaps, so a repeat of one of them (e.g. both copies of the
-        # duplicated lecture asking for the same slide) is caught.
-        earlier = [c.edit for t, cs in state.suggestions.items() if t != topic_id for c in cs if c.accepted]
-        checked = editor.check_edits(earlier + edits, dossiers, deck)[len(earlier):]
-        st.write(f"{sum(c.accepted for c in checked)} passed. Fact-checking them against the deck…")
-        editor.verify_checked(checked, verifier, dossiers, deck)
-        status.update(label=f"{sum(c.accepted for c in checked)} of {len(checked)} suggestion(s) passed every check", state="complete")
+        with st.status(f"Working with {model}…", expanded=True) as status:
+            # Checked together with the slides already suggested for other
+            # gaps, so a repeat of one of them (e.g. both copies of the
+            # duplicated lecture asking for the same slide) is caught.
+            earlier = [c.edit for t, cs in state.suggestions.items() if t not in (topic_id, REPAIRS) for c in cs if c.accepted]
+            checked = revise.suggest_for_topic(
+                report, dossier, deck, dossiers, planner, verifier, earlier=earlier, progress=lambda m: st.write(m + "…")
+            )
+            error = getattr(planner.generator, "last_error", None)
+            if not checked and error:
+                status.update(label="The LLM call failed", state="error")
+                st.error(f"Could not get suggestions from {model}: {error}. Wait a minute and try again.")
+                st.stop()
+            status.update(label=f"{sum(c.accepted for c in checked)} of {len(checked)} suggestion(s) passed every check", state="complete")
     state.suggestions[topic_id] = checked
     for c in checked:
         state.approved[edit_key(c.edit)] = c.accepted
 
-suggestions = state.suggestions.get(topic_id)
-if suggestions is None:
-    st.info("Click the button to have the LLM suggest slides for this gap.")
-elif not suggestions:
-    st.warning("The LLM proposed no slides for this gap.")
-for i, c in enumerate(suggestions or [], start=1):
+
+def show_suggestion(number: int, c) -> None:
     e = c.edit
     before, after = st.columns(2)
     if e.operation == schema.APPEND_BULLETS:
-        st.subheader(f"Suggestion {i}: add {len(e.bullets)} bullet(s) to slide {e.after_slide_id + 1}")
+        st.subheader(f"Suggestion {number}: add {len(e.bullets)} bullet(s) to slide {e.after_slide_id + 1}")
         with before:
             st.caption(f"Slide {e.after_slide_id + 1} now")
             st.image(slide_image(e.after_slide_id), width="stretch")
@@ -217,7 +236,7 @@ for i, c in enumerate(suggestions or [], start=1):
             st.caption("Added to the end of its text, in the slide's own bullet style")
             st.markdown("\n".join(f"- {b}" for b in e.bullets))
     else:
-        st.subheader(f"Suggestion {i}: new slide after slide {e.after_slide_id + 1}")
+        st.subheader(f"Suggestion {number}: new slide after slide {e.after_slide_id + 1}")
         with before:
             st.caption(f"Existing slide {e.after_slide_id + 1} (stays as it is)")
             st.image(slide_image(e.after_slide_id), width="stretch")
@@ -225,13 +244,43 @@ for i, c in enumerate(suggestions or [], start=1):
             st.caption("New slide that goes right after it")
             st.markdown(slide_preview(e), unsafe_allow_html=True)
     st.markdown("**Answers:** " + "; ".join(f"“{q}”" for q in e.addresses_questions))
-    if c.accepted:
-        st.success("Passed the quality checks and the fact-check.")
-    else:
-        st.error("Flagged — not approved automatically:\n\n" + "\n".join(f"- {p}" for p in c.problems))
-    key = edit_key(e)
-    state.approved[key] = st.checkbox("Approve this slide", value=state.approved.get(key, False), key=f"approve-{key}")
-    st.divider()
+
+
+suggestions = state.suggestions.get(topic_id)
+if suggestions is not None:
+    passed = [c for c in suggestions if c.accepted]
+    # Held back only because another gap's slide already fills this spot
+    # (e.g. the second copy of the duplicated lecture): not a failure.
+    covered = [c for c in suggestions if not c.accepted and all(p.startswith("repeats ") for p in c.problems)]
+    blocked = [c for c in suggestions if not c.accepted and c not in covered]
+    for c in covered:
+        other = c.problems[0].split("(topic ")[1].split(")")[0] if "(topic " in c.problems[0] else "another"
+        st.info(
+            f"Already covered: the slide planned for topic {other} goes in this same place — in both copies of the "
+            f"repeated lecture — so this gap needs no separate slide (its draft “{c.edit.title}” said the same thing)."
+        )
+    if not passed and not covered:
+        st.info(
+            "No suggestion for this gap passed every check, so none is offered. "
+            "The blocked drafts and the reasons are below."
+            if blocked else "The LLM proposed no slides for this gap."
+        )
+    for i, c in enumerate(passed, start=1):
+        show_suggestion(i, c)
+        corrected = f" The fact-check found a problem in the first draft; the model corrected it ({c.revisions} revision{'s' if c.revisions > 1 else ''})." if c.revisions else ""
+        st.success("Passed the quality checks and the fact-check." + corrected)
+        key = edit_key(c.edit)
+        state.approved[key] = st.checkbox("Approve this slide", value=state.approved.get(key, True), key=f"approve-{key}")
+        st.divider()
+    if blocked:
+        with st.expander(f"Blocked by the safety checks ({len(blocked)}) — never applied unless you approve them"):
+            for c in blocked:
+                st.markdown(f"**{c.edit.title or 'Added bullets'}** (after slide {c.edit.after_slide_id + 1})")
+                st.markdown("\n".join(f"- {b}" for b in c.edit.bullets))
+                st.caption("Why it was blocked: " + " · ".join(c.problems))
+                key = edit_key(c.edit)
+                state.approved[key] = st.checkbox("Approve anyway", value=state.approved.get(key, False), key=f"approve-{key}")
+                st.divider()
 
 # ---- Step 4: apply -----------------------------------------------------
 st.header("4. Apply the approved slides to the deck")
@@ -280,21 +329,27 @@ for issue in state.get("broken") or []:
     if text.checkbox("Repair this slide", key=f"repair-{issue.slide_id}"):
         ticked.append(issue.slide_id)
 if state.get("broken"):
-    if st.button(f"Plan repairs for the {len(ticked)} ticked slide(s)", type="primary", disabled=not ticked or not api_key):
-        try:
-            _, _, model, repairer = llm(api_key)
-        except Exception as e:
-            st.error(f"Could not connect to Groq: {e}")
-            st.stop()
-        with st.status(f"Rebuilding {len(ticked)} slide(s) with {model}…", expanded=True) as status:
-            repairs = repair.plan_repairs(repairer, SOURCE_PPTX, ticked, deck)
-            checked = editor.check_edits(repairs, dossiers, deck)
-            status.update(label=f"{sum(c.accepted for c in checked)} of {len(ticked)} repair(s) passed the checks", state="complete")
+    from_file = [sid for sid in ticked if use_reviewed and sid in reviewed_repairs]
+    live = [sid for sid in ticked if sid not in from_file]
+    if st.button(f"Plan repairs for the {len(ticked)} ticked slide(s)", type="primary", disabled=not ticked or (bool(live) and not api_key)):
+        checked = [copy.deepcopy(c) for sid in from_file for c in reviewed_repairs[sid]]
+        if live:
+            try:
+                _, _, model, repairer = llm(api_key)
+            except Exception as e:
+                st.error(f"Could not connect to Groq: {e}")
+                st.stop()
+            with st.status(f"Rebuilding {len(live)} slide(s) with {model}…", expanded=True) as status:
+                repairs = repair.plan_repairs(repairer, SOURCE_PPTX, live, deck)
+                checked += editor.check_edits(repairs, dossiers, deck)
+                status.update(label=f"{sum(c.accepted for c in checked)} of {len(ticked)} repair(s) passed the checks", state="complete")
         state.suggestions[REPAIRS] = checked
         for c in checked:
             state.approved[edit_key(c.edit)] = c.accepted
+    if live and not api_key and ticked:
+        st.caption("Some ticked slides have no pre-checked repair; a Groq key is needed to repair them live.")
 
-for c in state.suggestions.get(REPAIRS, []):
+def show_repair(c) -> None:
     e = c.edit
     st.subheader(f"Repair of slide {e.after_slide_id + 1}")
     before, after = st.columns(2)
@@ -304,15 +359,35 @@ for c in state.suggestions.get(REPAIRS, []):
     try:
         after.image(rebuilt_preview(e), width="stretch")
     except Exception as err:  # the preview is a convenience; never block the review on it
-        after.warning(f"No preview: {err}")
+        after.caption(f"(No preview available: {err})")
+    keep = st.checkbox(
+        "Keep the slide's pictures",
+        value=e.keep_pictures,
+        key=f"pictures-{edit_key(e)}",
+        help="Untick when what is left of the pictures is noise (stacked animation frames, a lone logo); the slide is then rebuilt as text only.",
+    )
+    if keep != e.keep_pictures:
+        e.keep_pictures = keep
+        st.rerun()
     with st.expander("Rebuilt text"):
         st.markdown(f"**{e.title}**\n\n" + "\n".join(f"- {b}" for b in e.bullets))
-    if c.accepted:
-        st.success("Uses only the slide's own words and keeps most of them. Check the order and meaning before approving.")
-    else:
-        st.error("Flagged — not approved automatically:\n\n" + "\n".join(f"- {p}" for p in c.problems))
-    key = edit_key(e)
-    state.approved[key] = st.checkbox("Approve this repair", value=state.approved.get(key, False), key=f"approve-{key}")
+
+
+repairs_shown = state.suggestions.get(REPAIRS, [])
+for c in [c for c in repairs_shown if c.accepted]:
+    show_repair(c)
+    st.success("Uses only the slide's own words and keeps most of them. Check the order and meaning before approving.")
+    key = edit_key(c.edit)
+    state.approved[key] = st.checkbox("Approve this repair", value=state.approved.get(key, True), key=f"approve-{key}")
     st.divider()
+held_back = [c for c in repairs_shown if not c.accepted]
+if held_back:
+    with st.expander(f"Held back by the review ({len(held_back)}) — never applied unless you approve them"):
+        for c in held_back:
+            show_repair(c)
+            st.caption("Why it was held back: " + " · ".join(c.problems))
+            key = edit_key(c.edit)
+            state.approved[key] = st.checkbox("Approve anyway", value=state.approved.get(key, False), key=f"approve-{key}")
+            st.divider()
 if state.suggestions.get(REPAIRS):
     st.info("Approved repairs are applied with the other approved changes: use “Apply approved slides” above.")
