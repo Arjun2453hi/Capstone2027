@@ -53,7 +53,7 @@ less on the 8k tokens/minute limit.
 - Before grounding + fact-check (topics 6, 12, 20): 3 of 4 applied
   slides had a factual error on reading.
 - Final run, all 12 gaps (output/edit_plan.json): 11 gaps get a slide
-  that passes every check and was read by hand -- 4 of them only after
+  that passes every check and was read by hand -- 6 of them only after
   the model corrected a flagged first draft. Topic 18's slide repeated
   topic 14's for the same place (the two copies of the duplicated
   lecture), so it is dropped there. Held back: 3 drafts the fact-check
@@ -69,17 +69,22 @@ less on the 8k tokens/minute limit.
 repairs after reading every one. The demo loads it by default (instant,
 no API key or rate limit); its sidebar switch generates live instead.
 `output/cc-unit2-slides.edited.pptx` is the deck with all of them
-applied: 288 -> 309 slides, 5 broken originals hidden.
+applied: 288 -> 311 slides, 5 broken originals hidden.
 
 ## Adding to existing slides
 
 The planner may choose `append_bullets` instead of a new slide: 1-3
 bullets added to the end of an existing slide, for a small missing
-detail that belongs there. The checker allows it only while the slide
-stays under 850 characters (this deck's slides: median 604, 75th
-percentile 794), and the applier formats the new paragraphs as copies
-of the slide's last bullet and notes the addition in the speaker notes.
-Duplicated-lecture slides get the same bullets.
+detail that belongs there. Two checks: the slide's text stays under 850
+characters (median 604, 75th percentile 794), and `applier.RoomChecker`
+measures the real slide -- text box, font sizes, paragraph margins,
+line breaks -- to confirm the new lines fit above the bottom. Character
+counts alone were not enough: slide 137 has ~600 characters, but its
+bullets wrap in a narrow column beside a diagram and already reach 6.6
+of 7.5 in. A suggestion that does not fit is sent back and becomes a new
+slide (topic 9). Added paragraphs copy the slide's last bullet
+(including its margins) and are also broken into lines that stay left
+of any picture over the text box.
 
 ## Broken layouts
 

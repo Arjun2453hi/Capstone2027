@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T07:09:05+00:00",
+  "generated_at": "2026-10-23T07:50:13+00:00",
   "model": "openai/gpt-oss-120b",
   "topics": {
     "6": [
@@ -86,22 +86,24 @@
     "9": [
       {
         "topic_id": 9,
-        "after_slide_id": 136,
-        "title": "Docker Architecture",
+        "after_slide_id": 135,
+        "title": "Containers share host OS kernel",
         "bullets": [
-          "Containers share the host operating system’s kernel while running in isolated user‑space processes."
+          "Containers run as isolated user‑space processes but share the host operating system’s kernel.",
+          "They share the kernel’s system calls, device drivers, and kernel-level resources, while each container has its own filesystem and libraries.",
+          "This shared kernel model provides lightweight isolation and fast startup compared to full virtual machines."
         ],
         "addresses_questions": [
           "What do containers share with the host OS?"
         ],
-        "operation": "append_bullets",
+        "operation": "insert_slide_after",
         "gap_type": "fragmented_context",
         "report_confidence": 0.9,
         "source_text": null,
         "keep_pictures": true,
         "accepted": true,
         "problems": [],
-        "revisions": 1
+        "revisions": 2
       }
     ],
     "10": [
