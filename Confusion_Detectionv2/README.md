@@ -100,7 +100,14 @@ its own text and pictures, shown next to the original with a preview,
 and once approved it is inserted right after the original, which is
 hidden from the slideshow (nothing is deleted).
 
-Each suggestion takes about 10–60 seconds, depending on Groq's rate limits.
+**Pre-checked or live.** By default the demo loads results generated
+ahead of time by this same pipeline and read by a person
+(`05_agentic_editor/output/reviewed_suggestions.json`): instant, and no
+API key needed. Switch off **Use pre-checked results** in the sidebar to
+generate live: each suggestion is written, checked, fact-checked and, if
+flagged, corrected by the model up to twice (about 10 seconds to 3
+minutes, depending on Groq's rate limits). Suggestions that still fail
+are kept in a collapsed "Blocked by the safety checks" section.
 
 ---
 

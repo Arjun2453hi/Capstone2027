@@ -37,22 +37,39 @@ The editor model defaults to `openai/gpt-oss-120b`
 (`GROQ_EDITOR_MODEL_NAME` overrides it), separate from the pipeline-wide
 `GROQ_MODEL_NAME`.
 
+## Self-correction (`src/revise.py`)
+
+plan -> check -> fact-check -> (revise -> check -> fact-check) x 2. A
+flagged slide goes back to the model with the exact findings and the
+deck around it, and is fixed or loses the statement it cannot make
+right. The fact-check also names cited questions the slide does not
+answer; those are dropped from its list (the slide is kept) as long as
+one real question remains. CLI and demo share this pipeline. The
+fact-check asks for a smaller reply budget (1500 tokens) so it waits
+less on the 8k tokens/minute limit.
+
 ## Measured so far
 
-- Topics 6, 12, 20 before grounding + fact-check: 3 of 4 applied slides
-  had a factual error on reading.
-- All 12 eligible gaps, with grounding + fact-check (output/edit_plan.json):
-  16 slides proposed, 4 accepted, all 4 correct on reading. Rejected:
-  9 by the fact-check -- read by hand, 7 findings are right, 1 is
-  debatable (ECS "fully managed": its control plane is, EC2 hosts are
-  not) and 1 is wrong (overlay2 IS a union filesystem) -- 1 for
-  overflowing the slide, 1 for "see slide 130" advice, 1 as a repeat of
-  another topic's slide for the same place (topics 14 and 18 are the two
-  copies of the duplicated lecture). The edited deck goes 288 -> 294:
-  three of the four slides land in both copies.
-- The fact-check is still an LLM. On the topic 6/12/20 run it passed one
-  slide with an overstated claim, so the demo asks a person to approve
-  each slide.
+- Before grounding + fact-check (topics 6, 12, 20): 3 of 4 applied
+  slides had a factual error on reading.
+- Final run, all 12 gaps (output/edit_plan.json): 11 gaps get a slide
+  that passes every check and was read by hand -- 4 of them only after
+  the model corrected a flagged first draft. Topic 18's slide repeated
+  topic 14's for the same place (the two copies of the duplicated
+  lecture), so it is dropped there. Held back: 3 drafts the fact-check
+  rightly blocked, and 1 that passed the checks but was rejected by hand
+  ("clone --mount" / "setns <nsfd>" are not real commands).
+- Found by reading the deck: slide 245 says "Docker has developed their
+  own namespace technology"; namespaces are a Linux kernel feature. A
+  correct slide contradicting it was blocked for contradicting the deck.
+
+## Pre-checked results for the demo
+
+`output/reviewed_suggestions.json` holds the final run's suggestions and
+repairs after reading every one. The demo loads it by default (instant,
+no API key or rate limit); its sidebar switch generates live instead.
+`output/cc-unit2-slides.edited.pptx` is the deck with all of them
+applied: 288 -> 309 slides, 5 broken originals hidden.
 
 ## Adding to existing slides
 
@@ -93,8 +110,12 @@ Duplicated-lecture slides get the same bullets.
 (1-indexed), or the last section of the demo, which also draws a
 preview of each rebuilt slide (`src/preview.py`).
 
-Measured on the six known broken slides (output/repair_plan.json): all 6
-rebuilds pass the checks after at most one retry; 5 read faithfully. The
+Measured on the six known broken slides (output/repair_plan.json): 5
+rebuilds approved after reading. Slides 5 and 99 are rebuilt text only
+(`keep_pictures`): what is left of their pictures is stacked animation
+frames, or two labels and a logo. Slide 100's rebuild is held back by
+hand: it leaves out "VMM vectors control back to the guest OS", which
+sits on the screenshot and so stays a picture label. The
 word checks cannot see ORDER or MEANING: one run of slide 100 joined a
 phrase split across two text boxes into "control back to the VMM"
 (the slide says "back to the guest OS"), and another dropped its key
