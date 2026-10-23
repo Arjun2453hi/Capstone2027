@@ -69,13 +69,15 @@ st.set_page_config(page_title="Slide Gap Editor", layout="wide")
 @st.cache_resource
 def load_inputs():
     deck = upstream.load_deck_json(DECK_JSON)
-    dossiers = {d.topic_id: d for d in upstream.load_gap_verification_input_json(GAP_INPUT).topics}
+    gap_input = upstream.load_gap_verification_input_json(GAP_INPUT)
+    dossiers = {d.topic_id: d for d in gap_input.topics}
+    unmatched = [u.question for u in gap_input.unmatched_questions]
     reports = {}
     for path in sorted(REPORTS_DIR.glob("topic_*_report.json")):
         report = upstream.GapReport(**json.loads(path.read_text(encoding="utf-8")))
         reports[report.topic_id] = report
     index = json.loads((REPORTS_DIR / "index.json").read_text(encoding="utf-8"))
-    return deck, dossiers, reports, index
+    return deck, dossiers, reports, index, unmatched
 
 
 @st.cache_resource
@@ -130,7 +132,7 @@ def edit_key(edit) -> str:
     return f"{edit.topic_id}|{edit.after_slide_id}|{edit.title}"
 
 
-deck, dossiers, reports, index = load_inputs()
+deck, dossiers, reports, index, unmatched = load_inputs()
 reviewed_topics, reviewed_repairs, reviewed_meta = editor_storage.load_reviewed_json(REVIEWED)
 state = st.session_state
 state.setdefault("suggestions", {})  # topic_id -> [CheckedEdit]
@@ -141,15 +143,38 @@ st.title("Slide Gap Editor")
 st.caption("Student questions → gaps in the deck → LLM-written slides → checked → applied to a copy of the deck")
 
 # ---- Step 1: pick a gap -------------------------------------------------
-gaps = [row for row in index if row["gap_type"] != "covered" and row["topic_id"] in dossiers and dossiers[row["topic_id"]].slide_ids]
+def plural(n: int, word: str) -> str:
+    return f"{n} {word}{'' if n == 1 else 's'}"
+
+
+# Every report the agent wrote, in three groups (index.json order, worst first).
+groups = {
+    "Gaps to fix": [r for r in index if r["gap_type"] != "covered" and r["topic_id"] in dossiers and dossiers[r["topic_id"]].slide_ids],
+    "Already covered": [r for r in index if r["gap_type"] == "covered"],
+    "Off-topic questions": [r for r in index if r["topic_id"] == -1],
+}
 with st.sidebar:
-    st.header("1. Pick a gap")
-    st.caption(f"{len(gaps)} topics with a gap, worst first")
+    st.header("1. Pick a topic")
+    group = st.radio(
+        "Show",
+        list(groups),
+        format_func=lambda g: f"{g} ({len(groups[g])})" if g != "Off-topic questions" else f"{g} ({len(unmatched)})",
+        horizontal=False,
+    )
+    st.caption({
+        "Gaps to fix": "Topics where the agent found the deck falls short, worst first.",
+        "Already covered": "Topics the agent checked and found already answered: nothing to fix.",
+        "Off-topic questions": "Student questions about other subjects (databases, CSS, Java...), so there is no slide to add them to.",
+    }[group])
+    rows = groups[group]
     labels = {
-        row["topic_id"]: f"Topic {row['topic_id']} · {GAP_LABELS.get(row['gap_type'], row['gap_type'])} · {row['backed_by_questions']} questions"
-        for row in gaps
+        r["topic_id"]: (
+            f"Topic {r['topic_id']} · {GAP_LABELS.get(r['gap_type'], r['gap_type'])} · {plural(r['backed_by_questions'], 'question')}"
+            if r["topic_id"] != -1 else f"Questions outside this deck · {plural(len(unmatched), 'question')}"
+        )
+        for r in rows
     }
-    topic_id = st.radio("Gap", list(labels), format_func=labels.get, label_visibility="collapsed")
+    topic_id = st.radio("Topic", list(labels), format_func=labels.get, label_visibility="collapsed")
     st.divider()
     use_reviewed = st.toggle(
         "Use pre-checked results",
@@ -172,44 +197,53 @@ with st.sidebar:
     n_approved = sum(state.approved.values())
     st.metric("Slides approved so far", n_approved)
 
-report, dossier = reports[topic_id], dossiers[topic_id]
-row = next(r for r in gaps if r["topic_id"] == topic_id)
+report, dossier = reports[topic_id], dossiers.get(topic_id)
+questions = [m.question for m in dossier.matched_questions] if dossier is not None else unmatched
+has_slides = dossier is not None and bool(dossier.slide_ids)
 
 # ---- Step 2: the gap report --------------------------------------------
 st.header(f"2. What the gap report found — topic {topic_id}")
 # The gap type gets a full-width line: in a metric box the longer names
 # ("Scattered across slides") were cut off.
-colour = GAP_COLOURS.get(report.gap_type, "gray")
-st.markdown(
-    f"**Gap type:** :{colour}-badge[{GAP_LABELS.get(report.gap_type, report.gap_type)}] "
-    f"&nbsp; {GAP_MEANINGS.get(report.gap_type, '')}"
-)
+if has_slides or report.gap_type == "covered":
+    colour, label, meaning = GAP_COLOURS.get(report.gap_type, "gray"), GAP_LABELS.get(report.gap_type, report.gap_type), GAP_MEANINGS.get(report.gap_type, "")
+else:  # the unmatched questions: off-topic, not a gap in this deck
+    colour, label, meaning = "gray", "Not about this deck", "Questions on other subjects; the agent searched the whole deck and found nothing related."
+st.markdown(f"**Gap type:** :{colour}-badge[{label}] &nbsp; {meaning}")
 c1, c2, c3 = st.columns(3)
 c1.metric("Agent confidence", f"{report.confidence:.0%}")
-c2.metric("Student questions", len(dossier.matched_questions))
-c3.metric("Slides in topic", f"{min(dossier.slide_ids) + 1}–{max(dossier.slide_ids) + 1}")
+c2.metric("Student questions", len(questions))
+c3.metric("Slides in topic", f"{min(dossier.slide_ids) + 1}–{max(dossier.slide_ids) + 1}" if has_slides else "none")
 left, right = st.columns([3, 2])
 with left:
     with st.expander("Full report from the investigating agent", expanded=True):
         st.markdown(report.report_text)
 with right:
     st.markdown("**Questions students asked about this topic**")
-    for m in dossier.matched_questions:
-        st.markdown(f"- {m.question}")
+    for q in questions:
+        st.markdown(f"- {q}")
 
 reason = editor.skip_reason(report, dossier)
-if reason:
-    st.warning(f"The editor does not act on this report: {reason}.")
+if report.gap_type == "covered":
+    st.success("Nothing to fix: the agent checked these questions against the deck and found them already answered.")
+elif not has_slides:
+    st.info("These questions are about other subjects, not this deck, so there is no place in it to add a slide. "
+            "The agent searched the whole deck to confirm that before concluding.")
+elif reason:
+    st.info(f"The editor does not act on this report: {reason}.")
 
 # ---- Step 3: suggestions ------------------------------------------------
-st.header("3. Changes the LLM suggests")
+if reason is None:
+    st.header("3. Changes the LLM suggests")
 cached = reviewed_topics.get(topic_id) if use_reviewed else None
-if use_reviewed and cached is None:
+if reason is not None:
+    pass  # nothing to suggest for this report; the note above says why
+elif use_reviewed and cached is None:
     st.info("No pre-checked results for this gap; switch off “Use pre-checked results” in the sidebar to generate live.")
 elif not use_reviewed and not api_key:
     st.info("Enter a Groq API key in the sidebar to have the LLM suggest slides.")
 can_suggest = reason is None and (cached is not None if use_reviewed else bool(api_key))
-if st.button("Suggest slides for this gap", type="primary", disabled=not can_suggest):
+if reason is None and st.button("Suggest slides for this gap", type="primary", disabled=not can_suggest):
     if use_reviewed:
         checked = copy.deepcopy(cached)
     else:
