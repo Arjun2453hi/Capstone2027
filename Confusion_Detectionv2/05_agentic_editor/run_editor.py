@@ -58,12 +58,13 @@ def load_reports(reports_dir: Path) -> dict:
     return reports
 
 
-def plan(deck, dossiers_by_id: dict, reports: dict, topic_ids, min_confidence: float, fact_check: bool = True):
+def plan(deck, dossiers_by_id: dict, reports: dict, topic_ids, min_confidence: float, fact_check: bool = True, source_pptx: Path = DEFAULT_SOURCE_PPTX):
     planner = editor.EditPlanner(editor.GroqEditGenerator(), min_confidence=min_confidence)
     print(f"Planner model: {planner.generator.model}")
     planner_module = importlib.import_module("05_agentic_editor.src.planner")
     revise = importlib.import_module("05_agentic_editor.src.revise")
     verifier = editor.EditVerifier(planner_module.with_max_tokens(planner.generator, FACT_CHECK_MAX_TOKENS)) if fact_check else None
+    room = importlib.import_module("05_agentic_editor.src.applier").RoomChecker(source_pptx)
     checked = []
     skipped = {}
     for topic_id, report in sorted(reports.items()):
@@ -79,6 +80,7 @@ def plan(deck, dossiers_by_id: dict, reports: dict, topic_ids, min_confidence: f
             report, dossier, deck, dossiers_by_id, planner, verifier,
             earlier=[c.edit for c in checked if c.accepted],
             progress=lambda message, t=topic_id: print(f"  topic {t}: {message}"),
+            room=room,
         )
         print(f"[planned] topic {topic_id}: {sum(c.accepted for c in topic_checked)} of {len(topic_checked)} accepted")
         checked.extend(topic_checked)
@@ -133,7 +135,8 @@ def main():
         # fact-check is not re-run (it costs LLM calls), so its findings
         # are kept from the file; delete them there to overrule them.
         stored = editor_storage.load_plan_json(args.apply_plan)
-        checked = editor.check_edits([c.edit for c in stored], dossiers_by_id, deck)
+        room = importlib.import_module("05_agentic_editor.src.applier").RoomChecker(args.source_pptx)
+        checked = editor.check_edits([c.edit for c in stored], dossiers_by_id, deck, room)
         for fresh, old in zip(checked, stored):
             fresh.problems.extend(p for p in old.problems if p.startswith("fact-check"))
     else:
@@ -141,7 +144,7 @@ def main():
         min_confidence = args.min_confidence if args.min_confidence is not None else planner_module.MIN_REPORT_CONFIDENCE
         checked, skipped = [], {}
         if args.repair_slides is None or args.topic_ids is not None:
-            checked, skipped = plan(deck, dossiers_by_id, load_reports(args.reports_dir), args.topic_ids, min_confidence, fact_check=not args.no_fact_check)
+            checked, skipped = plan(deck, dossiers_by_id, load_reports(args.reports_dir), args.topic_ids, min_confidence, fact_check=not args.no_fact_check, source_pptx=args.source_pptx)
         if args.repair_slides:
             repair = importlib.import_module("05_agentic_editor.src.repair")
             repairs = repair.plan_repairs(repair.RepairPlanner(editor.GroqEditGenerator()), args.source_pptx, [n - 1 for n in args.repair_slides], deck)

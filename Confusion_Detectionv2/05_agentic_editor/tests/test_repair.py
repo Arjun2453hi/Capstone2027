@@ -237,3 +237,45 @@ def test_a_repair_can_leave_the_pictures_out(tmp_path):
     assert not [s for s in rebuilt.shapes if s.shape_type == 13]
     body = next(s for s in rebuilt.shapes if s.name == BODY_SHAPE_NAME)
     assert body.width > Presentation(str(tmp_path / "out.pptx")).slide_width * 0.8  # the text gets the full width
+
+
+def test_bullets_added_under_a_picture_break_lines_to_stay_clear_of_it(tmp_path):
+    source = make_pptx(tmp_path / "deck.pptx", TITLES)
+    prs = Presentation(str(source))
+    slide = prs.slides[1]
+    body = next(s for s in slide.shapes if s.has_text_frame and s.text_frame.text == "body of Hierarchy")
+    body.width = Inches(9)
+    slide.shapes.add_picture(_png(), body.left + Inches(4), body.top + Inches(1), Inches(4), Inches(2))  # over the box's right half
+    prs.save(str(source))
+    deck = make_deck([f"{t}\nbody of {t}" for t in TITLES])
+    long_bullet = "Containers share the host operating system's kernel while running in isolated user-space processes on the host."
+
+    apply_edits(source, tmp_path / "out.pptx", [make_edit(operation=APPEND_BULLETS, after_slide_id=1, bullets=[long_bullet])], deck)
+
+    out = Presentation(str(tmp_path / "out.pptx")).slides[1]
+    body = next(s for s in out.shapes if s.has_text_frame and "body of Hierarchy" in s.text_frame.text)
+    added = body.text_frame.paragraphs[-1]
+    lines = added.text.split("\v")
+    assert len(lines) > 1 and " ".join(lines) == long_bullet  # same words, broken into lines
+    assert max(len(line) for line in lines) < len(long_bullet)
+
+
+def test_bullets_that_would_run_off_the_slide_are_rejected_with_the_reason(tmp_path):
+    from ..src.applier import RoomChecker
+
+    source = make_pptx(tmp_path / "deck.pptx", TITLES)
+    prs = Presentation(str(source))
+    body = next(s for s in prs.slides[1].shapes if s.has_text_frame and s.text_frame.text == "body of Hierarchy")
+    frame = body.text_frame
+    for i in range(14):  # fill the slide nearly to the bottom
+        run = frame.add_paragraph().add_run()
+        run.text, run.font.size = f"Existing point number {i} on this crowded slide.", Pt(24)
+    frame.paragraphs[0].runs[0].font.size = Pt(24)
+    prs.save(str(source))
+    room = RoomChecker(source)
+
+    short = make_edit(operation=APPEND_BULLETS, after_slide_id=0, bullets=["One more point fits here easily."])
+    crowded = make_edit(operation=APPEND_BULLETS, after_slide_id=1, bullets=["One more point that has nowhere to go on this slide."])
+    assert room(short) is None
+    assert "has no room" in room(crowded) and "make it a new slide" in room(crowded)
+    assert room(make_edit()) is None  # only added bullets are measured

@@ -180,10 +180,37 @@ def _body_shape(slide):
     return max(candidates, key=lambda shape: shape.width * shape.height, default=None)
 
 
-def _append_bullets(shape, bullets: List[str]) -> None:
+def _wrap_width(slide, body) -> Optional[int]:
+    """Width the new text must keep to when a picture sits on top of the
+    body text box, as on slide 137 (diagram over the box's right half):
+    the slide's own bullets avoid it with manual line breaks, and added
+    bullets must do the same. None when nothing covers the box."""
+    left, right = body.left, body.left + body.width
+    edges = [
+        shape.left
+        for shape in slide.shapes
+        if shape.shape_type in (MSO_SHAPE_TYPE.PICTURE, MSO_SHAPE_TYPE.GROUP)
+        and left < shape.left < right
+        and shape.top < body.top + body.height
+        and shape.top + shape.height > body.top
+    ]
+    return min(edges) - left - Inches(0.2) if edges else None
+
+
+def _break_lines(text: str, width_emu: int, size_pt: float) -> List[str]:
+    """Lines of at most the characters that fit the width (half the font
+    size per character: conservative for Calibri)."""
+    import textwrap
+
+    per_line = max(int((width_emu / 914400) * 72 / (size_pt * 0.5)), 12)
+    return textwrap.wrap(text, per_line) or [text]
+
+
+def _append_bullets(shape, bullets: List[str], wrap_width: Optional[int] = None) -> None:
     """Each new paragraph is a copy of the body's last non-empty one --
     same level, bullet, font and size -- with the new text in its first
-    run."""
+    run. With `wrap_width`, the text is split into lines joined by line
+    breaks so it stays clear of a picture over the box."""
     paragraphs = [p for p in shape.text_frame.paragraphs if p.text.strip()]
     template = paragraphs[-1]._p
     anchor = template
@@ -192,9 +219,84 @@ def _append_bullets(shape, bullets: List[str]) -> None:
         runs = new_p.findall(qn("a:r"))
         for extra in runs[1:] + new_p.findall(qn("a:br")) + new_p.findall(qn("a:fld")):
             new_p.remove(extra)
-        runs[0].find(qn("a:t")).text = text
+        first = runs[0]
+        rpr = first.find(qn("a:rPr"))
+        size_pt = int(rpr.get("sz")) / 100 if rpr is not None and rpr.get("sz") else 18.0
+        lines = _break_lines(text, wrap_width, size_pt) if wrap_width else [text]
+        first.find(qn("a:t")).text = lines[0]
+        previous = first
+        for line in lines[1:]:
+            br = new_p.makeelement(qn("a:br"), {})
+            if rpr is not None:
+                br.append(copy.deepcopy(rpr))
+            run = copy.deepcopy(first)
+            run.find(qn("a:t")).text = line
+            previous.addnext(br)
+            br.addnext(run)
+            previous = run
         anchor.addnext(new_p)
         anchor = new_p
+
+
+# ---- room for added bullets -----------------------------------------------
+
+_BOTTOM_MARGIN = Inches(0.35)
+
+
+def _paragraph_lines(text: str, width_emu: int, size_pt: float) -> int:
+    per_line = max(int((width_emu / 914400) * 72 / (size_pt * 0.46)), 1)
+    return sum(max(math.ceil(len(piece) / per_line), 1) for piece in text.split("\v"))
+
+
+def _paragraph_size(paragraph) -> float:
+    sizes = [r.font.size.pt for r in paragraph.runs if r.font.size]
+    return sizes[0] if sizes else 18.0
+
+
+def _text_width(body, paragraph) -> int:
+    p_pr = paragraph._p.find(qn("a:pPr"))
+    margins = sum(int(p_pr.get(k, 0)) for k in ("marL", "marR")) if p_pr is not None else 0
+    body_pr = body.text_frame._txBody.find(qn("a:bodyPr"))
+    insets = sum(int(body_pr.get(k, 91440)) for k in ("lIns", "rIns")) if body_pr is not None else 2 * 91440
+    return max(body.width - margins - insets, Inches(1))
+
+
+def append_room_problem(slide, slide_height: int, bullets: List[str]) -> Optional[str]:
+    """Why the bullets would not fit below the slide's own text, or None.
+    Estimates where the existing text ends (its real font sizes, margins
+    and line breaks; ~0.46 x font size per character) and how much the
+    new bullets add, formatted like the last bullet."""
+    body = _body_shape(slide)
+    if body is None:
+        return "has no body text box to add to"
+    paragraphs = [p for p in body.text_frame.paragraphs if p.text.strip()]
+    body_pr = body.text_frame._txBody.find(qn("a:bodyPr"))
+    y = body.top + (int(body_pr.get("tIns", 45720)) if body_pr is not None else 45720)
+    for p in paragraphs:
+        size = _paragraph_size(p)
+        y += int(_paragraph_lines(p.text, _text_width(body, p), size) * size * 1.2 * 12700)
+    last = paragraphs[-1]
+    size = _paragraph_size(last)
+    needed = sum(int(_paragraph_lines(b, _text_width(body, last), size) * size * 1.2 * 12700) for b in bullets)
+    limit = slide_height - _BOTTOM_MARGIN
+    if y + needed > limit:
+        free = max(limit - y, 0) / 914400
+        return f"has no room: its text already reaches {y / 914400:.1f} in of {slide_height / 914400:.1f} in, leaving {free:.1f} in; the new text needs {needed / 914400:.1f} in"
+    return None
+
+
+class RoomChecker:
+    """Answers "do these bullets fit on slide N?" from the real .pptx,
+    for the checker (which only sees the parsed text)."""
+
+    def __init__(self, pptx_path):
+        self._prs = Presentation(str(pptx_path))
+
+    def __call__(self, edit: SlideEdit) -> Optional[str]:
+        if edit.operation != APPEND_BULLETS or not 0 <= edit.after_slide_id < len(self._prs.slides):
+            return None
+        problem = append_room_problem(self._prs.slides[edit.after_slide_id], self._prs.slide_height, edit.bullets)
+        return f"slide {edit.after_slide_id + 1} {problem}; make it a new slide instead" if problem else None
 
 
 def _note(slide, line: str) -> None:
@@ -370,7 +472,8 @@ def apply_edits(source_pptx: Union[str, Path], output_pptx: Union[str, Path], ed
     for index, anchors in appends.items():
         edit = edits[index]
         for p in anchors:
-            _append_bullets(_body_shape(original[p]), edit.bullets)
+            body = _body_shape(original[p])
+            _append_bullets(body, edit.bullets, _wrap_width(original[p], body))
             _note(original[p], f"Gap editor: added the last {len(edit.bullets)} bullet(s) for topic {edit.topic_id} ({edit.gap_type}). "
                                 f"Student questions answered: {'; '.join(edit.addresses_questions)}")
     for index, edit in enumerate(edits):

@@ -82,12 +82,19 @@ def render_slide(slide, slide_width: int, slide_height: int, width_px: int = 100
                 sizes = [r.font.size.pt for p in shape.text_frame.paragraphs for r in p.runs if r.font.size]
                 font = _font(int((sizes[0] if sizes else 18) * 12700 * scale))
                 height = getattr(font, "size", 12)
-                per_line = max(int((b[2] - b[0]) / (height * 0.5)), 1)
                 y = b[1]
                 for paragraph in shape.text_frame.paragraphs:
-                    for line in textwrap.wrap(paragraph.text, per_line) or [""]:
-                        draw.text((b[0], y), line, fill=_TEXT, font=font)
-                        y += int(height * 1.2)
+                    # Paragraph margins narrow the line, as PowerPoint does
+                    # (slide 137 wraps its bullets before a diagram this way).
+                    p_pr = paragraph._p.find(qn("a:pPr"))
+                    margins = sum(int(p_pr.get(k, 0)) for k in ("marL", "marR")) if p_pr is not None else 0
+                    per_line = max(int(((b[2] - b[0]) - margins * scale) / (height * 0.5)), 1)
+                    # "\v" is a manual line break inside a paragraph (python-pptx's
+                    # paragraph.text); the slide's own wrapping, kept as it is.
+                    for piece in paragraph.text.split("\v"):
+                        for line in textwrap.wrap(piece, per_line) or [""]:
+                            draw.text((b[0], y), line, fill=_TEXT, font=font)
+                            y += int(height * 1.2)
                 continue
             draw.rectangle(b, outline=_OUTLINE)
 

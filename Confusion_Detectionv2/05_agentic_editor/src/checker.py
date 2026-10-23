@@ -198,9 +198,15 @@ def _repair_words(text: str) -> set:
     return {w for w in _words(_plain(text)) if len(w) >= _MIN_CONTENT_WORD and not w.isdigit()}
 
 
-def check_edit(edit: SlideEdit, dossier, deck) -> CheckedEdit:
-    """`dossier` is the edit's topic (None for a repair, which has none)."""
+def check_edit(edit: SlideEdit, dossier, deck, room=None) -> CheckedEdit:
+    """`dossier` is the edit's topic (None for a repair, which has none).
+    `room`, when given, measures added bullets against the real slide
+    (applier.RoomChecker): returns a problem string, or None if they fit."""
     problems: List[str] = []
+    if room is not None and edit.operation == APPEND_BULLETS:
+        problem = room(edit)
+        if problem:
+            problems.append(problem)
     if edit.operation == INSERT_SLIDE_AFTER:
         _check_insert(edit, dossier, deck, problems)
     elif edit.operation == APPEND_BULLETS:
@@ -216,10 +222,10 @@ def _content_words(edit: SlideEdit) -> set:
     return {w for w in _words(" ".join([edit.title] + edit.bullets)) if len(w) >= _MIN_CONTENT_WORD}
 
 
-def check_edits(edits: List[SlideEdit], dossiers_by_id: dict, deck) -> List[CheckedEdit]:
+def check_edits(edits: List[SlideEdit], dossiers_by_id: dict, deck, room=None) -> List[CheckedEdit]:
     """Checks each edit, then rejects an edit that repeats an earlier
     accepted one at the same place. Plan order decides which is kept."""
-    checked = [check_edit(e, dossiers_by_id.get(e.topic_id), deck) for e in edits]
+    checked = [check_edit(e, dossiers_by_id.get(e.topic_id), deck, room) for e in edits]
     kept = []  # (places, content words, edit) of edits accepted so far
     for c in checked:
         if not c.accepted or c.edit.operation == REPAIR_SLIDE:

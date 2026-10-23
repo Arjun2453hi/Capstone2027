@@ -37,13 +37,18 @@ Fix every finding:
 - A question the slide does not answer: answer it, or remove it from
   addresses_questions.
 - Anything about length or format: follow the limit given.
+- A slide that "has no room" for added bullets: make it a new slide
+  instead ("operation": "insert_slide_after", same after_slide_id) with
+  its own descriptive title (never the title of the slide it follows)
+  and 3 to 6 bullets that each add something different, drawn from the
+  deck slides and the student questions.
 Keep everything that was not flagged. Bullets stay plain sentences of
 at most 30 words; 3 to 6 bullets for a new slide, 1 to 3 when adding to
 an existing slide. addresses_questions must be copied exactly from the
 list.
 
 Respond with strict JSON only, the revised slide as the single edit:
-{"edits": [{"operation": "<same as before>", "after_slide_id": <same>, "title": "<str>", "bullets": ["<str>", ...], "addresses_questions": ["<str>", ...]}]}"""
+{"edits": [{"operation": "<same as before, unless told to change it>", "after_slide_id": <same>, "title": "<str>", "bullets": ["<str>", ...], "addresses_questions": ["<str>", ...]}]}"""
 
 
 def build_revision_prompt(edit: SlideEdit, problems: List[str], dossier, deck) -> str:
@@ -79,7 +84,11 @@ def revise_edit(edit: SlideEdit, problems: List[str], dossier, deck, report, gen
     if not revised:
         return None
     new = revised[0]
-    new.operation = edit.operation  # a revision fixes the slide; it does not change what kind of edit it is
+    # A revision fixes the slide in place. The one change of kind allowed
+    # is bullets that do not fit becoming a new slide after the same one.
+    no_room = any("has no room" in p for p in problems)
+    if not (no_room and edit.operation == APPEND_BULLETS and new.operation == "insert_slide_after"):
+        new.operation = edit.operation
     new.after_slide_id = edit.after_slide_id
     new.addresses_questions = snap_to_known_questions(new.addresses_questions, [m.question for m in dossier.matched_questions])
     if new.operation == APPEND_BULLETS:
@@ -98,6 +107,7 @@ def suggest_for_topic(
     earlier: Optional[List[SlideEdit]] = None,
     max_revisions: int = MAX_REVISIONS,
     progress: Callable[[str], None] = lambda message: None,
+    room=None,
 ) -> List[CheckedEdit]:
     """Every suggestion for one gap, each accepted or rejected with its
     findings. `earlier`: accepted edits for other gaps, so a repeat of one
@@ -107,7 +117,7 @@ def suggest_for_topic(
     reviser = reviser or planner.generator
 
     def review(edits: List[SlideEdit]) -> List[CheckedEdit]:
-        checked = check_edits(earlier + edits, dossiers_by_id, deck)[len(earlier):]
+        checked = check_edits(earlier + edits, dossiers_by_id, deck, room)[len(earlier):]
         if verifier is not None:
             for c in checked:
                 if c.accepted:
@@ -132,7 +142,7 @@ def suggest_for_topic(
             if revised is None:
                 continue
             others = [c.edit for j, c in enumerate(results) if j != i and c.accepted]
-            again = check_edits(earlier + others + [revised], dossiers_by_id, deck)[-1]
+            again = check_edits(earlier + others + [revised], dossiers_by_id, deck, room)[-1]
             if verifier is not None and again.accepted:
                 again.problems.extend(verifier.verify(again.edit, dossier, deck))
                 drop_unanswered_questions(again)
