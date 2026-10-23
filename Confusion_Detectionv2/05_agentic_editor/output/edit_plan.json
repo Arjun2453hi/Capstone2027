@@ -224,8 +224,10 @@
       "report_confidence": 0.65,
       "source_text": null,
       "keep_pictures": true,
-      "accepted": true,
-      "problems": [],
+      "accepted": false,
+      "problems": [
+        "repeats 'Veth pair creation and chroot vs pivot_root comparison' (topic 11) and topic 12's cgroup hierarchy example, planned for the same place in the deck (reviewed by hand: same veth commands, same cgroup example)"
+      ],
       "revisions": 1
     },
     {

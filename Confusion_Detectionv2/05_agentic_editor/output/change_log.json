@@ -1,7 +1,7 @@
 {
   "source_deck": "data/cc-unit2-slides.pptx",
   "edited_deck": "05_agentic_editor/output/cc-unit2-slides.edited.pptx",
-  "slides_added": 23,
+  "slides_added": 21,
   "edits": [
     {
       "topic_id": 14,
@@ -25,8 +25,8 @@
       "source_text": null,
       "keep_pictures": true,
       "new_slide_numbers": [
-        195,
-        263
+        194,
+        261
       ],
       "mirrored_after_slide_ids": [
         244
@@ -61,7 +61,7 @@
       "keep_pictures": true,
       "new_slide_numbers": [
         138,
-        206
+        205
       ],
       "mirrored_after_slide_ids": [
         193
@@ -88,7 +88,7 @@
       "keep_pictures": true,
       "new_slide_numbers": [
         142,
-        210
+        209
       ],
       "mirrored_after_slide_ids": [
         196
@@ -122,7 +122,7 @@
       "keep_pictures": true,
       "new_slide_numbers": [
         176,
-        244
+        243
       ],
       "mirrored_after_slide_ids": [
         228
@@ -157,37 +157,6 @@
       "note": null
     },
     {
-      "topic_id": 16,
-      "after_slide_id": 228,
-      "title": "VETH pair and cgroup hierarchy examples",
-      "bullets": [
-        "Create a veth pair: `ip link add veth0 type veth peer name veth1`.",
-        "Move one end into a namespace: `ip link set veth1 netns <ns_name>`; the other end stays in the host.",
-        "Assign IPs and bring interfaces up inside each namespace with `ip addr add …` and `ip link set up`.",
-        "Build a cgroup hierarchy: `mkdir -p /sys/fs/cgroup/memory/parent/child`; set a limit with `echo 209715200 > memory.limit_in_bytes` (200 MiB).",
-        "Processes placed in the child cgroup are limited by that cgroup’s settings, which can be stricter than the parent’s limits."
-      ],
-      "addresses_questions": [
-        "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
-        "What's the exact procedure for moving one end of a veth pair into a namespace?",
-        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?"
-      ],
-      "operation": "insert_slide_after",
-      "gap_type": "shallow_coverage",
-      "report_confidence": 0.65,
-      "source_text": null,
-      "keep_pictures": true,
-      "new_slide_numbers": [
-        177,
-        245
-      ],
-      "mirrored_after_slide_ids": [
-        167
-      ],
-      "hidden_slide_numbers": [],
-      "note": null
-    },
-    {
       "topic_id": 20,
       "after_slide_id": 260,
       "title": "Concrete Automation & CD Principles Rationale",
@@ -209,7 +178,7 @@
       "source_text": null,
       "keep_pictures": true,
       "new_slide_numbers": [
-        281
+        279
       ],
       "mirrored_after_slide_ids": [],
       "hidden_slide_numbers": [],
@@ -237,7 +206,7 @@
       "source_text": null,
       "keep_pictures": true,
       "new_slide_numbers": [
-        298
+        296
       ],
       "mirrored_after_slide_ids": [],
       "hidden_slide_numbers": [],
@@ -268,8 +237,8 @@
       "source_text": null,
       "keep_pictures": true,
       "new_slide_numbers": [
-        185,
-        253
+        184,
+        251
       ],
       "mirrored_after_slide_ids": [
         235
@@ -298,7 +267,7 @@
       "keep_pictures": true,
       "new_slide_numbers": [
         154,
-        222
+        221
       ],
       "mirrored_after_slide_ids": [
         207
@@ -324,7 +293,7 @@
       "source_text": null,
       "keep_pictures": true,
       "new_slide_numbers": [
-        271
+        269
       ],
       "mirrored_after_slide_ids": [],
       "hidden_slide_numbers": [],
@@ -436,11 +405,11 @@
       "source_text": "Kubernetes (also know as K8s) Basics\nKubernetes as seen earlier is a container or microservice platform that orchestrates computing, networking, and storage infrastructure workloads. Kubernetes extends how we scale containerized applications so that we can enjoy all the benefits of a truly immutable infrastructure\nUnderstanding the K8S, will need the understanding the objects used as the building block of the application lifecycle. This . This include\n1. Basic Building objects\t2.\nControllers which are several higher-level abstractions Basic K8S objects include\nReplicaSet (RS). Ensures the desired amount of pod is what’s running.\nDeployment. Offers declarative updates for pods in an RS.\nStatefulSet. A workload API object that manages stateful applications, such as databases.\nDaemonSet. Ensures that all or some worker nodes run a copy of a pod. This is useful for daemon applications like Fluentd.\nJob. Creates one or more pods, runs a certain task(s) to completion, then deletes the pod(s)\nPod. A group of one or more containers.\nService. An abstraction that defines a logical set of pods as well as the policy and an endpoint for accessing them.\nVolume. An abstraction that lets us persist data. (This is necessary because containers are ephemeral—meaning data is deleted when the container is deleted.)\nNamespace.  A  segment  of  the  cluster  dedicated  to  a certain purpose, for example a certain project or team of devs. Typically used to create multiple virtual Kubernetes clusters within a single cluster\nhttps://www.bmc.com/blogs/what-is-kubernetes/\nhttp://kubernetes.io/docs/concepts/overview/what-is-kubernetes/\nKubernetes (also know as K8s) Basics\nKubernetes as seen earlier is a container or microservice platform that orchestrates computing,\nnetworking, and storage infrastructure workloads. Kubernetes extends how we scale containerized\napplications so that we can enjoy all the benefits of a truly immutable infrastructure\nUnderstanding the K8S, will need the understanding the objects used as the building block of the\napplication lifecycle. This . This include\n1. Basic Building objects 2. Controllers which are several higher-level abstractions\nBasic K8S objects include\n▪ Pod. A group of one or more containers.\n▪ ReplicaSet (RS). Ensures the desired amount of pod is\n▪ Service. An abstraction that defines a logical set of pods as\nwhat’s running.\nwell as the policy and an endpoint for accessing them.\n▪ Deployment. Offers declarative updates for pods in an RS.\n▪ Volume. An abstraction that lets us persist data. (This is\nnecessary because containers are ephemeral—meaning ▪ StatefulSet. A workload API object that manages stateful\ndata is deleted when the container is deleted.) applications, such as databases.\n▪ Namespace. A segment of the cluster dedicated to a ▪ DaemonSet. Ensures that all or some worker nodes run a\ncertain purpose, for example a certain project or team of copy of a pod. This is useful for daemon applications like\ndevs. Typically used to create multiple virtual Kubernetes Fluentd.\nclusters within a single cluster\n▪ Job. Creates one or more pods, runs a certain task(s) to\ncompletion, then deletes the pod(s)\nhttps://www.bmc.com/blogs/what-is-kubernetes/ http://kubernetes.io/docs/concepts/overview/what-is-kubernetes/",
       "keep_pictures": true,
       "new_slide_numbers": [
-        300
+        298
       ],
       "mirrored_after_slide_ids": [],
       "hidden_slide_numbers": [
-        299
+        297
       ],
       "note": null
     },
@@ -464,11 +433,11 @@
       "source_text": "Kubernetes Architecture\nA K8S cluster is made of a\nMaster node, which exposes the API, schedules deployments, and generally manages the cluster. This is the entry point of all administrative tasks. The master node is the one taking care of orchestrating the worker nodes, where the actual services are running.\nWorker nodes (multiple of them) can be responsible for container runtime, like Docker.\nMaster node components\nThese master node comprises of the following components :\nKube-apiserver. Exposes the API is the entry points for all the REST commands used to control the cluster\netcd. Key value stores all cluster data. (Can be run on the same server as a master node or on a dedicated cluster) It’s mainly used for shared configuration and service discovery with info like jobs being scheduled, created and deployed, pod/service details and state, namespaces and replication information\nKube-scheduler. Has information on the resources available. Schedules new pods on worker nodes.\nKube-controller-manager. Runs the controllers. Uses apiserver to watch the shared state of the cluster and makes corrective changes to the current state to change it to the desired one.\nE.g. of a controller is the Replication controller, which takes care of the number of pods in the system as\nconfigured by the user.\nKubernetes Architecture\nA K8S cluster is made of a\n▪ Master node, which exposes the API, schedules deployments, and generally manages the cluster. This is the\nentry point of all administrative tasks. The master node is the one taking care of orchestrating the worker\nnodes, where the actual services are running.\n▪ Worker nodes (multiple of them) can be responsible for container runtime, like Docker.\nMaster node components\n▪ These master node comprises of the following components :\n▪ Kube-apiserver. Exposes the API is the entry points for all the REST commands used to control the cluster\n▪ etcd. Key value stores all cluster data. (Can be run on the same server as a master node or on a dedicated\ncluster) It’s mainly used for shared configuration and service discovery with info like jobs being scheduled,\ncreated and deployed, pod/service details and state, namespaces and replication information\n▪ Kube-scheduler. Has information on the resources available. Schedules new pods on worker nodes.\n▪ Kube-controller-manager. Runs the controllers. Uses apiserver to watch the shared state of the cluster and\nmakes corrective changes to the current state to change it to the desired one.\nE.g. of a controller is the Replication controller, which takes care of the number of pods in the system as\nconfigured by the user.",
       "keep_pictures": true,
       "new_slide_numbers": [
-        305
+        303
       ],
       "mirrored_after_slide_ids": [],
       "hidden_slide_numbers": [
-        304
+        302
       ],
       "note": null
     }
