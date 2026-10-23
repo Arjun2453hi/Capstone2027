@@ -15,6 +15,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -130,6 +131,51 @@ def slide_image(slide_id: int):
 @st.cache_data
 def broken_layout_candidates():
     return layout_check.find_layout_issues(SOURCE_PPTX, SOURCE_PDF, max_results=10)
+
+
+REPLAY_STEP_SECONDS = 0.8  # pre-checked mode paces its replay so each step can be read
+
+
+def _replay(label: str, steps, summary: str) -> None:
+    """Shows, step by step, what the pipeline did when it produced a
+    pre-checked result. Labelled as a replay: nothing is generated now."""
+    with st.status(label, expanded=True) as status:
+        for step in steps:
+            st.write(step)
+            time.sleep(REPLAY_STEP_SECONDS)
+        status.update(label=summary, state="complete")
+
+
+def replay_steps(checked, model_name=None) -> None:
+    passed = [c for c in checked if c.accepted]
+    corrected = sum(1 for c in passed if c.revisions)
+    steps = [
+        f"Reading the gap report, the topic's slides and the students' questions ({model_name or 'LLM'})…",
+        f"Writing {plural(len(checked), 'suggestion')}…",
+        "Running the quality checks (length, fits the slide, real questions, no repeats)…",
+        "Fact-checking against the deck: contradictions, wrong statements, invented numbers, unanswered questions…",
+    ]
+    if corrected:
+        steps.append(f"The fact-check flagged {plural(corrected, 'first draft')}; the model corrected and re-checked it…")
+    _replay(
+        "Replaying the recorded run for this gap (pre-checked result)…",
+        steps,
+        f"{len(passed)} of {plural(len(checked), 'suggestion')} passed every check (pre-checked result)",
+    )
+
+
+def replay_repair_steps(checked, model_name=None) -> None:
+    steps = [
+        f"Splitting {plural(len(checked), 'slide')} into text and pictures…",
+        f"Restructuring each slide's own text into a title and bullets ({model_name or 'LLM'})…",
+        "Checking nothing was added and most of the original was kept…",
+        "Laying out the rebuilt slides with the deck's header…",
+    ]
+    _replay(
+        "Replaying the recorded repairs (pre-checked result)…",
+        steps,
+        f"{sum(c.accepted for c in checked)} of {plural(len(checked), 'repair')} passed the checks (pre-checked result)",
+    )
 
 
 def edit_key(edit) -> str:
@@ -250,6 +296,7 @@ can_suggest = reason is None and (cached is not None if use_reviewed else bool(a
 if reason is None and st.button("Suggest slides for this gap", type="primary", disabled=not can_suggest):
     if use_reviewed:
         checked = copy.deepcopy(cached)
+        replay_steps(checked, model_name=reviewed_meta.get("model"))
     else:
         try:
             planner, verifier, model, _ = llm(api_key)
@@ -406,6 +453,8 @@ if state.get("broken"):
     live = [sid for sid in ticked if sid not in from_file]
     if st.button(f"Plan repairs for the {len(ticked)} ticked slide(s)", type="primary", disabled=not ticked or (bool(live) and not api_key)):
         checked = [copy.deepcopy(c) for sid in from_file for c in reviewed_repairs[sid]]
+        if checked:
+            replay_repair_steps(checked, model_name=reviewed_meta.get("model"))
         if live:
             try:
                 _, _, model, repairer = llm(api_key)
