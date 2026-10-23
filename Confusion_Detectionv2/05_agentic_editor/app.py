@@ -81,24 +81,42 @@ def load_inputs():
 
 
 @st.cache_resource
+def room_checker():
+    return applier.RoomChecker(SOURCE_PPTX)
+
+
+@st.cache_resource
 def llm(api_key):
     generator = editor.GroqEditGenerator(api_key=api_key)
     verifier = editor.EditVerifier(planner_module.with_max_tokens(generator, FACT_CHECK_MAX_TOKENS))
     return editor.EditPlanner(generator), verifier, generator.model, repair.RepairPlanner(generator)
 
 
-def rebuilt_preview(edit):
-    """A drawing of the slide a repair would produce, built by really
-    applying it to a scratch copy of the deck."""
+@st.cache_data(show_spinner="Drawing the changed slide…")
+def _changed_slide_image(edit_json: str):
+    """The slide an edit produces (the new slide, the slide with added
+    bullets, or the rebuilt slide), drawn after really applying the edit
+    to a scratch copy of the deck -- what the board sees is what the
+    file will contain."""
     import tempfile
 
     from pptx import Presentation
 
+    edit = schema.SlideEdit(**json.loads(edit_json))
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp) / "preview.pptx"
         applied = applier.apply_edits(SOURCE_PPTX, out, [edit], deck)
         prs = Presentation(str(out))
         return preview.render_slide(prs.slides[applied[0].new_slide_positions[0]], prs.slide_width, prs.slide_height, width_px=900)
+
+
+def changed_slide_image(edit):
+    from dataclasses import asdict
+
+    return _changed_slide_image(json.dumps(asdict(edit), sort_keys=True))
+
+
+rebuilt_preview = changed_slide_image  # repairs use the same drawing
 
 
 @st.cache_data
@@ -112,20 +130,6 @@ def slide_image(slide_id: int):
 @st.cache_data
 def broken_layout_candidates():
     return layout_check.find_layout_issues(SOURCE_PPTX, SOURCE_PDF, max_results=10)
-
-
-def slide_preview(edit) -> str:
-    """The new slide drawn the way the applier lays it out: course
-    banner, orange title, rule, bullets."""
-    bullets = "".join(f"<li>{html.escape(b)}</li>" for b in edit.bullets)
-    return f"""
-<div style="aspect-ratio:16/9;background:#fff;border:1px solid #ccc;border-radius:4px;padding:2.2% 3.5%;
-            font-family:Calibri,Arial,sans-serif;color:#222;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.15)">
-  <div style="font-size:0.75em;font-weight:700;color:#C55A11;letter-spacing:.04em">CLOUD COMPUTING</div>
-  <div style="font-size:1.25em;font-weight:700;color:#C55A11;margin-top:.2em">{html.escape(edit.title)}</div>
-  <div style="height:3px;background:#C55A11;width:68%;margin:.5em 0 .7em"></div>
-  <ul style="font-size:0.85em;line-height:1.35;margin:0;padding-left:1.2em">{bullets}</ul>
-</div>"""
 
 
 def edit_key(edit) -> str:
@@ -258,7 +262,8 @@ if reason is None and st.button("Suggest slides for this gap", type="primary", d
             # duplicated lecture asking for the same slide) is caught.
             earlier = [c.edit for t, cs in state.suggestions.items() if t not in (topic_id, REPAIRS) for c in cs if c.accepted]
             checked = revise.suggest_for_topic(
-                report, dossier, deck, dossiers, planner, verifier, earlier=earlier, progress=lambda m: st.write(m + "…")
+                report, dossier, deck, dossiers, planner, verifier, earlier=earlier,
+                progress=lambda m: st.write(m + "…"), room=room_checker(),
             )
             error = getattr(planner.generator, "last_error", None)
             if not checked and error:
@@ -272,25 +277,48 @@ if reason is None and st.button("Suggest slides for this gap", type="primary", d
 
 
 def show_suggestion(number: int, c) -> None:
+    """Top to bottom: what the change is, the exact text, whether it
+    passed review, then the slide before and after."""
     e = c.edit
+    where = e.after_slide_id + 1
+    if e.operation == schema.APPEND_BULLETS:
+        st.subheader(f"Suggestion {number}: add {plural(len(e.bullets), 'bullet')} to slide {where}")
+    else:
+        st.subheader(f"Suggestion {number}: new slide after slide {where}")
+
+    st.markdown("**1. The change, in text**")
+    with st.container(border=True):
+        if e.operation == schema.APPEND_BULLETS:
+            st.markdown(f"Added to the end of slide {where} (*{e.title or 'untitled'}*), in that slide's own bullet style:")
+        else:
+            st.markdown(f"**{e.title}**")
+        st.markdown("\n".join(f"- {b}" for b in e.bullets))
+        st.caption("Answers the students' questions: " + "; ".join(f"“{q}”" for q in e.addresses_questions))
+
+    st.markdown("**2. Review**")
+    if c.accepted:
+        corrected = (
+            f" The fact-check found a problem in the first draft, and the model corrected it "
+            f"({plural(c.revisions, 'revision')}) before it passed."
+            if c.revisions else ""
+        )
+        st.success("Passed the quality checks and the fact-check: consistent with the deck, and it answers the questions above." + corrected)
+    else:
+        st.caption("Why it was blocked: " + " · ".join(c.problems))
+
+    st.markdown("**3. The slide, before and after**")
     before, after = st.columns(2)
     if e.operation == schema.APPEND_BULLETS:
-        st.subheader(f"Suggestion {number}: add {len(e.bullets)} bullet(s) to slide {e.after_slide_id + 1}")
-        with before:
-            st.caption(f"Slide {e.after_slide_id + 1} now")
-            st.image(slide_image(e.after_slide_id), width="stretch")
-        with after:
-            st.caption("Added to the end of its text, in the slide's own bullet style")
-            st.markdown("\n".join(f"- {b}" for b in e.bullets))
+        before.caption(f"Slide {where} now")
+        after.caption(f"Slide {where} with the bullets added")
     else:
-        st.subheader(f"Suggestion {number}: new slide after slide {e.after_slide_id + 1}")
-        with before:
-            st.caption(f"Existing slide {e.after_slide_id + 1} (stays as it is)")
-            st.image(slide_image(e.after_slide_id), width="stretch")
-        with after:
-            st.caption("New slide that goes right after it")
-            st.markdown(slide_preview(e), unsafe_allow_html=True)
-    st.markdown("**Answers:** " + "; ".join(f"“{q}”" for q in e.addresses_questions))
+        before.caption(f"Existing slide {where} (unchanged)")
+        after.caption("The new slide, right after it (drawn from the edited file; open the deck for exact fonts)")
+    before.image(slide_image(e.after_slide_id), width="stretch")
+    try:
+        after.image(changed_slide_image(e), width="stretch")
+    except Exception as err:  # the drawing is a convenience; never block the review on it
+        after.caption(f"(No drawing available: {err})")
 
 
 suggestions = state.suggestions.get(topic_id)
@@ -314,8 +342,6 @@ if suggestions is not None:
         )
     for i, c in enumerate(passed, start=1):
         show_suggestion(i, c)
-        corrected = f" The fact-check found a problem in the first draft; the model corrected it ({c.revisions} revision{'s' if c.revisions > 1 else ''})." if c.revisions else ""
-        st.success("Passed the quality checks and the fact-check." + corrected)
         key = edit_key(c.edit)
         state.approved[key] = st.checkbox("Approve this slide", value=state.approved.get(key, True), key=f"approve-{key}")
         st.divider()
