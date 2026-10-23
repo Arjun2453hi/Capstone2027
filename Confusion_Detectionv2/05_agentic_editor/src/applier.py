@@ -294,7 +294,7 @@ def _build_repaired_slide(prs, template_slide, source_slide, banner, edit: Slide
     """Appends the rebuild of `source_slide` at the end of the deck."""
     parts = split_slide(source_slide, prs.slide_width, prs.slide_height, banner)
     slide = _new_slide_with_header(prs, template_slide, edit.title)
-    graphics = parts.graphics
+    graphics = parts.graphics if edit.keep_pictures else []
     if not graphics:
         size = fit_font_pt(edit.bullets, _body_rect(prs)[2] - _body_rect(prs)[0], _body_rect(prs)[3] - _body_rect(prs)[1])
         _add_body(slide, edit.bullets, _body_rect(prs), size)

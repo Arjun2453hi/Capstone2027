@@ -28,6 +28,10 @@ MAX_OVERLAP_WITH_ANCHOR = 0.8
 # both proposed a "Docker namespaces" slide.
 MAX_OVERLAP_WITH_SAME_PLACE_EDIT = 0.5
 _MIN_CONTENT_WORD = 4  # shorter words ("the", "and", "pid") don't tell two slides apart
+# "The same place" includes the slides around it: topics 14 and 18 put a
+# namespaces slide after slides 184 and 185 (as copies of each other) --
+# two near-identical slides in a row.
+SAME_PLACE_RADIUS = 2
 
 # Adding bullets to an existing slide: a little, and only while the slide
 # stays within what this deck's slides typically hold (raw text: median
@@ -220,7 +224,8 @@ def check_edits(edits: List[SlideEdit], dossiers_by_id: dict, deck) -> List[Chec
     for c in checked:
         if not c.accepted or c.edit.operation == REPAIR_SLIDE:
             continue
-        places = {c.edit.after_slide_id, *duplicate_anchor_ids(deck, c.edit.after_slide_id)}
+        anchors = {c.edit.after_slide_id, *duplicate_anchor_ids(deck, c.edit.after_slide_id)}
+        places = {a + d for a in anchors for d in range(-SAME_PLACE_RADIUS, SAME_PLACE_RADIUS + 1)}
         words = _content_words(c.edit)
         for other_places, other_words, other in kept:
             shared = len(words & other_words) / (min(len(words), len(other_words)) or 1)

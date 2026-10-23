@@ -20,7 +20,7 @@ def save_plan_json(checked: List[CheckedEdit], skipped: dict, path: Union[str, P
     """`skipped`: topic_id -> why no edits were planned for it."""
     _write(
         {
-            "edits": [{**asdict(c.edit), "accepted": c.accepted, "problems": c.problems} for c in checked],
+            "edits": [{**asdict(c.edit), "accepted": c.accepted, "problems": c.problems, "revisions": c.revisions} for c in checked],
             "skipped_topics": {str(topic_id): reason for topic_id, reason in sorted(skipped.items())},
         },
         path,
@@ -33,8 +33,9 @@ def load_plan_json(path: Union[str, Path]) -> List[CheckedEdit]:
     checked = []
     for item in raw["edits"]:
         problems = item.pop("problems", [])
+        revisions = item.pop("revisions", 0)
         item.pop("accepted", None)
-        checked.append(CheckedEdit(edit=SlideEdit(**item), problems=problems))
+        checked.append(CheckedEdit(edit=SlideEdit(**item), problems=problems, revisions=revisions))
     return checked
 
 
@@ -59,3 +60,49 @@ def save_change_log_json(applied: List[AppliedEdit], source_pptx, output_pptx, p
         },
         path,
     )
+
+
+def _checked_items(checked: List[CheckedEdit]) -> list:
+    return [{**asdict(c.edit), "accepted": c.accepted, "problems": c.problems, "revisions": c.revisions} for c in checked]
+
+
+def _checked_from_items(items: list) -> List[CheckedEdit]:
+    result = []
+    for item in items:
+        item = dict(item)
+        problems = item.pop("problems", [])
+        revisions = item.pop("revisions", 0)
+        item.pop("accepted", None)
+        item.pop("review_note", None)
+        result.append(CheckedEdit(edit=SlideEdit(**item), problems=problems, revisions=revisions))
+    return result
+
+
+def save_reviewed_json(topics: dict, repairs: dict, model: str, path: Union[str, Path]) -> None:
+    """Suggestions generated ahead of time and read by a person, for the
+    demo to load instantly. topics: topic_id -> [CheckedEdit];
+    repairs: slide_id -> [CheckedEdit]."""
+    from datetime import datetime, timezone
+
+    _write(
+        {
+            "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "model": model,
+            "topics": {str(t): _checked_items(c) for t, c in sorted(topics.items())},
+            "repairs": {str(s): _checked_items(c) for s, c in sorted(repairs.items())},
+        },
+        path,
+    )
+
+
+def load_reviewed_json(path: Union[str, Path]):
+    """(topics, repairs, metadata) as saved by save_reviewed_json, with
+    int keys; ({}, {}, {}) if the file does not exist."""
+    path = Path(path)
+    if not path.exists():
+        return {}, {}, {}
+    with path.open("r", encoding="utf-8") as f:
+        raw = json.load(f)
+    topics = {int(t): _checked_from_items(items) for t, items in raw.get("topics", {}).items()}
+    repairs = {int(s): _checked_from_items(items) for s, items in raw.get("repairs", {}).items()}
+    return topics, repairs, {"generated_at": raw.get("generated_at"), "model": raw.get("model")}

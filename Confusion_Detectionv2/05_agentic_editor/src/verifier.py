@@ -19,6 +19,8 @@ from .grounding import slide_context
 from .planner import EditGenerator
 from .schema import APPEND_BULLETS, REPAIR_SLIDE, CheckedEdit, SlideEdit
 
+UNANSWERED = "fact-check, unanswered question: "
+
 # Slides on either side of the insertion point given to the fact-check,
 # beyond the topic's own (a gap is often explained just past a boundary).
 NEIGHBOUR_SLIDES = 3
@@ -33,11 +35,14 @@ statement on the proposed slide that:
   (c) states a specific number, threshold, percentage or limit as fact
       when the deck does not give it and it is not a well-known,
       documented value. A value clearly marked as an example is fine.
+Also list every student question the slide claims to answer that it does
+not actually answer: use "where": "questions" and copy that question
+exactly into "question", one entry per question.
 Do NOT flag a correct statement only because the deck does not mention
 it -- adding what the deck is missing is the point of the slide.
 
 Respond with strict JSON only:
-{"problems": [{"where": "title" or <bullet number>, "issue": "<one sentence>"}]}
+{"problems": [{"where": "title" or <bullet number> or "questions", "question": "<only for questions>", "issue": "<one sentence>"}]}
 Use an empty list when nothing is wrong."""
 
 
@@ -54,6 +59,7 @@ def build_user_prompt(edit: SlideEdit, dossier, deck) -> str:
     else:
         lines += [f"Proposed slide, to go after slide {edit.after_slide_id}:", f"Title: {edit.title}"]
     lines += [f"{i}. {b}" for i, b in enumerate(edit.bullets, start=1)]
+    lines += ["", "Student questions this slide claims to answer:"] + [f"- {q}" for q in edit.addresses_questions]
     return "\n".join(lines)
 
 
@@ -72,8 +78,13 @@ def parse_problems(raw: Optional[str]) -> Optional[List[str]]:
     for item in items:
         if isinstance(item, dict) and str(item.get("issue") or "").strip():
             where = item.get("where")
+            issue = str(item["issue"]).strip()
+            if where in ("questions", "question"):
+                question = str(item.get("question") or "").strip()
+                problems.append(f"{UNANSWERED}{question} -- {issue}" if question else f"fact-check, questions: {issue}")
+                continue
             label = "title" if where in (None, "title", 0, "0") else f"bullet {where}"
-            problems.append(f"fact-check, {label}: {str(item['issue']).strip()}")
+            problems.append(f"fact-check, {label}: {issue}")
         elif isinstance(item, str) and item.strip():
             problems.append(f"fact-check: {item.strip()}")
     return problems
@@ -90,6 +101,28 @@ class EditVerifier:
         return problems
 
 
+def drop_unanswered_questions(checked: CheckedEdit) -> None:
+    """A slide that answers some of the questions it cites is a good
+    slide that over-claims. The questions the fact-check named as not
+    answered are taken off its list -- not the slide thrown away -- as
+    long as at least one question it really answers remains."""
+    import difflib
+
+    unanswered = [p for p in checked.problems if p.startswith(UNANSWERED)]
+    if not unanswered:
+        return
+    named = [p[len(UNANSWERED):].split(" -- ")[0].lower() for p in unanswered]
+
+    def is_named(question: str) -> bool:
+        return any(difflib.SequenceMatcher(None, question.lower(), n).ratio() >= 0.9 for n in named)
+
+    cited = checked.edit.addresses_questions
+    keep = [q for q in cited if not is_named(q)]
+    if keep and len(cited) - len(keep) == len(unanswered):  # every named question was found and removed
+        checked.edit.addresses_questions = keep
+        checked.problems = [p for p in checked.problems if not p.startswith(UNANSWERED)]
+
+
 def verify_checked(checked: List[CheckedEdit], verifier: EditVerifier, dossiers_by_id: dict, deck) -> List[CheckedEdit]:
     """Fact-checks the edits that passed the checker (a rejected edit is
     not worth an LLM call) and adds whatever it finds to their problems.
@@ -98,4 +131,5 @@ def verify_checked(checked: List[CheckedEdit], verifier: EditVerifier, dossiers_
     for c in checked:
         if c.accepted and c.edit.operation != REPAIR_SLIDE:
             c.problems.extend(verifier.verify(c.edit, dossiers_by_id[c.edit.topic_id], deck))
+            drop_unanswered_questions(c)
     return checked

@@ -83,6 +83,8 @@ class GroqEditGenerator(EditGenerator):
     """Client construction and startup model validation come from
     common/llm_client.py, like every other Groq-calling stage."""
 
+    max_tokens = MAX_OUTPUT_TOKENS  # reply budget; see with_max_tokens()
+
     def __init__(self, api_key: Optional[str] = None, model_name: Optional[str] = None, client=None):
         from common.llm_client import get_validated_groq_client
 
@@ -102,7 +104,7 @@ class GroqEditGenerator(EditGenerator):
                 response = self._client.chat.completions.create(
                     model=self.model,
                     temperature=0.0,
-                    max_tokens=MAX_OUTPUT_TOKENS,
+                    max_tokens=self.max_tokens,
                     response_format={"type": "json_object"},
                     messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
                 )
@@ -116,6 +118,21 @@ class GroqEditGenerator(EditGenerator):
                 if "json_validate_failed" not in str(e):
                     break
         return ""
+
+
+def with_max_tokens(generator, max_tokens: int):
+    """The same generator (same client, model, key) with a smaller reply
+    budget. Groq counts the budget against the 8k tokens/minute limit, so
+    a call whose answer is short (the fact-check's list of problems) waits
+    less when it asks for less. Generators without a budget are returned
+    as they are."""
+    import copy
+
+    if not hasattr(generator, "max_tokens"):
+        return generator
+    smaller = copy.copy(generator)
+    smaller.max_tokens = max_tokens
+    return smaller
 
 
 def skip_reason(report, dossier, min_confidence: float = MIN_REPORT_CONFIDENCE) -> Optional[str]:

@@ -223,3 +223,17 @@ def test_preview_draws_a_slide_with_its_pictures(tmp_path):
     image = render_slide(prs.slides[2], prs.slide_width, prs.slide_height, width_px=500)
     assert image.size == (500, int(500 * prs.slide_height / prs.slide_width))
     assert len(set(image.getdata())) > 2  # not blank
+
+
+def test_a_repair_can_leave_the_pictures_out(tmp_path):
+    source = _broken_deck(tmp_path / "deck.pptx")
+    deck = make_deck([f"{t}\nbody of {t}" for t in TITLES])
+    edit = _repair(["Containers share the host kernel.", "They isolate processes with namespaces and cgroups."])
+    edit.keep_pictures = False
+
+    apply_edits(source, tmp_path / "out.pptx", [edit], deck)
+
+    rebuilt = Presentation(str(tmp_path / "out.pptx")).slides[3]
+    assert not [s for s in rebuilt.shapes if s.shape_type == 13]
+    body = next(s for s in rebuilt.shapes if s.name == BODY_SHAPE_NAME)
+    assert body.width > Presentation(str(tmp_path / "out.pptx")).slide_width * 0.8  # the text gets the full width

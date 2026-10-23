@@ -44,6 +44,9 @@ DEFAULT_REPORTS_DIR = _PROJECT_ROOT / "04_gap_reporting_agent" / "output"
 DEFAULT_SOURCE_PPTX = _PROJECT_ROOT / "data" / "cc-unit2-slides.pptx"
 DEFAULT_SOURCE_PDF = _PROJECT_ROOT / "data" / "cc-unit2-slides.pdf"
 DEFAULT_OUTPUT_DIR = Path(__file__).resolve().parent / "output"
+# The fact-check's answer is a short list, so it asks for a smaller reply
+# budget than the planner and waits less on the tokens/minute limit.
+FACT_CHECK_MAX_TOKENS = 1500
 
 
 def load_reports(reports_dir: Path) -> dict:
@@ -58,7 +61,11 @@ def load_reports(reports_dir: Path) -> dict:
 def plan(deck, dossiers_by_id: dict, reports: dict, topic_ids, min_confidence: float, fact_check: bool = True):
     planner = editor.EditPlanner(editor.GroqEditGenerator(), min_confidence=min_confidence)
     print(f"Planner model: {planner.generator.model}")
-    edits, skipped = [], {}
+    planner_module = importlib.import_module("05_agentic_editor.src.planner")
+    revise = importlib.import_module("05_agentic_editor.src.revise")
+    verifier = editor.EditVerifier(planner_module.with_max_tokens(planner.generator, FACT_CHECK_MAX_TOKENS)) if fact_check else None
+    checked = []
+    skipped = {}
     for topic_id, report in sorted(reports.items()):
         if topic_ids is not None and topic_id not in topic_ids:
             continue
@@ -68,13 +75,13 @@ def plan(deck, dossiers_by_id: dict, reports: dict, topic_ids, min_confidence: f
             skipped[topic_id] = reason
             print(f"[skipped] topic {topic_id}: {reason}")
             continue
-        topic_edits = planner.plan_topic(report, dossier, deck)
-        print(f"[planned] topic {topic_id}: {len(topic_edits)} edit(s)")
-        edits.extend(topic_edits)
-    checked = editor.check_edits(edits, dossiers_by_id, deck)
-    if fact_check:
-        print(f"Fact-checking {sum(c.accepted for c in checked)} edit(s) that passed the checker")
-        editor.verify_checked(checked, editor.EditVerifier(planner.generator), dossiers_by_id, deck)
+        topic_checked = revise.suggest_for_topic(
+            report, dossier, deck, dossiers_by_id, planner, verifier,
+            earlier=[c.edit for c in checked if c.accepted],
+            progress=lambda message, t=topic_id: print(f"  topic {t}: {message}"),
+        )
+        print(f"[planned] topic {topic_id}: {sum(c.accepted for c in topic_checked)} of {len(topic_checked)} accepted")
+        checked.extend(topic_checked)
     return checked, skipped
 
 

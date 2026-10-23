@@ -35,12 +35,17 @@ class SlideEdit:
     gap_type: Optional[str] = None  # carried from the report, for the change log
     report_confidence: Optional[float] = None
     source_text: Optional[str] = None  # REPAIR_SLIDE only: the broken slide's own text, which the rebuild may not go beyond
+    # REPAIR_SLIDE only: carry the slide's pictures over. A reviewer turns
+    # this off when what is left of them is noise (stacked animation
+    # frames, a lone logo) and a text-only slide reads better.
+    keep_pictures: bool = True
 
 
 @dataclass
 class CheckedEdit:
     edit: SlideEdit
     problems: List[str] = field(default_factory=list)
+    revisions: int = 0  # times the model revised this edit after a review flagged it
 
     @property
     def accepted(self) -> bool:
