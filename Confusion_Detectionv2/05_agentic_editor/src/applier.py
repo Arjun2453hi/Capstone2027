@@ -35,6 +35,9 @@ MIN_FIT_FONT_PT = 12
 # deck, expressed as fractions so other slide sizes scale with it.
 _BODY_LEFT, _BODY_TOP, _BODY_WIDTH, _BODY_HEIGHT = 0.036, 0.216, 0.92, 0.70
 _RULE_MAX_HEIGHT = Inches(0.1)
+# 128 of the deck's headers have a 12.8 in title box; new slides copy one
+# of those, never one of the few narrow ones.
+_MIN_HEADER_WIDTH = Inches(8)
 # Repaired slides: shares of the body area tried for the pictures, when
 # they sit to the right of the text or below it. Text-heavy slides
 # (278, 282) need the smaller shares to stay readable.
@@ -56,6 +59,8 @@ def _header_shapes(slide):
         return None
     if len([p for p in title.text_frame.paragraphs if p.text.strip()]) < 2:
         return None
+    if title.width < _MIN_HEADER_WIDTH:
+        return None  # a narrow title box (a few slides have 3-6 in) wraps a new title under the rule
     rule = next(
         (s for s in slide.shapes if s.shape_type == MSO_SHAPE_TYPE.FREEFORM and s.height <= _RULE_MAX_HEIGHT and s.top < title.top + title.height + Inches(1)),
         None,
@@ -78,14 +83,20 @@ def _set_title(title_shape, text: str) -> None:
     paragraph is rewritten, keeping its first run's formatting."""
     paragraphs = [p for p in title_shape.text_frame.paragraphs if p.text.strip()]
     target = paragraphs[-1]
-    target.runs[0].text = text
+    target.runs[0].text = plain_text(text)
+    # Most of the deck's titles use the layout's default size; a size
+    # copied from the template slide (some shrink long titles) made new
+    # titles differ from slide to slide.
+    r_pr = target.runs[0]._r.find(qn("a:rPr"))
+    if r_pr is not None and "sz" in r_pr.attrib:
+        del r_pr.attrib["sz"]
     for run in target.runs[1:]:
         run._r.getparent().remove(run._r)
 
 
 def _add_bullet(paragraph, text: str, size_pt: float = BODY_FONT_PT) -> None:
     run = paragraph.add_run()
-    run.text = text
+    run.text = plain_text(text)
     run.font.name, run.font.size = BODY_FONT, Pt(size_pt)
     paragraph.space_after = Pt(round(size_pt * 0.45))
     pPr = paragraph._p.get_or_add_pPr()
@@ -95,6 +106,15 @@ def _add_bullet(paragraph, text: str, size_pt: float = BODY_FONT_PT) -> None:
     bu_char = pPr.makeelement(qn("a:buChar"), {"char": "•"})
     pPr.append(bu_font)
     pPr.append(bu_char)
+
+
+# Characters LLMs like that Calibri cannot draw (PowerPoint shows a box
+# or swaps the font): non-breaking hyphens and spaces become plain ones.
+_PLAIN = str.maketrans({"\u2010": "-", "\u2011": "-", "\u202f": " ", "\u00a0": " ", "\u2007": " "})
+
+
+def plain_text(text: str) -> str:
+    return text.translate(_PLAIN)
 
 
 def fit_font_pt(bullets: List[str], width_emu: int, height_emu: int, largest: float = BODY_FONT_PT) -> float:
@@ -136,14 +156,82 @@ def _new_slide_with_header(prs, template_slide, title: str):
     return slide
 
 
-def _add_body(slide, bullets: List[str], rect: Tuple[int, int, int, int], size_pt: float):
+def deck_bullet_style(prs, position: int = 0):
+    """(paragraph properties, run properties, size in pt) of the deck's
+    MOST COMMON bullet style, copied from a real paragraph that has it,
+    so every new slide looks like the typical slide. In this deck: a
+    round Arial bullet, 22pt, normal weight, default colour (134
+    paragraphs); dark-orange squares appear in only some lectures. The
+    nearest slide's style was tried first and gave new slides bold, blue
+    or tiny text whenever the neighbour was unusual. `position` is kept
+    for callers; the choice does not depend on it. None if the deck has
+    no bullets."""
+    from collections import Counter
+
+    cache = getattr(prs, "_gap_editor_bullet_style", None)
+    if cache is not None:
+        return cache[0]
+    examples, counts = {}, Counter()
+    for slide in prs.slides:
+        title = slide.shapes.title
+        for shape in slide.shapes:
+            if not shape.has_text_frame or (title is not None and shape.shape_id == title.shape_id) or shape.name == BODY_SHAPE_NAME:
+                continue
+            for paragraph in shape.text_frame.paragraphs:
+                p_pr = paragraph._p.find(qn("a:pPr"))
+                runs = paragraph._p.findall(qn("a:r"))
+                if p_pr is None or p_pr.find(qn("a:buChar")) is None or not runs or len(paragraph.text.strip()) < 25:
+                    continue
+                r_pr = runs[0].find(qn("a:rPr"))
+                if r_pr is None or not r_pr.get("sz") or r_pr.get("b") == "1" or r_pr.find(qn("a:solidFill")) is not None:
+                    continue  # bold or coloured text is an emphasis, not the body style
+                font = p_pr.find(qn("a:buFont"))
+                colour = p_pr.find(qn("a:buClr"))
+                key = (
+                    p_pr.find(qn("a:buChar")).get("char"),
+                    font.get("typeface") if font is not None else None,
+                    colour.find(qn("a:srgbClr")).get("val") if colour is not None and colour.find(qn("a:srgbClr")) is not None else None,
+                    r_pr.get("sz"),
+                )
+                counts[key] += 1
+                examples.setdefault(key, (copy.deepcopy(p_pr), copy.deepcopy(r_pr)))
+    style = None
+    if counts:
+        key = counts.most_common(1)[0][0]
+        p_pr, r_pr = examples[key]
+        style = (p_pr, r_pr, int(key[3]) / 100)
+    prs._gap_editor_bullet_style = (style,)
+    return style
+
+
+def _add_styled_bullet(paragraph, text: str, style, size_pt: float) -> None:
+    p_pr, r_pr, _ = style
+    old = paragraph._p.find(qn("a:pPr"))
+    if old is not None:
+        paragraph._p.remove(old)
+    paragraph._p.insert(0, copy.deepcopy(p_pr))
+    run = paragraph.add_run()
+    run.text = plain_text(text)
+    new_rpr = copy.deepcopy(r_pr)
+    new_rpr.set("sz", str(int(size_pt * 100)))
+    old_rpr = run._r.find(qn("a:rPr"))
+    if old_rpr is not None:
+        run._r.remove(old_rpr)
+    run._r.insert(0, new_rpr)
+
+
+def _add_body(slide, bullets: List[str], rect: Tuple[int, int, int, int], size_pt: float, style=None):
     left, top, right, bottom = rect
     body = slide.shapes.add_textbox(left, top, right - left, bottom - top)
     body.name = BODY_SHAPE_NAME
     frame = body.text_frame
     frame.word_wrap = True
     for i, bullet in enumerate(bullets):
-        _add_bullet(frame.paragraphs[0] if i == 0 else frame.add_paragraph(), bullet, size_pt)
+        paragraph = frame.paragraphs[0] if i == 0 else frame.add_paragraph()
+        if style is not None:
+            _add_styled_bullet(paragraph, bullet, style, size_pt)
+        else:
+            _add_bullet(paragraph, bullet, size_pt)
     return body
 
 
@@ -153,10 +241,15 @@ def _body_rect(prs) -> Tuple[int, int, int, int]:
     return (left, top, left + int(width * _BODY_WIDTH), top + int(height * _BODY_HEIGHT))
 
 
-def _build_slide(prs, template_slide, edit: SlideEdit):
-    """Appends the new slide at the end of the deck and returns it."""
+def _build_slide(prs, template_slide, edit: SlideEdit, style=None):
+    """Appends the new slide at the end of the deck and returns it. With
+    `style` (deck_bullet_style), its bullets copy the deck's own; the
+    font shrinks from the deck's size only if the text would not fit."""
     slide = _new_slide_with_header(prs, template_slide, edit.title)
-    _add_body(slide, edit.bullets, _body_rect(prs), BODY_FONT_PT)
+    rect = _body_rect(prs)
+    size = style[2] if style else BODY_FONT_PT
+    size = fit_font_pt(edit.bullets, rect[2] - rect[0], rect[3] - rect[1], largest=size)
+    _add_body(slide, edit.bullets, rect, size, style)
     answered = "; ".join(edit.addresses_questions)
     slide.notes_slide.notes_text_frame.text = (
         f"Added by the gap editor for topic {edit.topic_id} ({edit.gap_type}). Student questions answered: {answered}"
@@ -222,6 +315,7 @@ def _append_bullets(shape, bullets: List[str], wrap_width: Optional[int] = None)
         first = runs[0]
         rpr = first.find(qn("a:rPr"))
         size_pt = int(rpr.get("sz")) / 100 if rpr is not None and rpr.get("sz") else 18.0
+        text = plain_text(text)
         lines = _break_lines(text, wrap_width, size_pt) if wrap_width else [text]
         first.find(qn("a:t")).text = lines[0]
         previous = first
@@ -392,18 +486,19 @@ def _repair_layout(prs, bullets, graphics_rect):
     return text_rect, picture_rect, size, scale
 
 
-def _build_repaired_slide(prs, template_slide, source_slide, banner, edit: SlideEdit):
+def _build_repaired_slide(prs, template_slide, source_slide, banner, edit: SlideEdit, style=None):
     """Appends the rebuild of `source_slide` at the end of the deck."""
     parts = split_slide(source_slide, prs.slide_width, prs.slide_height, banner)
     slide = _new_slide_with_header(prs, template_slide, edit.title)
     graphics = parts.graphics if edit.keep_pictures else []
     if not graphics:
-        size = fit_font_pt(edit.bullets, _body_rect(prs)[2] - _body_rect(prs)[0], _body_rect(prs)[3] - _body_rect(prs)[1])
-        _add_body(slide, edit.bullets, _body_rect(prs), size)
+        largest = style[2] if style else BODY_FONT_PT
+        size = fit_font_pt(edit.bullets, _body_rect(prs)[2] - _body_rect(prs)[0], _body_rect(prs)[3] - _body_rect(prs)[1], largest=largest)
+        _add_body(slide, edit.bullets, _body_rect(prs), size, style)
     else:
         union = _union([g.rect for g in graphics])
         text_rect, panel, size, scale = _repair_layout(prs, edit.bullets, union)
-        _add_body(slide, edit.bullets, text_rect, size)
+        _add_body(slide, edit.bullets, text_rect, min(size, style[2]) if style else size, style)
         # Centre the scaled pictures in their panel.
         used_w, used_h = (union[2] - union[0]) * scale, (union[3] - union[1]) * scale
         x0 = panel[0] + ((panel[2] - panel[0]) - used_w) / 2
@@ -485,16 +580,17 @@ def apply_edits(source_pptx: Union[str, Path], output_pptx: Union[str, Path], ed
     for anchor_position, index in reversed(insertions):
         edit = edits[index]
         template = _nearest_template_slide(prs, anchor_position)
+        style = deck_bullet_style(prs, anchor_position)
         if edit.operation == REPAIR_SLIDE:
-            new = _build_repaired_slide(prs, template, original[anchor_position], banner, edit)
+            new = _build_repaired_slide(prs, template, original[anchor_position], banner, edit, style)
             new.notes_slide.notes_text_frame.text = (
                 f"Rebuilt by the gap editor from slide {anchor_position + 1} of the original deck, whose layout was broken: "
                 "its own text restructured, its own pictures moved. The original is kept, hidden, right before this slide."
             )
         elif edit.operation == APPEND_BULLETS:  # fallback: no body text box on the anchor
-            _build_slide(prs, template, SlideEdit(**{**edit.__dict__, "title": f"{edit.title} (continued)".strip()}))
+            _build_slide(prs, template, SlideEdit(**{**edit.__dict__, "title": f"{edit.title} (continued)".strip()}), style)
         else:
-            _build_slide(prs, template, edit)
+            _build_slide(prs, template, edit, style)
         _move_last_slide_to(prs, anchor_position + 1)
 
     def final(position: int) -> int:

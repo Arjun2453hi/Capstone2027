@@ -279,3 +279,30 @@ def test_bullets_that_would_run_off_the_slide_are_rejected_with_the_reason(tmp_p
     assert room(short) is None
     assert "has no room" in room(crowded) and "make it a new slide" in room(crowded)
     assert room(make_edit()) is None  # only added bullets are measured
+
+
+def test_new_slides_copy_the_decks_own_bullet_style(tmp_path):
+    from lxml import etree
+
+    source = make_pptx(tmp_path / "deck.pptx", TITLES)
+    prs = Presentation(str(source))
+    body = next(s for s in prs.slides[1].shapes if s.has_text_frame and s.text_frame.text == "body of Hierarchy")
+    paragraph = body.text_frame.paragraphs[0]
+    paragraph._p.insert(0, etree.fromstring(
+        '<a:pPr xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" marL="483870" indent="-359410">'
+        '<a:buClr><a:srgbClr val="833B0A"/></a:buClr><a:buChar char="&#9642;"/></a:pPr>'
+    ))
+    paragraph.runs[0].text = "Control groups limit and account for the resources of process groups."  # real body text
+    paragraph.runs[0].font.size = Pt(20)
+    prs.save(str(source))
+    deck = make_deck([f"{t}\nbody of {t}" for t in TITLES[:1]] + [f"{TITLES[1]}\n{paragraph.text}"] + [f"{t}\nbody of {t}" for t in TITLES[2:]])
+
+    apply_edits(source, tmp_path / "out.pptx", [make_edit(after_slide_id=1)], deck)
+
+    new = Presentation(str(tmp_path / "out.pptx")).slides[2]
+    body = next(s for s in new.shapes if s.name == BODY_SHAPE_NAME)
+    for p in body.text_frame.paragraphs:
+        p_pr = p._p.find(qn("a:pPr"))
+        assert p_pr.find(qn("a:buChar")).get("char") == "▪"
+        assert p_pr.find(qn("a:buClr")).find(qn("a:srgbClr")).get("val") == "833B0A"
+        assert p.runs[0].font.size == Pt(20)
