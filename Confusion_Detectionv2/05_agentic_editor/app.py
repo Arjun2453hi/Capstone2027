@@ -15,6 +15,7 @@ import json
 import os
 import subprocess
 import sys
+from dataclasses import asdict
 from pathlib import Path
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -268,7 +269,7 @@ if reason is None and st.button("Suggest slides for this gap", type="primary", d
             status.update(label=f"{sum(c.accepted for c in checked)} of {len(checked)} suggestion(s) passed every check", state="complete")
     state.suggestions[topic_id] = checked
     for c in checked:
-        state.approved[edit_key(c.edit)] = c.accepted
+        state.approved[edit_key(c.edit)] = False
 
 
 def show_suggestion(number: int, c) -> None:
@@ -317,21 +318,24 @@ if suggestions is not None:
         corrected = f" The fact-check found a problem in the first draft; the model corrected it ({c.revisions} revision{'s' if c.revisions > 1 else ''})." if c.revisions else ""
         st.success("Passed the quality checks and the fact-check." + corrected)
         key = edit_key(c.edit)
-        state.approved[key] = st.checkbox("Approve this slide", value=state.approved.get(key, True), key=f"approve-{key}")
+        if st.button("Clear approval" if state.approved.get(key, False) else "Approve change", key=f"approve-{key}"):
+            state.approved[key] = not state.approved.get(key, False)
+            st.rerun()
         st.divider()
     if blocked:
-        with st.expander(f"Blocked by the safety checks ({len(blocked)}) — never applied unless you approve them"):
+        with st.expander(f"Blocked by the safety checks ({len(blocked)}) — correction required before approval"):
             for c in blocked:
                 st.markdown(f"**{c.edit.title or 'Added bullets'}** (after slide {c.edit.after_slide_id + 1})")
                 st.markdown("\n".join(f"- {b}" for b in c.edit.bullets))
                 st.caption("Why it was blocked: " + " · ".join(c.problems))
                 key = edit_key(c.edit)
-                state.approved[key] = st.checkbox("Approve anyway", value=state.approved.get(key, False), key=f"approve-{key}")
+                state.approved[key] = False
+                st.caption("Correct this draft and rerun checks before approval.")
                 st.divider()
 
 # ---- Step 4: apply -----------------------------------------------------
 st.header("4. Apply the approved slides to the deck")
-approved = [c.edit for checked in state.suggestions.values() for c in checked if state.approved.get(edit_key(c.edit))]
+approved = [c.edit for checked in state.suggestions.values() for c in checked if c.accepted and not c.problems and state.approved.get(edit_key(c.edit))]
 st.write(f"{len(approved)} slide(s) approved across all gaps. The original deck is never changed; a copy is written.")
 if st.button("Apply approved slides", type="primary", disabled=not approved):
     applied = applier.apply_edits(SOURCE_PPTX, DEMO_PPTX, approved, deck)
@@ -392,7 +396,7 @@ if state.get("broken"):
                 status.update(label=f"{sum(c.accepted for c in checked)} of {len(ticked)} repair(s) passed the checks", state="complete")
         state.suggestions[REPAIRS] = checked
         for c in checked:
-            state.approved[edit_key(c.edit)] = c.accepted
+            state.approved[edit_key(c.edit)] = False
     if live and not api_key and ticked:
         st.caption("Some ticked slides have no pre-checked repair; a Groq key is needed to repair them live.")
 
@@ -425,16 +429,59 @@ for c in [c for c in repairs_shown if c.accepted]:
     show_repair(c)
     st.success("Uses only the slide's own words and keeps most of them. Check the order and meaning before approving.")
     key = edit_key(c.edit)
-    state.approved[key] = st.checkbox("Approve this repair", value=state.approved.get(key, True), key=f"approve-{key}")
+    if st.button("Clear approval" if state.approved.get(key, False) else "Approve change", key=f"approve-{key}"):
+        state.approved[key] = not state.approved.get(key, False)
+        st.rerun()
     st.divider()
 held_back = [c for c in repairs_shown if not c.accepted]
 if held_back:
-    with st.expander(f"Held back by the review ({len(held_back)}) — never applied unless you approve them"):
+    with st.expander(f"Held back by the review ({len(held_back)}) — correction required before approval"):
         for c in held_back:
             show_repair(c)
             st.caption("Why it was held back: " + " · ".join(c.problems))
             key = edit_key(c.edit)
-            state.approved[key] = st.checkbox("Approve anyway", value=state.approved.get(key, False), key=f"approve-{key}")
+            state.approved[key] = False
+            st.caption("Correct this draft and rerun checks before approval.")
             st.divider()
 if state.suggestions.get(REPAIRS):
     st.info("Approved repairs are applied with the other approved changes: use “Apply approved slides” above.")
+
+
+st.divider()
+st.header("Editor evaluation")
+st.caption("Measure saved proposals and review their usefulness. Evaluation makes no Groq calls.")
+evaluation = importlib.import_module("05_agentic_editor.src.evaluation")
+sources = {"Current session": None}
+for label, filename in (("Saved gap edit plan", "edit_plan.json"),
+                        ("Saved repair plan", "repair_plan.json"),
+                        ("Saved demo suggestions", "reviewed_suggestions.json")):
+    if (OUTPUT_DIR / filename).exists():
+        sources[label] = OUTPUT_DIR / filename
+source_label = st.selectbox("Proposals to evaluate", list(sources), index=1 if len(sources) > 1 else 0)
+source_path = sources[source_label]
+snapshot = (json.loads(source_path.read_text(encoding="utf-8")) if source_path else {
+    "edits": [{**asdict(c.edit), "accepted": c.accepted, "problems": c.problems, "revisions": c.revisions}
+              for checked in state.suggestions.values() for c in checked]
+})
+uploaded_review = st.file_uploader("Optional completed human-review JSON", type=["json"], key="evaluation-review")
+try:
+    human_reviews = json.loads(uploaded_review.getvalue().decode("utf-8-sig")) if uploaded_review else None
+    evaluation_report = evaluation.evaluate(snapshot, human_reviews)
+    automatic = evaluation_report["automatic"]
+    counts, passed, revised_count = st.columns(3)
+    counts.metric("Proposals", automatic["proposals"])
+    pass_rate = automatic["recorded_pass_rate"]
+    passed.metric("Recorded pass rate", f"{pass_rate['value']:.1%}" if pass_rate["value"] is not None else "Not measured")
+    revised_count.metric("Proposals with revisions", automatic["revised_proposal_rate"]["numerator"])
+    st.caption("Passing the recorded checks does not establish factual correctness or human usability. Blocked proposals remain in the denominator.")
+    if not human_reviews:
+        st.info("Human usability and before/after question coverage: not measured. Download the review form, fill in the labels, and upload it here.")
+    with st.expander("Full evaluation report"):
+        st.markdown(evaluation.render_markdown(evaluation_report))
+    questions_for_review = [m.question for d in dossiers.values() for m in d.matched_questions] + unmatched
+    st.download_button("Download human-review form", json.dumps(evaluation.review_template(snapshot, questions_for_review), indent=2, ensure_ascii=False),
+                       file_name="editor_review.json", mime="application/json")
+    st.download_button("Download evaluation metrics", json.dumps(evaluation_report, indent=2, ensure_ascii=False),
+                       file_name="editor_metrics.json", mime="application/json")
+except (ValueError, KeyError, TypeError) as error:
+    st.error(f"Could not evaluate these proposals: {error}")

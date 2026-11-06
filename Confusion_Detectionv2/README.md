@@ -10,7 +10,29 @@ student questions, both in `data/`.
 
 ---
 
-## Quick start: the live demo
+## Main interface: React workspace
+
+The editor now has a React interface with source/proposal slide comparison,
+explicit approvals, layout repairs, evaluations and persistent run history.
+Groq remains the model provider. From this directory on Windows:
+
+```powershell
+.venv\Scripts\python -m pip install -r requirements.txt
+cd 05_agentic_editor/frontend
+npm install
+npm run build
+cd ../..
+.venv\Scripts\python 05_agentic_editor/serve.py
+```
+
+Open **http://127.0.0.1:8000**. Node 20.19+ or 22.12+ is needed only for
+building. Use `.venv/bin/python` on macOS/Linux. Set `GROQ_API_KEY` in the
+server `.env` for live generation; saved suggestions work without it.
+See the [editor README](05_agentic_editor/README.md) for development and
+tests, and [HARNESS.md](05_agentic_editor/HARNESS.md) for task orchestration,
+bounded context memory, execution limits, cancellation and guardrails.
+
+## Legacy Streamlit demo
 
 You need **Python 3.9 or newer** and **git**.
 

@@ -201,6 +201,11 @@ def _repair_words(text: str) -> set:
 def check_edit(edit: SlideEdit, dossier, deck) -> CheckedEdit:
     """`dossier` is the edit's topic (None for a repair, which has none)."""
     problems: List[str] = []
+    for text in [edit.title, *edit.bullets]:
+        if re.search(r"gsk_[A-Za-z0-9_-]{16,}", text):
+            problems.append("content contains a possible API credential")
+        if re.search(r"[\u202a-\u202e\u2066-\u2069]", text):
+            problems.append("content contains hidden bidirectional control characters")
     if edit.operation == INSERT_SLIDE_AFTER:
         _check_insert(edit, dossier, deck, problems)
     elif edit.operation == APPEND_BULLETS:

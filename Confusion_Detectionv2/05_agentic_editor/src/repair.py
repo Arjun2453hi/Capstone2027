@@ -87,6 +87,10 @@ class RepairPlanner:
 
     def plan_repair(self, parts: SlideParts, slide_id: int, pdf_text: Optional[str] = None) -> Optional[SlideEdit]:
         """None when the model's output is unusable (the caller reports it)."""
+        runtime = getattr(self.generator, "runtime", None)
+        if runtime is not None and not runtime.managed:
+            from .harness import RequestRuntime
+            self.generator.runtime = RequestRuntime()
         source_text = "\n".join(filter(None, [parts.text, pdf_text]))
         system = SYSTEM_PROMPT.format(max_bullets=MAX_REPAIR_BULLETS, max_title=MAX_TITLE_CHARS - 10)
         user = build_user_prompt(parts, pdf_text)

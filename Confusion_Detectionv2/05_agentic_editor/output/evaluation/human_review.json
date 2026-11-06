@@ -1,0 +1,1239 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "d86bbe468152bc90d26c9160fa40dcec13ef41fc3d99ec472480bbd477188f0e",
+  "reviewer": "",
+  "original_deck": "",
+  "edited_deck": "",
+  "rubric": {
+    "factual_correctness": "All statements are technically correct; verify against trusted references.",
+    "purpose_fulfilled": "Gap edits resolve the cited confusion; repairs preserve the original meaning.",
+    "readability": "Text and rendered slide are clear and readable in the resulting deck.",
+    "useful_change": "Adds useful explanation without unnecessary duplication, or fixes the broken layout.",
+    "labels": "Set each criterion to true/false. All four true means usable without substantive correction. Leave null until reviewed.",
+    "coverage": "Independently assess adequate answers in the original and actual edited deck. Do not copy addresses_questions as labels."
+  },
+  "edits": [
+    {
+      "edit_id": "0000-5c65ce3ac643a363",
+      "topic_id": 14,
+      "operation": "insert_slide_after",
+      "after_slide_id": 183,
+      "title": "Docker namespaces and their purposes",
+      "bullets": [
+        "Linux namespaces partition kernel resources, giving each container its own isolated view; Docker uses them to achieve process and resource isolation.",
+        "PID namespace isolates process IDs, giving each container independent process numbering.",
+        "UTS namespace provides separate hostname and domain name for each container.",
+        "MNT namespace gives each container its own mount point hierarchy.",
+        "IPC namespace isolates inter‑process communication resources such as shared memory and semaphores.",
+        "NET namespace gives each container its own network stack, interfaces, and IP addresses."
+      ],
+      "addresses_questions": [
+        "What are the main types of namespaces Docker uses?",
+        "What is a Linux namespace and why does Docker use them?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0001-0148f2f7e221ebe1",
+      "topic_id": 8,
+      "operation": "insert_slide_after",
+      "after_slide_id": 132,
+      "title": "Docker Improves Application Portability",
+      "bullets": [
+        "Docker is an open‑platform tool that packages an app, its runtime, libraries, and settings into an immutable image.",
+        "Docker solves the “works on my machine” problem by ensuring the same image runs unchanged on any host with a compatible Docker engine.",
+        "Because Docker images contain only user‑space components, they share the host kernel, avoiding the overhead of a full guest OS used by VMs.",
+        "Containers differ from VMs: VMs virtualize hardware and run separate guest OSes; containers virtualize at the OS level and share the host kernel.",
+        "The shared‑kernel model makes containers lightweight virtualization, requiring fewer resources and starting in seconds.",
+        "Main Docker benefits: portability across environments, fast provisioning, consistent runtime, dependency isolation, and simplified CI/CD workflows."
+      ],
+      "addresses_questions": [
+        "How does Docker improve application portability?",
+        "Why do containers have less overhead than VMs?",
+        "What's the difference between a container and a virtual machine?",
+        "What is Docker and what problem does it solve?",
+        "Why are containers considered lightweight virtualization?",
+        "What are the main benefits of using Docker?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0002-a23996555d0ddd60",
+      "topic_id": 9,
+      "operation": "append_bullets",
+      "after_slide_id": 136,
+      "title": "Docker Architecture",
+      "bullets": [
+        "Containers share the host operating system’s kernel while running in isolated user‑space processes."
+      ],
+      "addresses_questions": [
+        "What do containers share with the host OS?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0003-5185364b66c72282",
+      "topic_id": 11,
+      "operation": "insert_slide_after",
+      "after_slide_id": 158,
+      "title": "Namespace creation and joining details",
+      "bullets": [
+        "Before unshare, a process shares its parent’s namespaces; after unshare, the specified namespaces are created anew for the calling process (PID takes effect after a subsequent fork).",
+        "setns(fd) attaches the calling process to the namespace referred to by the file descriptor, moving it into an existing namespace hierarchy.",
+        "clone(CLONE_NEWNS|SIGCHLD) creates a child with a new mount namespace that initially contains the parent’s mounts.",
+        "The new mount namespace initially mirrors the parent’s mounts; later mounts or unmounts affect only the child.",
+        "UTS namespaces can be nested; a hostname change inside a child UTS namespace is invisible to the parent and any sibling namespaces.",
+        "A diagram on the slide shows the hierarchy before and after unshare, with separate branches for the new namespaces."
+      ],
+      "addresses_questions": [
+        "How deep does UTS namespace isolation go across multiple nested namespaces?",
+        "How exactly does the child process's view of the filesystem change right after CLONE_NEWNS is used?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0004-a8157ff468f237f6",
+      "topic_id": 11,
+      "operation": "insert_slide_after",
+      "after_slide_id": 167,
+      "title": "Veth pair creation and chroot vs pivot_root comparison",
+      "bullets": [
+        "Create a veth pair: ip link add veth0 type veth peer name veth1",
+        "Move ends into namespaces: ip link set veth0 netns <ns1>; ip link set veth1 netns <ns2>",
+        "Inside each namespace, bring the interface up and assign unique IPs (e.g., veth0 10.0.0.1/24, veth1 10.0.0.2/24)",
+        "Test connectivity with ping from one namespace to the other’s IP address",
+        "chroot changes the apparent root directory but leaves a reference to the original root, allowing escape with sufficient privileges",
+        "pivot_root swaps the current root with a new one and moves the old root to a directory under the new root, which can then be unmounted, making escape harder"
+      ],
+      "addresses_questions": [
+        "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+        "What's the exact procedure for moving one end of a veth pair into a namespace?",
+        "How do you configure a veth pair step by step to let two namespaces talk to each other?",
+        "Why is pivot_root often used instead of chroot?",
+        "What's the difference between chroot and pivot_root?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0005-74b0be0bd1cc7dbb",
+      "topic_id": 6,
+      "operation": "insert_slide_after",
+      "after_slide_id": 98,
+      "title": "Trap‑and‑Emulate Syscall – Detailed Ring Flow",
+      "bullets": [
+        "Guest app in Ring 3 executes a software‑interrupt (e.g., INT 0x80) or privileged instruction, causing a trap that transfers control to the VMM running in Ring 0.",
+        "The CPU saves the guest’s registers in a VM‑exit structure and jumps to the VMM’s handler on its own stack.",
+        "The VMM inspects the exit, emulates the requested service, and may invoke the guest OS kernel (also in Ring 0) to perform the syscall.",
+        "The guest OS kernel processes the request, places the result in a register such as EAX, and returns control to the VMM.",
+        "The VMM restores the saved guest registers, switches back to the guest’s Ring 3 stack, and resumes the application with the result."
+      ],
+      "addresses_questions": [
+        "What exactly happens on the ring diagram when a guest app makes a syscall in the trap-and-emulate example?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0006-bc87e786b2f6a0f4",
+      "topic_id": 6,
+      "operation": "insert_slide_after",
+      "after_slide_id": 103,
+      "title": "Worked Example – PUSHF in Ring 3",
+      "bullets": [
+        "Guest code in Ring 3 executes PUSHF, which pushes the current EFLAGS value onto the stack.",
+        "PUSHF is a sensitive‑but‑unprivileged instruction, so the CPU does not trap when it runs in Ring 3.",
+        "PUSHF pushes EFLAGS, allowing the guest to read flag bits, but POPF in Ring 3 ignores privileged bits, preventing the guest from modifying them.",
+        "Because no trap occurs, the VMM must emulate or binary‑translate PUSHF/POPF to detect and control changes to sensitive flags.",
+        "Emulation lets the VMM supply a safe EFLAGS value and preserve the equivalence property for the guest."
+      ],
+      "addresses_questions": [
+        "Why was the x86 pushf/popf instruction a problem for virtualization?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0007-a245fa7d83fc1f0e",
+      "topic_id": 16,
+      "operation": "insert_slide_after",
+      "after_slide_id": 218,
+      "title": "Namespace creation, unshare, and clone details",
+      "bullets": [
+        "Create a new mount namespace with `unshare --mount`, separating the caller’s mount view from the parent’s view.",
+        "Before unshare, processes share a single mount tree; after unshare, the caller sees a private copy of mount points.",
+        "`clone --mount` (or `clone(..., CLONE_NEWNS)`) forks a child that starts in a fresh mount namespace with its own root filesystem view.",
+        "`setns <nsfd>` lets a running process join an existing namespace by opening the namespace file (e.g., `/proc/<pid>/ns/mnt`) and calling `setns`.",
+        "In a nested UTS namespace, a child can change its hostname without affecting the parent; each level maintains its own hostname string."
+      ],
+      "addresses_questions": [
+        "If a nested namespace changes its hostname, does the parent namespace ever see that change?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0008-2400e03d518a5f57",
+      "topic_id": 16,
+      "operation": "insert_slide_after",
+      "after_slide_id": 228,
+      "title": "VETH pair and cgroup hierarchy examples",
+      "bullets": [
+        "Create a veth pair: `ip link add veth0 type veth peer name veth1`.",
+        "Move one end into a namespace: `ip link set veth1 netns <ns_name>`; the other end stays in the host.",
+        "Assign IPs and bring interfaces up inside each namespace with `ip addr add …` and `ip link set up`.",
+        "Build a cgroup hierarchy: `mkdir -p /sys/fs/cgroup/memory/parent/child`; set a limit with `echo 209715200 > memory.limit_in_bytes` (200 MiB).",
+        "Processes placed in the child cgroup are limited by that cgroup’s settings, which can be stricter than the parent’s limits."
+      ],
+      "addresses_questions": [
+        "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+        "What's the exact procedure for moving one end of a veth pair into a namespace?",
+        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0009-0f22e28dacb77edd",
+      "topic_id": 18,
+      "operation": "insert_slide_after",
+      "after_slide_id": 244,
+      "title": "Linux Namespaces Used by Docker",
+      "bullets": [
+        "A Linux namespace is a kernel feature that gives a set of processes an isolated view of a particular system resource.",
+        "Docker leverages six namespaces: mount isolates filesystem mounts, pid isolates process IDs, net isolates network interfaces, ipc isolates interprocess communication, uts isolates hostname/domain, user isolates user and group IDs.",
+        "Using these namespaces, each container gets its own isolated process tree, network stack, filesystem view, IPC resources, hostname, and user mappings, providing VM‑like isolation with low overhead.",
+        "This isolation lets containers run side‑by‑side on the same host without interfering with each other's resources."
+      ],
+      "addresses_questions": [
+        "What are the main types of namespaces Docker uses?",
+        "What is a Linux namespace and why does Docker use them?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0010-713bd5475ed9195b",
+      "topic_id": 20,
+      "operation": "insert_slide_after",
+      "after_slide_id": 260,
+      "title": "Concrete Automation & CD Principles Rationale",
+      "bullets": [
+        "Use IaC tools such as Terraform or CloudFormation to provision environments, networks, and databases automatically, removing manual setup steps.",
+        "Integrate secret‑management (e.g., HashiCorp Vault) and container image scanning (e.g., Trivy) into pipelines to replace manual credential updates and security checks.",
+        "Treat every build as a releasable artifact so you can roll back instantly, obtain rapid feedback, and keep release anxiety low because production can be updated automatically.",
+        "Trusted automated tests show a stable high pass rate, minimal flakiness, adequate code‑coverage thresholds, and run in deterministic containers that mirror production."
+      ],
+      "addresses_questions": [
+        "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?",
+        "What's the reasoning behind each of the four continuous delivery principles?",
+        "Can you explain what makes automated tests 'trustworthy' in continuous delivery?",
+        "Why exactly does 'every build is a potential release' matter in continuous delivery?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0011-7fe3dcfe624fc0b2",
+      "topic_id": 21,
+      "operation": "insert_slide_after",
+      "after_slide_id": 276,
+      "title": "Comparing Container Orchestration Tools",
+      "bullets": [
+        "Docker Swarm offers simple setup with native Docker CLI, limited scalability, and built‑in overlay networking, making it suitable for small clusters or development.",
+        "Kubernetes has a steeper learning curve but provides high extensibility, can scale to thousands of nodes, uses a pluggable CNI networking model, and fits complex production workloads.",
+        "Amazon ECS integrates tightly with AWS services, leverages AWS IAM for permissions, scales within EC2 or Fargate, and is easier on AWS though less flexible than Kubernetes.",
+        "Google Kubernetes Engine (GKE) delivers fully managed Kubernetes on GCP, with automatic upgrades, node provisioning, and deep integration with Google Cloud services.",
+        "Select a tool based on required scalability, cloud‑provider lock‑in, operational expertise, and need for extensibility versus simplicity."
+      ],
+      "addresses_questions": [
+        "What are the actual differences between Amazon ECS and Google Container Engine?",
+        "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+        "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0012-d82f758fbb9ecdc3",
+      "topic_id": 12,
+      "operation": "insert_slide_after",
+      "after_slide_id": 174,
+      "title": "cgroup hierarchy example",
+      "bullets": [
+        "Create a parent cgroup /myapp and two child cgroups /myapp/web and /myapp/db under the cpu and memory controllers.",
+        "Set the parent CPU quota to 100000 µs (100 % of a CPU) and memory limit to 1 GB by writing to the appropriate cgroup files.",
+        "Set child /myapp/web CPU quota to 50000 µs and memory limit to 200 MB, and set /myapp/db CPU quota to 30000 µs and memory limit to 300 MB.",
+        "Run a process in /myapp/web (e.g., cgexec -g cpu,memory:/myapp/web myserver); it cannot exceed the child limits, and the parent limits act as an overall cap.",
+        "A forked child inherits its parent’s cgroup, so it automatically follows the same CPU and memory restrictions defined for that hierarchy."
+      ],
+      "addresses_questions": [
+        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+        "How are cgroups structured hierarchically?",
+        "What would an actual cgroup resource-limit example look like in practice?",
+        "Is there a worked example showing how cgroups restrict a group of processes?",
+        "How is a specific CPU or memory limit actually enforced through a cgroup example?",
+        "Does a child process inherit its parent's cgroup?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0013-f8c1abe9409bc61c",
+      "topic_id": 10,
+      "operation": "insert_slide_after",
+      "after_slide_id": 146,
+      "title": "Runtime Composition of Image Layers",
+      "bullets": [
+        "Docker uses a Union File System to present all image layers as a single filesystem to the container.",
+        "Each image layer is mounted read‑only and stacked in the order they were created.",
+        "When a container starts, Docker adds a thin writable layer on top of the stack.",
+        "File reads are served from the highest layer containing the file, giving a merged view.",
+        "On write, Docker copies the file from the lower read‑only layer into the writable layer (copy‑on‑write)."
+      ],
+      "addresses_questions": [
+        "How do image layers work in Docker?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    },
+    {
+      "edit_id": "0014-663941c78e53f988",
+      "topic_id": 19,
+      "operation": "insert_slide_after",
+      "after_slide_id": 251,
+      "title": "Historical Conflict Between Development and Operations",
+      "bullets": [
+        "Developers aim to deliver new features quickly, measuring success by release frequency and lead time.",
+        "Operations aim to keep services stable and cost‑effective, measuring success by uptime, incident rate, and resource utilization.",
+        "These differing metrics created incentives for developers to push changes rapidly while operations preferred cautious, well‑tested releases, leading to friction before DevOps."
+      ],
+      "addresses_questions": [
+        "Why do development and operations teams historically have conflicting goals?"
+      ],
+      "criteria": {
+        "factual_correctness": null,
+        "purpose_fulfilled": null,
+        "readability": null,
+        "useful_change": null
+      },
+      "notes": ""
+    }
+  ],
+  "questions": [
+    {
+      "question": "Why would you group multiple containers into one Pod?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How is file system migration handled during VM migration?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is normalization in database design?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How do you actually automate wherever possible in a CI/CD pipeline?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between cold migration and live migration?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the main types of namespaces Docker uses?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why are control flow changes a challenge for binary translation?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does UnionFS relate to Docker's image layers?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What does the namespace hierarchy look like before and after a process calls unshare()?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the benefits of using Kubernetes, like horizontal scaling and rollbacks?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What does the PID namespace isolate?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a Pod in Kubernetes?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What tasks does container orchestration automate?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a Linux namespace and why does Docker use them?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is DevOps?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is virtualization in simple terms?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "If a nested namespace changes its hostname, does the parent namespace ever see that change?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the three main approaches to I/O virtualization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What exactly happens on the ring diagram when a guest app makes a syscall in the trap-and-emulate example?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What do containers share with the host OS?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between the master node and worker nodes in a Kubernetes cluster?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why does paravirtualization require modifying the guest OS?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does Docker improve application portability?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are VMX root and non-root modes?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the disadvantages of paravirtualization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What does a VMM actually do?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Is Jenkins only for continuous delivery, or can it automate other tasks too?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a basic block in the context of binary translation?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why does virtualization increase resource utilization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is continuous development and why does it matter for distributed teams?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How do image layers work in Docker?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does KVM extend the Linux kernel to provide hypervisor functionality?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does hardware-assisted virtualization like Intel VT-x work?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is Jenkins used for?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why is pivot_root often used instead of chroot?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Is there a diagram showing how setns() lets a process join an existing namespace?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How do I center a div in CSS?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a container orchestrator and what problem does it solve?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is the difference between full device emulation and direct I/O passthrough?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What does DevOps aim to shorten?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why does the hypervisor write-protect the guest page table?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a cgroup and what is it used for?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What triggers an update to the shadow page table?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is workload mobility in the context of VM migration?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What did Popek and Goldberg's theorems establish?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why do development and operations teams historically have conflicting goals?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why do containers have less overhead than VMs?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is the split-driver model for I/O virtualization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is server consolidation?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is active push in post-copy migration?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does Xen implement paravirtualization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why does paravirtualization improve performance over full virtualization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the illustrated example of creating and joining a Linux namespace?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is KVM and how does it relate to paravirtualization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why can multiple containers share the same image?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does the hypervisor keep the shadow page table in sync with the guest page table?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is the Docker daemon and what does it do?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the reasoning behind each of the four continuous delivery principles?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why does the guest OS run in Ring 1 instead of Ring 0 under Xen?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a Kubernetes Service and why is it needed?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between a Docker image and a Docker container?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What ring does the VMM run in under trap-and-emulate?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How are cgroups structured hierarchically?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the disadvantages of pre-copy migration compared to post-copy?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What kinds of resources can a cgroup limit?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What does kube-proxy do?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between a container and a virtual machine?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How do the Docker client and daemon communicate?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between chroot and pivot_root?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does live migration preserve open network connections?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between continuous integration, continuous delivery, and continuous deployment?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is Kubernetes?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is Docker and what problem does it solve?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What does the kubelet do?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the actual differences between Amazon ECS and Google Container Engine?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why doesn't the original x86 architecture satisfy the Popek-Goldberg requirements?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the performance problems with trap-and-emulate?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does pre-copy VM migration work?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between pre-copy and post-copy migration?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a hypercall?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between TCP and UDP?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What would an actual cgroup resource-limit example look like in practice?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a Docker registry?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Can you explain what makes automated tests 'trustworthy' in continuous delivery?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why does direct I/O virtualization achieve near-native performance?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a shadow page table and why is it needed?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the main reasons companies use VMs?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is cluster management in the context of container orchestration?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between user instructions and system instructions?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why does a privileged instruction cause a trap?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Is there a worked example showing how cgroups restrict a group of processes?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is binary translation and how does it differ from trap-and-emulate?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How is a specific CPU or memory limit actually enforced through a cgroup example?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why exactly does 'every build is a potential release' matter in continuous delivery?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between the NET namespace and the USR namespace?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a union filesystem and how does it work?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a bare-metal hypervisor?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How deep does UTS namespace isolation go across multiple nested namespaces?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does chroot work?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does trap-and-emulate virtualization work?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why do almost all VMMs use hardware assist today?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What does a typical CI/CD pipeline for a containerized application look like?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Can you walk through the full worked example of why x86 doesn't satisfy Popek-Goldberg, step by step with the ring diagram?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the weaknesses of union filesystems?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a Dockerfile and what does it specify?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Can you walk through what actually happens step by step when a process calls clone() with CLONE_NEWNS to create a new mount namespace?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What does the MNT namespace isolate?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why do Pod IP addresses change, and how does a Service handle that?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How many sensitive-but-unprivileged instructions did x86 have?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the time complexity of quicksort in the average case?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How does garbage collection work in Java?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a VM exit condition?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the Popek and Goldberg requirements for virtualization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why are containers considered lightweight virtualization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why can repeated dirty page copying increase pre-copy migration time?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the main benefits of using Docker?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is the equivalence property a VMM must satisfy?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How exactly does the child process's view of the filesystem change right after CLONE_NEWNS is used?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why would you migrate a VM?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What are the two levels of address translation in EPT?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is a hybrid hypervisor and give an example?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is Dom0 in Xen architecture?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Can you give a concrete example of setting up a VETH device between two containers?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the exact procedure for moving one end of a veth pair into a namespace?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Does a child process inherit its parent's cgroup?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Is there a diagram showing why an unmodified guest OS breaks isolation if it's mapped into the same address space as guest apps?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between a Type 1 and a Type 2 hypervisor?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between paravirtualization and full virtualization?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the role of the Xen hypervisor versus Dom0?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What is an Extended Page Table (EPT) and how is it different from shadow paging?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "What's the difference between a privileged instruction and a sensitive instruction?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "How do you configure a veth pair step by step to let two namespaces talk to each other?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    },
+    {
+      "question": "Why is a hosted hypervisor called Type 2?",
+      "before": null,
+      "after": null,
+      "notes": ""
+    }
+  ]
+}

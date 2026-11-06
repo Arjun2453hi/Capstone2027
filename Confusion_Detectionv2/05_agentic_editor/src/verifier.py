@@ -87,6 +87,8 @@ def parse_problems(raw: Optional[str]) -> Optional[List[str]]:
             problems.append(f"fact-check, {label}: {issue}")
         elif isinstance(item, str) and item.strip():
             problems.append(f"fact-check: {item.strip()}")
+        else:
+            return None  # malformed findings must not become a clean verification
     return problems
 
 

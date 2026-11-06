@@ -98,12 +98,21 @@ def suggest_for_topic(
     earlier: Optional[List[SlideEdit]] = None,
     max_revisions: int = MAX_REVISIONS,
     progress: Callable[[str], None] = lambda message: None,
+    trace: Callable = lambda event, **fields: None,
 ) -> List[CheckedEdit]:
     """Every suggestion for one gap, each accepted or rejected with its
     findings. `earlier`: accepted edits for other gaps, so a repeat of one
     of them is caught. `verifier=None` skips the fact-check (and with it
     the revisions it would trigger)."""
     earlier = earlier or []
+    # Legacy CLI/Streamlit reuse model objects across topics. Give each task
+    # fresh budgets, shared with its verifier. The web runner owns its runtime.
+    runtime = getattr(planner.generator, "runtime", None)
+    if runtime is not None and not runtime.managed:
+        from .harness import RequestRuntime
+        planner.generator.runtime = RequestRuntime()
+        if verifier is not None and hasattr(verifier.generator, "runtime"):
+            verifier.generator.runtime = planner.generator.runtime
     reviser = reviser or planner.generator
 
     def review(edits: List[SlideEdit]) -> List[CheckedEdit]:
@@ -121,6 +130,7 @@ def suggest_for_topic(
         return []
     progress(f"{len(edits)} slide(s) proposed; running the quality checks and the fact-check")
     results = review(edits)
+    trace("initial_review", proposed=len(results), passed=sum(c.accepted for c in results))
 
     for round_number in range(1, max_revisions + 1):
         flagged = [i for i, c in enumerate(results) if not c.accepted]
@@ -138,4 +148,5 @@ def suggest_for_topic(
                 drop_unanswered_questions(again)
             again.revisions = round_number
             results[i] = again
+        trace("revision_review", round=round_number, proposed=len(results), passed=sum(c.accepted for c in results))
     return results

@@ -86,38 +86,26 @@ class GroqEditGenerator(EditGenerator):
     max_tokens = MAX_OUTPUT_TOKENS  # reply budget; see with_max_tokens()
 
     def __init__(self, api_key: Optional[str] = None, model_name: Optional[str] = None, client=None):
-        from common.llm_client import get_validated_groq_client
+        from common.llm_client import build_groq_client, get_validated_groq_client
+        from .harness import HarnessPolicy, RequestRuntime
 
         model_name = model_name or os.getenv(EDITOR_MODEL_ENV) or DEFAULT_EDITOR_MODEL
-        self._client, self.model = get_validated_groq_client(api_key=api_key, model_name=model_name, client=client)
+        candidate = client if client is not None else build_groq_client(api_key)
+        if hasattr(candidate, "with_options"):
+            candidate = candidate.with_options(max_retries=0, timeout=HarnessPolicy.from_env().request_timeout_seconds)
+        self._client, self.model = get_validated_groq_client(api_key=api_key, model_name=model_name, client=candidate)
         self.last_error: Optional[str] = None  # why the most recent call returned "", for callers to show
-        # A topic's request is ~4-6k tokens against an 8k tokens/minute
-        # limit, so back-to-back calls routinely wait out a 429; the SDK
-        # honours the provider's retry-after on each retry.
-        if hasattr(self._client, "with_options"):
-            self._client = self._client.with_options(max_retries=5)
+        # The harness owns retries, budgets and timeout accounting. Disable
+        # SDK retries before both model validation and generation.
+        self.runtime = RequestRuntime()
 
     def generate(self, system: str, user: str) -> str:
-        self.last_error = None
-        for attempt in (1, 2):
-            try:
-                response = self._client.chat.completions.create(
-                    model=self.model,
-                    temperature=0.0,
-                    max_tokens=self.max_tokens,
-                    response_format={"type": "json_object"},
-                    messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
-                )
-                return response.choices[0].message.content
-            except Exception as e:
-                # A failed call (rate limit, the model not producing valid
-                # JSON) costs this one topic or edit, not the whole run.
-                # Invalid JSON is worth exactly one more try.
-                self.last_error = f"{type(e).__name__}: {str(e)[:200]}"
-                print(f"[warn] LLM call failed, attempt {attempt}/2 ({self.last_error})")
-                if "json_validate_failed" not in str(e):
-                    break
-        return ""
+        from .harness import RequestRuntime
+        if not hasattr(self, "runtime"):
+            self.runtime = RequestRuntime()
+        raw = self.runtime.generate(self._client, self.model, system, user, self.max_tokens)
+        self.last_error = self.runtime.last_error
+        return raw
 
 
 def with_max_tokens(generator, max_tokens: int):
@@ -151,10 +139,10 @@ def build_user_prompt(report, dossier, deck) -> str:
         f"Topic {report.topic_id} -- gap type: {report.gap_type} (confidence {report.confidence:.2f})",
         "",
         "Gap report:",
-        report.report_text.strip(),
+        report.report_text.strip()[:2400] + ("\n[Report excerpt truncated by context budget]" if len(report.report_text.strip()) > 2400 else ""),
         "",
         "Slides in this topic:",
-        slide_context(deck, dossier.slide_ids),
+        slide_context(deck, dossier.slide_ids, query=" ".join(m.question for m in dossier.matched_questions)),
         "",
         "Student questions matched to this topic:",
     ]
