@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_id": "d86bbe468152bc90d26c9160fa40dcec13ef41fc3d99ec472480bbd477188f0e",
+  "snapshot_id": "ca8d1a6b8ceb025eb76925825fdff7c80e0bfde612087147376015e9cd6e101e",
   "reviewer": "",
   "original_deck": "",
   "edited_deck": "",
@@ -70,13 +70,15 @@
       "notes": ""
     },
     {
-      "edit_id": "0002-a23996555d0ddd60",
+      "edit_id": "0002-9d6a26ea23cbf700",
       "topic_id": 9,
-      "operation": "append_bullets",
-      "after_slide_id": 136,
-      "title": "Docker Architecture",
+      "operation": "insert_slide_after",
+      "after_slide_id": 135,
+      "title": "Containers share host OS kernel",
       "bullets": [
-        "Containers share the host operating system’s kernel while running in isolated user‑space processes."
+        "Containers run as isolated user‑space processes but share the host operating system’s kernel.",
+        "They share the kernel’s system calls, device drivers, and kernel-level resources, while each container has its own filesystem and libraries.",
+        "This shared kernel model provides lightweight isolation and fast startup compared to full virtual machines."
       ],
       "addresses_questions": [
         "What do containers share with the host OS?"
@@ -217,7 +219,7 @@
       "notes": ""
     },
     {
-      "edit_id": "0008-2400e03d518a5f57",
+      "edit_id": "0008-63e973a7e957c884",
       "topic_id": 16,
       "operation": "insert_slide_after",
       "after_slide_id": 228,

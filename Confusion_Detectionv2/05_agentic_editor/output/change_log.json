@@ -71,15 +71,17 @@
     },
     {
       "topic_id": 9,
-      "after_slide_id": 136,
-      "title": "Docker Architecture",
+      "after_slide_id": 135,
+      "title": "Containers share host OS kernel",
       "bullets": [
-        "Containers share the host operating system’s kernel while running in isolated user‑space processes."
+        "Containers run as isolated user‑space processes but share the host operating system’s kernel.",
+        "They share the kernel’s system calls, device drivers, and kernel-level resources, while each container has its own filesystem and libraries.",
+        "This shared kernel model provides lightweight isolation and fast startup compared to full virtual machines."
       ],
       "addresses_questions": [
         "What do containers share with the host OS?"
       ],
-      "operation": "append_bullets",
+      "operation": "insert_slide_after",
       "gap_type": "fragmented_context",
       "report_confidence": 0.9,
       "source_text": null,
@@ -89,7 +91,7 @@
         209
       ],
       "mirrored_after_slide_ids": [
-        197
+        196
       ],
       "hidden_slide_numbers": [],
       "note": null
@@ -119,8 +121,8 @@
       "source_text": null,
       "keep_pictures": true,
       "new_slide_numbers": [
-        175,
-        242
+        176,
+        243
       ],
       "mirrored_after_slide_ids": [
         228
@@ -151,37 +153,6 @@
         108
       ],
       "mirrored_after_slide_ids": [],
-      "hidden_slide_numbers": [],
-      "note": null
-    },
-    {
-      "topic_id": 16,
-      "after_slide_id": 228,
-      "title": "VETH pair and cgroup hierarchy examples",
-      "bullets": [
-        "Create a veth pair: `ip link add veth0 type veth peer name veth1`.",
-        "Move one end into a namespace: `ip link set veth1 netns <ns_name>`; the other end stays in the host.",
-        "Assign IPs and bring interfaces up inside each namespace with `ip addr add …` and `ip link set up`.",
-        "Build a cgroup hierarchy: `mkdir -p /sys/fs/cgroup/memory/parent/child`; set a limit with `echo 209715200 > memory.limit_in_bytes` (200 MiB).",
-        "Processes placed in the child cgroup are limited by that cgroup’s settings, which can be stricter than the parent’s limits."
-      ],
-      "addresses_questions": [
-        "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
-        "What's the exact procedure for moving one end of a veth pair into a namespace?",
-        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?"
-      ],
-      "operation": "insert_slide_after",
-      "gap_type": "shallow_coverage",
-      "report_confidence": 0.65,
-      "source_text": null,
-      "keep_pictures": true,
-      "new_slide_numbers": [
-        176,
-        243
-      ],
-      "mirrored_after_slide_ids": [
-        167
-      ],
       "hidden_slide_numbers": [],
       "note": null
     },
@@ -295,8 +266,8 @@
       "source_text": null,
       "keep_pictures": true,
       "new_slide_numbers": [
-        153,
-        220
+        154,
+        221
       ],
       "mirrored_after_slide_ids": [
         207

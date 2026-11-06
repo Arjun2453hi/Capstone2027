@@ -71,6 +71,7 @@ def create_app(state_dir=None, generator_factory=None):
     policy = HarnessPolicy.from_env()
     store = WorkspaceStore(state_dir or PROJECT / ".cache" / "editor-workspace")
     source_digest = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+    room = applier.RoomChecker(SOURCE)
     identity_path = store.directory / "source.sha256"
     if identity_path.exists() and identity_path.read_text().strip() != source_digest:
         raise RuntimeError("Source deck changed. Use a fresh workspace state directory before reviewing new edits.")
@@ -164,7 +165,7 @@ def create_app(state_dir=None, generator_factory=None):
                 earlier = [_edit(row) for row in store.proposals() if row["decision"] == "approved"]
                 checked = revise.suggest_for_topic(reports[target], dossiers[target], deck, dossiers,
                     EditPlanner(generator), EditVerifier(with_max_tokens(generator, 1500)), earlier=earlier,
-                    progress=progress, trace=lambda event, **fields: store.event(key, event, **fields))
+                    progress=progress, room=room, trace=lambda event, **fields: store.event(key, event, **fields))
             else:
                 edits = repair.plan_repairs(repair.RepairPlanner(generator), SOURCE, [target], deck)
                 checked = checker.check_edits(edits, dossiers, deck)
@@ -221,7 +222,7 @@ def create_app(state_dir=None, generator_factory=None):
             if body.decision == "approved":
                 if not row["accepted"] or row.get("problems"):
                     raise HTTPException(409, "Blocked proposals must be corrected and checked before approval")
-                fresh = checker.check_edit(_edit(row), dossiers.get(row["topic_id"]), deck)
+                fresh = checker.check_edit(_edit(row), dossiers.get(row["topic_id"]), deck, room=room)
                 if not fresh.accepted:
                     raise HTTPException(409, "This proposal no longer passes validation: " + "; ".join(fresh.problems))
             store.decide(key, body.decision)
@@ -279,7 +280,7 @@ def create_app(state_dir=None, generator_factory=None):
             rows = [find_proposal(key) for key in body.proposal_ids]
             if any(r["decision"] != "approved" or not r["accepted"] or r.get("problems") for r in rows):
                 raise HTTPException(409, "Every selected proposal must pass checks and be explicitly approved")
-            checked = checker.check_edits([_edit(r) for r in rows], dossiers, deck)
+            checked = checker.check_edits([_edit(r) for r in rows], dossiers, deck, room=room)
             if any(not c.accepted for c in checked):
                 raise HTTPException(409, "Selected edits conflict or fail validation; review the selection")
             run = store.create_run("export", status="running", message="Writing approved edits")
