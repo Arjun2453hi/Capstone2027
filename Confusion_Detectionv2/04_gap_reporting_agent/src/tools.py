@@ -107,6 +107,38 @@ class GapReportArgs(BaseModel):
     gap_type: str
     confidence: float
     report_text: str
+    question_verdicts: Optional[List[dict]] = Field(
+        default=None,
+        description=(
+            "One entry per student question, cited by its number in the question list: "
+            '{"n": <question number>, "verdict": "<complete_omission | shallow_coverage | '
+            'fragmented_context | covered | off_topic>"}. Judge each question on its own.'
+        ),
+    )
+
+
+
+def _query_words(text: str) -> set:
+    import re
+
+    stop = {"the", "a", "an", "of", "in", "for", "and", "or", "to", "on", "with", "how", "what", "why", "is", "are"}
+    return {w for w in re.findall(r"[a-z0-9]+", text.lower()) if w not in stop}
+
+
+def _similar_earlier_query(query: str, earlier: List[str]) -> Optional[str]:
+    """An earlier query in this investigation that this one barely
+    rewords (one contains the other's words, or they share most words)."""
+    words = _query_words(query)
+    if not words:
+        return None
+    for prev in earlier:
+        other = _query_words(prev)
+        if not other:
+            continue
+        overlap = len(words & other) / len(words | other)
+        if words <= other or other <= words or overlap >= 0.6:
+            return prev
+    return None
 
 
 def build_tools(ctx: InvestigationContext, own_topic_id: Optional[int] = None) -> list:
@@ -114,6 +146,7 @@ def build_tools(ctx: InvestigationContext, own_topic_id: Optional[int] = None) -
     get_topic_slides only serves that topic -- a real run fetched two
     neighbouring topics' entire text this way (~3000 tokens each) just
     to read a couple of slides, which is what get_slides is for."""
+    earlier_queries: List[str] = []  # this investigation's full-deck searches
 
     @tool
     def get_topic_slides(topic_id: int) -> dict:
@@ -158,11 +191,13 @@ def build_tools(ctx: InvestigationContext, own_topic_id: Optional[int] = None) -
         get every question that didn't confidently match any real
         topic."""
         if topic_id == -1:
-            return [{"question": u.question, "score": u.best_score} for u in ctx.unmatched_questions]
+            return [{"n": i, "question": u.question, "score": u.best_score}
+                    for i, u in enumerate(ctx.unmatched_questions, start=1)]
         dossier = ctx.dossiers_by_id.get(topic_id)
         if dossier is None:
             return []
-        return [{"question": m.question, "score": m.score, "method": m.method} for m in dossier.matched_questions]
+        return [{"n": i, "question": m.question, "score": m.score, "method": m.method}
+                for i, m in enumerate(dossier.matched_questions, start=1)]
 
     @tool
     def search_expanding_context(anchor_slide_id: int, what_am_i_looking_for: str) -> dict:
@@ -214,6 +249,8 @@ def build_tools(ctx: InvestigationContext, own_topic_id: Optional[int] = None) -
         rather than a segmentation error. Freely searchable across the
         whole deck, including slides that belong to other topics'
         ranges -- that's expected, not a bug."""
+        repeat = _similar_earlier_query(query_text, earlier_queries)
+        earlier_queries.append(query_text)
         query_vec = ctx.embed(query_text)
         scored = []
         for s in ctx.deck.slides:
@@ -222,14 +259,25 @@ def build_tools(ctx: InvestigationContext, own_topic_id: Optional[int] = None) -
             score = cosine_similarity(ctx.embed(s.raw_text), query_vec)
             scored.append((score, s))
         scored.sort(key=lambda pair: pair[0], reverse=True)
-        return [{"slide_id": s.slide_id, "title": s.title, "score": float(score)} for score, s in scored[:top_k]]
+        results = [{"slide_id": s.slide_id, "title": s.title, "score": float(score)} for score, s in scored[:top_k]]
+        if repeat:
+            # Rewording a search that already came back empty-handed burns the
+            # step budget without new evidence (observed: four "function point"
+            # variants in one investigation). Say so; the model decides.
+            results.append({"note": f"This is nearly the same as your earlier search {repeat!r}. The deck has "
+                                    "no different content for it: if that search found nothing relevant, treat "
+                                    "the concept as absent from the deck and move on."})
+        return results
 
     @tool(args_schema=GapReportArgs)
-    def write_report(topic_id: int, gap_type: str, confidence: float, report_text: str) -> dict:
+    def write_report(topic_id: int, gap_type: str, confidence: float, report_text: str,
+                     question_verdicts: Optional[List[dict]] = None) -> dict:
         """Terminal tool -- ends this topic's investigation. Call this
         only after you've actually investigated per the system prompt's
         checklist. gap_type must be one of: complete_omission,
-        shallow_coverage, fragmented_context, covered. Do not set
+        shallow_coverage, fragmented_context, covered (and, only for the
+        unmatched-questions investigation, off_topic). For topic_id -1
+        also give question_verdicts, one per question. Do not set
         gap_type to complete_omission, or claim in report_text that a
         concept is "not covered" or "omitted," unless you have actually
         called search_similar_slides or search_expanding_context at
@@ -241,6 +289,7 @@ def build_tools(ctx: InvestigationContext, own_topic_id: Optional[int] = None) -
             "gap_type": gap_type,
             "confidence": confidence,
             "report_text": report_text,
+            "question_verdicts": question_verdicts,
         }
 
     return [

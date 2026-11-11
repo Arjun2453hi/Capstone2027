@@ -30,10 +30,10 @@ from common.groq_rotation import GroqRequestTooLarge
 from common.llm_monitoring import invoke_monitored
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage
-from pydantic import ValidationError
+from pydantic import TypeAdapter, ValidationError
 
 from .prompts import FORCED_CONCLUSION_NUDGE, SYSTEM_PROMPT
-from .schema import GapReport
+from .schema import UNMATCHED_TOPIC_ID, GapReport, QuestionVerdict, group_gap_type
 from .tools import InvestigationContext, build_tools
 
 MAX_ITERATIONS = 10  # claude.md Section 3: AgentExecutor(max_iterations=10) -- same cap, hand-rolled
@@ -128,14 +128,17 @@ def _is_tool_call_parse_error(exc: Exception) -> bool:
     corrective nudge, not a backoff."""
     status = getattr(exc, "status_code", None)
     text = str(exc)
-    return status == 400 and ("tool_use_failed" in text or "Failed to parse tool call" in text)
+    # "output_parse_failed": Groq could not parse the model's output at all
+    # (seen with an empty failed_generation). Same remedy: ask again.
+    return status == 400 and any(marker in text for marker in (
+        "tool_use_failed", "Failed to parse tool call", "output_parse_failed", "could not be parsed"))
 
 
 TOOL_CALL_PARSE_ERROR_NUDGE = (
-    "Your last tool call could not be parsed as valid JSON -- most likely report_text "
-    "was too long and got truncated mid-generation. Call write_report again with a more "
-    "concise report_text: a few clear paragraphs summarizing the pattern across "
-    "questions, not an exhaustive per-question list."
+    "Your last tool call could not be parsed as valid JSON -- most likely it was too long "
+    "and got truncated mid-generation. Call write_report again with report_text under 150 "
+    "words, and question_verdicts citing questions by number ({\"n\": 1, \"verdict\": ...}), "
+    "not by their full text."
 )
 
 
@@ -191,6 +194,19 @@ LAST_STEP_NOTICE = (
     "everything you have gathered. Searches that found nothing relevant are evidence too: "
     "say what you searched for and set confidence according to how thoroughly you checked."
 )
+
+
+def _bind_forcing_report(chat_model, tools):
+    """The same tools, but the model MUST call write_report (Groq
+    tool_choice). Used on the last step and the forced conclusion: asked
+    nicely, the model sometimes made one more search instead, and the
+    topic ended with an empty confidence-0 report (seen on 3 of 13 topics
+    of a new deck). A model wrapper without tool_choice support (test
+    fakes) falls back to plain binding."""
+    try:
+        return chat_model.bind_tools(tools, tool_choice="write_report")
+    except TypeError:
+        return chat_model.bind_tools(tools)
 
 
 def _invoke_with_retry(model_with_tools, messages, topic_label: str, *, topic_id=None, invocation_number=None):
@@ -261,14 +277,69 @@ def _extract_discovered_slide_ids(tool_name: str, result) -> List[int]:
     return []
 
 
-def _build_report(topic_id: int, args: dict, assigned_slide_ids: List[int], discovered_slide_ids: List[int]) -> GapReport:
+def _snap_verdicts(verdicts, known_questions):
+    """Point each verdict at the real question it is about: the model
+    sometimes paraphrases or trims the question text."""
+    import difflib
+
+    if not known_questions:
+        return verdicts
+    lowered = {q.lower(): q for q in known_questions}
+    out = []
+    for v in verdicts:
+        match = lowered.get(v.question.strip().lower()) or next(
+            iter(difflib.get_close_matches(v.question, known_questions, n=1, cutoff=0.6)), None)
+        out.append(QuestionVerdict(question=match or v.question, verdict=v.verdict))
+    return out
+
+
+def _known_questions(ctx, topic_id: int) -> List[str]:
+    if ctx is None:
+        return []
+    if topic_id == UNMATCHED_TOPIC_ID:
+        return [getattr(u, "question", u) for u in (getattr(ctx, "unmatched_questions", None) or [])]
+    dossier = (getattr(ctx, "dossiers_by_id", None) or {}).get(topic_id)
+    return [getattr(m, "question", m) for m in (dossier.matched_questions if dossier else [])]
+
+
+def _build_report(topic_id: int, args: dict, assigned_slide_ids: List[int], discovered_slide_ids: List[int],
+                  ctx=None, require_verdicts: bool = True) -> GapReport:
+    # The investigation's own topic_id is authoritative: a model that
+    # writes the wrong topic_id must not file its report under another topic.
+    # TypeAdapter raises ValidationError on malformed verdicts, which the
+    # loop turns into a retry nudge like any other bad argument.
+    known = _known_questions(ctx, topic_id)
+    raw = []
+    for v in args.get("question_verdicts") or []:
+        if isinstance(v, dict) and "question" not in v and v.get("n") is not None:
+            try:
+                n = int(v["n"])
+            except (TypeError, ValueError):
+                raise ValueError(f"question_verdicts: 'n' must be a question number, got {v['n']!r}")
+            if not 1 <= n <= len(known):
+                raise ValueError(f"question_verdicts: question number {n} is not in the list (1-{len(known)})")
+            v = {"question": known[n - 1], "verdict": v.get("verdict")}
+        raw.append(v)
+    verdicts = TypeAdapter(List[QuestionVerdict]).validate_python(raw)
+    verdicts = _snap_verdicts(verdicts, known)
+    gap_type = args["gap_type"]
+    if topic_id == UNMATCHED_TOPIC_ID and not verdicts and require_verdicts:
+        # pydantic's ValidationError is a ValueError: both become a retry nudge.
+        raise ValueError("The unmatched-questions report needs question_verdicts: one "
+                         '{"question": ..., "verdict": ...} entry per question.')
+    if verdicts:
+        # The report's verdict is derived from the per-question ones by
+        # plain code, so it cannot disagree with them.
+        gap_type = group_gap_type(verdicts, topic_id)
     return GapReport(
-        topic_id=args.get("topic_id", topic_id),
+        topic_id=topic_id,
         assigned_slide_ids=assigned_slide_ids,
         discovered_slide_ids=sorted(set(discovered_slide_ids)),
-        gap_type=args["gap_type"],
+        gap_type=gap_type,
         confidence=args["confidence"],
         report_text=args["report_text"],
+        question_verdicts=verdicts,
+        slide_refs="number",
     )
 
 
@@ -280,6 +351,7 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
     tools = build_tools(ctx, own_topic_id=topic_id)
     tool_lookup = {t.name: t for t in tools}
     model_with_tools = chat_model.bind_tools(tools)
+    must_report = _bind_forcing_report(chat_model, tools)
 
     dossier = ctx.dossiers_by_id.get(topic_id)
     assigned_slide_ids: List[int] = list(dossier.slide_ids) if dossier is not None else []
@@ -297,7 +369,8 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
             messages.append(HumanMessage(content=LAST_STEP_NOTICE))
         try:
             response: AIMessage = _invoke_with_retry(
-                model_with_tools, messages, topic_label, topic_id=topic_id, invocation_number=step
+                must_report if step == MAX_ITERATIONS else model_with_tools,
+                messages, topic_label, topic_id=topic_id, invocation_number=step
             )
         except Exception as e:
             if _is_rate_limit_error(e):
@@ -341,8 +414,8 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
                 )
                 continue
             try:
-                report = _build_report(topic_id, args, assigned_slide_ids, discovered_slide_ids)
-            except ValidationError as e:
+                report = _build_report(topic_id, args, assigned_slide_ids, discovered_slide_ids, ctx=ctx)
+            except ValueError as e:  # includes pydantic ValidationError
                 # e.g. an invalid gap_type -- GapReportArgs types it as
                 # a plain str (the tool schema can't express the
                 # Literal constraint as a hard reject), so this is
@@ -380,7 +453,7 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
     response = None
     try:
         response = _invoke_with_retry(
-            model_with_tools, messages, topic_label, topic_id=topic_id, invocation_number=MAX_ITERATIONS + 1
+            must_report, messages, topic_label, topic_id=topic_id, invocation_number=MAX_ITERATIONS + 1
         )
     except Exception as e:
         if _is_rate_limit_error(e):
@@ -393,10 +466,22 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
             }
         if not (_is_tool_call_parse_error(e) or isinstance(e, GroqRequestTooLarge)):
             raise
-        # Neither has a further loop iteration to retry into here --
-        # fall through to the "model didn't conclude" flagged report
-        # below rather than raising past the step budget.
-        print(f"[warn] {type(e).__name__} on {topic_label} during forced conclusion -- giving up on this topic")
+        response = None
+        if _is_tool_call_parse_error(e):
+            # Most often the report was cut off for length: one shorter try.
+            print(f"[warn] truncated forced conclusion on {topic_label} -- one retry with a shorter report")
+            messages.append(HumanMessage(content=TOOL_CALL_PARSE_ERROR_NUDGE))
+            try:
+                response = _invoke_with_retry(
+                    must_report, messages, topic_label, topic_id=topic_id, invocation_number=MAX_ITERATIONS + 2
+                )
+            except Exception as retry_error:
+                if not (_is_tool_call_parse_error(retry_error) or isinstance(retry_error, GroqRequestTooLarge)):
+                    raise
+        if response is None:
+            # Fall through to the "model didn't conclude" flagged report
+            # below rather than raising past the step budget.
+            print(f"[warn] {type(e).__name__} on {topic_label} during forced conclusion -- giving up on this topic")
 
     tool_calls = getattr(response, "tool_calls", None) or []
     write_report_call = next((c for c in tool_calls if c["name"] == "write_report"), None)
@@ -408,9 +493,9 @@ def run_topic_investigation(chat_model, ctx: InvestigationContext, topic_id: int
         # the generic cut-short report below instead of being accepted.
         if not (_claims_unverified_omission(args.get("gap_type", ""), args.get("report_text", "")) and search_tool_calls_made == 0):
             try:
-                report = _build_report(topic_id, args, assigned_slide_ids, discovered_slide_ids)
+                report = _build_report(topic_id, args, assigned_slide_ids, discovered_slide_ids, ctx=ctx, require_verdicts=False)
                 return {"report": report, "outcome": "cap_hit", "n_tool_calls": MAX_ITERATIONS + 1}
-            except ValidationError:
+            except ValueError:  # includes pydantic ValidationError
                 # No further loop iteration to retry into here either --
                 # fall through to the generic cut-short report below.
                 print(f"[warn] {topic_label}: forced-conclusion write_report arguments failed validation -- discarded")

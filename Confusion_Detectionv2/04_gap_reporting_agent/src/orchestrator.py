@@ -109,7 +109,8 @@ def build_investigation_context(deck, dossiers, unmatched_questions, embedding_m
 
 
 def _format_question_list(questions: List[dict]) -> str:
-    return "\n".join(f"- {q['question']} (score {q.get('score', 0):.3f})" for q in questions) or "(none)"
+    return "\n".join(f"{i}. {q['question']} (score {q.get('score', 0):.3f})"
+                     for i, q in enumerate(questions, start=1)) or "(none)"
 
 
 def report_filename(topic_id: int) -> str:
@@ -184,13 +185,18 @@ def merge_part_results(dossier, part_results: list) -> dict:
     for i, (part, r) in enumerate(part_results, start=1):
         report = r["report"]
         sections.append(
-            f"Part {i} of {len(part_results)} -- slides {part.slide_ids[0]}-{part.slide_ids[-1]}, "
+            f"Part {i} of {len(part_results)} -- slides {part.slide_ids[0] + 1}-{part.slide_ids[-1] + 1}, "
             f"{len(part.matched_questions)} question(s): {report.gap_type} "
             f"(confidence {report.confidence:.2f})\n\n{report.report_text.strip()}"
         )
 
     outcomes = {r["outcome"] for _, r in part_results}
     outcome = next((o for o in ("request_too_large", "cap_hit") if o in outcomes), "completed")
+    verdicts = [v for _, r in part_results if r["report"].confidence > 0 for v in r["report"].question_verdicts]
+    if verdicts:  # the topic's verdict follows its questions' own verdicts
+        from .schema import group_gap_type
+
+        gap_type = group_gap_type(verdicts, dossier.topic_id)
     report = GapReport(
         topic_id=dossier.topic_id,
         assigned_slide_ids=list(dossier.slide_ids),
@@ -198,6 +204,8 @@ def merge_part_results(dossier, part_results: list) -> dict:
         gap_type=gap_type,
         confidence=confidence,
         report_text="\n\n".join(sections),
+        question_verdicts=verdicts,
+        slide_refs="number" if all(r["report"].slide_refs == "number" for _, r in part_results) else "id",
     )
     return {"report": report, "outcome": outcome, "n_tool_calls": sum(r["n_tool_calls"] for _, r in part_results)}
 
@@ -219,6 +227,8 @@ def _investigate_topic(chat_model, ctx: InvestigationContext, dossier) -> dict:
             topic_id=part.topic_id,
             start=part.slide_ids[0] if part.slide_ids else "?",
             end=part.slide_ids[-1] if part.slide_ids else "?",
+            start_number=part.slide_ids[0] + 1 if part.slide_ids else "?",
+            end_number=part.slide_ids[-1] + 1 if part.slide_ids else "?",
             n=len(questions),
             question_list=_format_question_list(questions),
         )
@@ -247,7 +257,15 @@ def run_all_topics(chat_model, ctx: InvestigationContext, dossiers, unmatched_qu
             continue
         if results:
             time.sleep(INTER_TOPIC_DELAY_SECONDS)
-        result = _investigate_topic(chat_model, ctx, dossier)
+        try:
+            result = _investigate_topic(chat_model, ctx, dossier)
+        except Exception as exc:  # one topic's provider error must not end the whole run
+            from common.llm_monitoring import sanitize_text
+
+            print(f"[error] topic {dossier.topic_id}: {type(exc).__name__}: {sanitize_text(str(exc))[:200]} -- "
+                  "no report written; it will be retried on the next run")
+            results.append({"topic_id": dossier.topic_id, "report": None, "outcome": "error", "n_tool_calls": 0})
+            continue
         if result["outcome"] == "rate_limit_failed":
             # Every later topic would hit the same wall. Stop here, and
             # leave this topic's existing report (if any) alone rather
@@ -270,7 +288,14 @@ def run_all_topics(chat_model, ctx: InvestigationContext, dossiers, unmatched_qu
             time.sleep(INTER_TOPIC_DELAY_SECONDS)
         questions = [{"question": u.question, "score": u.best_score} for u in unmatched_questions]
         kickoff = UNMATCHED_KICKOFF_TEMPLATE.format(n=len(questions), question_list=_format_question_list(questions))
-        result = run_topic_investigation(chat_model, ctx, -1, kickoff)
+        try:
+            result = run_topic_investigation(chat_model, ctx, -1, kickoff)
+        except Exception as exc:
+            from common.llm_monitoring import sanitize_text
+
+            print(f"[error] unmatched-questions topic: {type(exc).__name__}: {sanitize_text(str(exc))[:200]}")
+            results.append({"topic_id": -1, "report": None, "outcome": "error", "n_tool_calls": 0})
+            return results
         write_report_json(result["report"], output_dir)
         results.append({"topic_id": -1, **result})
         print(
