@@ -13,7 +13,7 @@ const screenshots = new URL('../../.cache/editor-ui/', import.meta.url);
 await fs.mkdir(screenshots, { recursive: true });
 try {
   await page.goto(url);
-  await page.getByRole('heading', { name: 'Make room for understanding.' }).waitFor();
+  await page.getByRole('heading', { name: 'Review changes', level: 1 }).waitFor();
   await page.locator('.comparison-grid .slide-image.loaded').first().waitFor({ timeout: 30000 });
   await page.locator('.comparison-grid .slide-image.loaded').nth(1).waitFor({ timeout: 30000 });
   assert.equal(await page.locator('[role="alert"]').count(), 0);
@@ -46,7 +46,7 @@ try {
     await page.getByRole('tab', { name, exact: name !== 'Student questions' }).click();
   }
   await page.getByRole('button', { name: 'Evaluation', exact: true }).click();
-  await page.getByRole('heading', { name: 'Evidence, before confidence.' }).waitFor();
+  await page.getByRole('heading', { name: 'Evaluation', level: 1 }).waitFor();
   const downloadWait = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Review form', exact: true }).click();
   const download = await downloadWait;
@@ -59,7 +59,7 @@ try {
   assert.ok((await page.locator('.stats-grid').first().innerText()).includes('Not measured'));
   await page.screenshot({ path: fileURLToPath(new URL('evaluation-desktop.png', screenshots)), fullPage: true });
   await page.getByRole('button', { name: 'Activity', exact: true }).click();
-  await page.getByRole('heading', { name: 'Nothing behind the curtain.' }).waitFor();
+  await page.getByRole('heading', { name: 'Activity', level: 1 }).waitFor();
   await page.locator('summary').click();
   assert.ok((await page.locator('.policy-grid').innerText()).includes('Groq'));
   await page.getByRole('button', { name: 'Evaluation', exact: true }).click();
@@ -70,7 +70,7 @@ try {
   assert.ok(await page.locator('.layout-card').count() > 0);
   await page.getByRole('button', { name: 'Review changes', exact: true }).click();
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.getByRole('heading', { name: 'Make room for understanding.' }).waitFor();
+  await page.getByRole('heading', { name: 'Review changes', level: 1 }).waitFor();
   await page.locator('.comparison-grid .slide-image.loaded').nth(1).waitFor({ timeout: 30000 });
   await page.locator('[role="status"]').waitFor({ state: 'hidden', timeout: 8000 });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), 'Mobile page must not overflow horizontally');
