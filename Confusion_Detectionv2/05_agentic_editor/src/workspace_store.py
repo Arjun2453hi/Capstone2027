@@ -57,6 +57,11 @@ class WorkspaceStore:
             db.execute("DELETE FROM proposals WHERE decision != 'approved' AND id NOT IN (SELECT id FROM proposals ORDER BY updated DESC LIMIT 300)")
         return ids
 
+    def remove_unapproved(self, source):
+        """Drop proposals from one source (e.g. "saved") unless approved."""
+        with self.lock, self.connect() as db:
+            return db.execute("DELETE FROM proposals WHERE source=? AND decision != 'approved'", (source,)).rowcount
+
     def proposals(self):
         with self.lock, self.connect() as db:
             return [{"id": r["id"], "source": r["source"], "decision": r["decision"], **json.loads(r["payload"])}

@@ -6,12 +6,17 @@ import time
 import pytest
 from fastapi.testclient import TestClient
 
-from ..src.web_api import SOURCE, create_app
+from common import deck_workspace
+from ..src.web_api import create_app
+
+# The tests run against the Cloud Computing deck workspace (real data, 288 slides, 140 questions).
+TEST_DECK = "cc-unit2"
+SOURCE = deck_workspace.load(TEST_DECK).edit_source
 
 
 @pytest.fixture
 def client(tmp_path):
-    app = create_app(state_dir=tmp_path)
+    app = create_app(state_dir=tmp_path, deck_id=TEST_DECK, include_saved=True)
     with TestClient(app) as client:
         client.headers["x-workspace-token"] = client.get("/api/workspace").json()["token"]
         yield client
@@ -115,7 +120,7 @@ def test_live_worker_checkpoints_without_applying_any_edits(tmp_path):
         max_tokens = 3000
         def generate(self, system, user):
             return '{"problems": []}' if 'You fact-check' in system else json.dumps({"edits": [answer]})
-    app = create_app(state_dir=tmp_path, generator_factory=Scripted)
+    app = create_app(state_dir=tmp_path, generator_factory=Scripted, deck_id=TEST_DECK, include_saved=True)
     with TestClient(app) as client:
         client.headers["x-workspace-token"] = client.get('/api/workspace').json()['token']
         row = next(p for p in client.get('/api/proposals').json() if p['accepted'] and p['operation'] == 'insert_slide_after')
@@ -138,7 +143,7 @@ def test_bounded_queue_duplicate_prevention_and_cancellation(tmp_path):
             entered.set()
             release.wait(5)
             return '{"edits": []}'
-    app = create_app(state_dir=tmp_path, generator_factory=Waiting)
+    app = create_app(state_dir=tmp_path, generator_factory=Waiting, deck_id=TEST_DECK, include_saved=True)
     with TestClient(app) as client:
         workspace = client.get('/api/workspace').json()
         client.headers['x-workspace-token'] = workspace['token']
@@ -166,3 +171,11 @@ def test_request_body_and_host_limits(client):
     response = client.post('/api/evaluation', content=b'x' * 1_000_001, headers={'content-type': 'application/json'})
     assert response.status_code == 413
     assert client.get('/api/workspace', headers={'host': 'untrusted.example'}).status_code == 400
+
+
+def test_by_default_no_pre_generated_suggestions_are_shown(tmp_path):
+    with TestClient(create_app(state_dir=tmp_path, deck_id=TEST_DECK, include_saved=True)) as client:
+        assert any(p["source"] == "saved" for p in client.get("/api/proposals").json())
+    # Same workspace state, reopened without saved suggestions: they are gone.
+    with TestClient(create_app(state_dir=tmp_path, deck_id=TEST_DECK)) as client:
+        assert client.get("/api/proposals").json() == []
