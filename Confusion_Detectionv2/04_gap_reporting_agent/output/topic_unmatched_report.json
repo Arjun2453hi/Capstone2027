@@ -10,35 +10,47 @@
     26,
     28,
     47,
-    61,
+    62,
     63,
-    68,
     69,
     73,
     74,
     76,
     79,
-    87,
     100,
-    106,
     124,
-    126,
     131,
-    132,
     154,
-    164,
-    167,
-    182,
-    187,
+    174,
     192,
-    193,
     215,
-    225,
-    228,
+    235,
     257,
     269
   ],
-  "gap_type": "complete_omission",
-  "confidence": 0.35,
-  "report_text": "I investigated the five unmatched student questions by performing a full‑deck semantic search for each query. For every question—\"What is normalization in database design?\", \"How do I center a div in CSS?\", \"What's the difference between TCP and UDP?\", \"What's the time complexity of quicksort in the average case?\", and \"How does garbage collection work in Java?\"—the top results returned slides that were unrelated to the topics (mostly virtualization, hypervisor, and networking slides that did not discuss the specific concepts). No slide contained the relevant content, and no additional context was found by expanding the search window. Because the search did not uncover any material that could answer these questions, I conclude that the deck omits coverage for all five topics. \n\nI note that this conclusion was reached with limited search depth due to the step limit; a more exhaustive search might reveal peripheral or tangential material, but the evidence gathered so far strongly suggests a complete omission for each question."
+  "gap_type": "off_topic",
+  "confidence": 0.9,
+  "report_text": "All five student questions that did not match any topic in the deck were investigated. For each, a full‑deck semantic search was performed using `search_similar_slides`. None of the top‑scoring slides contained relevant content about database normalization, CSS layout, TCP/UDP, quicksort complexity, or Java garbage collection. The deck’s subject matter is focused on virtualization, hypervisors, and container technologies, so these queries are outside its scope. Consequently, each question is classified as off‑topic. Since no gaps exist within the deck’s intended coverage, the overall gap type is \"covered\".",
+  "question_verdicts": [
+    {
+      "question": "What is normalization in database design?",
+      "verdict": "off_topic"
+    },
+    {
+      "question": "How do I center a div in CSS?",
+      "verdict": "off_topic"
+    },
+    {
+      "question": "What's the difference between TCP and UDP?",
+      "verdict": "off_topic"
+    },
+    {
+      "question": "What's the time complexity of quicksort in the average case?",
+      "verdict": "off_topic"
+    },
+    {
+      "question": "How does garbage collection work in Java?",
+      "verdict": "off_topic"
+    }
+  ]
 }

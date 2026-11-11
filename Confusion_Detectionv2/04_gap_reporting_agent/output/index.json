@@ -81,15 +81,6 @@
     "severity": 1.8956351407715468
   },
   {
-    "topic_id": -1,
-    "filename": "topic_unmatched_report.json",
-    "gap_type": "complete_omission",
-    "confidence": 0.35,
-    "backed_by_questions": 5,
-    "outcome": "cap_hit",
-    "severity": 1.8813474426894576
-  },
-  {
     "topic_id": 12,
     "filename": "topic_12_report.json",
     "gap_type": "shallow_coverage",
@@ -203,6 +194,15 @@
     "gap_type": "covered",
     "confidence": 0.97,
     "backed_by_questions": 1,
+    "outcome": "completed",
+    "severity": 0.0
+  },
+  {
+    "topic_id": -1,
+    "filename": "topic_unmatched_report.json",
+    "gap_type": "off_topic",
+    "confidence": 0.9,
+    "backed_by_questions": 5,
     "outcome": "completed",
     "severity": 0.0
   }
