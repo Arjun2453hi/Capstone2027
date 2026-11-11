@@ -1,0 +1,30 @@
+{
+  "topic_id": 9,
+  "assigned_slide_ids": [
+    134,
+    135,
+    136,
+    137,
+    138,
+    139
+  ],
+  "discovered_slide_ids": [
+    4,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    189,
+    190
+  ],
+  "gap_type": "fragmented_context",
+  "confidence": 0.9,
+  "report_text": "The five student questions map well to the material in slides 134‑139 except for the first one about what containers share with the host OS. The current topic slides focus on Docker architecture, client‑daemon interaction, images, containers, and Dockerfiles, and they do not explicitly state that containers share the host kernel. That information appears in the preceding slides (130‑133), where slide 130 explains the user‑space vs kernel‑space distinction and slide 131 notes that containers \"share a common OS\" and therefore the kernel. Because the answer lives just outside the topic boundary, a learner consulting only slides 134‑139 would miss the kernel‑sharing detail. This is a classic fragmented‑context situation: the concept is present in the deck but split across adjacent topics without a clear cross‑reference.\n\nRecommendation: add a concise statement to the start of the Docker Architecture section (e.g., \"Containers share the host operating system’s kernel, running in isolated user‑space processes\") and optionally a forward‑reference to slide 130 for deeper OS fundamentals. This will make the answer self‑contained within the topic and eliminate the fragmentation.\n"
+}

@@ -1,0 +1,26 @@
+{
+  "topic_id": 18,
+  "assigned_slide_ids": [
+    244,
+    245,
+    246,
+    247,
+    248,
+    249
+  ],
+  "discovered_slide_ids": [
+    153,
+    156,
+    183,
+    217,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248
+  ],
+  "gap_type": "fragmented_context",
+  "confidence": 0.93,
+  "report_text": "I examined Topic 18 (slides 244‑249). The slides only give a high‑level statement that Docker creates \"a set of namespaces\" to provide isolation, without naming the individual namespace types or explaining the underlying Linux namespace mechanism. \n\nTo see whether the missing details appear elsewhere, I expanded the context around slide 244 and reviewed neighboring slides (243‑245) – they also lack specifics. A deck‑wide search for namespace details returned slide 153 (\"Docker used Namespaces (Cont.)\"), which mentions NET and USR namespaces and related mechanisms, but it does not list the full set of namespaces (mount, pid, net, ipc, uts, user) nor give a concise definition of a Linux namespace or the rationale for Docker’s use of them. No other slides provide a complete, integrated answer.\n\nThus the two student questions are only partially addressed across the deck: the concept is introduced in Topic 18, while fragmentary details appear in a separate slide (153) with no cross‑reference. This constitutes **fragmented context** – the answer exists but is split across distant parts of the deck.\n\n**Recommendation:** Add a dedicated slide (or expand the existing summary) within Topic 18 that:\n1. Defines a Linux namespace (a kernel feature that isolates system resources such as process IDs, network interfaces, mount points, etc.).\n2. Lists the six primary namespaces Docker leverages (mount, pid, net, ipc, uts, user) with a one‑sentence purpose for each.\n3. Explains why Docker uses namespaces – to provide process isolation, separate networking, distinct filesystem views, etc., enabling containers to behave like lightweight VMs.\nIncluding this information in the same topic will give students a complete, self‑contained answer and eliminate the need to piece together information from unrelated slides."
+}

@@ -1,0 +1,20 @@
+{
+  "topic_id": 13,
+  "assigned_slide_ids": [
+    178,
+    179,
+    180,
+    181,
+    182
+  ],
+  "discovered_slide_ids": [
+    178,
+    179,
+    181,
+    239,
+    242
+  ],
+  "gap_type": "covered",
+  "confidence": 0.93,
+  "report_text": "The slides for Topic 13 (178‑182) provide a concise yet complete treatment of the three student questions. They begin with a clear definition of a union filesystem and illustrate its operation through layering and copy‑on‑write examples, directly answering “What is a union filesystem and how does it work?”. The relationship between UnionFS and Docker’s image layers is explained in the “Docker and UnionFS” section, describing how each Docker image layer is a read‑only UnionFS branch and how the top writable layer becomes the container’s view, satisfying the query “How does UnionFS relate to Docker's image layers?”. Finally, a dedicated “Weaknesses of Union Filesystem” bullet list enumerates the practical drawbacks (attribute translation issues, mmap complications, unsuitability for long‑lived or shared data, etc.), fully addressing the third question. No additional context outside this range is required, and a quick deck‑wide search confirms that the relevant material is not fragmented across other topics. Overall, the topic’s slides adequately cover the students’ concerns."
+}

@@ -1,0 +1,27 @@
+{
+  "topic_id": 10,
+  "assigned_slide_ids": [
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146
+  ],
+  "discovered_slide_ids": [
+    142,
+    143,
+    144,
+    145,
+    146,
+    177,
+    178,
+    181,
+    239,
+    242
+  ],
+  "gap_type": "fragmented_context",
+  "confidence": 0.85,
+  "report_text": "The slides for Topic 10 (140‑146) introduce Docker image layers by stating that each Dockerfile instruction creates a read‑only layer, that layers are treated like intermediate images, and that incremental builds only rebuild changed layers. This gives a solid high‑level view of *how* layers are generated, but it stops short of describing *how* those layers are combined when a container runs. Critical concepts such as the union filesystem (UFS), the stacking of read‑only layers with a top writable layer, and the copy‑on‑write mechanism that presents a single coherent filesystem to the container are not covered within these slides.\n\nA separate slide (ID 181, \"Docker and UnionFS\") does explain the union filesystem model, showing that each layer is mounted on top of the previous one and that the container sees a merged view. However, this slide resides outside the current topic’s range, meaning a student looking only at Topic 10 would not receive a complete answer to the question \"How do image layers work in Docker?\" The necessary runtime‑composition details are split across topics, resulting in fragmented context.\n\n**Recommendation:** Enrich Topic 10 with a concise subsection (or an additional slide) that bridges the creation‑time description to the runtime behavior. Include a brief explanation of the union filesystem, the read‑only stack of layers, the top writable layer, and copy‑on‑write semantics. You can reuse the core points from slide 181 to avoid duplication while keeping the narrative self‑contained. This will turn the fragmented coverage into a fully covered answer within the topic."
+}

@@ -1,0 +1,26 @@
+{
+  "topic_id": 3,
+  "assigned_slide_ids": [
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "discovered_slide_ids": [
+    4,
+    15,
+    16,
+    17,
+    22,
+    26,
+    52,
+    63,
+    89,
+    96
+  ],
+  "gap_type": "covered",
+  "confidence": 0.9,
+  "report_text": "I examined the slide text for Topic 3 (slides 22‑27) and the two matched student questions. The slides explicitly list the main disadvantages of paravirtualization—compatibility and portability concerns, high maintenance cost due to required OS kernel modifications, and variable performance depending on workload. They also contrast paravirtualization with full virtualization by noting that full virtualization relies on binary translation and suffers from lower performance, whereas paravirtualization achieves better performance by modifying the guest OS and using hypercalls. To ensure completeness, I retrieved slide 15, which provides a concise comparison of the two architectures: full virtualization intercepts and emulates privileged instructions at runtime, while paravirtualization handles them at compile time via hypercalls. This slide reinforces the differences highlighted in the topic slides. No additional context beyond these slides is needed to answer either question, and the information is presented in a clear, self‑contained manner. Therefore, the deck adequately covers both questions, and no gaps are identified."
+}

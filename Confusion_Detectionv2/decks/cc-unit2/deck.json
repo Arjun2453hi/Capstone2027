@@ -1,0 +1,15 @@
+{
+ "deck_id": "cc-unit2",
+ "title": "Cloud Computing - Unit 2",
+ "subject": "Cloud Computing",
+ "created_at": "2026-11-11T11:12:55.249256+00:00",
+ "original_files": [
+  "cc-unit2-slides.pptx",
+  "cc-unit2-slides.pdf"
+ ],
+ "pdf": "data/cc-unit2-slides.pdf",
+ "pptx": "data/cc-unit2-slides.pptx",
+ "question_source": "real",
+ "parse_source": "data/cc-unit2-slides.pdf",
+ "questions": "decks/cc-unit2/questions.txt"
+}

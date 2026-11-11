@@ -1,0 +1,16 @@
+{
+  "topic_id": 15,
+  "assigned_slide_ids": [
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207
+  ],
+  "discovered_slide_ids": [],
+  "gap_type": "covered",
+  "confidence": 0.92,
+  "report_text": "The slide range 201-207 contains a dedicated subsection on Docker image layers. It explains that each Dockerfile instruction creates a new read‑only layer, that a layer consists of files and metadata, and that Docker treats layers as intermediate images that can be promoted or cached. The material also notes that layers build upon parent layers and that only changed layers are rebuilt, highlighting the lightweight, incremental nature of Docker images. This directly addresses the student’s question about how image layers work, providing both the conceptual model (stacked read‑only layers) and practical implications (caching and incremental builds). No additional context outside this topic is required."
+}

@@ -1,0 +1,56 @@
+{
+  "topic_id": -1,
+  "assigned_slide_ids": [],
+  "discovered_slide_ids": [
+    0,
+    9,
+    11,
+    17,
+    21,
+    26,
+    28,
+    47,
+    62,
+    63,
+    69,
+    73,
+    74,
+    76,
+    79,
+    100,
+    124,
+    131,
+    154,
+    174,
+    192,
+    215,
+    235,
+    257,
+    269
+  ],
+  "gap_type": "off_topic",
+  "confidence": 0.9,
+  "report_text": "All five student questions that did not match any topic in the deck were investigated. For each, a full‑deck semantic search was performed using `search_similar_slides`. None of the top‑scoring slides contained relevant content about database normalization, CSS layout, TCP/UDP, quicksort complexity, or Java garbage collection. The deck’s subject matter is focused on virtualization, hypervisors, and container technologies, so these queries are outside its scope. Consequently, each question is classified as off‑topic. Since no gaps exist within the deck’s intended coverage, the overall gap type is \"covered\".",
+  "question_verdicts": [
+    {
+      "question": "What is normalization in database design?",
+      "verdict": "off_topic"
+    },
+    {
+      "question": "How do I center a div in CSS?",
+      "verdict": "off_topic"
+    },
+    {
+      "question": "What's the difference between TCP and UDP?",
+      "verdict": "off_topic"
+    },
+    {
+      "question": "What's the time complexity of quicksort in the average case?",
+      "verdict": "off_topic"
+    },
+    {
+      "question": "How does garbage collection work in Java?",
+      "verdict": "off_topic"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "topic_id": 2,
+  "assigned_slide_ids": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "discovered_slide_ids": [
+    14,
+    16,
+    17,
+    18,
+    26,
+    32,
+    50,
+    52,
+    58
+  ],
+  "gap_type": "covered",
+  "confidence": 0.9,
+  "report_text": "The slides for Topic 2 (slides 16‑21) provide a clear, self‑contained explanation of paravirtualization that directly addresses all three matched questions.\n\n1. **Why does paravirtualization require modifying the guest OS?**\n   - Slide 16 explicitly states that paravirtualization reduces overhead by *modifying the guest OS kernel* and using hypercalls instead of emulating privileged instructions. Slide 17 further explains that the guest OS is compiled with changes that replace privileged instructions with hypercalls, allowing the OS to run at a lower ring and interact more efficiently with the hypervisor.\n\n2. **How does Xen implement paravirtualization?**\n   - Slides 17‑18 describe Xen’s architecture: the guest OS runs at Ring 1, privileged instructions are replaced by hypercalls, and Xen provides a hypercall API. Slide 19 gives a concrete memory‑handling illustration, showing how Xen’s writable page tables and trap‑based hypercalls work. Slide 20‑21 quantify the performance benefit by comparing the number of traps in full emulation versus paravirtualization.\n\n3. **Why does paravirtualization improve performance over full virtualization?**\n   - The same slides (16, 19‑21) quantify the reduction in traps (from 250,000 to 1,000) and explain that hypercalls avoid costly instruction emulation, leading to significant performance gains.\n\nNo additional search was required; the topic’s own slides already contain the necessary information. Therefore, the deck adequately covers these questions within this topic’s slide range.\n"
+}
