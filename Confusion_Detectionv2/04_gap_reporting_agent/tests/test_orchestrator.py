@@ -120,7 +120,7 @@ def test_merged_report_takes_the_most_severe_concluded_gap():
     assert merged["report"].discovered_slide_ids == [7, 9]
     assert merged["outcome"] == "cap_hit"
     assert merged["n_tool_calls"] == 9
-    assert "Part 2 of 3 -- slides 20-21, 1 question(s): shallow_coverage" in merged["report"].report_text
+    assert "Part 2 of 3 -- slides 21-22, 1 question(s): shallow_coverage" in merged["report"].report_text  # slide numbers, not ids
 
 
 def test_large_topic_runs_one_investigation_per_part_and_writes_one_report(tmp_path):
@@ -144,7 +144,7 @@ def test_large_topic_runs_one_investigation_per_part_and_writes_one_report(tmp_p
 
     results = run_all_topics(model, ctx, [dossier], [], tmp_path)
 
-    assert seen_slide_ranges == ["Topic 0, slides 1-3.", "Topic 0, slides 19-21."]
+    assert seen_slide_ranges == ["Topic 0: slide_ids 1-3 (slide numbers 2-4).", "Topic 0: slide_ids 19-21 (slide numbers 20-22)."]
     assert len(results) == 1 and results[0]["outcome"] == "completed"
     assert results[0]["report"].confidence == pytest.approx(0.8)
     assert sorted(p.name for p in tmp_path.iterdir()) == ["topic_00_report.json"]

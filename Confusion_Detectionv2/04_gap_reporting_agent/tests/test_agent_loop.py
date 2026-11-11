@@ -179,7 +179,7 @@ def test_malformed_tool_call_json_is_nudged_and_retried_within_the_loop():
 def test_malformed_tool_call_json_during_forced_conclusion_falls_back_to_flagged_report():
     ctx = make_fake_context()
     non_terminal = [ai_tool_call("get_topic_slides", {"topic_id": 0}, f"c{i}") for i in range(MAX_ITERATIONS)]
-    model = ScriptedChatModel(non_terminal + [_FakeToolCallParseError()])
+    model = ScriptedChatModel(non_terminal + [_FakeToolCallParseError(), _FakeToolCallParseError()])  # the shorter retry fails too
 
     result = run_topic_investigation(model, ctx, topic_id=0, kickoff_message="investigate")
 
@@ -382,3 +382,15 @@ def test_model_is_told_when_it_reaches_its_last_step_and_can_conclude_uncapped()
     assert [m == agent_module.LAST_STEP_NOTICE for m in seen_last_messages] == [False] * (MAX_ITERATIONS - 1) + [True]
     assert result["outcome"] == "completed"
     assert result["report"].confidence == 0.85
+
+
+def test_truncated_forced_conclusion_gets_one_shorter_retry():
+    ctx = make_fake_context()
+    non_terminal = [ai_tool_call("get_topic_slides", {"topic_id": 0}, f"c{i}") for i in range(MAX_ITERATIONS)]
+    short = ai_tool_call("write_report", {"topic_id": 0, "gap_type": "covered", "confidence": 0.9, "report_text": "short"}, "w")
+    model = ScriptedChatModel(non_terminal + [_FakeToolCallParseError(), short])
+
+    result = run_topic_investigation(model, ctx, topic_id=0, kickoff_message="investigate")
+
+    assert result["outcome"] == "cap_hit"
+    assert result["report"].report_text == "short" and result["report"].confidence == 0.4  # capped, not lost

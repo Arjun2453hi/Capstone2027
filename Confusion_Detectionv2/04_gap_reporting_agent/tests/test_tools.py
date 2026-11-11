@@ -46,7 +46,7 @@ def test_get_matched_questions_returns_the_dossiers_matches():
     tools = {t.name: t for t in build_tools(ctx)}
 
     result = tools["get_matched_questions"].invoke({"topic_id": 0})
-    assert result == [{"question": "what is X?", "score": 0.8, "method": "semantic"}]
+    assert result == [{"n": 1, "question": "what is X?", "score": 0.8, "method": "semantic"}]
 
 
 def test_get_matched_questions_for_unmatched_topic_returns_unmatched_questions():
@@ -55,7 +55,7 @@ def test_get_matched_questions_for_unmatched_topic_returns_unmatched_questions()
     tools = {t.name: t for t in build_tools(ctx)}
 
     result = tools["get_matched_questions"].invoke({"topic_id": -1})
-    assert result == [{"question": "orphan question", "score": 0.2}]
+    assert result == [{"n": 1, "question": "orphan question", "score": 0.2}]
 
 
 def test_search_similar_slides_ranks_by_cosine_similarity_and_respects_top_k():
