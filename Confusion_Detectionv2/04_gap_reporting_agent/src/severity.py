@@ -16,6 +16,7 @@ GAP_TYPE_WEIGHT = {
     "fragmented_context": 2.0,
     "shallow_coverage": 1.0,
     "covered": 0.0,
+    "off_topic": 0.0,  # not a gap in this deck: never ranked above a real gap
 }
 
 
