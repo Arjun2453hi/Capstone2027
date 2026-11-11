@@ -1,0 +1,101 @@
+[
+  {
+    "topic_id": 16,
+    "filename": "topic_16_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.8,
+    "backed_by_questions": 23,
+    "outcome": "completed",
+    "severity": 2.542443064278357
+  },
+  {
+    "topic_id": 14,
+    "filename": "topic_14_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.4,
+    "backed_by_questions": 16,
+    "outcome": "cap_hit",
+    "severity": 1.1332853376224865
+  },
+  {
+    "topic_id": 6,
+    "filename": "topic_06_report.json",
+    "gap_type": "shallow_coverage",
+    "confidence": 0.3,
+    "backed_by_questions": 16,
+    "outcome": "cap_hit",
+    "severity": 0.8499640032168648
+  },
+  {
+    "topic_id": 8,
+    "filename": "topic_08_report.json",
+    "gap_type": "covered",
+    "confidence": 0.9,
+    "backed_by_questions": 6,
+    "outcome": "completed",
+    "severity": 0.0
+  },
+  {
+    "topic_id": 9,
+    "filename": "topic_09_report.json",
+    "gap_type": "covered",
+    "confidence": 0.9,
+    "backed_by_questions": 5,
+    "outcome": "completed",
+    "severity": 0.0
+  },
+  {
+    "topic_id": 10,
+    "filename": "topic_10_report.json",
+    "gap_type": "covered",
+    "confidence": 0.8,
+    "backed_by_questions": 2,
+    "outcome": "completed",
+    "severity": 0.0
+  },
+  {
+    "topic_id": 11,
+    "filename": "topic_11_report.json",
+    "gap_type": "covered",
+    "confidence": 0.7166666666666667,
+    "backed_by_questions": 11,
+    "outcome": "cap_hit",
+    "severity": 0.0
+  },
+  {
+    "topic_id": 12,
+    "filename": "topic_12_report.json",
+    "gap_type": "covered",
+    "confidence": 0.9,
+    "backed_by_questions": 7,
+    "outcome": "completed",
+    "severity": 0.0
+  },
+  {
+    "topic_id": 19,
+    "filename": "topic_19_report.json",
+    "gap_type": "covered",
+    "confidence": 0.9,
+    "backed_by_questions": 3,
+    "outcome": "completed",
+    "severity": 0.0
+  },
+  {
+    "topic_id": 20,
+    "filename": "topic_20_report.json",
+    "gap_type": "covered",
+    "confidence": 0.925,
+    "backed_by_questions": 10,
+    "outcome": "completed",
+    "severity": 0.0
+  },
+  {
+    "topic_id": 21,
+    "filename": "topic_21_report.json",
+    "gap_type": "covered",
+    "confidence": 0.925,
+    "backed_by_questions": 14,
+    "outcome": "completed",
+    "severity": 0.0
+  }
+]

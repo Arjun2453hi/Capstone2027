@@ -1,0 +1,18 @@
+{
+  "topic_id": 8,
+  "assigned_slide_ids": [
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135
+  ],
+  "discovered_slide_ids": [],
+  "gap_type": "covered",
+  "confidence": 0.9,
+  "report_text": "The eight slides (128‑135) provide a comprehensive overview of containers, Docker, and their relationship to virtual machines.  They define Linux containers (LXC), explain how containers use kernel namespaces and cgroups, and contrast them with VMs in terms of OS image, memory and storage overhead, boot time, and I/O performance.  The slides explicitly state that containers share the host kernel, are only megabytes in size, and start in seconds, which directly answers why containers have less overhead and why they are considered lightweight virtualization.  The section titled \"Docker Improves Application Portability\" describes Docker’s immutable images, the \"works on my machine\" problem, and how Docker ensures consistent runtime across hosts—directly answering the portability question.  The final slide lists Docker’s main benefits: portability, fast provisioning, consistent runtime, dependency isolation, and simplified CI/CD workflows, covering the benefits question.  All six matched questions find clear, direct answers within this topic’s slide range, so the topic is fully covered.",
+  "question_verdicts": []
+}

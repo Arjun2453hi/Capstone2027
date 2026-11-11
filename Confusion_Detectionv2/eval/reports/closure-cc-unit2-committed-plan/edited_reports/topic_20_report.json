@@ -1,0 +1,32 @@
+{
+  "topic_id": 20,
+  "assigned_slide_ids": [
+    274,
+    275,
+    276,
+    277,
+    278,
+    279,
+    280,
+    281,
+    282,
+    283,
+    284,
+    285,
+    286
+  ],
+  "discovered_slide_ids": [
+    108,
+    274,
+    275,
+    276,
+    278,
+    280,
+    281,
+    282
+  ],
+  "gap_type": "covered",
+  "confidence": 0.925,
+  "report_text": "Part 1 of 2 -- slides 274-282, 8 question(s): covered (confidence 0.95)\n\nThe eight student questions matched to Topic 20 are all addressed within the slide range 274‑282.  Slide 275 lists the four continuous‑delivery principles, and slide 277 provides the rationale for each, directly answering the question about reasoning behind the principles.  The same slide also explains how to automate wherever possible—using IaC, secret‑management, image scanning, and deterministic test environments—covering the automation question and the meaning of eliminating manual bottlenecks.  Slide 278 gives a concrete, step‑by‑step example of a typical CI/CD pipeline for a containerized application, satisfying that query.  Slide 279 discusses continuous development, distributed teams, and the role of CI tools, answering why continuous development matters.  Slides 280‑281 describe Jenkins and other tools as part of the delivery pipeline, clarifying that Jenkins is not limited to delivery but can automate many tasks.  Finally, slide 277 again explains why treating every build as a potential release is valuable—instant rollback, rapid feedback, and reduced release anxiety.  No additional search was required; the existing slides provide sufficient depth for all matched questions.  Therefore the topic’s slides fully cover the student questions.\n\nPart 2 of 2 -- slides 281-285, 2 question(s): covered (confidence 0.90)\n\nThe topic slides (281‑285) provide a clear overview of continuous delivery, continuous testing, and continuous deployment, and they explicitly mention Jenkins as a workflow automation server used to build, test, and deploy software.  The definition of continuous integration is found in the immediately preceding slide (280), which explains CI as the automatic merging and building of code changes.  Together, these slides cover the requested distinctions: CI is the automated integration of code changes; continuous delivery is the frequent shipping of sanitized builds to a target environment; continuous deployment is the automatic deployment of those builds to production.  Jenkins is described as a widely adopted, open‑source automation server that can be installed in various ways and is used to automate the entire software delivery pipeline.  No additional search was required beyond the adjacent slide, so the deck adequately answers both questions.",
+  "question_verdicts": []
+}

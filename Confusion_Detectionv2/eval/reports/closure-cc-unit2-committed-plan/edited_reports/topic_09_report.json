@@ -1,0 +1,28 @@
+{
+  "topic_id": 9,
+  "assigned_slide_ids": [
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142
+  ],
+  "discovered_slide_ids": [
+    134,
+    135,
+    142,
+    149,
+    152,
+    202,
+    203,
+    210,
+    217,
+    220
+  ],
+  "gap_type": "covered",
+  "confidence": 0.9,
+  "report_text": "The slides for Topic 9 (136‑142) provide a comprehensive explanation of the core Docker concepts that match the five student questions. \n\n1. **Containers share the host OS kernel** – the slides explicitly state that containers run as isolated user‑space processes but share the host operating system’s kernel, system calls, device drivers, and kernel‑level resources. \n2. **Docker daemon** – the architecture slides describe the daemon (dockerd) as listening for Docker API requests and managing Docker objects (images, containers, networks, volumes), performing the heavy lifting of building, running, and distributing containers. \n3. **Image vs. container** – slide 142 explains that an image is a read‑only template with instructions for creating a container, while slide 152 clarifies that a container is a running instance of an image, a ready application. \n4. **Client‑daemon communication** – the architecture section notes that the client talks to the daemon via a REST API over UNIX sockets or a network interface. \n5. **Dockerfile** – the image slide describes a Dockerfile as a script that defines the syntax for building an image, with each instruction creating a layer.\n\nAll five questions are answered within the topic’s own slide range, and no additional slides were required to fill gaps. Therefore, the topic’s coverage is complete for these concepts.",
+  "question_verdicts": []
+}

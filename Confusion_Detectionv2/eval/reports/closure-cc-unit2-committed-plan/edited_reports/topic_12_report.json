@@ -1,0 +1,29 @@
+{
+  "topic_id": 12,
+  "assigned_slide_ids": [
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184
+  ],
+  "discovered_slide_ids": [
+    17,
+    34,
+    38,
+    93,
+    101,
+    176,
+    178,
+    180,
+    247,
+    249
+  ],
+  "gap_type": "covered",
+  "confidence": 0.9,
+  "report_text": "The eight slides (177‑184) provide a comprehensive treatment of cgroups that directly addresses all seven student questions.  The slides begin by listing the core functionalities of cgroups—resource limiting, prioritization, accounting, control, and injection—then describe the hierarchical nature of cgroups and how each group is created for a specific resource controller.  The \"What resources can we limit?\" section enumerates memory, CPU, block I/O, devices, and network, satisfying the question about resource types.  A concrete, step‑by‑step example is given in the \"cgroup hierarchy example\" paragraph: a parent group /myapp with two child groups /myapp/web and /myapp/db, each with explicit CPU quotas and memory limits written to the appropriate cgroup files.  The example shows how a process launched in /myapp/web is constrained by its child limits while still respecting the parent cap, and it notes that a forked child inherits the parent’s cgroup, answering the inheritance question.  The Docker commands and stress‑test snippet illustrate how limits are enforced in practice, demonstrating that a process cannot exceed the configured CPU or memory quota and that the OOM killer terminates a container that over‑consumes memory.  Overall, the slide content covers the hierarchical structure, resource types, concrete examples, enforcement mechanisms, and inheritance behavior, leaving no matched question unanswered.  No additional material is required beyond what is already presented.",
+  "question_verdicts": []
+}

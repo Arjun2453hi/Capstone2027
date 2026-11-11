@@ -1,0 +1,1615 @@
+{
+  "generated_at": "2026-11-11T10:15:28.941010+00:00",
+  "total_questions": 140,
+  "total_topics": 23,
+  "high_threshold": 0.6091117150425911,
+  "low_threshold": 0.41811699407100683,
+  "topics": [
+    {
+      "topic_id": 0,
+      "start_slide_id": 0,
+      "end_slide_id": 11,
+      "slide_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "boundary_confidence": 0.0,
+      "matched_questions": [
+        {
+          "question": "What is virtualization in simple terms?",
+          "score": 0.8489422798156738,
+          "method": "semantic",
+          "best_slide_id": 1
+        },
+        {
+          "question": "Why does virtualization increase resource utilization?",
+          "score": 0.8033831119537354,
+          "method": "semantic",
+          "best_slide_id": 1
+        },
+        {
+          "question": "What is server consolidation?",
+          "score": 0.7246712446212769,
+          "method": "semantic",
+          "best_slide_id": 4
+        },
+        {
+          "question": "What is a bare-metal hypervisor?",
+          "score": 0.7492334246635437,
+          "method": "semantic",
+          "best_slide_id": 10
+        },
+        {
+          "question": "What is a hybrid hypervisor and give an example?",
+          "score": 0.7317898273468018,
+          "method": "semantic",
+          "best_slide_id": 9
+        },
+        {
+          "question": "What's the difference between a Type 1 and a Type 2 hypervisor?",
+          "score": 0.9333900213241577,
+          "method": "semantic",
+          "best_slide_id": 9
+        },
+        {
+          "question": "Why is a hosted hypervisor called Type 2?",
+          "score": 0.8491076231002808,
+          "method": "semantic",
+          "best_slide_id": 9
+        }
+      ]
+    },
+    {
+      "topic_id": 1,
+      "start_slide_id": 12,
+      "end_slide_id": 15,
+      "slide_ids": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "boundary_confidence": 0.36820494949817656,
+      "matched_questions": []
+    },
+    {
+      "topic_id": 2,
+      "start_slide_id": 16,
+      "end_slide_id": 21,
+      "slide_ids": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "boundary_confidence": 0.36511325657367705,
+      "matched_questions": [
+        {
+          "question": "Why does paravirtualization require modifying the guest OS?",
+          "score": 0.8478237390518188,
+          "method": "semantic",
+          "best_slide_id": 16
+        },
+        {
+          "question": "How does Xen implement paravirtualization?",
+          "score": 0.8162361979484558,
+          "method": "semantic",
+          "best_slide_id": 17
+        },
+        {
+          "question": "Why does paravirtualization improve performance over full virtualization?",
+          "score": 0.8810462951660156,
+          "method": "semantic",
+          "best_slide_id": 16
+        }
+      ]
+    },
+    {
+      "topic_id": 3,
+      "start_slide_id": 22,
+      "end_slide_id": 27,
+      "slide_ids": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "boundary_confidence": 0.3814277648925781,
+      "matched_questions": [
+        {
+          "question": "What are the disadvantages of paravirtualization?",
+          "score": 0.7545076608657837,
+          "method": "semantic",
+          "best_slide_id": 22
+        },
+        {
+          "question": "What's the difference between paravirtualization and full virtualization?",
+          "score": 0.8288983106613159,
+          "method": "semantic",
+          "best_slide_id": 27
+        }
+      ]
+    },
+    {
+      "topic_id": 4,
+      "start_slide_id": 28,
+      "end_slide_id": 49,
+      "slide_ids": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "boundary_confidence": 0.5302050691843032,
+      "matched_questions": [
+        {
+          "question": "Why are control flow changes a challenge for binary translation?",
+          "score": 0.7479976415634155,
+          "method": "semantic",
+          "best_slide_id": 45
+        },
+        {
+          "question": "What is a basic block in the context of binary translation?",
+          "score": 0.7569987177848816,
+          "method": "semantic",
+          "best_slide_id": 44
+        },
+        {
+          "question": "What is KVM and how does it relate to paravirtualization?",
+          "score": 0.7992717027664185,
+          "method": "semantic",
+          "best_slide_id": 32
+        },
+        {
+          "question": "Why does the guest OS run in Ring 1 instead of Ring 0 under Xen?",
+          "score": 0.803841233253479,
+          "method": "semantic",
+          "best_slide_id": 35
+        },
+        {
+          "question": "What ring does the VMM run in under trap-and-emulate?",
+          "score": 0.7131083011627197,
+          "method": "semantic",
+          "best_slide_id": 36
+        },
+        {
+          "question": "What are the performance problems with trap-and-emulate?",
+          "score": 0.7278491854667664,
+          "method": "semantic",
+          "best_slide_id": 37
+        },
+        {
+          "question": "What's the difference between user instructions and system instructions?",
+          "score": 0.7539587020874023,
+          "method": "semantic",
+          "best_slide_id": 33
+        },
+        {
+          "question": "What is binary translation and how does it differ from trap-and-emulate?",
+          "score": 0.7976628541946411,
+          "method": "semantic",
+          "best_slide_id": 46
+        }
+      ]
+    },
+    {
+      "topic_id": 5,
+      "start_slide_id": 50,
+      "end_slide_id": 79,
+      "slide_ids": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "boundary_confidence": 0.7573887091875076,
+      "matched_questions": [
+        {
+          "question": "Why does EPT improve memory virtualization performance over shadow paging?",
+          "score": 0.8533141613006592,
+          "method": "semantic",
+          "best_slide_id": 79
+        },
+        {
+          "question": "What are VMX root and non-root modes?",
+          "score": 0.8039722442626953,
+          "method": "semantic",
+          "best_slide_id": 51
+        },
+        {
+          "question": "What does a VMM actually do?",
+          "score": 0.7640677094459534,
+          "method": "semantic",
+          "best_slide_id": 56
+        },
+        {
+          "question": "How does KVM extend the Linux kernel to provide hypervisor functionality?",
+          "score": 0.8445676565170288,
+          "method": "semantic",
+          "best_slide_id": 59
+        },
+        {
+          "question": "How does hardware-assisted virtualization like Intel VT-x work?",
+          "score": 0.8370539546012878,
+          "method": "semantic",
+          "best_slide_id": 53
+        },
+        {
+          "question": "Why does the hypervisor write-protect the guest page table?",
+          "score": 0.8292561173439026,
+          "method": "semantic",
+          "best_slide_id": 75
+        },
+        {
+          "question": "What triggers an update to the shadow page table?",
+          "score": 0.7807725667953491,
+          "method": "semantic",
+          "best_slide_id": 75
+        },
+        {
+          "question": "How does the hypervisor keep the shadow page table in sync with the guest page table?",
+          "score": 0.8535304069519043,
+          "method": "semantic",
+          "best_slide_id": 75
+        },
+        {
+          "question": "What is a shadow page table and why is it needed?",
+          "score": 0.7836668491363525,
+          "method": "semantic",
+          "best_slide_id": 70
+        },
+        {
+          "question": "Why do almost all VMMs use hardware assist today?",
+          "score": 0.8152762055397034,
+          "method": "semantic",
+          "best_slide_id": 57
+        },
+        {
+          "question": "What are the two levels of address translation in EPT?",
+          "score": 0.7254711389541626,
+          "method": "semantic",
+          "best_slide_id": 78
+        },
+        {
+          "question": "What's the role of the Xen hypervisor versus Dom0?",
+          "score": 0.8403896689414978,
+          "method": "semantic",
+          "best_slide_id": 58
+        },
+        {
+          "question": "What is an Extended Page Table (EPT) and how is it different from shadow paging?",
+          "score": 0.7997151017189026,
+          "method": "semantic",
+          "best_slide_id": 77
+        }
+      ]
+    },
+    {
+      "topic_id": 6,
+      "start_slide_id": 80,
+      "end_slide_id": 107,
+      "slide_ids": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+      ],
+      "boundary_confidence": 0.765631256699562,
+      "matched_questions": [
+        {
+          "question": "What are the three main approaches to I/O virtualization?",
+          "score": 0.8004977703094482,
+          "method": "semantic",
+          "best_slide_id": 80
+        },
+        {
+          "question": "What exactly happens on the ring diagram when a guest app makes a syscall in the trap-and-emulate example?",
+          "score": 0.7300074696540833,
+          "method": "semantic",
+          "best_slide_id": 98
+        },
+        {
+          "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+          "score": 0.8558354377746582,
+          "method": "semantic",
+          "best_slide_id": 103
+        },
+        {
+          "question": "What is the difference between full device emulation and direct I/O passthrough?",
+          "score": 0.757331371307373,
+          "method": "semantic",
+          "best_slide_id": 83
+        },
+        {
+          "question": "What did Popek and Goldberg's theorems establish?",
+          "score": 0.7221939563751221,
+          "method": "semantic",
+          "best_slide_id": 94
+        },
+        {
+          "question": "What is the split-driver model for I/O virtualization?",
+          "score": 0.8480848670005798,
+          "method": "semantic",
+          "best_slide_id": 82
+        },
+        {
+          "question": "Why doesn't the original x86 architecture satisfy the Popek-Goldberg requirements?",
+          "score": 0.8047453165054321,
+          "method": "semantic",
+          "best_slide_id": 96
+        },
+        {
+          "question": "Why does direct I/O virtualization achieve near-native performance?",
+          "score": 0.8063919544219971,
+          "method": "semantic",
+          "best_slide_id": 83
+        },
+        {
+          "question": "Why does a privileged instruction cause a trap?",
+          "score": 0.777675211429596,
+          "method": "semantic",
+          "best_slide_id": 93
+        },
+        {
+          "question": "How does trap-and-emulate virtualization work?",
+          "score": 0.8390594720840454,
+          "method": "semantic",
+          "best_slide_id": 90
+        },
+        {
+          "question": "Can you walk through the full worked example of why x86 doesn't satisfy Popek-Goldberg, step by step with the ring diagram?",
+          "score": 0.7298325300216675,
+          "method": "semantic",
+          "best_slide_id": 96
+        },
+        {
+          "question": "How many sensitive-but-unprivileged instructions did x86 have?",
+          "score": 0.7651798129081726,
+          "method": "semantic",
+          "best_slide_id": 101
+        },
+        {
+          "question": "What are the Popek and Goldberg requirements for virtualization?",
+          "score": 0.8487805128097534,
+          "method": "semantic",
+          "best_slide_id": 96
+        },
+        {
+          "question": "What is the equivalence property a VMM must satisfy?",
+          "score": 0.7609313130378723,
+          "method": "semantic",
+          "best_slide_id": 92
+        },
+        {
+          "question": "Is there a diagram showing why an unmodified guest OS breaks isolation if it's mapped into the same address space as guest apps?",
+          "score": 0.8230648040771484,
+          "method": "semantic",
+          "best_slide_id": 99
+        },
+        {
+          "question": "What's the difference between a privileged instruction and a sensitive instruction?",
+          "score": 0.772854745388031,
+          "method": "semantic",
+          "best_slide_id": 93
+        }
+      ]
+    },
+    {
+      "topic_id": 7,
+      "start_slide_id": 108,
+      "end_slide_id": 127,
+      "slide_ids": [
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "boundary_confidence": 0.9959415179491042,
+      "matched_questions": [
+        {
+          "question": "How is file system migration handled during VM migration?",
+          "score": 0.8921738862991333,
+          "method": "semantic",
+          "best_slide_id": 122
+        },
+        {
+          "question": "What's the difference between cold migration and live migration?",
+          "score": 0.7254059910774231,
+          "method": "semantic",
+          "best_slide_id": 112
+        },
+        {
+          "question": "What is workload mobility in the context of VM migration?",
+          "score": 0.8312342166900635,
+          "method": "semantic",
+          "best_slide_id": 113
+        },
+        {
+          "question": "What is active push in post-copy migration?",
+          "score": 0.809061586856842,
+          "method": "semantic",
+          "best_slide_id": 119
+        },
+        {
+          "question": "What are the disadvantages of pre-copy migration compared to post-copy?",
+          "score": 0.8551909923553467,
+          "method": "semantic",
+          "best_slide_id": 117
+        },
+        {
+          "question": "How does live migration preserve open network connections?",
+          "score": 0.756780743598938,
+          "method": "semantic",
+          "best_slide_id": 114
+        },
+        {
+          "question": "How does pre-copy VM migration work?",
+          "score": 0.9131518006324768,
+          "method": "semantic",
+          "best_slide_id": 115
+        },
+        {
+          "question": "What's the difference between pre-copy and post-copy migration?",
+          "score": 0.8014214038848877,
+          "method": "semantic",
+          "best_slide_id": 115
+        },
+        {
+          "question": "What are the main reasons companies use VMs?",
+          "score": 0.674595296382904,
+          "method": "semantic",
+          "best_slide_id": 110
+        },
+        {
+          "question": "What is a VM exit condition?",
+          "score": 0.7342249155044556,
+          "method": "semantic",
+          "best_slide_id": 109
+        },
+        {
+          "question": "Why can repeated dirty page copying increase pre-copy migration time?",
+          "score": 0.8361561298370361,
+          "method": "semantic",
+          "best_slide_id": 117
+        },
+        {
+          "question": "Why would you migrate a VM?",
+          "score": 0.8471512794494629,
+          "method": "semantic",
+          "best_slide_id": 110
+        },
+        {
+          "question": "What is Dom0 in Xen architecture?",
+          "score": 0.8266727328300476,
+          "method": "semantic",
+          "best_slide_id": 124
+        }
+      ]
+    },
+    {
+      "topic_id": 8,
+      "start_slide_id": 128,
+      "end_slide_id": 135,
+      "slide_ids": [
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135
+      ],
+      "boundary_confidence": 1.1706416589021682,
+      "matched_questions": [
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.846877932548523,
+          "method": "semantic",
+          "best_slide_id": 134
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.8389875888824463,
+          "method": "semantic",
+          "best_slide_id": 132
+        },
+        {
+          "question": "What's the difference between a container and a virtual machine?",
+          "score": 0.7491933107376099,
+          "method": "semantic",
+          "best_slide_id": 132
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.7697441577911377,
+          "method": "semantic",
+          "best_slide_id": 135
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.7591478824615479,
+          "method": "semantic",
+          "best_slide_id": 129
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.814983606338501,
+          "method": "semantic",
+          "best_slide_id": 134
+        }
+      ]
+    },
+    {
+      "topic_id": 9,
+      "start_slide_id": 136,
+      "end_slide_id": 142,
+      "slide_ids": [
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142
+      ],
+      "boundary_confidence": 0.869236050248146,
+      "matched_questions": [
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.8484857082366943,
+          "method": "semantic",
+          "best_slide_id": 138
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.8758680820465088,
+          "method": "semantic",
+          "best_slide_id": 140
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.7795919179916382,
+          "method": "semantic",
+          "best_slide_id": 142
+        },
+        {
+          "question": "How do the Docker client and daemon communicate?",
+          "score": 0.9015220403671265,
+          "method": "semantic",
+          "best_slide_id": 140
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.7523465156555176,
+          "method": "semantic",
+          "best_slide_id": 142
+        }
+      ]
+    },
+    {
+      "topic_id": 10,
+      "start_slide_id": 143,
+      "end_slide_id": 150,
+      "slide_ids": [
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150
+      ],
+      "boundary_confidence": 0.9494763594865798,
+      "matched_questions": [
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.8711432218551636,
+          "method": "semantic",
+          "best_slide_id": 149
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.7266895771026611,
+          "method": "semantic",
+          "best_slide_id": 150
+        }
+      ]
+    },
+    {
+      "topic_id": 11,
+      "start_slide_id": 151,
+      "end_slide_id": 176,
+      "slide_ids": [
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176
+      ],
+      "boundary_confidence": 1.2690048795938491,
+      "matched_questions": [
+        {
+          "question": "Why is pivot_root often used instead of chroot?",
+          "score": 0.7984050512313843,
+          "method": "semantic",
+          "best_slide_id": 174
+        },
+        {
+          "question": "What is a cgroup and what is it used for?",
+          "score": 0.8199542760848999,
+          "method": "semantic",
+          "best_slide_id": 176
+        },
+        {
+          "question": "What's the illustrated example of creating and joining a Linux namespace?",
+          "score": 0.7436037063598633,
+          "method": "semantic",
+          "best_slide_id": 162
+        },
+        {
+          "question": "What's the difference between chroot and pivot_root?",
+          "score": 0.7814843654632568,
+          "method": "semantic",
+          "best_slide_id": 174
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.8054921627044678,
+          "method": "semantic",
+          "best_slide_id": 151
+        },
+        {
+          "question": "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+          "score": 0.7889865636825562,
+          "method": "semantic",
+          "best_slide_id": 171
+        },
+        {
+          "question": "What's the difference between the NET namespace and the USR namespace?",
+          "score": 0.7533906698226929,
+          "method": "semantic",
+          "best_slide_id": 157
+        },
+        {
+          "question": "How does chroot work?",
+          "score": 0.6751315593719482,
+          "method": "semantic",
+          "best_slide_id": 174
+        },
+        {
+          "question": "Can you give a concrete example of setting up a VETH device between two containers?",
+          "score": 0.7582001090049744,
+          "method": "semantic",
+          "best_slide_id": 171
+        },
+        {
+          "question": "What's the exact procedure for moving one end of a veth pair into a namespace?",
+          "score": 0.7601442337036133,
+          "method": "semantic",
+          "best_slide_id": 171
+        },
+        {
+          "question": "How do you configure a veth pair step by step to let two namespaces talk to each other?",
+          "score": 0.798940122127533,
+          "method": "semantic",
+          "best_slide_id": 171
+        }
+      ]
+    },
+    {
+      "topic_id": 12,
+      "start_slide_id": 177,
+      "end_slide_id": 184,
+      "slide_ids": [
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184
+      ],
+      "boundary_confidence": 0.8785637003183364,
+      "matched_questions": [
+        {
+          "question": "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+          "score": 0.8231570720672607,
+          "method": "semantic",
+          "best_slide_id": 180
+        },
+        {
+          "question": "How are cgroups structured hierarchically?",
+          "score": 0.8305143713951111,
+          "method": "semantic",
+          "best_slide_id": 178
+        },
+        {
+          "question": "What kinds of resources can a cgroup limit?",
+          "score": 0.8619755506515503,
+          "method": "semantic",
+          "best_slide_id": 180
+        },
+        {
+          "question": "What would an actual cgroup resource-limit example look like in practice?",
+          "score": 0.8773592710494995,
+          "method": "semantic",
+          "best_slide_id": 180
+        },
+        {
+          "question": "Is there a worked example showing how cgroups restrict a group of processes?",
+          "score": 0.8167561292648315,
+          "method": "semantic",
+          "best_slide_id": 180
+        },
+        {
+          "question": "How is a specific CPU or memory limit actually enforced through a cgroup example?",
+          "score": 0.8297973871231079,
+          "method": "semantic",
+          "best_slide_id": 181
+        },
+        {
+          "question": "Does a child process inherit its parent's cgroup?",
+          "score": 0.7331579923629761,
+          "method": "semantic",
+          "best_slide_id": 182
+        }
+      ]
+    },
+    {
+      "topic_id": 13,
+      "start_slide_id": 185,
+      "end_slide_id": 189,
+      "slide_ids": [
+        185,
+        186,
+        187,
+        188,
+        189
+      ],
+      "boundary_confidence": 0.9935052973031997,
+      "matched_questions": [
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.8704193830490112,
+          "method": "semantic",
+          "best_slide_id": 185
+        },
+        {
+          "question": "What is a union filesystem and how does it work?",
+          "score": 0.89448481798172,
+          "method": "semantic",
+          "best_slide_id": 185
+        },
+        {
+          "question": "What are the weaknesses of union filesystems?",
+          "score": 0.8249000310897827,
+          "method": "semantic",
+          "best_slide_id": 189
+        }
+      ]
+    },
+    {
+      "topic_id": 14,
+      "start_slide_id": 190,
+      "end_slide_id": 210,
+      "slide_ids": [
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210
+      ],
+      "boundary_confidence": 0.9532015305757522,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.8655169606208801,
+          "method": "semantic",
+          "best_slide_id": 190
+        },
+        {
+          "question": "What does the PID namespace isolate?",
+          "score": 0.8379660248756409,
+          "method": "semantic",
+          "best_slide_id": 191
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.8426557183265686,
+          "method": "semantic",
+          "best_slide_id": 190
+        },
+        {
+          "question": "What do containers share with the host OS?",
+          "score": 0.8484857082366943,
+          "method": "semantic",
+          "best_slide_id": 206
+        },
+        {
+          "question": "How does Docker improve application portability?",
+          "score": 0.846877932548523,
+          "method": "semantic",
+          "best_slide_id": 202
+        },
+        {
+          "question": "Why do containers have less overhead than VMs?",
+          "score": 0.8389875888824463,
+          "method": "semantic",
+          "best_slide_id": 200
+        },
+        {
+          "question": "What is the Docker daemon and what does it do?",
+          "score": 0.8758680820465088,
+          "method": "semantic",
+          "best_slide_id": 208
+        },
+        {
+          "question": "What's the difference between a Docker image and a Docker container?",
+          "score": 0.7795919179916382,
+          "method": "semantic",
+          "best_slide_id": 210
+        },
+        {
+          "question": "What's the difference between a container and a virtual machine?",
+          "score": 0.7491933107376099,
+          "method": "semantic",
+          "best_slide_id": 200
+        },
+        {
+          "question": "How do the Docker client and daemon communicate?",
+          "score": 0.9015220403671265,
+          "method": "semantic",
+          "best_slide_id": 208
+        },
+        {
+          "question": "What is Docker and what problem does it solve?",
+          "score": 0.7697441577911377,
+          "method": "semantic",
+          "best_slide_id": 203
+        },
+        {
+          "question": "How deep does UTS namespace isolation go across multiple nested namespaces?",
+          "score": 0.7481491565704346,
+          "method": "semantic",
+          "best_slide_id": 191
+        },
+        {
+          "question": "What is a Dockerfile and what does it specify?",
+          "score": 0.7523465156555176,
+          "method": "semantic",
+          "best_slide_id": 210
+        },
+        {
+          "question": "What does the MNT namespace isolate?",
+          "score": 0.7769073247909546,
+          "method": "semantic",
+          "best_slide_id": 191
+        },
+        {
+          "question": "Why are containers considered lightweight virtualization?",
+          "score": 0.7591478824615479,
+          "method": "semantic",
+          "best_slide_id": 197
+        },
+        {
+          "question": "What are the main benefits of using Docker?",
+          "score": 0.814983606338501,
+          "method": "semantic",
+          "best_slide_id": 202
+        }
+      ]
+    },
+    {
+      "topic_id": 15,
+      "start_slide_id": 211,
+      "end_slide_id": 218,
+      "slide_ids": [
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218
+      ],
+      "boundary_confidence": 0.9494763594865798,
+      "matched_questions": [
+        {
+          "question": "How do image layers work in Docker?",
+          "score": 0.8711432218551636,
+          "method": "semantic",
+          "best_slide_id": 217
+        },
+        {
+          "question": "Why can multiple containers share the same image?",
+          "score": 0.7266895771026611,
+          "method": "semantic",
+          "best_slide_id": 218
+        }
+      ]
+    },
+    {
+      "topic_id": 16,
+      "start_slide_id": 219,
+      "end_slide_id": 253,
+      "slide_ids": [
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253
+      ],
+      "boundary_confidence": 1.2690048795938491,
+      "matched_questions": [
+        {
+          "question": "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+          "score": 0.8231570720672607,
+          "method": "semantic",
+          "best_slide_id": 249
+        },
+        {
+          "question": "What does the namespace hierarchy look like before and after a process calls unshare()?",
+          "score": 0.7833294868469238,
+          "method": "semantic",
+          "best_slide_id": 230
+        },
+        {
+          "question": "If a nested namespace changes its hostname, does the parent namespace ever see that change?",
+          "score": 0.7340810894966125,
+          "method": "semantic",
+          "best_slide_id": 230
+        },
+        {
+          "question": "Why is pivot_root often used instead of chroot?",
+          "score": 0.7984050512313843,
+          "method": "semantic",
+          "best_slide_id": 243
+        },
+        {
+          "question": "Is there a diagram showing how setns() lets a process join an existing namespace?",
+          "score": 0.800777792930603,
+          "method": "semantic",
+          "best_slide_id": 230
+        },
+        {
+          "question": "What is a cgroup and what is it used for?",
+          "score": 0.8199542760848999,
+          "method": "semantic",
+          "best_slide_id": 245
+        },
+        {
+          "question": "What's the illustrated example of creating and joining a Linux namespace?",
+          "score": 0.7436037063598633,
+          "method": "semantic",
+          "best_slide_id": 231
+        },
+        {
+          "question": "How are cgroups structured hierarchically?",
+          "score": 0.8305143713951111,
+          "method": "semantic",
+          "best_slide_id": 247
+        },
+        {
+          "question": "What kinds of resources can a cgroup limit?",
+          "score": 0.8619755506515503,
+          "method": "semantic",
+          "best_slide_id": 249
+        },
+        {
+          "question": "What's the difference between chroot and pivot_root?",
+          "score": 0.7814843654632568,
+          "method": "semantic",
+          "best_slide_id": 243
+        },
+        {
+          "question": "What would an actual cgroup resource-limit example look like in practice?",
+          "score": 0.8773592710494995,
+          "method": "semantic",
+          "best_slide_id": 249
+        },
+        {
+          "question": "What is a Docker registry?",
+          "score": 0.8054921627044678,
+          "method": "semantic",
+          "best_slide_id": 219
+        },
+        {
+          "question": "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+          "score": 0.7889865636825562,
+          "method": "semantic",
+          "best_slide_id": 240
+        },
+        {
+          "question": "Is there a worked example showing how cgroups restrict a group of processes?",
+          "score": 0.8167561292648315,
+          "method": "semantic",
+          "best_slide_id": 249
+        },
+        {
+          "question": "How is a specific CPU or memory limit actually enforced through a cgroup example?",
+          "score": 0.8297973871231079,
+          "method": "semantic",
+          "best_slide_id": 250
+        },
+        {
+          "question": "What's the difference between the NET namespace and the USR namespace?",
+          "score": 0.7533906698226929,
+          "method": "semantic",
+          "best_slide_id": 225
+        },
+        {
+          "question": "How does chroot work?",
+          "score": 0.6751315593719482,
+          "method": "semantic",
+          "best_slide_id": 243
+        },
+        {
+          "question": "Can you walk through what actually happens step by step when a process calls clone() with CLONE_NEWNS to create a new mount namespace?",
+          "score": 0.8731645345687866,
+          "method": "semantic",
+          "best_slide_id": 230
+        },
+        {
+          "question": "How exactly does the child process's view of the filesystem change right after CLONE_NEWNS is used?",
+          "score": 0.7815814018249512,
+          "method": "semantic",
+          "best_slide_id": 230
+        },
+        {
+          "question": "Can you give a concrete example of setting up a VETH device between two containers?",
+          "score": 0.7582001090049744,
+          "method": "semantic",
+          "best_slide_id": 240
+        },
+        {
+          "question": "What's the exact procedure for moving one end of a veth pair into a namespace?",
+          "score": 0.7601442337036133,
+          "method": "semantic",
+          "best_slide_id": 240
+        },
+        {
+          "question": "Does a child process inherit its parent's cgroup?",
+          "score": 0.7331579923629761,
+          "method": "semantic",
+          "best_slide_id": 251
+        },
+        {
+          "question": "How do you configure a veth pair step by step to let two namespaces talk to each other?",
+          "score": 0.798940122127533,
+          "method": "semantic",
+          "best_slide_id": 240
+        }
+      ]
+    },
+    {
+      "topic_id": 17,
+      "start_slide_id": 254,
+      "end_slide_id": 258,
+      "slide_ids": [
+        254,
+        255,
+        256,
+        257,
+        258
+      ],
+      "boundary_confidence": 0.9935052973031997,
+      "matched_questions": [
+        {
+          "question": "How does UnionFS relate to Docker's image layers?",
+          "score": 0.8704193830490112,
+          "method": "semantic",
+          "best_slide_id": 254
+        },
+        {
+          "question": "What is a union filesystem and how does it work?",
+          "score": 0.89448481798172,
+          "method": "semantic",
+          "best_slide_id": 254
+        },
+        {
+          "question": "What are the weaknesses of union filesystems?",
+          "score": 0.8249000310897827,
+          "method": "semantic",
+          "best_slide_id": 258
+        }
+      ]
+    },
+    {
+      "topic_id": 18,
+      "start_slide_id": 259,
+      "end_slide_id": 265,
+      "slide_ids": [
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265
+      ],
+      "boundary_confidence": 0.9532015305757522,
+      "matched_questions": [
+        {
+          "question": "What are the main types of namespaces Docker uses?",
+          "score": 0.8655169606208801,
+          "method": "semantic",
+          "best_slide_id": 259
+        },
+        {
+          "question": "What does the PID namespace isolate?",
+          "score": 0.8379660248756409,
+          "method": "semantic",
+          "best_slide_id": 260
+        },
+        {
+          "question": "What is a Linux namespace and why does Docker use them?",
+          "score": 0.8426557183265686,
+          "method": "semantic",
+          "best_slide_id": 259
+        },
+        {
+          "question": "How deep does UTS namespace isolation go across multiple nested namespaces?",
+          "score": 0.7481491565704346,
+          "method": "semantic",
+          "best_slide_id": 260
+        },
+        {
+          "question": "What does the MNT namespace isolate?",
+          "score": 0.7769073247909546,
+          "method": "semantic",
+          "best_slide_id": 260
+        }
+      ]
+    },
+    {
+      "topic_id": 19,
+      "start_slide_id": 266,
+      "end_slide_id": 273,
+      "slide_ids": [
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273
+      ],
+      "boundary_confidence": 0.8172643166780471,
+      "matched_questions": [
+        {
+          "question": "What is DevOps?",
+          "score": 0.8951719999313354,
+          "method": "semantic",
+          "best_slide_id": 266
+        },
+        {
+          "question": "What does DevOps aim to shorten?",
+          "score": 0.775483250617981,
+          "method": "semantic",
+          "best_slide_id": 266
+        },
+        {
+          "question": "Why do development and operations teams historically have conflicting goals?",
+          "score": 0.7902918457984924,
+          "method": "semantic",
+          "best_slide_id": 268
+        }
+      ]
+    },
+    {
+      "topic_id": 20,
+      "start_slide_id": 274,
+      "end_slide_id": 286,
+      "slide_ids": [
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286
+      ],
+      "boundary_confidence": 0.41178345680236816,
+      "matched_questions": [
+        {
+          "question": "How do you actually automate wherever possible in a CI/CD pipeline?",
+          "score": 0.7687056660652161,
+          "method": "semantic",
+          "best_slide_id": 278
+        },
+        {
+          "question": "Is Jenkins only for continuous delivery, or can it automate other tasks too?",
+          "score": 0.7763379812240601,
+          "method": "semantic",
+          "best_slide_id": 281
+        },
+        {
+          "question": "What is continuous development and why does it matter for distributed teams?",
+          "score": 0.7458519339561462,
+          "method": "semantic",
+          "best_slide_id": 280
+        },
+        {
+          "question": "What is Jenkins used for?",
+          "score": 0.8013781309127808,
+          "method": "semantic",
+          "best_slide_id": 284
+        },
+        {
+          "question": "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?",
+          "score": 0.693015456199646,
+          "method": "semantic",
+          "best_slide_id": 278
+        },
+        {
+          "question": "What's the reasoning behind each of the four continuous delivery principles?",
+          "score": 0.7632551193237305,
+          "method": "semantic",
+          "best_slide_id": 275
+        },
+        {
+          "question": "What's the difference between continuous integration, continuous delivery, and continuous deployment?",
+          "score": 0.8087335228919983,
+          "method": "semantic",
+          "best_slide_id": 282
+        },
+        {
+          "question": "Can you explain what makes automated tests 'trustworthy' in continuous delivery?",
+          "score": 0.7907849550247192,
+          "method": "semantic",
+          "best_slide_id": 281
+        },
+        {
+          "question": "Why exactly does 'every build is a potential release' matter in continuous delivery?",
+          "score": 0.7899798154830933,
+          "method": "semantic",
+          "best_slide_id": 281
+        },
+        {
+          "question": "What does a typical CI/CD pipeline for a containerized application look like?",
+          "score": 0.784191370010376,
+          "method": "semantic",
+          "best_slide_id": 279
+        }
+      ]
+    },
+    {
+      "topic_id": 21,
+      "start_slide_id": 287,
+      "end_slide_id": 302,
+      "slide_ids": [
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302
+      ],
+      "boundary_confidence": 0.5517811757326125,
+      "matched_questions": [
+        {
+          "question": "Why would you group multiple containers into one Pod?",
+          "score": 0.7491216659545898,
+          "method": "semantic",
+          "best_slide_id": 297
+        },
+        {
+          "question": "What is a Pod in Kubernetes?",
+          "score": 0.9049720764160156,
+          "method": "semantic",
+          "best_slide_id": 297
+        },
+        {
+          "question": "What tasks does container orchestration automate?",
+          "score": 0.8597160577774048,
+          "method": "semantic",
+          "best_slide_id": 292
+        },
+        {
+          "question": "What's the difference between the master node and worker nodes in a Kubernetes cluster?",
+          "score": 0.8489112257957458,
+          "method": "semantic",
+          "best_slide_id": 300
+        },
+        {
+          "question": "What is a container orchestrator and what problem does it solve?",
+          "score": 0.8300163745880127,
+          "method": "semantic",
+          "best_slide_id": 289
+        },
+        {
+          "question": "What is a Kubernetes Service and why is it needed?",
+          "score": 0.8498374223709106,
+          "method": "semantic",
+          "best_slide_id": 299
+        },
+        {
+          "question": "What does kube-proxy do?",
+          "score": 0.7974417209625244,
+          "method": "semantic",
+          "best_slide_id": 301
+        },
+        {
+          "question": "What is Kubernetes?",
+          "score": 0.8189103603363037,
+          "method": "semantic",
+          "best_slide_id": 299
+        },
+        {
+          "question": "What does the kubelet do?",
+          "score": 0.6996130347251892,
+          "method": "semantic",
+          "best_slide_id": 301
+        },
+        {
+          "question": "What are the actual differences between Amazon ECS and Google Container Engine?",
+          "score": 0.7499475479125977,
+          "method": "semantic",
+          "best_slide_id": 295
+        },
+        {
+          "question": "What is cluster management in the context of container orchestration?",
+          "score": 0.837274432182312,
+          "method": "semantic",
+          "best_slide_id": 293
+        },
+        {
+          "question": "Why do Pod IP addresses change, and how does a Service handle that?",
+          "score": 0.7183128595352173,
+          "method": "semantic",
+          "best_slide_id": 299
+        },
+        {
+          "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+          "score": 0.8085998892784119,
+          "method": "semantic",
+          "best_slide_id": 288
+        },
+        {
+          "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+          "score": 0.8769533038139343,
+          "method": "semantic",
+          "best_slide_id": 295
+        }
+      ]
+    },
+    {
+      "topic_id": 22,
+      "start_slide_id": 303,
+      "end_slide_id": 306,
+      "slide_ids": [
+        303,
+        304,
+        305,
+        306
+      ],
+      "boundary_confidence": 0.366424560546875,
+      "matched_questions": [
+        {
+          "question": "What are the benefits of using Kubernetes, like horizontal scaling and rollbacks?",
+          "score": 0.8232545852661133,
+          "method": "semantic",
+          "best_slide_id": 303
+        }
+      ]
+    }
+  ],
+  "unmatched_questions": [
+    {
+      "question": "What is normalization in database design?",
+      "best_score": 0.5798527002334595,
+      "best_topic_id": 0
+    },
+    {
+      "question": "How do I center a div in CSS?",
+      "best_score": 0.5432311296463013,
+      "best_topic_id": 5
+    },
+    {
+      "question": "What is a hypercall?",
+      "best_score": 0.5827486515045166,
+      "best_topic_id": 2
+    },
+    {
+      "question": "What's the difference between TCP and UDP?",
+      "best_score": 0.5773278474807739,
+      "best_topic_id": 11
+    },
+    {
+      "question": "What's the time complexity of quicksort in the average case?",
+      "best_score": 0.5716989636421204,
+      "best_topic_id": 20
+    },
+    {
+      "question": "How does garbage collection work in Java?",
+      "best_score": 0.5845920443534851,
+      "best_topic_id": 7
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+{
+ "edited_deck": "05_agentic_editor\\output\\cc-unit2-slides.edited.pptx",
+ "original_deck": "data\\cc-unit2-slides.pptx",
+ "change_log": "eval\\reports\\closure-cc-unit2-committed-plan\\input_change_log.json",
+ "created_at": "2026-11-11T10:15:30.319855+00:00",
+ "slides": {
+  "original": 288,
+  "edited": 307,
+  "added": 19,
+  "added_per_change_log": 19,
+  "original_slides_not_found": 0,
+  "added_slide_numbers": [
+   105,
+   135,
+   139,
+   151,
+   173,
+   174,
+   182,
+   192,
+   203,
+   207,
+   219,
+   231,
+   242,
+   243,
+   251,
+   261,
+   269,
+   279,
+   296
+  ]
+ },
+ "targeted_topics": [
+  6,
+  8,
+  9,
+  10,
+  11,
+  12,
+  14,
+  16,
+  19,
+  20,
+  21
+ ],
+ "evidence_support": {
+  "rows": [
+   {
+    "topic_id": 14,
+    "question": "What are the main types of namespaces Docker uses?",
+    "score_before": 0.8655169606208801,
+    "score_after": 0.8655169606208801,
+    "topic_before": 14,
+    "topic_after": 14,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 14,
+    "question": "What is a Linux namespace and why does Docker use them?",
+    "score_before": 0.8426557183265686,
+    "score_after": 0.8426557183265686,
+    "topic_before": 14,
+    "topic_after": 14,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 8,
+    "question": "How does Docker improve application portability?",
+    "score_before": 0.7730728387832642,
+    "score_after": 0.846877932548523,
+    "topic_before": 9,
+    "topic_after": 8,
+    "best_slide_is_added": true
+   },
+   {
+    "topic_id": 8,
+    "question": "Why do containers have less overhead than VMs?",
+    "score_before": 0.8389875888824463,
+    "score_after": 0.8389875888824463,
+    "topic_before": 8,
+    "topic_after": 8,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 8,
+    "question": "What's the difference between a container and a virtual machine?",
+    "score_before": 0.7491933107376099,
+    "score_after": 0.7491933107376099,
+    "topic_before": 8,
+    "topic_after": 8,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 8,
+    "question": "What is Docker and what problem does it solve?",
+    "score_before": 0.7697441577911377,
+    "score_after": 0.7697441577911377,
+    "topic_before": 8,
+    "topic_after": 8,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 8,
+    "question": "Why are containers considered lightweight virtualization?",
+    "score_before": 0.7591478824615479,
+    "score_after": 0.7591478824615479,
+    "topic_before": 8,
+    "topic_after": 8,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 8,
+    "question": "What are the main benefits of using Docker?",
+    "score_before": 0.7764995098114014,
+    "score_after": 0.814983606338501,
+    "topic_before": 8,
+    "topic_after": 8,
+    "best_slide_is_added": true
+   },
+   {
+    "topic_id": 9,
+    "question": "What do containers share with the host OS?",
+    "score_before": 0.7864829897880554,
+    "score_after": 0.8484857082366943,
+    "topic_before": 9,
+    "topic_after": 9,
+    "best_slide_is_added": true
+   },
+   {
+    "topic_id": 11,
+    "question": "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+    "score_before": 0.7889865636825562,
+    "score_after": 0.7889865636825562,
+    "topic_before": 11,
+    "topic_after": 11,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 11,
+    "question": "What's the exact procedure for moving one end of a veth pair into a namespace?",
+    "score_before": 0.7601442337036133,
+    "score_after": 0.7601442337036133,
+    "topic_before": 11,
+    "topic_after": 11,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 11,
+    "question": "How do you configure a veth pair step by step to let two namespaces talk to each other?",
+    "score_before": 0.798940122127533,
+    "score_after": 0.798940122127533,
+    "topic_before": 11,
+    "topic_after": 11,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 11,
+    "question": "Why is pivot_root often used instead of chroot?",
+    "score_before": 0.7984050512313843,
+    "score_after": 0.7984050512313843,
+    "topic_before": 11,
+    "topic_after": 11,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 11,
+    "question": "What's the difference between chroot and pivot_root?",
+    "score_before": 0.7814843654632568,
+    "score_after": 0.7814843654632568,
+    "topic_before": 11,
+    "topic_after": 11,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 6,
+    "question": "Why was the x86 pushf/popf instruction a problem for virtualization?",
+    "score_before": 0.8558354377746582,
+    "score_after": 0.8558354377746582,
+    "topic_before": 6,
+    "topic_after": 6,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 16,
+    "question": "If a nested namespace changes its hostname, does the parent namespace ever see that change?",
+    "score_before": 0.7121875286102295,
+    "score_after": 0.7340810894966125,
+    "topic_before": 11,
+    "topic_after": 16,
+    "best_slide_is_added": true
+   },
+   {
+    "topic_id": 16,
+    "question": "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+    "score_before": 0.7889865636825562,
+    "score_after": 0.7889865636825562,
+    "topic_before": 11,
+    "topic_after": 11,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 16,
+    "question": "What's the exact procedure for moving one end of a veth pair into a namespace?",
+    "score_before": 0.7601442337036133,
+    "score_after": 0.7601442337036133,
+    "topic_before": 11,
+    "topic_after": 11,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 16,
+    "question": "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+    "score_before": 0.8231570720672607,
+    "score_after": 0.8231570720672607,
+    "topic_before": 12,
+    "topic_after": 12,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 20,
+    "question": "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?",
+    "score_before": 0.6601247787475586,
+    "score_after": 0.693015456199646,
+    "topic_before": 20,
+    "topic_after": 20,
+    "best_slide_is_added": true
+   },
+   {
+    "topic_id": 20,
+    "question": "What's the reasoning behind each of the four continuous delivery principles?",
+    "score_before": 0.7632551193237305,
+    "score_after": 0.7632551193237305,
+    "topic_before": 20,
+    "topic_after": 20,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 20,
+    "question": "Can you explain what makes automated tests 'trustworthy' in continuous delivery?",
+    "score_before": 0.7907849550247192,
+    "score_after": 0.7907849550247192,
+    "topic_before": 20,
+    "topic_after": 20,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 20,
+    "question": "Why exactly does 'every build is a potential release' matter in continuous delivery?",
+    "score_before": 0.7899798154830933,
+    "score_after": 0.7899798154830933,
+    "topic_before": 20,
+    "topic_after": 20,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 21,
+    "question": "What are the actual differences between Amazon ECS and Google Container Engine?",
+    "score_before": 0.7358618974685669,
+    "score_after": 0.7499475479125977,
+    "topic_before": 14,
+    "topic_after": 21,
+    "best_slide_is_added": true
+   },
+   {
+    "topic_id": 21,
+    "question": "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+    "score_before": 0.8085998892784119,
+    "score_after": 0.8085998892784119,
+    "topic_before": 21,
+    "topic_after": 21,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 21,
+    "question": "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?",
+    "score_before": 0.8130029439926147,
+    "score_after": 0.8769533038139343,
+    "topic_before": 21,
+    "topic_after": 21,
+    "best_slide_is_added": true
+   },
+   {
+    "topic_id": 12,
+    "question": "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+    "score_before": 0.8231570720672607,
+    "score_after": 0.8231570720672607,
+    "topic_before": 12,
+    "topic_after": 12,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 12,
+    "question": "How are cgroups structured hierarchically?",
+    "score_before": 0.8305143713951111,
+    "score_after": 0.8305143713951111,
+    "topic_before": 12,
+    "topic_after": 12,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 12,
+    "question": "What would an actual cgroup resource-limit example look like in practice?",
+    "score_before": 0.8773592710494995,
+    "score_after": 0.8773592710494995,
+    "topic_before": 12,
+    "topic_after": 12,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 12,
+    "question": "Is there a worked example showing how cgroups restrict a group of processes?",
+    "score_before": 0.8167561292648315,
+    "score_after": 0.8167561292648315,
+    "topic_before": 12,
+    "topic_after": 12,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 12,
+    "question": "How is a specific CPU or memory limit actually enforced through a cgroup example?",
+    "score_before": 0.822516918182373,
+    "score_after": 0.8297973871231079,
+    "topic_before": 12,
+    "topic_after": 12,
+    "best_slide_is_added": true
+   },
+   {
+    "topic_id": 12,
+    "question": "Does a child process inherit its parent's cgroup?",
+    "score_before": 0.7331579923629761,
+    "score_after": 0.7331579923629761,
+    "topic_before": 12,
+    "topic_after": 12,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 10,
+    "question": "How do image layers work in Docker?",
+    "score_before": 0.8711432218551636,
+    "score_after": 0.8711432218551636,
+    "topic_before": 10,
+    "topic_after": 10,
+    "best_slide_is_added": false
+   },
+   {
+    "topic_id": 19,
+    "question": "Why do development and operations teams historically have conflicting goals?",
+    "score_before": 0.6331297755241394,
+    "score_after": 0.7902918457984924,
+    "topic_before": 19,
+    "topic_after": 19,
+    "best_slide_is_added": true
+   }
+  ],
+  "questions": 34,
+  "improved": 9,
+  "worse": 0,
+  "best_slide_is_added": 9,
+  "stage3_llm_fallback": false
+ },
+ "closure": {
+  "rows": [
+   {
+    "topic_id": 6,
+    "before": "shallow_coverage",
+    "before_confidence": 0.85,
+    "after": "shallow_coverage",
+    "after_confidence": 0.3,
+    "closed": false,
+    "reassessment_failed": false
+   },
+   {
+    "topic_id": 8,
+    "before": "fragmented_context",
+    "before_confidence": 0.85,
+    "after": "covered",
+    "after_confidence": 0.9,
+    "closed": true,
+    "reassessment_failed": false
+   },
+   {
+    "topic_id": 9,
+    "before": "fragmented_context",
+    "before_confidence": 0.9,
+    "after": "covered",
+    "after_confidence": 0.9,
+    "closed": true,
+    "reassessment_failed": false
+   },
+   {
+    "topic_id": 10,
+    "before": "fragmented_context",
+    "before_confidence": 0.85,
+    "after": "covered",
+    "after_confidence": 0.8,
+    "closed": true,
+    "reassessment_failed": false
+   },
+   {
+    "topic_id": 11,
+    "before": "shallow_coverage",
+    "before_confidence": 0.78,
+    "after": "covered",
+    "after_confidence": 0.7166666666666667,
+    "closed": true,
+    "reassessment_failed": false
+   },
+   {
+    "topic_id": 12,
+    "before": "shallow_coverage",
+    "before_confidence": 0.87,
+    "after": "covered",
+    "after_confidence": 0.9,
+    "closed": true,
+    "reassessment_failed": false
+   },
+   {
+    "topic_id": 14,
+    "before": "fragmented_context",
+    "before_confidence": 0.9,
+    "after": "shallow_coverage",
+    "after_confidence": 0.4,
+    "closed": false,
+    "reassessment_failed": false
+   },
+   {
+    "topic_id": 16,
+    "before": "shallow_coverage",
+    "before_confidence": 0.65,
+    "after": "shallow_coverage",
+    "after_confidence": 0.8,
+    "closed": false,
+    "reassessment_failed": false
+   },
+   {
+    "topic_id": 19,
+    "before": "shallow_coverage",
+    "before_confidence": 0.85,
+    "after": "covered",
+    "after_confidence": 0.9,
+    "closed": true,
+    "reassessment_failed": false
+   },
+   {
+    "topic_id": 20,
+    "before": "shallow_coverage",
+    "before_confidence": 0.85,
+    "after": "covered",
+    "after_confidence": 0.925,
+    "closed": true,
+    "reassessment_failed": false
+   },
+   {
+    "topic_id": 21,
+    "before": "shallow_coverage",
+    "before_confidence": 0.7,
+    "after": "covered",
+    "after_confidence": 0.925,
+    "closed": true,
+    "reassessment_failed": false
+   }
+  ],
+  "targeted_gaps": 11,
+  "closed": 8,
+  "gap_closure_rate": 0.7272727272727273,
+  "reassessment_failed": 0
+ }
+}

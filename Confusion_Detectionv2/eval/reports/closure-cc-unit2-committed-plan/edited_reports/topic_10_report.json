@@ -1,0 +1,36 @@
+{
+  "topic_id": 10,
+  "assigned_slide_ids": [
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150
+  ],
+  "discovered_slide_ids": [
+    100,
+    129,
+    134,
+    142,
+    143,
+    149,
+    150,
+    152,
+    186,
+    188,
+    197,
+    210,
+    211,
+    218,
+    220,
+    257,
+    288
+  ],
+  "gap_type": "covered",
+  "confidence": 0.8,
+  "report_text": "The slides for Topic 10 (143‑150) provide a clear, step‑by‑step explanation of Docker image layers. Slides 143‑147 describe how each Dockerfile instruction creates a layer, how layers are stored as read‑only intermediate images, and how incremental changes are rebuilt. Slides 148‑150 cover the Union‑FS runtime composition: layers are stacked read‑only, a thin writable layer is added for each container, and copy‑on‑write semantics allow file changes to be isolated. These details directly answer the question \"How do image layers work in Docker?\".\n\nFor the second question, \"Why can multiple containers share the same image?\", the same material provides the answer implicitly. The fact that layers are read‑only and mounted as part of the Union‑FS means that the underlying filesystem is shared among all containers that use that image. Slides 150 and the Union‑FS slides (188, 257) state that a read‑only layer is an image and that the top read‑write layer is the container, which makes it clear that many containers can mount the same read‑only layers without duplication. No additional slides are required to answer this question.\n\nIn short, the deck covers both questions adequately. A small improvement would be to add a brief explicit sentence in the runtime composition slide (or a new slide) stating that \"Because image layers are read‑only, multiple containers can share them, saving disk space and speeding up start‑up.\" This would make the sharing concept immediately obvious to learners.",
+  "question_verdicts": []
+}

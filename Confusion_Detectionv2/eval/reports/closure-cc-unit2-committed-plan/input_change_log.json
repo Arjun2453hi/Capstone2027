@@ -1,0 +1,360 @@
+{
+  "source_deck": "data\\cc-unit2-slides.pptx",
+  "edited_deck": "scratch/edited\\cc-unit2-slides.edited.pptx",
+  "slides_added": 19,
+  "edits": [
+    {
+      "topic_id": 14,
+      "after_slide_id": 183,
+      "title": "Docker namespaces and their purposes",
+      "bullets": [
+        "Linux namespaces partition kernel resources, giving each container its own isolated view; Docker uses them to achieve process and resource isolation.",
+        "PID namespace isolates process IDs, giving each container independent process numbering.",
+        "UTS namespace provides separate hostname and domain name for each container.",
+        "MNT namespace gives each container its own mount point hierarchy.",
+        "IPC namespace isolates inter‑process communication resources such as shared memory and semaphores.",
+        "NET namespace gives each container its own network stack, interfaces, and IP addresses."
+      ],
+      "addresses_questions": [
+        "What are the main types of namespaces Docker uses?",
+        "What is a Linux namespace and why does Docker use them?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.9,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        192,
+        261
+      ],
+      "mirrored_after_slide_ids": [
+        244
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 8,
+      "after_slide_id": 132,
+      "title": "Docker Improves Application Portability",
+      "bullets": [
+        "Docker is an open‑platform tool that packages an app, its runtime, libraries, and settings into an immutable image.",
+        "Docker solves the “works on my machine” problem by ensuring the same image runs unchanged on any host with a compatible Docker engine.",
+        "Because Docker images contain only user‑space components, they share the host kernel, avoiding the overhead of a full guest OS used by VMs.",
+        "Containers differ from VMs: VMs virtualize hardware and run separate guest OSes; containers virtualize at the OS level and share the host kernel.",
+        "The shared‑kernel model makes containers lightweight virtualization, requiring fewer resources and starting in seconds.",
+        "Main Docker benefits: portability across environments, fast provisioning, consistent runtime, dependency isolation, and simplified CI/CD workflows."
+      ],
+      "addresses_questions": [
+        "How does Docker improve application portability?",
+        "Why do containers have less overhead than VMs?",
+        "What's the difference between a container and a virtual machine?",
+        "What is Docker and what problem does it solve?",
+        "Why are containers considered lightweight virtualization?",
+        "What are the main benefits of using Docker?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.85,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        135,
+        203
+      ],
+      "mirrored_after_slide_ids": [
+        193
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 9,
+      "after_slide_id": 135,
+      "title": "Containers share host OS kernel",
+      "bullets": [
+        "Containers run as isolated user‑space processes but share the host operating system’s kernel.",
+        "They share the kernel’s system calls, device drivers, and kernel-level resources, while each container has its own filesystem and libraries.",
+        "This shared kernel model provides lightweight isolation and fast startup compared to full virtual machines."
+      ],
+      "addresses_questions": [
+        "What do containers share with the host OS?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.9,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        139,
+        207
+      ],
+      "mirrored_after_slide_ids": [
+        196
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 11,
+      "after_slide_id": 167,
+      "title": "Veth pair creation and chroot vs pivot_root comparison",
+      "bullets": [
+        "Create a veth pair: ip link add veth0 type veth peer name veth1",
+        "Move ends into namespaces: ip link set veth0 netns <ns1>; ip link set veth1 netns <ns2>",
+        "Inside each namespace, bring the interface up and assign unique IPs (e.g., veth0 10.0.0.1/24, veth1 10.0.0.2/24)",
+        "Test connectivity with ping from one namespace to the other’s IP address",
+        "chroot changes the apparent root directory but leaves a reference to the original root, allowing escape with sufficient privileges",
+        "pivot_root swaps the current root with a new one and moves the old root to a directory under the new root, which can then be unmounted, making escape harder"
+      ],
+      "addresses_questions": [
+        "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+        "What's the exact procedure for moving one end of a veth pair into a namespace?",
+        "How do you configure a veth pair step by step to let two namespaces talk to each other?",
+        "Why is pivot_root often used instead of chroot?",
+        "What's the difference between chroot and pivot_root?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.78,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        173,
+        242
+      ],
+      "mirrored_after_slide_ids": [
+        228
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 6,
+      "after_slide_id": 103,
+      "title": "Worked Example – PUSHF in Ring 3",
+      "bullets": [
+        "Guest code in Ring 3 executes PUSHF, which pushes the current EFLAGS value onto the stack.",
+        "PUSHF is a sensitive‑but‑unprivileged instruction, so the CPU does not trap when it runs in Ring 3.",
+        "PUSHF pushes EFLAGS, allowing the guest to read flag bits, but POPF in Ring 3 ignores privileged bits, preventing the guest from modifying them.",
+        "Because no trap occurs, the VMM must emulate or binary‑translate PUSHF/POPF to detect and control changes to sensitive flags.",
+        "Emulation lets the VMM supply a safe EFLAGS value and preserve the equivalence property for the guest."
+      ],
+      "addresses_questions": [
+        "Why was the x86 pushf/popf instruction a problem for virtualization?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.85,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        105
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 16,
+      "after_slide_id": 218,
+      "title": "Namespace creation, unshare, and clone details",
+      "bullets": [
+        "Create a new mount namespace with `unshare --mount`, separating the caller’s mount view from the parent’s view.",
+        "Before unshare, processes share a single mount tree; after unshare, the caller sees a private copy of mount points.",
+        "`clone --mount` (or `clone(..., CLONE_NEWNS)`) forks a child that starts in a fresh mount namespace with its own root filesystem view.",
+        "`setns <nsfd>` lets a running process join an existing namespace by opening the namespace file (e.g., `/proc/<pid>/ns/mnt`) and calling `setns`.",
+        "In a nested UTS namespace, a child can change its hostname without affecting the parent; each level maintains its own hostname string."
+      ],
+      "addresses_questions": [
+        "If a nested namespace changes its hostname, does the parent namespace ever see that change?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.65,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        231
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 16,
+      "after_slide_id": 228,
+      "title": "VETH pair and cgroup hierarchy examples",
+      "bullets": [
+        "Create a veth pair: `ip link add veth0 type veth peer name veth1`.",
+        "Move one end into a namespace: `ip link set veth1 netns <ns_name>`; the other end stays in the host.",
+        "Assign IPs and bring interfaces up inside each namespace with `ip addr add …` and `ip link set up`.",
+        "Build a cgroup hierarchy: `mkdir -p /sys/fs/cgroup/memory/parent/child`; set a limit with `echo 209715200 > memory.limit_in_bytes` (200 MiB).",
+        "Processes placed in the child cgroup are limited by that cgroup’s settings, which can be stricter than the parent’s limits."
+      ],
+      "addresses_questions": [
+        "What are the actual commands to create a VETH pair and attach each end to a different namespace?",
+        "What's the exact procedure for moving one end of a veth pair into a namespace?",
+        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.65,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        174,
+        243
+      ],
+      "mirrored_after_slide_ids": [
+        167
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 20,
+      "after_slide_id": 260,
+      "title": "Concrete Automation & CD Principles Rationale",
+      "bullets": [
+        "Use IaC tools such as Terraform or CloudFormation to provision environments, networks, and databases automatically, removing manual setup steps.",
+        "Integrate secret‑management (e.g., HashiCorp Vault) and container image scanning (e.g., Trivy) into pipelines to replace manual credential updates and security checks.",
+        "Treat every build as a releasable artifact so you can roll back instantly, obtain rapid feedback, and keep release anxiety low because production can be updated automatically.",
+        "Trusted automated tests show a stable high pass rate, minimal flakiness, adequate code‑coverage thresholds, and run in deterministic containers that mirror production."
+      ],
+      "addresses_questions": [
+        "What does 'eliminate manual bottlenecks' actually mean in practice for a CD pipeline?",
+        "What's the reasoning behind each of the four continuous delivery principles?",
+        "Can you explain what makes automated tests 'trustworthy' in continuous delivery?",
+        "Why exactly does 'every build is a potential release' matter in continuous delivery?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.85,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        279
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 21,
+      "after_slide_id": 276,
+      "title": "Comparing Container Orchestration Tools",
+      "bullets": [
+        "Docker Swarm offers simple setup with native Docker CLI, limited scalability, and built‑in overlay networking, making it suitable for small clusters or development.",
+        "Kubernetes has a steeper learning curve but provides high extensibility, can scale to thousands of nodes, uses a pluggable CNI networking model, and fits complex production workloads.",
+        "Amazon ECS integrates tightly with AWS services, leverages AWS IAM for permissions, scales within EC2 or Fargate, and is easier on AWS though less flexible than Kubernetes.",
+        "Google Kubernetes Engine (GKE) delivers fully managed Kubernetes on GCP, with automatic upgrades, node provisioning, and deep integration with Google Cloud services.",
+        "Select a tool based on required scalability, cloud‑provider lock‑in, operational expertise, and need for extensibility versus simplicity."
+      ],
+      "addresses_questions": [
+        "What are the actual differences between Amazon ECS and Google Container Engine?",
+        "Which container orchestration tool should I pick and why, based on their tradeoffs?",
+        "How exactly does Docker Swarm compare to Kubernetes in terms of features and tradeoffs?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.7,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        296
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 12,
+      "after_slide_id": 174,
+      "title": "cgroup hierarchy example",
+      "bullets": [
+        "Create a parent cgroup /myapp and two child cgroups /myapp/web and /myapp/db under the cpu and memory controllers.",
+        "Set the parent CPU quota to 100000 µs (100 % of a CPU) and memory limit to 1 GB by writing to the appropriate cgroup files.",
+        "Set child /myapp/web CPU quota to 50000 µs and memory limit to 200 MB, and set /myapp/db CPU quota to 30000 µs and memory limit to 300 MB.",
+        "Run a process in /myapp/web (e.g., cgexec -g cpu,memory:/myapp/web myserver); it cannot exceed the child limits, and the parent limits act as an overall cap.",
+        "A forked child inherits its parent’s cgroup, so it automatically follows the same CPU and memory restrictions defined for that hierarchy."
+      ],
+      "addresses_questions": [
+        "Can you give a concrete example of a cgroup hierarchy and how limits are applied within it?",
+        "How are cgroups structured hierarchically?",
+        "What would an actual cgroup resource-limit example look like in practice?",
+        "Is there a worked example showing how cgroups restrict a group of processes?",
+        "How is a specific CPU or memory limit actually enforced through a cgroup example?",
+        "Does a child process inherit its parent's cgroup?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.87,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        182,
+        251
+      ],
+      "mirrored_after_slide_ids": [
+        235
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 10,
+      "after_slide_id": 146,
+      "title": "Runtime Composition of Image Layers",
+      "bullets": [
+        "Docker uses a Union File System to present all image layers as a single filesystem to the container.",
+        "Each image layer is mounted read‑only and stacked in the order they were created.",
+        "When a container starts, Docker adds a thin writable layer on top of the stack.",
+        "File reads are served from the highest layer containing the file, giving a merged view.",
+        "On write, Docker copies the file from the lower read‑only layer into the writable layer (copy‑on‑write)."
+      ],
+      "addresses_questions": [
+        "How do image layers work in Docker?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "fragmented_context",
+      "report_confidence": 0.85,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        151,
+        219
+      ],
+      "mirrored_after_slide_ids": [
+        207
+      ],
+      "hidden_slide_numbers": [],
+      "note": null
+    },
+    {
+      "topic_id": 19,
+      "after_slide_id": 251,
+      "title": "Historical Conflict Between Development and Operations",
+      "bullets": [
+        "Developers aim to deliver new features quickly, measuring success by release frequency and lead time.",
+        "Operations aim to keep services stable and cost‑effective, measuring success by uptime, incident rate, and resource utilization.",
+        "These differing metrics created incentives for developers to push changes rapidly while operations preferred cautious, well‑tested releases, leading to friction before DevOps."
+      ],
+      "addresses_questions": [
+        "Why do development and operations teams historically have conflicting goals?"
+      ],
+      "operation": "insert_slide_after",
+      "gap_type": "shallow_coverage",
+      "report_confidence": 0.85,
+      "source_text": null,
+      "keep_pictures": true,
+      "new_slide_numbers": [
+        269
+      ],
+      "mirrored_after_slide_ids": [],
+      "hidden_slide_numbers": [],
+      "note": null
+    }
+  ]
+}
