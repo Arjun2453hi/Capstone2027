@@ -29,18 +29,57 @@ def resolve_model_name(model_name: Optional[str] = None) -> str:
     return model_name or os.getenv("GROQ_MODEL_NAME") or DEFAULT_MODEL
 
 
-def build_groq_client(api_key: Optional[str] = None):
-    """Constructs a real groq.Groq client. Raises RuntimeError if no
-    API key is configured -- fails fast at construction time rather
-    than deferring to a cryptic error on the first real call."""
-    resolved_key = api_key or os.getenv("GROQ_API_KEY")
-    if not resolved_key:
-        raise RuntimeError(
-            "GROQ_API_KEY not set. Copy .env.example to .env and fill in a real key."
-        )
-    from groq import Groq
+class _RotatingClient:
+    """groq.Groq look-alike whose chat completions rotate across every
+    configured key (GROQ_API_KEY_1, _2, ...) when one hits its limit."""
 
-    return Groq(api_key=resolved_key)
+    def __init__(self, credentials):
+        from groq import Groq
+
+        from .groq_rotation import RotatingCompletions
+
+        self.chat = type("Chat", (), {})()
+        self.chat.completions = RotatingCompletions(credentials)
+        self.models = Groq(api_key=credentials[0].value).models
+
+
+def has_credentials() -> bool:
+    """True when any Groq key is configured (single or numbered)."""
+    from .groq_rotation import load_credentials
+
+    return bool(os.getenv("GROQ_API_KEY") or load_credentials())
+
+
+def build_groq_client(api_key: Optional[str] = None):
+    """Constructs a Groq client. An explicit api_key is used alone.
+    Otherwise numbered keys (GROQ_API_KEY_1, _2, ... in .env or
+    .env.groq-rotation) are rotated, falling back to GROQ_API_KEY.
+    Raises RuntimeError if no key is configured -- fails fast at
+    construction time rather than on the first real call."""
+    from .groq_rotation import Credential, load_credentials
+    from .llm_replay import current_mode, wrap_client
+
+    if api_key:
+        from groq import Groq
+
+        return wrap_client(Groq(api_key=api_key))
+    credentials = load_credentials()
+    single = os.getenv("GROQ_API_KEY")
+    if single and single not in {c.value for c in credentials}:
+        credentials = [Credential("PRIMARY", single)] + credentials
+    if not credentials:
+        if current_mode() == "replay":
+            # Replay needs no key: every response comes from recordings.
+            return wrap_client(None)
+        raise RuntimeError(
+            "No Groq key set. Put GROQ_API_KEY (or GROQ_API_KEY_1, _2, ...) in .env -- see .env.example."
+        )
+    if len(credentials) == 1:
+        from groq import Groq
+
+        # LLM_REPLAY_MODE=off (default) returns the plain client unchanged.
+        return wrap_client(Groq(api_key=credentials[0].value))
+    return wrap_client(_RotatingClient(credentials))
 
 
 def validate_model(client, model_name: str) -> None:
@@ -119,6 +158,7 @@ def get_validated_chat_groq(
     loudly at startup here too, not as a LangChain-wrapped exception
     three tool calls into a real investigation."""
     from .groq_rotation import RotatingCompletions, load_credentials
+    from .llm_replay import current_mode, wrap_completions
 
     credentials = load_credentials(fallback_key=api_key or os.getenv("GROQ_API_KEY"))
     if api_key:
@@ -126,18 +166,25 @@ def get_validated_chat_groq(
         from .groq_rotation import Credential
 
         credentials = [Credential("PRIMARY", api_key)]
+    resolved_model = resolve_model_name(model_name)
+    from langchain_groq import ChatGroq
+
     if not credentials:
+        if current_mode() == "replay":
+            print("[groq] replay mode, no key: every response comes from recordings")
+            return ChatGroq(model=resolved_model, api_key="replay-mode", temperature=temperature,
+                            max_tokens=max_tokens, client=wrap_completions(None))
         raise RuntimeError(
             "No Groq key configured. Set GROQ_API_KEY or populate .env.groq-rotation."
         )
     resolved_key = credentials[0].value
-    resolved_model = resolve_model_name(model_name)
     validate_model(build_groq_client(resolved_key), resolved_model)
-
-    from langchain_groq import ChatGroq
 
     adapter = RotatingCompletions(credentials)
     print(f"[groq] {len(credentials)} configured key(s); quota independence unverified")
     print(f"[groq] monitoring: {adapter.monitor.path}")
+    if current_mode() != "off":
+        print(f"[groq] LLM_REPLAY_MODE={current_mode()}")
+    # LLM_REPLAY_MODE=off (default) leaves the adapter unwrapped.
     return ChatGroq(model=resolved_model, api_key=resolved_key, temperature=temperature,
-                    max_tokens=max_tokens, client=adapter)
+                    max_tokens=max_tokens, client=wrap_completions(adapter))

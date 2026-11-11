@@ -71,6 +71,23 @@ def test_get_validated_groq_client_uses_injected_client_and_resolved_model(monke
 
 
 def test_get_validated_groq_client_raises_when_no_api_key_and_no_injected_client(monkeypatch):
+    import common.groq_rotation as rotation
+
     monkeypatch.delenv("GROQ_API_KEY", raising=False)
-    with pytest.raises(RuntimeError, match="GROQ_API_KEY not set"):
+    monkeypatch.setattr(rotation, "load_credentials", lambda *a, **k: [])  # independent of this machine's keys
+    with pytest.raises(RuntimeError, match="No Groq key set"):
         get_validated_groq_client()
+
+
+def test_numbered_keys_are_rotated_when_there_is_no_single_key(monkeypatch):
+    import common.groq_rotation as rotation
+    from common import llm_client
+
+    monkeypatch.delenv("GROQ_API_KEY", raising=False)
+    monkeypatch.setenv("LLM_REPLAY_MODE", "off")
+    monkeypatch.setattr(rotation, "load_credentials",
+                        lambda *a, **k: [rotation.Credential("KEY_1", "k1"), rotation.Credential("KEY_2", "k2")])
+    client = llm_client.build_groq_client()
+    assert isinstance(client, llm_client._RotatingClient)
+    assert isinstance(client.chat.completions, rotation.RotatingCompletions)
+    assert llm_client.has_credentials()
