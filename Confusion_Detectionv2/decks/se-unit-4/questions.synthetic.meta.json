@@ -1,0 +1,948 @@
+{
+ "warning": "Synthetic questions. 'kind' is the generator's intent, not a verified label.",
+ "generated_at": "2026-11-11T13:21:45.315708+00:00",
+ "model": "openai/gpt-oss-20b",
+ "deck_title": "Software Engineering - Unit 4",
+ "counts": {
+  "answered": 26,
+  "deeper": 26,
+  "missing": 13,
+  "off_topic": 4
+ },
+ "questions": [
+  {
+   "question": "What is a good way to structure automated regression tests so they stay fast?",
+   "kind": "deeper",
+   "topic_id": 10,
+   "slide_numbers": [
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+   ]
+  },
+  {
+   "question": "What makes a software idea patentable?",
+   "kind": "deeper",
+   "topic_id": 5,
+   "slide_numbers": [
+    36,
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "question": "Can I sell my software if I have a patent?",
+   "kind": "answered",
+   "topic_id": 5,
+   "slide_numbers": [
+    36,
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "question": "How do we decide between top‑down and bottom‑up when the database schema is partially defined?",
+   "kind": "deeper",
+   "topic_id": 10,
+   "slide_numbers": [
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+   ]
+  },
+  {
+   "question": "What exactly is a person‑in‑the‑middle attack?",
+   "kind": "answered",
+   "topic_id": 6,
+   "slide_numbers": [
+    40,
+    41,
+    42,
+    43
+   ]
+  },
+  {
+   "question": "What are the key characteristics of software metrics?",
+   "kind": "answered",
+   "topic_id": 0,
+   "slide_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "question": "Can you give an example of calculating function points for a simple app?",
+   "kind": "deeper",
+   "topic_id": 1,
+   "slide_numbers": [
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "question": "Which integration approach is best when we already know the UI design?",
+   "kind": "answered",
+   "topic_id": 10,
+   "slide_numbers": [
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+   ]
+  },
+  {
+   "question": "Why is it important for metrics to be language-agnostic in software engineering?",
+   "kind": "deeper",
+   "topic_id": 0,
+   "slide_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "question": "What is the minimum number of core developer reviews needed for a PR?",
+   "kind": "answered",
+   "topic_id": 4,
+   "slide_numbers": [
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+   ]
+  },
+  {
+   "question": "How does function point analysis relate to effort estimation?",
+   "kind": "missing",
+   "topic_id": 1,
+   "slide_numbers": [
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "question": "what are the key differences between the gregorian and julian calendars?",
+   "kind": "off_topic",
+   "topic_id": null,
+   "slide_numbers": []
+  },
+  {
+   "question": "What are the core principles of FTC's Fair Information Practice Principles?",
+   "kind": "answered",
+   "topic_id": 7,
+   "slide_numbers": [
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53
+   ]
+  },
+  {
+   "question": "How can we differentiate between a spurious correlation and a true causal relationship in software metrics?",
+   "kind": "deeper",
+   "topic_id": 2,
+   "slide_numbers": [
+    11,
+    12,
+    13,
+    14,
+    15
+   ]
+  },
+  {
+   "question": "Is path coverage something we should consider too?",
+   "kind": "missing",
+   "topic_id": 8,
+   "slide_numbers": [
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+   ]
+  },
+  {
+   "question": "Which of the Big 3 protects against sniffing?",
+   "kind": "answered",
+   "topic_id": 7,
+   "slide_numbers": [
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53
+   ]
+  },
+  {
+   "question": "Why is it important to give proper credit for intellectual property?",
+   "kind": "deeper",
+   "topic_id": 9,
+   "slide_numbers": [
+    65,
+    66,
+    67,
+    68
+   ]
+  },
+  {
+   "question": "Why is function point analysis better than counting lines of code?",
+   "kind": "deeper",
+   "topic_id": 1,
+   "slide_numbers": [
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "question": "How much of a product's lifecycle is usually spent on maintenance?",
+   "kind": "answered",
+   "topic_id": 3,
+   "slide_numbers": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+   ]
+  },
+  {
+   "question": "How is sniffing different from eavesdropping?",
+   "kind": "answered",
+   "topic_id": 6,
+   "slide_numbers": [
+    40,
+    41,
+    42,
+    43
+   ]
+  },
+  {
+   "question": "hey can someone help me figure out the area of a triangle?",
+   "kind": "off_topic",
+   "topic_id": null,
+   "slide_numbers": []
+  },
+  {
+   "question": "How do you adjust the total for functional complexity?",
+   "kind": "answered",
+   "topic_id": 1,
+   "slide_numbers": [
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "question": "Can you give an example of how defect density can be calculated and used to improve testing efficiency?",
+   "kind": "deeper",
+   "topic_id": 0,
+   "slide_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "question": "What are the main categories of ethics mentioned?",
+   "kind": "answered",
+   "topic_id": 9,
+   "slide_numbers": [
+    65,
+    66,
+    67,
+    68
+   ]
+  },
+  {
+   "question": "Why does confidentiality not guarantee secrecy of communication, and how does that affect system design?",
+   "kind": "deeper",
+   "topic_id": 7,
+   "slide_numbers": [
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53
+   ]
+  },
+  {
+   "question": "How does an open source license impact a company's ability to modify and distribute software?",
+   "kind": "deeper",
+   "topic_id": 4,
+   "slide_numbers": [
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+   ]
+  },
+  {
+   "question": "What role does unit testing play in the overall testing strategy?",
+   "kind": "missing",
+   "topic_id": 10,
+   "slide_numbers": [
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+   ]
+  },
+  {
+   "question": "What is a replay attack?",
+   "kind": "missing",
+   "topic_id": 6,
+   "slide_numbers": [
+    40,
+    41,
+    42,
+    43
+   ]
+  },
+  {
+   "question": "Why should we assume the network is insecure even if we use VPNs?",
+   "kind": "deeper",
+   "topic_id": 6,
+   "slide_numbers": [
+    40,
+    41,
+    42,
+    43
+   ]
+  },
+  {
+   "question": "How do you balance client interests with public interest in practice?",
+   "kind": "deeper",
+   "topic_id": 9,
+   "slide_numbers": [
+    65,
+    66,
+    67,
+    68
+   ]
+  },
+  {
+   "question": "What exactly do function points count?",
+   "kind": "answered",
+   "topic_id": 1,
+   "slide_numbers": [
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "question": "How do you manage licensing conflicts when combining multiple OSS components in a product?",
+   "kind": "missing",
+   "topic_id": 4,
+   "slide_numbers": [
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+   ]
+  },
+  {
+   "question": "How do I file a software patent?",
+   "kind": "missing",
+   "topic_id": 5,
+   "slide_numbers": [
+    36,
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "question": "Why do fuzzers uncover bugs that manual tests miss?",
+   "kind": "deeper",
+   "topic_id": 11,
+   "slide_numbers": [
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87
+   ]
+  },
+  {
+   "question": "What's the difference between mutation-based and generation-based fuzzers?",
+   "kind": "answered",
+   "topic_id": 11,
+   "slide_numbers": [
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87
+   ]
+  },
+  {
+   "question": "How does a coverage-guided fuzzer decide which inputs to keep?",
+   "kind": "answered",
+   "topic_id": 11,
+   "slide_numbers": [
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87
+   ]
+  },
+  {
+   "question": "What does the ACM Code of Ethics say about privacy?",
+   "kind": "answered",
+   "topic_id": 9,
+   "slide_numbers": [
+    65,
+    66,
+    67,
+    68
+   ]
+  },
+  {
+   "question": "what's the difference between a simile and a metaphor?",
+   "kind": "off_topic",
+   "topic_id": null,
+   "slide_numbers": []
+  },
+  {
+   "question": "Does Goodhart's law apply to test coverage metrics?",
+   "kind": "missing",
+   "topic_id": 2,
+   "slide_numbers": [
+    11,
+    12,
+    13,
+    14,
+    15
+   ]
+  },
+  {
+   "question": "Can you give an example of a DNS spoofing attack that tricks users?",
+   "kind": "deeper",
+   "topic_id": 6,
+   "slide_numbers": [
+    40,
+    41,
+    42,
+    43
+   ]
+  },
+  {
+   "question": "How does the 20-year term affect a startup's product plans?",
+   "kind": "deeper",
+   "topic_id": 5,
+   "slide_numbers": [
+    36,
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "question": "Who developed the Capability Maturity Model (CMM)?",
+   "kind": "answered",
+   "topic_id": 12,
+   "slide_numbers": [
+    88,
+    89,
+    90,
+    91
+   ]
+  },
+  {
+   "question": "How does CMM relate to ISO/IEC 15504 (SPICE) or CMMI, which are not mentioned in the text?",
+   "kind": "missing",
+   "topic_id": 12,
+   "slide_numbers": [
+    88,
+    89,
+    90,
+    91
+   ]
+  },
+  {
+   "question": "What are the main types of maintenance activities mentioned?",
+   "kind": "answered",
+   "topic_id": 3,
+   "slide_numbers": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+   ]
+  },
+  {
+   "question": "How does intellectual property law affect open‑source licensing?",
+   "kind": "missing",
+   "topic_id": 9,
+   "slide_numbers": [
+    65,
+    66,
+    67,
+    68
+   ]
+  },
+  {
+   "question": "What is the difference between corrective, adaptive, perfective, and preventive maintenance?",
+   "kind": "missing",
+   "topic_id": 3,
+   "slide_numbers": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+   ]
+  },
+  {
+   "question": "What are the main roles people can play in an OSS project?",
+   "kind": "answered",
+   "topic_id": 4,
+   "slide_numbers": [
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+   ]
+  },
+  {
+   "question": "Can you give an example where statement coverage is misleading?",
+   "kind": "deeper",
+   "topic_id": 8,
+   "slide_numbers": [
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+   ]
+  },
+  {
+   "question": "How do the maturity levels in CMM guide an organization’s process improvement?",
+   "kind": "deeper",
+   "topic_id": 12,
+   "slide_numbers": [
+    88,
+    89,
+    90,
+    91
+   ]
+  },
+  {
+   "question": "How are software metrics used in DevOps pipelines?",
+   "kind": "missing",
+   "topic_id": 0,
+   "slide_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "question": "What is the difference between privacy and security?",
+   "kind": "missing",
+   "topic_id": 7,
+   "slide_numbers": [
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53
+   ]
+  },
+  {
+   "question": "How do you decide when 100% coverage is enough for a project?",
+   "kind": "deeper",
+   "topic_id": 8,
+   "slide_numbers": [
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+   ]
+  },
+  {
+   "question": "How can code quality affect maintenance costs in practice?",
+   "kind": "deeper",
+   "topic_id": 3,
+   "slide_numbers": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+   ]
+  },
+  {
+   "question": "Why does maintenance often consume 70% of total effort?",
+   "kind": "deeper",
+   "topic_id": 3,
+   "slide_numbers": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+   ]
+  },
+  {
+   "question": "What is the main goal of using CMM in software development?",
+   "kind": "answered",
+   "topic_id": 12,
+   "slide_numbers": [
+    88,
+    89,
+    90,
+    91
+   ]
+  },
+  {
+   "question": "How does privacy-by-design integrate with threat modeling in practice?",
+   "kind": "deeper",
+   "topic_id": 7,
+   "slide_numbers": [
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53
+   ]
+  },
+  {
+   "question": "Why do for-profit companies often control the long‑term vision of OSS projects they sponsor?",
+   "kind": "deeper",
+   "topic_id": 4,
+   "slide_numbers": [
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+   ]
+  },
+  {
+   "question": "how do i make a good espresso shot at home?",
+   "kind": "off_topic",
+   "topic_id": null,
+   "slide_numbers": []
+  },
+  {
+   "question": "What exactly does a patent let me do?",
+   "kind": "answered",
+   "topic_id": 5,
+   "slide_numbers": [
+    36,
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "question": "Why can lines of code be a misleading metric for bugs?",
+   "kind": "answered",
+   "topic_id": 2,
+   "slide_numbers": [
+    11,
+    12,
+    13,
+    14,
+    15
+   ]
+  },
+  {
+   "question": "What are the main differences between CMM and the People Capability Maturity Model (P-CMM)?",
+   "kind": "deeper",
+   "topic_id": 12,
+   "slide_numbers": [
+    88,
+    89,
+    90,
+    91
+   ]
+  },
+  {
+   "question": "Can you give an example of how AFL uses coverage to prioritize inputs?",
+   "kind": "deeper",
+   "topic_id": 11,
+   "slide_numbers": [
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87
+   ]
+  },
+  {
+   "question": "Which type of coverage requires the most tests?",
+   "kind": "answered",
+   "topic_id": 8,
+   "slide_numbers": [
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+   ]
+  },
+  {
+   "question": "Should we use regression testing for every small change or only major releases?",
+   "kind": "answered",
+   "topic_id": 10,
+   "slide_numbers": [
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+   ]
+  },
+  {
+   "question": "What does condition coverage mean?",
+   "kind": "answered",
+   "topic_id": 8,
+   "slide_numbers": [
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+   ]
+  },
+  {
+   "question": "What is the IEEE 1061 definition of a software quality metric?",
+   "kind": "answered",
+   "topic_id": 0,
+   "slide_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "question": "What is the Streetlight effect?",
+   "kind": "answered",
+   "topic_id": 2,
+   "slide_numbers": [
+    11,
+    12,
+    13,
+    14,
+    15
+   ]
+  },
+  {
+   "question": "What's the difference between fuzz testing and mutation testing?",
+   "kind": "missing",
+   "topic_id": 11,
+   "slide_numbers": [
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87
+   ]
+  },
+  {
+   "question": "What statistical techniques can help identify confounding variables in metric data?",
+   "kind": "deeper",
+   "topic_id": 2,
+   "slide_numbers": [
+    11,
+    12,
+    13,
+    14,
+    15
+   ]
+  }
+ ]
+}

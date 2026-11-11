@@ -1,0 +1,69 @@
+What is a good way to structure automated regression tests so they stay fast?
+What makes a software idea patentable?
+Can I sell my software if I have a patent?
+How do we decide between top‑down and bottom‑up when the database schema is partially defined?
+What exactly is a person‑in‑the‑middle attack?
+What are the key characteristics of software metrics?
+Can you give an example of calculating function points for a simple app?
+Which integration approach is best when we already know the UI design?
+Why is it important for metrics to be language-agnostic in software engineering?
+What is the minimum number of core developer reviews needed for a PR?
+How does function point analysis relate to effort estimation?
+what are the key differences between the gregorian and julian calendars?
+What are the core principles of FTC's Fair Information Practice Principles?
+How can we differentiate between a spurious correlation and a true causal relationship in software metrics?
+Is path coverage something we should consider too?
+Which of the Big 3 protects against sniffing?
+Why is it important to give proper credit for intellectual property?
+Why is function point analysis better than counting lines of code?
+How much of a product's lifecycle is usually spent on maintenance?
+How is sniffing different from eavesdropping?
+hey can someone help me figure out the area of a triangle?
+How do you adjust the total for functional complexity?
+Can you give an example of how defect density can be calculated and used to improve testing efficiency?
+What are the main categories of ethics mentioned?
+Why does confidentiality not guarantee secrecy of communication, and how does that affect system design?
+How does an open source license impact a company's ability to modify and distribute software?
+What role does unit testing play in the overall testing strategy?
+What is a replay attack?
+Why should we assume the network is insecure even if we use VPNs?
+How do you balance client interests with public interest in practice?
+What exactly do function points count?
+How do you manage licensing conflicts when combining multiple OSS components in a product?
+How do I file a software patent?
+Why do fuzzers uncover bugs that manual tests miss?
+What's the difference between mutation-based and generation-based fuzzers?
+How does a coverage-guided fuzzer decide which inputs to keep?
+What does the ACM Code of Ethics say about privacy?
+what's the difference between a simile and a metaphor?
+Does Goodhart's law apply to test coverage metrics?
+Can you give an example of a DNS spoofing attack that tricks users?
+How does the 20-year term affect a startup's product plans?
+Who developed the Capability Maturity Model (CMM)?
+How does CMM relate to ISO/IEC 15504 (SPICE) or CMMI, which are not mentioned in the text?
+What are the main types of maintenance activities mentioned?
+How does intellectual property law affect open‑source licensing?
+What is the difference between corrective, adaptive, perfective, and preventive maintenance?
+What are the main roles people can play in an OSS project?
+Can you give an example where statement coverage is misleading?
+How do the maturity levels in CMM guide an organization’s process improvement?
+How are software metrics used in DevOps pipelines?
+What is the difference between privacy and security?
+How do you decide when 100% coverage is enough for a project?
+How can code quality affect maintenance costs in practice?
+Why does maintenance often consume 70% of total effort?
+What is the main goal of using CMM in software development?
+How does privacy-by-design integrate with threat modeling in practice?
+Why do for-profit companies often control the long‑term vision of OSS projects they sponsor?
+how do i make a good espresso shot at home?
+What exactly does a patent let me do?
+Why can lines of code be a misleading metric for bugs?
+What are the main differences between CMM and the People Capability Maturity Model (P-CMM)?
+Can you give an example of how AFL uses coverage to prioritize inputs?
+Which type of coverage requires the most tests?
+Should we use regression testing for every small change or only major releases?
+What does condition coverage mean?
+What is the IEEE 1061 definition of a software quality metric?
+What is the Streetlight effect?
+What's the difference between fuzz testing and mutation testing?
+What statistical techniques can help identify confounding variables in metric data?

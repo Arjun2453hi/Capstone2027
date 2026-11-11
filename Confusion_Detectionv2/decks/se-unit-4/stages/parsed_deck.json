@@ -1,0 +1,1642 @@
+{
+  "source_pdf": "decks\\se-unit-4\\source.pdf",
+  "num_pages": 91,
+  "slides": [
+    {
+      "slide_id": 0,
+      "slide_number": 1,
+      "title": "Unit - IV",
+      "title_font_size": 32.063999999999965,
+      "bullets": [
+        "Compiled by",
+        "M S Anand",
+        "Department of Computer Science"
+      ],
+      "raw_text": "Unit - IV\nCompiled by\nM S Anand\nDepartment of Computer Science",
+      "char_count": 62
+    },
+    {
+      "slide_id": 1,
+      "slide_number": 2,
+      "title": "Introduction",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Text Book(s):",
+        "1. “Software Engineering: A Practitioner’s approach – 9 th edition, Roger",
+        "Pressman, Bruce Maxim",
+        "2. “Software Testing – Principles and Practices”, Srinivasan Desikan and",
+        "Gopalaswamy Ramesh, 1 st edition, Pearson, 2006.",
+        "Reference Book(s):",
+        "1. “Effective DevOps: Building a Culture of Collaboration, Affinity, and",
+        "Tooling” by By Jennifer Davis, Ryn Daniels, O’ Reilly Publications, 2018",
+        "2. Software engineering – principles and practice Hans Van Vliet, 3 rd",
+        "edition",
+        "3. “Software Engineering”, International Computer Science Series, Ian",
+        "Somerville, Pearson Education, 9th Edition, 2009.",
+        "4. “Foundations of Software Testing \", Aditya Mathur, Pearson, 2008",
+        "5. “Software Testing, A Craftsman’s Approach \", Paul C. Jorgensen,",
+        "Auerbach, 2008.",
+        "IEEE SWEBOK, PMBOK, BABOK and Other Sources from Internet."
+      ],
+      "raw_text": "Introduction\nText Book(s):\n1. “Software Engineering: A Practitioner’s approach – 9 th edition, Roger\nPressman, Bruce Maxim\n2. “Software Testing – Principles and Practices”, Srinivasan Desikan and\nGopalaswamy Ramesh, 1 st edition, Pearson, 2006.\nReference Book(s):\n1. “Effective DevOps: Building a Culture of Collaboration, Affinity, and\nTooling” by By Jennifer Davis, Ryn Daniels, O’ Reilly Publications, 2018\n2. Software engineering – principles and practice Hans Van Vliet, 3 rd\nedition\n3. “Software Engineering”, International Computer Science Series, Ian\nSomerville, Pearson Education, 9th Edition, 2009.\n4. “Foundations of Software Testing \", Aditya Mathur, Pearson, 2008\n5. “Software Testing, A Craftsman’s Approach \", Paul C. Jorgensen,\nAuerbach, 2008.\nIEEE SWEBOK, PMBOK, BABOK and Other Sources from Internet.",
+      "char_count": 818
+    },
+    {
+      "slide_id": 2,
+      "slide_number": 3,
+      "title": "Software Metrics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Introduction",
+        "“What cannot be measured cannot be Managed\"",
+        "What does it mean?",
+        "without tracking progress and outcomes through data, it's",
+        "impossible to make informed decisions or control the direction of a",
+        "project, business, or even personal goals.",
+        "It emphasizes the importance of metrics for setting benchmarks,",
+        "assessing performance, and making necessary adjustments to",
+        "improve results.",
+        "What are Software Metrics in Software Engineering?",
+        "Software metrics in software engineering are the standards for",
+        "estimating the quality, progress, and health of software",
+        "development activity.",
+        "A software metric is a quantifiable or countable assessment of the",
+        "qualities of software."
+      ],
+      "raw_text": "Software Metrics\nIntroduction\n“What cannot be measured cannot be Managed\"\nWhat does it mean?\nwithout tracking progress and outcomes through data, it's\nimpossible to make informed decisions or control the direction of a\nproject, business, or even personal goals.\nIt emphasizes the importance of metrics for setting benchmarks,\nassessing performance, and making necessary adjustments to\nimprove results.\nWhat are Software Metrics in Software Engineering?\nSoftware metrics in software engineering are the standards for\nestimating the quality, progress, and health of software\ndevelopment activity.\nA software metric is a quantifiable or countable assessment of the\nqualities of software.",
+      "char_count": 684
+    },
+    {
+      "slide_id": 3,
+      "slide_number": 4,
+      "title": "Software Metrics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Characteristics of Software Metrics",
+        "Software metrics in software engineering should possess the",
+        "following characteristics:",
+        "➢ Quantitative: Metrics must be quantitative in order to be helpful.",
+        "It means that metrics can be stated numerically.",
+        "➢ Understandable: Metric computation should be simple",
+        "to grasp, and the method for computing them should be well",
+        "explained.",
+        "➢ Applicability: Metrics should be applied during the early stages",
+        "of software development.",
+        "➢ Repeatable: When measured regularly and consistently in",
+        "nature, the metric values should be the same.",
+        "➢ Economical: Metric computation should be cost-effective.",
+        "➢ Language agnostic: Metrics should be language-",
+        "independent, meaning their computation should not depend on",
+        "any programming language."
+      ],
+      "raw_text": "Software Metrics\nCharacteristics of Software Metrics\nSoftware metrics in software engineering should possess the\nfollowing characteristics:\n➢ Quantitative: Metrics must be quantitative in order to be helpful.\nIt means that metrics can be stated numerically.\n➢ Understandable: Metric computation should be simple\nto grasp, and the method for computing them should be well\nexplained.\n➢ Applicability: Metrics should be applied during the early stages\nof software development.\n➢ Repeatable: When measured regularly and consistently in\nnature, the metric values should be the same.\n➢ Economical: Metric computation should be cost-effective.\n➢ Language agnostic: Metrics should be language-\nindependent, meaning their computation should not depend on\nany programming language.",
+      "char_count": 771
+    },
+    {
+      "slide_id": 4,
+      "slide_number": 5,
+      "title": "Software Metrics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "IEEE 1061 definition:",
+        "“A software quality metric is a function whose inputs are",
+        "software data and whose output is a single numerical value",
+        "that can be interpreted as the degree to which the software",
+        "possesses a given attribute that affects its quality.”"
+      ],
+      "raw_text": "Software Metrics\nIEEE 1061 definition:\n“A software quality metric is a function whose inputs are\nsoftware data and whose output is a single numerical value\nthat can be interpreted as the degree to which the software\npossesses a given attribute that affects its quality.”",
+      "char_count": 270
+    },
+    {
+      "slide_id": 5,
+      "slide_number": 6,
+      "title": "Software Test Related Measurements and Metrics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Software Test Metric: Quantitative Measure of testing process",
+        "indicating progress, quality, productivity and degree to which",
+        "system possesses a given attribute",
+        "Goal",
+        "Improve efficiency and effectiveness of software testing",
+        "process",
+        "Make better decisions for future testing process using reliable",
+        "data",
+        "Measurements: critical in performing SQA and testing",
+        "Support increasing effectiveness of testing process",
+        "➢when used as part of project planning and monitoring",
+        "➢evaluate the quality of product under test",
+        "➢helps in defect analysis",
+        "Measures can",
+        "represent the quality",
+        "represent test coverage"
+      ],
+      "raw_text": "Software Test Related Measurements and Metrics\nSoftware Test Metric: Quantitative Measure of testing process\nindicating progress, quality, productivity and degree to which\nsystem possesses a given attribute\nGoal\nImprove efficiency and effectiveness of software testing\nprocess\nMake better decisions for future testing process using reliable\ndata\nMeasurements: critical in performing SQA and testing\nSupport increasing effectiveness of testing process\n➢when used as part of project planning and monitoring\n➢evaluate the quality of product under test\n➢helps in defect analysis\nMeasures can\nrepresent the quality\nrepresent test coverage",
+      "char_count": 633
+    },
+    {
+      "slide_id": 6,
+      "slide_number": 7,
+      "title": "Software Test Measurements",
+      "title_font_size": 24.0,
+      "bullets": [],
+      "raw_text": "Software Test Measurements",
+      "char_count": 26
+    },
+    {
+      "slide_id": 7,
+      "slide_number": 8,
+      "title": "Software Test Measurements",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Note:",
+        "Function Points",
+        "Function points measure the size of an application system based",
+        "on the functional view of the system. The size is determined by",
+        "counting the number of inputs, outputs, queries, internal files and",
+        "external files in the system and adjusting that total for the functional",
+        "complexity of the system.",
+        "Function point analysis, originally developed at IBM, has as an",
+        "advantage its focus on measuring software produced in terms of",
+        "functionality delivered to the end user, rather than in terms of",
+        "development deliverables, which have no direct bearing on the end",
+        "user."
+      ],
+      "raw_text": "Software Test Measurements\nNote:\nFunction Points\nFunction points measure the size of an application system based\non the functional view of the system. The size is determined by\ncounting the number of inputs, outputs, queries, internal files and\nexternal files in the system and adjusting that total for the functional\ncomplexity of the system.\nFunction point analysis, originally developed at IBM, has as an\nadvantage its focus on measuring software produced in terms of\nfunctionality delivered to the end user, rather than in terms of\ndevelopment deliverables, which have no direct bearing on the end\nuser.",
+      "char_count": 607
+    },
+    {
+      "slide_id": 8,
+      "slide_number": 9,
+      "title": "Software Test Measurements",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Function Points …"
+      ],
+      "raw_text": "Software Test Measurements\nFunction Points …",
+      "char_count": 44
+    },
+    {
+      "slide_id": 9,
+      "slide_number": 10,
+      "title": "Software Test Measurements",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Function Points …"
+      ],
+      "raw_text": "Software Test Measurements\nFunction Points …",
+      "char_count": 44
+    },
+    {
+      "slide_id": 10,
+      "slide_number": 11,
+      "title": "Risks and challenges associated with metrics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "The Streetlight effect",
+        "➢ A known observational bias.",
+        "➢ People tend to look for something only where it’s easiest to do",
+        "so.",
+        "➢ If you drop your keys at night, you’ll tend to look for it under",
+        "streetlights.",
+        "Bad statistics",
+        "Making inferences",
+        "➢ Provide a theory (from domain knowledge, independent of data)",
+        "➢ Show correlation",
+        "➢ Demonstrate ability to predict new cases (replicate/validate)",
+        "Spurious correlations",
+        "Confounding variables"
+      ],
+      "raw_text": "Risks and challenges associated with metrics\nThe Streetlight effect\n➢ A known observational bias.\n➢ People tend to look for something only where it’s easiest to do\nso.\n➢ If you drop your keys at night, you’ll tend to look for it under\nstreetlights.\nBad statistics\nMaking inferences\n➢ Provide a theory (from domain knowledge, independent of data)\n➢ Show correlation\n➢ Demonstrate ability to predict new cases (replicate/validate)\nSpurious correlations\nConfounding variables",
+      "char_count": 472
+    },
+    {
+      "slide_id": 11,
+      "slide_number": 12,
+      "title": "Risks and challenges associated with metrics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Spurious correlations",
+        "A spurious correlation occurs when two variables appear to be",
+        "statistically related but have no direct causal connection.",
+        "A strong correlation might arise from pure chance, a third",
+        "confounding factor, or a misinterpretation of complex data. For",
+        "software development, this can mean mistaking a side effect for a",
+        "primary cause, which can lead to ineffective or even detrimental",
+        "changes to development processes.",
+        "Example1",
+        "Lines of code and bug count: You might observe a strong correlation",
+        "between the number of lines of code (LOC) and the number of bugs in a",
+        "software module. A novice might conclude that fewer lines of code will",
+        "directly cause fewer bugs.",
+        "The confounding factor: The actual cause is often the complexity of the",
+        "module. A more complex feature requires more code, which in turn",
+        "introduces more opportunities for bugs. Simply writing less code does not",
+        "reduce bugs; reducing complexity does."
+      ],
+      "raw_text": "Risks and challenges associated with metrics\nSpurious correlations\nA spurious correlation occurs when two variables appear to be\nstatistically related but have no direct causal connection.\nA strong correlation might arise from pure chance, a third\nconfounding factor, or a misinterpretation of complex data. For\nsoftware development, this can mean mistaking a side effect for a\nprimary cause, which can lead to ineffective or even detrimental\nchanges to development processes.\nExample1\nLines of code and bug count: You might observe a strong correlation\nbetween the number of lines of code (LOC) and the number of bugs in a\nsoftware module. A novice might conclude that fewer lines of code will\ndirectly cause fewer bugs.\nThe confounding factor: The actual cause is often the complexity of the\nmodule. A more complex feature requires more code, which in turn\nintroduces more opportunities for bugs. Simply writing less code does not\nreduce bugs; reducing complexity does.",
+      "char_count": 971
+    },
+    {
+      "slide_id": 12,
+      "slide_number": 13,
+      "title": "Risks and challenges associated with metrics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Example 2",
+        "Number of features and revenue growth: An optimistic product leader",
+        "might observe that as their team releases more features, the company's",
+        "revenue also increases. This could lead to a strategy of accelerating",
+        "feature development to increase sales.",
+        "The confounding factor: The company's overall success—driven by market",
+        "demand, effective marketing, and a strong sales team—is the true cause",
+        "of the revenue growth. The high feature output and revenue growth are",
+        "both results of a well-performing, well-funded business. Simply adding",
+        "more features may even make the product more complex and harder for",
+        "new users to adopt, potentially hurting growth in the long run.",
+        "Example 3",
+        "Test coverage and bug reports: A team might notice a high correlation",
+        "between increased test coverage and a rise in new bug reports. This could",
+        "lead to the incorrect conclusion that adding more tests actually creates",
+        "more problems.",
+        "The confounding factor: The real cause is a third variable, such as a recent",
+        "shift to a more aggressive testing strategy. The new strategy uncovers",
+        "many bugs that were already in the code but were previously undetected,",
+        "which is the actual purpose of testing."
+      ],
+      "raw_text": "Risks and challenges associated with metrics\nExample 2\nNumber of features and revenue growth: An optimistic product leader\nmight observe that as their team releases more features, the company's\nrevenue also increases. This could lead to a strategy of accelerating\nfeature development to increase sales.\nThe confounding factor: The company's overall success—driven by market\ndemand, effective marketing, and a strong sales team—is the true cause\nof the revenue growth. The high feature output and revenue growth are\nboth results of a well-performing, well-funded business. Simply adding\nmore features may even make the product more complex and harder for\nnew users to adopt, potentially hurting growth in the long run.\nExample 3\nTest coverage and bug reports: A team might notice a high correlation\nbetween increased test coverage and a rise in new bug reports. This could\nlead to the incorrect conclusion that adding more tests actually creates\nmore problems.\nThe confounding factor: The real cause is a third variable, such as a recent\nshift to a more aggressive testing strategy. The new strategy uncovers\nmany bugs that were already in the code but were previously undetected,\nwhich is the actual purpose of testing.",
+      "char_count": 1219
+    },
+    {
+      "slide_id": 13,
+      "slide_number": 14,
+      "title": "Risks and challenges associated with metrics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Measurement reliability",
+        "Metrics and Incentives",
+        "Goodhart’s law: “When a measure becomes a target, it ceases to",
+        "be a good measure.”",
+        "Incentivizing productivity",
+        "What happens when developer bonuses are based on",
+        "▪ Lines of code per day?",
+        "▪ Amount of documentation written?",
+        "▪ Low number of reported bugs in their code?",
+        "▪ Low number of open bugs in their code?",
+        "▪ High number of fixed bugs?",
+        "▪ Accuracy of time estimates?"
+      ],
+      "raw_text": "Risks and challenges associated with metrics\nMeasurement reliability\nMetrics and Incentives\nGoodhart’s law: “When a measure becomes a target, it ceases to\nbe a good measure.”\nIncentivizing productivity\nWhat happens when developer bonuses are based on\n▪ Lines of code per day?\n▪ Amount of documentation written?\n▪ Low number of reported bugs in their code?\n▪ Low number of open bugs in their code?\n▪ High number of fixed bugs?\n▪ Accuracy of time estimates?",
+      "char_count": 455
+    },
+    {
+      "slide_id": 14,
+      "slide_number": 15,
+      "title": "Metrics – what you need to know",
+      "title_font_size": 24.0,
+      "bullets": [],
+      "raw_text": "Metrics – what you need to know",
+      "char_count": 31
+    },
+    {
+      "slide_id": 15,
+      "slide_number": 16,
+      "title": "Maintenance - Introduction",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Software delivered to customers will and can go through a large",
+        "number of modifications and enhancements due to (??)",
+        "1. Fixing Defects reported from the field",
+        "2. Correcting requirement and design errors",
+        "3. Implementing enhancements",
+        "4. Improving performance",
+        "5. Adapting the system in response to the environment changes",
+        "such as",
+        "a. Hardware changes",
+        "b. Software changes within programs that it interfaces with",
+        "c. Network/Telecommunication changes",
+        "d. Changes in standards",
+        "6. Retiring outdated systems",
+        "7. Interfacing with other software"
+      ],
+      "raw_text": "Maintenance - Introduction\nSoftware delivered to customers will and can go through a large\nnumber of modifications and enhancements due to (??)\n1. Fixing Defects reported from the field\n2. Correcting requirement and design errors\n3. Implementing enhancements\n4. Improving performance\n5. Adapting the system in response to the environment changes\nsuch as\na. Hardware changes\nb. Software changes within programs that it interfaces with\nc. Network/Telecommunication changes\nd. Changes in standards\n6. Retiring outdated systems\n7. Interfacing with other software",
+      "char_count": 558
+    },
+    {
+      "slide_id": 16,
+      "slide_number": 17,
+      "title": "Maintenance - Introduction",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Maintenance: Sustaining process of modifying a software system",
+        "or component after delivery, to correct faults, improve performance",
+        "or other attributes, or adapt to changed environment",
+        "➢ Totality of activities required to provide cost-effective support",
+        "to software",
+        "➢ Modification of software product after delivery to correct",
+        "faults, improve performance or other attributes, or to adapt to",
+        "modified environment",
+        "➢Largest portion of the total life cycle as products are used for",
+        "a long period of time",
+        "Why",
+        "To ensure software product continues to satisfy customer needs",
+        "Commitment to support system, customers have invested in",
+        "Who",
+        "Maintainer could be an organization or person responsible for",
+        "carrying out maintenance activities"
+      ],
+      "raw_text": "Maintenance - Introduction\nMaintenance: Sustaining process of modifying a software system\nor component after delivery, to correct faults, improve performance\nor other attributes, or adapt to changed environment\n➢ Totality of activities required to provide cost-effective support\nto software\n➢ Modification of software product after delivery to correct\nfaults, improve performance or other attributes, or to adapt to\nmodified environment\n➢Largest portion of the total life cycle as products are used for\na long period of time\nWhy\nTo ensure software product continues to satisfy customer needs\nCommitment to support system, customers have invested in\nWho\nMaintainer could be an organization or person responsible for\ncarrying out maintenance activities",
+      "char_count": 750
+    },
+    {
+      "slide_id": 17,
+      "slide_number": 18,
+      "title": "Maintenance - Activities expected and Actions which can help Activities expected 1. Maintaining control over software’s day to day functioning 2. Maintaining control over software modifications 3. Perfecting existing functions 4. Preventing software performance degrading to unacceptable levels Actions which will support the activities 1. Understand the product which needs to be maintained by studying architecture, design, code, test cases and documentation 2. Discussion with architects and developers 3. Adequate and precise documentation, testable code, code management, instrumentation and debug code 4. Look at present and change request at hand to identify how to satisfy task 5. Look at future and analyze consequences of solution",
+      "title_font_size": 20.064,
+      "bullets": [],
+      "raw_text": "Maintenance - Activities expected and Actions which can help Activities expected 1. Maintaining control over software’s day to day functioning 2. Maintaining control over software modifications 3. Perfecting existing functions 4. Preventing software performance degrading to unacceptable levels Actions which will support the activities 1. Understand the product which needs to be maintained by studying architecture, design, code, test cases and documentation 2. Discussion with architects and developers 3. Adequate and precise documentation, testable code, code management, instrumentation and debug code 4. Look at present and change request at hand to identify how to satisfy task 5. Look at future and analyze consequences of solution",
+      "char_count": 740
+    },
+    {
+      "slide_id": 18,
+      "slide_number": 19,
+      "title": "Maintenance - Costs Maintenance consumes a major share of software lifecycle financial resources ➢ Typically, 70% of total effort spent would be on maintenance ➢ Total cost also follows this trend Factors affecting maintenance costs ➢ Application type ➢ Software novelty ➢Software maintenance staff availability ➢Software lifespan ➢ Hardware Characteristics ➢Quality of Software Design, Construction, Documentation, and Testing",
+      "title_font_size": 20.063999999999993,
+      "bullets": [],
+      "raw_text": "Maintenance - Costs Maintenance consumes a major share of software lifecycle financial resources ➢ Typically, 70% of total effort spent would be on maintenance ➢ Total cost also follows this trend Factors affecting maintenance costs ➢ Application type ➢ Software novelty ➢Software maintenance staff availability ➢Software lifespan ➢ Hardware Characteristics ➢Quality of Software Design, Construction, Documentation, and Testing",
+      "char_count": 427
+    },
+    {
+      "slide_id": 19,
+      "slide_number": 20,
+      "title": "Maintenance – Key issues Technical 1. Code and Documentation Quality 2. Limited Understanding 3. Availability of test environment to reproduce problems 4. Impact analysis Management 1. Staffing and retaining people with right skill levels 2. Alignment with economic objectives as maintenance does not have much RoI 3. Outsourcing issues 4. Protection of Intellectual Property 5. Control over development process and quality control 6. Learning curve for product 7. Scope of Maintenance",
+      "title_font_size": 20.063999999999993,
+      "bullets": [],
+      "raw_text": "Maintenance – Key issues Technical 1. Code and Documentation Quality 2. Limited Understanding 3. Availability of test environment to reproduce problems 4. Impact analysis Management 1. Staffing and retaining people with right skill levels 2. Alignment with economic objectives as maintenance does not have much RoI 3. Outsourcing issues 4. Protection of Intellectual Property 5. Control over development process and quality control 6. Learning curve for product 7. Scope of Maintenance",
+      "char_count": 485
+    },
+    {
+      "slide_id": 20,
+      "slide_number": 21,
+      "title": "Maintenance - Costs Cost 1. Application type 2. Lifespan of the system 3. Quality of software artifacts 4. Staff availability Predictability 1. Measures related to schedule, time required for maintenance, Complexity and Quality of product",
+      "title_font_size": 20.063999999999965,
+      "bullets": [],
+      "raw_text": "Maintenance - Costs Cost 1. Application type 2. Lifespan of the system 3. Quality of software artifacts 4. Staff availability Predictability 1. Measures related to schedule, time required for maintenance, Complexity and Quality of product",
+      "char_count": 238
+    },
+    {
+      "slide_id": 21,
+      "slide_number": 22,
+      "title": "Maintenance – Life Cycle",
+      "title_font_size": 20.039999999999964,
+      "bullets": [],
+      "raw_text": "Maintenance – Life Cycle",
+      "char_count": 24
+    },
+    {
+      "slide_id": 22,
+      "slide_number": 23,
+      "title": "Maintenance - Tips",
+      "title_font_size": 20.039999999999964,
+      "bullets": [],
+      "raw_text": "Maintenance - Tips",
+      "char_count": 18
+    },
+    {
+      "slide_id": 23,
+      "slide_number": 24,
+      "title": "Categories of maintenance",
+      "title_font_size": 24.0,
+      "bullets": [],
+      "raw_text": "Categories of maintenance",
+      "char_count": 25
+    },
+    {
+      "slide_id": 24,
+      "slide_number": 25,
+      "title": "Maintenance process activities",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Implementation of Processes",
+        "1. Develop, Document and execute maintenance process plans",
+        "including usage of tools as part of the process",
+        "2. Procedures for handling user reports and modification",
+        "requests, tracking of problems, responding to users",
+        "Follow the Software Maintenance Life Cycle"
+      ],
+      "raw_text": "Maintenance process activities\nImplementation of Processes\n1. Develop, Document and execute maintenance process plans\nincluding usage of tools as part of the process\n2. Procedures for handling user reports and modification\nrequests, tracking of problems, responding to users\nFollow the Software Maintenance Life Cycle",
+      "char_count": 317
+    },
+    {
+      "slide_id": 25,
+      "slide_number": 26,
+      "title": "Maintenance process activities",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Migration",
+        "1. Develop a migration plan for the fixed/new component and",
+        "execute the plan",
+        "2. This could be",
+        "1. Notifying and replacing the product and restarting",
+        "2. Applying the patch with restart/no-restart based on the",
+        "product and patch",
+        "3. For a complex product, elaborate set of activities",
+        "4. Migration, verification of migration, support for older data",
+        "Software Retirement",
+        "1. Develop a retirement plan for system including timeline,",
+        "communicate and execute that plan",
+        "2. Retire older version and running of new in parallel",
+        "3. Dispose superseded hardware and software"
+      ],
+      "raw_text": "Maintenance process activities\nMigration\n1. Develop a migration plan for the fixed/new component and\nexecute the plan\n2. This could be\n1. Notifying and replacing the product and restarting\n2. Applying the patch with restart/no-restart based on the\nproduct and patch\n3. For a complex product, elaborate set of activities\n4. Migration, verification of migration, support for older data\nSoftware Retirement\n1. Develop a retirement plan for system including timeline,\ncommunicate and execute that plan\n2. Retire older version and running of new in parallel\n3. Dispose superseded hardware and software",
+      "char_count": 596
+    },
+    {
+      "slide_id": 26,
+      "slide_number": 27,
+      "title": "Techniques or Approaches for Maintenance – Reverse Engineering",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Reverse Engineering:",
+        "passive technique to understand a piece of software prior to re-",
+        "engineering",
+        "▪ Process of recovering specification and design information",
+        "about the system from source code",
+        "Over time, application may have been corrected, adapted and",
+        "enhanced",
+        "Application becomes complex, unstable and has unexpected",
+        "and serious side effects",
+        "Identifies the components of a software product and the",
+        "interrelationships between the components",
+        "Creates a representation of the software in a different format than",
+        "existing code/documentation",
+        "Does not modify the product or result in a new product",
+        "Typical products of this process are graphs and control flow graphs"
+      ],
+      "raw_text": "Techniques or Approaches for Maintenance – Reverse Engineering\nReverse Engineering:\npassive technique to understand a piece of software prior to re-\nengineering\n▪ Process of recovering specification and design information\nabout the system from source code\nOver time, application may have been corrected, adapted and\nenhanced\nApplication becomes complex, unstable and has unexpected\nand serious side effects\nIdentifies the components of a software product and the\ninterrelationships between the components\nCreates a representation of the software in a different format than\nexisting code/documentation\nDoes not modify the product or result in a new product\nTypical products of this process are graphs and control flow graphs",
+      "char_count": 723
+    },
+    {
+      "slide_id": 27,
+      "slide_number": 28,
+      "title": "Techniques or Approaches for Maintenance – Re-Engineering",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Re-Engineering:",
+        "process of modifying the software to make it easier to understand,",
+        "change and extend",
+        "Improving maintainability of system at reasonable cost",
+        "Considered from maintenance perspective, when software product",
+        "is no longer viable to employ standard maintenance techniques to",
+        "support with reasonable efficiency and productivity",
+        "May involve Refactoring",
+        "Re-Engineered code is expected to result in reduction of CPU",
+        "Utilization, Readability, Usability and Performance",
+        "Steps",
+        "1. Identify current process",
+        "2. Document planned reconstruction",
+        "3. Reverse engineer",
+        "4. Refactor",
+        "5. Reconstruct code and data"
+      ],
+      "raw_text": "Techniques or Approaches for Maintenance – Re-Engineering\nRe-Engineering:\nprocess of modifying the software to make it easier to understand,\nchange and extend\nImproving maintainability of system at reasonable cost\nConsidered from maintenance perspective, when software product\nis no longer viable to employ standard maintenance techniques to\nsupport with reasonable efficiency and productivity\nMay involve Refactoring\nRe-Engineered code is expected to result in reduction of CPU\nUtilization, Readability, Usability and Performance\nSteps\n1. Identify current process\n2. Document planned reconstruction\n3. Reverse engineer\n4. Refactor\n5. Reconstruct code and data",
+      "char_count": 660
+    },
+    {
+      "slide_id": 28,
+      "slide_number": 29,
+      "title": "Open Source Software",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Story of Open Source",
+        "https://www.youtube.com/watch?v=pVuul3zWj3g"
+      ],
+      "raw_text": "Open Source Software\nStory of Open Source\nhttps://www.youtube.com/watch?v=pVuul3zWj3g",
+      "char_count": 85
+    },
+    {
+      "slide_id": 29,
+      "slide_number": 30,
+      "title": "The Cathedral and The Bazaar",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Software Engineering Methods",
+        "https://www.youtube.com/watch?v=QyvAzL88FgY"
+      ],
+      "raw_text": "The Cathedral and The Bazaar\nSoftware Engineering Methods\nhttps://www.youtube.com/watch?v=QyvAzL88FgY",
+      "char_count": 101
+    },
+    {
+      "slide_id": 30,
+      "slide_number": 31,
+      "title": "Open Source Licensing",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Open Source License types",
+        "https://www.youtube.com/watch?v=nFU8KoSgEmk"
+      ],
+      "raw_text": "Open Source Licensing\nOpen Source License types\nhttps://www.youtube.com/watch?v=nFU8KoSgEmk",
+      "char_count": 91
+    },
+    {
+      "slide_id": 31,
+      "slide_number": 32,
+      "title": "OSS Stakeholders / Contributors",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Core members",
+        "➢ Often (but not always) includes the original creators",
+        "➢ Direct push access to main repository",
+        "➢ May be further split into admin roles and developers",
+        "External contributors",
+        "➢ File bug reports and report other issues",
+        "➢ Contribute code and documentation via pull requests",
+        "Other supporters",
+        "➢ Beta testers (users)",
+        "➢ Sponsors (financial or platform)",
+        "➢ Steering committees or public commenters (for standards and",
+        "RFCs)",
+        "Spin-offs",
+        "➢ Maintainers of forks of the original repository"
+      ],
+      "raw_text": "OSS Stakeholders / Contributors\nCore members\n➢ Often (but not always) includes the original creators\n➢ Direct push access to main repository\n➢ May be further split into admin roles and developers\nExternal contributors\n➢ File bug reports and report other issues\n➢ Contribute code and documentation via pull requests\nOther supporters\n➢ Beta testers (users)\n➢ Sponsors (financial or platform)\n➢ Steering committees or public commenters (for standards and\nRFCs)\nSpin-offs\n➢ Maintainers of forks of the original repository",
+      "char_count": 517
+    },
+    {
+      "slide_id": 32,
+      "slide_number": 33,
+      "title": "Contributing processes",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Mature OSS projects often have strict contribution guidelines",
+        "➢ Look for CONTRIBUTING.md or similar",
+        "Common requirements:",
+        "➢ Coding style (recall: linters) and passing static checks",
+        "➢ Inclusion of test cases with new code",
+        "➢ Minimum number of code reviews from core developers",
+        "➢ Standards for documentation",
+        "➢ Contributing licensing agreements."
+      ],
+      "raw_text": "Contributing processes\nMature OSS projects often have strict contribution guidelines\n➢ Look for CONTRIBUTING.md or similar\nCommon requirements:\n➢ Coding style (recall: linters) and passing static checks\n➢ Inclusion of test cases with new code\n➢ Minimum number of code reviews from core developers\n➢ Standards for documentation\n➢ Contributing licensing agreements.",
+      "char_count": 363
+    },
+    {
+      "slide_id": 33,
+      "slide_number": 34,
+      "title": "Governance",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Some OSS projects are managed by for-profit firms",
+        "➢ Examples: Chromium (Google), Moby (Docker), Ubuntu (Canonical),",
+        "TensorFlow (Google), PyTorch (Meta), Java (Oracle)",
+        "➢ Contributors may be a mix of employees and community volunteers",
+        "➢ Corporations often fund platforms (websites, test servers,",
+        "deployments, repository hosting, etc.)",
+        "➢ Corporations usually control long-term vision and feature roadmap",
+        "Many OSS projects are managed by non-profit foundations or ad-hoc",
+        "communities",
+        "➢ Examples: Apache Hadoop/Spark/Hbase/Kafka/Tomcat (ASF), Firefox",
+        "(Mozilla), Python (PSF), NumPy (community)",
+        "➢ Foundations fund project infrastructure via charitable donations",
+        "➢ Long-term vision often developed via a collaborative process (e.g.,",
+        "Apache) or by benevolent dictators (e.g., Python, Linux)",
+        "Corporations still heavily rely on community-owned OSS projects",
+        "➢ Many OSS non-profits are funded by Big Tech (e.g., Mozilla by Google)"
+      ],
+      "raw_text": "Governance\nSome OSS projects are managed by for-profit firms\n➢ Examples: Chromium (Google), Moby (Docker), Ubuntu (Canonical),\nTensorFlow (Google), PyTorch (Meta), Java (Oracle)\n➢ Contributors may be a mix of employees and community volunteers\n➢ Corporations often fund platforms (websites, test servers,\ndeployments, repository hosting, etc.)\n➢ Corporations usually control long-term vision and feature roadmap\nMany OSS projects are managed by non-profit foundations or ad-hoc\ncommunities\n➢ Examples: Apache Hadoop/Spark/Hbase/Kafka/Tomcat (ASF), Firefox\n(Mozilla), Python (PSF), NumPy (community)\n➢ Foundations fund project infrastructure via charitable donations\n➢ Long-term vision often developed via a collaborative process (e.g.,\nApache) or by benevolent dictators (e.g., Python, Linux)\nCorporations still heavily rely on community-owned OSS projects\n➢ Many OSS non-profits are funded by Big Tech (e.g., Mozilla by Google)",
+      "char_count": 928
+    },
+    {
+      "slide_id": 34,
+      "slide_number": 35,
+      "title": "Use of Open Source software within companies",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Is the license compatible with our intended use?",
+        "How will we handle versioning and updates?",
+        "➢ Does every internal project declare its own versioned dependency or",
+        "do we all agree on using one fixed (e.g., latest) version?",
+        "➢ Sometimes resolved by assigning internal “owners” of a third-party",
+        "dependency, who are responsible for testing updates and declaring",
+        "allowable versions.",
+        "How to handle customization of the OSS software?",
+        "➢ Internal forks are useful but hard to sync with upstream changes.",
+        "➢ One option: Assign an internal owner who keeps internal fork up-to-",
+        "date with upstream.",
+        "➢ Another option: Contribute all customizations back to upstream to",
+        "maintain clean dependencies.",
+        "Security risks? Supply chain attacks on the rise."
+      ],
+      "raw_text": "Use of Open Source software within companies\nIs the license compatible with our intended use?\nHow will we handle versioning and updates?\n➢ Does every internal project declare its own versioned dependency or\ndo we all agree on using one fixed (e.g., latest) version?\n➢ Sometimes resolved by assigning internal “owners” of a third-party\ndependency, who are responsible for testing updates and declaring\nallowable versions.\nHow to handle customization of the OSS software?\n➢ Internal forks are useful but hard to sync with upstream changes.\n➢ One option: Assign an internal owner who keeps internal fork up-to-\ndate with upstream.\n➢ Another option: Contribute all customizations back to upstream to\nmaintain clean dependencies.\nSecurity risks? Supply chain attacks on the rise.",
+      "char_count": 774
+    },
+    {
+      "slide_id": 35,
+      "slide_number": 36,
+      "title": "Software Patents",
+      "title_font_size": 24.0,
+      "bullets": [
+        "What is a patent?",
+        "“A patent is an exclusive right granted for an invention, which is a",
+        "product or a process that provides, in general, a new way of doing",
+        "something, or offers a new technical solution to a problem. To get a",
+        "patent, technical information about the invention must be disclosed",
+        "to the public in a patent application.”"
+      ],
+      "raw_text": "Software Patents\nWhat is a patent?\n“A patent is an exclusive right granted for an invention, which is a\nproduct or a process that provides, in general, a new way of doing\nsomething, or offers a new technical solution to a problem. To get a\npatent, technical information about the invention must be disclosed\nto the public in a patent application.”",
+      "char_count": 347
+    },
+    {
+      "slide_id": 36,
+      "slide_number": 37,
+      "title": "What rights do patents grant?",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Patents don’t give you the right to make, use, or sell an invention.",
+        "Patents do give you the right to exclude others from making,",
+        "using, and selling an invention for the term of a patent (20 years)",
+        "➢ stop or sue others",
+        "➢ licensing and royalties"
+      ],
+      "raw_text": "What rights do patents grant?\nPatents don’t give you the right to make, use, or sell an invention.\nPatents do give you the right to exclude others from making,\nusing, and selling an invention for the term of a patent (20 years)\n➢ stop or sue others\n➢ licensing and royalties",
+      "char_count": 274
+    },
+    {
+      "slide_id": 37,
+      "slide_number": 38,
+      "title": "Copyright v/s Patent",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Copyrights cover the details of expression of a work",
+        "Copyrights don't cover any ideas",
+        "➢ Patents only cover ideas and the use of ideas",
+        "Copyrights happen automatically.",
+        "Patents are issued by a patent office in response to an application."
+      ],
+      "raw_text": "Copyright v/s Patent\nCopyrights cover the details of expression of a work\nCopyrights don't cover any ideas\n➢ Patents only cover ideas and the use of ideas\nCopyrights happen automatically.\nPatents are issued by a patent office in response to an application.",
+      "char_count": 256
+    },
+    {
+      "slide_id": 38,
+      "slide_number": 39,
+      "title": "Patent or Not ?",
+      "title_font_size": 24.0,
+      "bullets": [
+        "➢ Running bingo on a computer",
+        "➢ Using a computer to help users plan meals while achieving diet",
+        "goals",
+        "➢ Using a computer to order a pizza with customized toppings",
+        "➢ Prompting a user before establishing a new network",
+        "connection",
+        "➢ Automatically notifying users when an item is picked up or",
+        "delivered",
+        "➢ Using a computer network to ask people to complete tasks and",
+        "then wait for them to do them",
+        "➢ Using SMS to perform tasks (e.g., checking bank balance)",
+        "➢ Selecting ALL images in a CAPTCHA that match a given text"
+      ],
+      "raw_text": "Patent or Not ?\n➢ Running bingo on a computer\n➢ Using a computer to help users plan meals while achieving diet\ngoals\n➢ Using a computer to order a pizza with customized toppings\n➢ Prompting a user before establishing a new network\nconnection\n➢ Automatically notifying users when an item is picked up or\ndelivered\n➢ Using a computer network to ask people to complete tasks and\nthen wait for them to do them\n➢ Using SMS to perform tasks (e.g., checking bank balance)\n➢ Selecting ALL images in a CAPTCHA that match a given text",
+      "char_count": 524
+    },
+    {
+      "slide_id": 39,
+      "slide_number": 40,
+      "title": "Network attacks ..",
+      "title_font_size": 24.0,
+      "bullets": [
+        "➢ Examples",
+        "▪ Person-in-the-middle attack",
+        "▪ Sniffing",
+        "▪ Spoofing",
+        "➢ We must assume the network is not secure",
+        "➢ We must guard against a compromised network"
+      ],
+      "raw_text": "Network attacks ..\n➢ Examples\n▪ Person-in-the-middle attack\n▪ Sniffing\n▪ Spoofing\n➢ We must assume the network is not secure\n➢ We must guard against a compromised network",
+      "char_count": 170
+    },
+    {
+      "slide_id": 40,
+      "slide_number": 41,
+      "title": "Person-in-the-middle",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Someone that can intercept network traffic",
+        "Can read the messages (coming and going)",
+        "Can change the messages before sending them on (to the correct",
+        "or incorrect destination)"
+      ],
+      "raw_text": "Person-in-the-middle\nSomeone that can intercept network traffic\nCan read the messages (coming and going)\nCan change the messages before sending them on (to the correct\nor incorrect destination)",
+      "char_count": 193
+    },
+    {
+      "slide_id": 41,
+      "slide_number": 42,
+      "title": "Sniffing, Eavesdropping, etc",
+      "title_font_size": 24.0,
+      "bullets": [
+        "➢ You can listen to the traffic going by on the net.",
+        "➢ This is typically traffic on your subnet",
+        "▪ Still, it can be interesting.",
+        "▪ If you can plug in to the backbone…"
+      ],
+      "raw_text": "Sniffing, Eavesdropping, etc\n➢ You can listen to the traffic going by on the net.\n➢ This is typically traffic on your subnet\n▪ Still, it can be interesting.\n▪ If you can plug in to the backbone…",
+      "char_count": 194
+    },
+    {
+      "slide_id": 42,
+      "slide_number": 43,
+      "title": "Spoofing",
+      "title_font_size": 24.0,
+      "bullets": [
+        "➢ Pretending to be someone you’re not",
+        "➢ IP spoofing",
+        "➢ Pretending to a “client” you’re not (with a specific IP address)",
+        "➢ E-mail Spoofing",
+        "➢ DNS spoofing",
+        "▪ Pretending to be a server that you’re not",
+        "▪ Fool a DNS server to give out incorrect IP addresses for",
+        "DNS Names",
+        "▪ Note: also, be careful of typos or similar characters attacks:"
+      ],
+      "raw_text": "Spoofing\n➢ Pretending to be someone you’re not\n➢ IP spoofing\n➢ Pretending to a “client” you’re not (with a specific IP address)\n➢ E-mail Spoofing\n➢ DNS spoofing\n▪ Pretending to be a server that you’re not\n▪ Fool a DNS server to give out incorrect IP addresses for\nDNS Names\n▪ Note: also, be careful of typos or similar characters attacks:",
+      "char_count": 338
+    },
+    {
+      "slide_id": 43,
+      "slide_number": 44,
+      "title": "Big 3 concepts of network security",
+      "title_font_size": 24.0,
+      "bullets": [
+        "➢ Authentication",
+        "➢ Authorization",
+        "➢ Confidentiality",
+        "Authentication: Authentication is knowing with whom you are",
+        "communicating. User knowing the server and/or server knowing",
+        "who is the user.",
+        "Which is more important ?"
+      ],
+      "raw_text": "Big 3 concepts of network security\n➢ Authentication\n➢ Authorization\n➢ Confidentiality\nAuthentication: Authentication is knowing with whom you are\ncommunicating. User knowing the server and/or server knowing\nwho is the user.\nWhich is more important ?",
+      "char_count": 249
+    },
+    {
+      "slide_id": 44,
+      "slide_number": 45,
+      "title": "Big 3 concepts of network security",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Authorization: User having privilege to perform an operation on",
+        "server.",
+        "Confidentiality:",
+        "▪ Communicating without others knowing what’s said.",
+        "▪ Intermediaries cannot change what was said.",
+        "▪ Typically includes protection from replay attack.",
+        "▪ (But typically, does not provide secrecy of communication.",
+        "Others can know that communication occurred. )"
+      ],
+      "raw_text": "Big 3 concepts of network security\nAuthorization: User having privilege to perform an operation on\nserver.\nConfidentiality:\n▪ Communicating without others knowing what’s said.\n▪ Intermediaries cannot change what was said.\n▪ Typically includes protection from replay attack.\n▪ (But typically, does not provide secrecy of communication.\nOthers can know that communication occurred. )",
+      "char_count": 381
+    },
+    {
+      "slide_id": 45,
+      "slide_number": 46,
+      "title": "Which of the Big 3 protect you from?",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Which of the “big-three” protect you from:",
+        "➢ Sniffing ? Confidentiality",
+        "➢ Spoofing ? Authentication",
+        "➢ Person-in-the-middle Attack ? Authentication + Confidentiality"
+      ],
+      "raw_text": "Which of the Big 3 protect you from?\nWhich of the “big-three” protect you from:\n➢ Sniffing ? Confidentiality\n➢ Spoofing ? Authentication\n➢ Person-in-the-middle Attack ? Authentication + Confidentiality",
+      "char_count": 201
+    },
+    {
+      "slide_id": 46,
+      "slide_number": 47,
+      "title": "Concept of privacy",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Moral Right of individuals to be left alone, free from surveillance or",
+        "interference from other individuals or organizations, including state.",
+        "How is Privacy protected?",
+        "➢ Laws, self-regulation, technology",
+        "➢ Notice and access control over collection, use, deletion, sharing",
+        "➢ Collection limitation",
+        "➢ Use limitation",
+        "➢ Security and accountability"
+      ],
+      "raw_text": "Concept of privacy\nMoral Right of individuals to be left alone, free from surveillance or\ninterference from other individuals or organizations, including state.\nHow is Privacy protected?\n➢ Laws, self-regulation, technology\n➢ Notice and access control over collection, use, deletion, sharing\n➢ Collection limitation\n➢ Use limitation\n➢ Security and accountability",
+      "char_count": 361
+    },
+    {
+      "slide_id": 47,
+      "slide_number": 48,
+      "title": "US FTC’s Fair Information Practice Principles",
+      "title_font_size": 24.0,
+      "bullets": [
+        "FTC – Federal Trade Commission",
+        "Notice/Awareness (Core Principle)",
+        "a. Disclose practices.",
+        "Choice/ Consent (Core Principle )",
+        "a. Opt-in, opt-out",
+        "Access/ Participation",
+        "a. Users should be able to review & correct their information.",
+        "Integrity/ Security",
+        "a. Ensure secure, Limited Access",
+        "Enforcement",
+        "a. Mechanism for handling violations"
+      ],
+      "raw_text": "US FTC’s Fair Information Practice Principles\nFTC – Federal Trade Commission\nNotice/Awareness (Core Principle)\na. Disclose practices.\nChoice/ Consent (Core Principle )\na. Opt-in, opt-out\nAccess/ Participation\na. Users should be able to review & correct their information.\nIntegrity/ Security\na. Ensure secure, Limited Access\nEnforcement\na. Mechanism for handling violations",
+      "char_count": 373
+    },
+    {
+      "slide_id": 48,
+      "slide_number": 49,
+      "title": "Why SWEs should care about privacy",
+      "title_font_size": 24.0,
+      "bullets": [
+        "➢ Ethical Questions",
+        "➢ Laws restricting data collection by government and agencies",
+        "▪ Freedom of information Act (1966), Privacy Act (1974),",
+        "Electronics and communication act (1986)…",
+        "➢ Laws restricting data collection in different economic sectors",
+        "▪ COPPA (Children's Online Privacy Protection Act), HIPPA",
+        "(Health Insurance Portability and Accountability Act),",
+        "FERPA (Family Educational Rights and Privacy Act) etc.",
+        "➢ State Laws ( eg: CCPA - Central Consumer Protection",
+        "Authority ) and local laws.",
+        "➢ EU –General Data Protection Regulation"
+      ],
+      "raw_text": "Why SWEs should care about privacy\n➢ Ethical Questions\n➢ Laws restricting data collection by government and agencies\n▪ Freedom of information Act (1966), Privacy Act (1974),\nElectronics and communication act (1986)…\n➢ Laws restricting data collection in different economic sectors\n▪ COPPA (Children's Online Privacy Protection Act), HIPPA\n(Health Insurance Portability and Accountability Act),\nFERPA (Family Educational Rights and Privacy Act) etc.\n➢ State Laws ( eg: CCPA - Central Consumer Protection\nAuthority ) and local laws.\n➢ EU –General Data Protection Regulation",
+      "char_count": 571
+    },
+    {
+      "slide_id": 49,
+      "slide_number": 50,
+      "title": "Goals of privacy engineering",
+      "title_font_size": 24.0,
+      "bullets": [
+        "➢ Ensuring legal compliance",
+        "▪ GDPR(General Data Protection Regulation), etc.",
+        "➢ Aligning with consumer expectations",
+        "▪ Transparency about data practices.",
+        "▪ Accurate statements about privacy policies.",
+        "➢ Building trust and goodwill.",
+        "▪ Commitment to protecting user data.",
+        "➢ Competing on privacy protection.",
+        "▪ Privacy as a core value.",
+        "➢ Promoting privacy as a societal value.",
+        "▪ Safeguarding privacy rights and advocating for ethical data",
+        "practices."
+      ],
+      "raw_text": "Goals of privacy engineering\n➢ Ensuring legal compliance\n▪ GDPR(General Data Protection Regulation), etc.\n➢ Aligning with consumer expectations\n▪ Transparency about data practices.\n▪ Accurate statements about privacy policies.\n➢ Building trust and goodwill.\n▪ Commitment to protecting user data.\n➢ Competing on privacy protection.\n▪ Privacy as a core value.\n➢ Promoting privacy as a societal value.\n▪ Safeguarding privacy rights and advocating for ethical data\npractices.",
+      "char_count": 471
+    },
+    {
+      "slide_id": 50,
+      "slide_number": 51,
+      "title": "Mechanisms in privacy engineering",
+      "title_font_size": 24.0,
+      "bullets": [
+        "➢ Selective Data Collection",
+        "▪ Purpose-driven, minimize amount of personal information.",
+        "➢ Data Minimization",
+        "▪ De-identification, pseudonymization, anonymization",
+        "▪ Remove sensitive data",
+        "➢ Data Retention Policies",
+        "➢ Cryptographic tools",
+        "▪ Confidentiality",
+        "➢ Access controlled and secure data storage",
+        "➢ Socio-technical processes and audits",
+        "➢ Threat modelling",
+        "➢ Privacy-by-Design ( PbD)"
+      ],
+      "raw_text": "Mechanisms in privacy engineering\n➢ Selective Data Collection\n▪ Purpose-driven, minimize amount of personal information.\n➢ Data Minimization\n▪ De-identification, pseudonymization, anonymization\n▪ Remove sensitive data\n➢ Data Retention Policies\n➢ Cryptographic tools\n▪ Confidentiality\n➢ Access controlled and secure data storage\n➢ Socio-technical processes and audits\n➢ Threat modelling\n➢ Privacy-by-Design ( PbD)",
+      "char_count": 412
+    },
+    {
+      "slide_id": 51,
+      "slide_number": 52,
+      "title": "Threat Modelling",
+      "title_font_size": 24.0,
+      "bullets": [
+        "What is Privacy Threat Modeling",
+        "Privacy threat modeling is an activity to identify potential privacy threats in",
+        "an application or system. By performing privacy threat modeling, it is",
+        "possible to identify early on in a development process potential risks to",
+        "privacy for various stakeholders.",
+        "Privacy threat modeling will identify privacy threats so that",
+        "countermeasures can be developed before an application or system is in",
+        "use.",
+        "➢ Applicable to both security and privacy.",
+        "➢ A wide variety of possible security and privacy threats.",
+        "▪ How can we organize our analysis ?",
+        "➢ Basic Idea : Systemic methodology to identify possible threats and",
+        "methods to mitigate these threats.",
+        "➢ Approach: Use a taxonomy of possible threats."
+      ],
+      "raw_text": "Threat Modelling\nWhat is Privacy Threat Modeling\nPrivacy threat modeling is an activity to identify potential privacy threats in\nan application or system. By performing privacy threat modeling, it is\npossible to identify early on in a development process potential risks to\nprivacy for various stakeholders.\nPrivacy threat modeling will identify privacy threats so that\ncountermeasures can be developed before an application or system is in\nuse.\n➢ Applicable to both security and privacy.\n➢ A wide variety of possible security and privacy threats.\n▪ How can we organize our analysis ?\n➢ Basic Idea : Systemic methodology to identify possible threats and\nmethods to mitigate these threats.\n➢ Approach: Use a taxonomy of possible threats.",
+      "char_count": 736
+    },
+    {
+      "slide_id": 52,
+      "slide_number": 53,
+      "title": "LINDDUN Taxonomy of privacy threats",
+      "title_font_size": 24.0,
+      "bullets": [
+        "More information at: https://threat-modeling.com/linddun-threat-modeling/"
+      ],
+      "raw_text": "LINDDUN Taxonomy of privacy threats\nMore information at: https://threat-modeling.com/linddun-threat-modeling/",
+      "char_count": 109
+    },
+    {
+      "slide_id": 53,
+      "slide_number": 54,
+      "title": "Code and Branch Coverage",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Code coverage metrics",
+        "Code Coverage testing: Examines what fraction of the code under",
+        "test is reached by existing unit tests.",
+        "Structural code coverage metrics include :",
+        "▪ Statement coverage",
+        "▪ Condition coverage",
+        "▪ Decision coverage",
+        "Which type of coverage requires the most tests?"
+      ],
+      "raw_text": "Code and Branch Coverage\nCode coverage metrics\nCode Coverage testing: Examines what fraction of the code under\ntest is reached by existing unit tests.\nStructural code coverage metrics include :\n▪ Statement coverage\n▪ Condition coverage\n▪ Decision coverage\nWhich type of coverage requires the most tests?",
+      "char_count": 303
+    },
+    {
+      "slide_id": 54,
+      "slide_number": 55,
+      "title": "Code coverage: The basics",
+      "title_font_size": 24.0,
+      "bullets": [],
+      "raw_text": "Code coverage: The basics",
+      "char_count": 25
+    },
+    {
+      "slide_id": 55,
+      "slide_number": 56,
+      "title": "Create the control flow graphs",
+      "title_font_size": 24.0,
+      "bullets": [],
+      "raw_text": "Create the control flow graphs",
+      "char_count": 30
+    },
+    {
+      "slide_id": 56,
+      "slide_number": 57,
+      "title": "Align the two to help identify tests",
+      "title_font_size": 24.0,
+      "bullets": [],
+      "raw_text": "Align the two to help identify tests",
+      "char_count": 36
+    },
+    {
+      "slide_id": 57,
+      "slide_number": 58,
+      "title": "Statement coverage",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Every statement should be executed at least once by the tests"
+      ],
+      "raw_text": "Statement coverage\nEvery statement should be executed at least once by the tests",
+      "char_count": 80
+    },
+    {
+      "slide_id": 58,
+      "slide_number": 59,
+      "title": "Condition coverage",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Condition",
+        "a Boolean expression that cannot be decomposed into simpler",
+        "Boolean expressions (atomic)",
+        "Condition coverage",
+        "every condition in the program must take on all possible outcomes",
+        "(true/false) at least once."
+      ],
+      "raw_text": "Condition coverage\nCondition\na Boolean expression that cannot be decomposed into simpler\nBoolean expressions (atomic)\nCondition coverage\nevery condition in the program must take on all possible outcomes\n(true/false) at least once.",
+      "char_count": 230
+    },
+    {
+      "slide_id": 59,
+      "slide_number": 60,
+      "title": "Condition coverage",
+      "title_font_size": 24.0,
+      "bullets": [],
+      "raw_text": "Condition coverage",
+      "char_count": 18
+    },
+    {
+      "slide_id": 60,
+      "slide_number": 61,
+      "title": "Decision coverage",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Decision: a Boolean expression that is composed of conditions,",
+        "using zero or more logical connectors.",
+        "Decision coverage: every decision in the program must take on all",
+        "possible outcomes (true/false) at least once."
+      ],
+      "raw_text": "Decision coverage\nDecision: a Boolean expression that is composed of conditions,\nusing zero or more logical connectors.\nDecision coverage: every decision in the program must take on all\npossible outcomes (true/false) at least once.",
+      "char_count": 231
+    },
+    {
+      "slide_id": 61,
+      "slide_number": 62,
+      "title": "Decision coverage",
+      "title_font_size": 24.0,
+      "bullets": [],
+      "raw_text": "Decision coverage",
+      "char_count": 17
+    },
+    {
+      "slide_id": 62,
+      "slide_number": 63,
+      "title": "Coverage",
+      "title_font_size": 24.0,
+      "bullets": [
+        "How much coverage is enough – 100 %",
+        "Good resource on code coverage and code coverage tools:",
+        "https://www.atlassian.com/continuous-delivery/software-testing/code-coverage",
+        "And a good list of coverage tools:",
+        "https://www.browserstack.com/guide/code-coverage-tools"
+      ],
+      "raw_text": "Coverage\nHow much coverage is enough – 100 %\nGood resource on code coverage and code coverage tools:\nhttps://www.atlassian.com/continuous-delivery/software-testing/code-coverage\nAnd a good list of coverage tools:\nhttps://www.browserstack.com/guide/code-coverage-tools",
+      "char_count": 267
+    },
+    {
+      "slide_id": 63,
+      "slide_number": 64,
+      "title": "Code coverage takeaways",
+      "title_font_size": 24.0,
+      "bullets": [
+        "➢ Code coverage can provide valuable insights into your code and",
+        "into your testing adequacy",
+        "➢ It is intuitive to interpret",
+        "➢ There are great tools available to help compute code coverage",
+        "of your tests",
+        "➢ Code coverage itself is not sufficient to ensure correctness",
+        "➢ Code coverage is well known and used in industry"
+      ],
+      "raw_text": "Code coverage takeaways\n➢ Code coverage can provide valuable insights into your code and\ninto your testing adequacy\n➢ It is intuitive to interpret\n➢ There are great tools available to help compute code coverage\nof your tests\n➢ Code coverage itself is not sufficient to ensure correctness\n➢ Code coverage is well known and used in industry",
+      "char_count": 338
+    },
+    {
+      "slide_id": 64,
+      "slide_number": 65,
+      "title": "Ethics in Software",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Ethics, also called moral philosophy is the discipline concerned with what is",
+        "morally good and bad and morally right and wrong.",
+        "As computer scientists and software engineers you will be faced with",
+        "making difficult decisions.",
+        "Personal ethics (Integrity, Objectivity, Professional Competence,",
+        "Confidentiality)",
+        "Professional ethics",
+        "➢Reuse of source code",
+        "➢Reuse of copyrighted materials",
+        "➢Enforcing strength of passwords",
+        "➢Knowledge of flaw or bug",
+        "➢ Design of potentially dangerous software feature",
+        "➢Discovery of security flaw",
+        "Often, there are clear cut laws to dictate the decision"
+      ],
+      "raw_text": "Ethics in Software\nEthics, also called moral philosophy is the discipline concerned with what is\nmorally good and bad and morally right and wrong.\nAs computer scientists and software engineers you will be faced with\nmaking difficult decisions.\nPersonal ethics (Integrity, Objectivity, Professional Competence,\nConfidentiality)\nProfessional ethics\n➢Reuse of source code\n➢Reuse of copyrighted materials\n➢Enforcing strength of passwords\n➢Knowledge of flaw or bug\n➢ Design of potentially dangerous software feature\n➢Discovery of security flaw\nOften, there are clear cut laws to dictate the decision",
+      "char_count": 594
+    },
+    {
+      "slide_id": 65,
+      "slide_number": 66,
+      "title": "Ethics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Personal Ethics",
+        "Values or viewpoints an individual uses to influence and guide his",
+        "or her personal, social, or professional behavior",
+        "Values are reinforced and strengthened from childhood",
+        "Business Ethics",
+        "Values or viewpoints which a business and “individuals when",
+        "doing business” use to influence and guide behavior",
+        "Focus on behaviors pertaining to work",
+        "Professional Ethics",
+        "Principles that govern the behavior and judgment while",
+        "performing his/her profession."
+      ],
+      "raw_text": "Ethics\nPersonal Ethics\nValues or viewpoints an individual uses to influence and guide his\nor her personal, social, or professional behavior\nValues are reinforced and strengthened from childhood\nBusiness Ethics\nValues or viewpoints which a business and “individuals when\ndoing business” use to influence and guide behavior\nFocus on behaviors pertaining to work\nProfessional Ethics\nPrinciples that govern the behavior and judgment while\nperforming his/her profession.",
+      "char_count": 465
+    },
+    {
+      "slide_id": 66,
+      "slide_number": 67,
+      "title": "Ethics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Public: software engineers act consistently with public interest",
+        "Client and Employer: Act in a manner that is in best interests of",
+        "their client or employer and consistent with public interest",
+        "Product: Products and Related modifications meet highest",
+        "professional standards",
+        "Judgement: maintain integrity and independence in professional",
+        "judgment",
+        "Management: subscribe to and promote an ethical approach to",
+        "management",
+        "Profession: advance the integrity and reputation of the profession",
+        "consistent with public interest",
+        "Colleagues: fair and supportive of their colleagues",
+        "Self: lifelong learning and promote ethical approach"
+      ],
+      "raw_text": "Ethics\nPublic: software engineers act consistently with public interest\nClient and Employer: Act in a manner that is in best interests of\ntheir client or employer and consistent with public interest\nProduct: Products and Related modifications meet highest\nprofessional standards\nJudgement: maintain integrity and independence in professional\njudgment\nManagement: subscribe to and promote an ethical approach to\nmanagement\nProfession: advance the integrity and reputation of the profession\nconsistent with public interest\nColleagues: fair and supportive of their colleagues\nSelf: lifelong learning and promote ethical approach",
+      "char_count": 625
+    },
+    {
+      "slide_id": 67,
+      "slide_number": 68,
+      "title": "Code of Ethics",
+      "title_font_size": 24.0,
+      "bullets": [
+        "As an ACM member I will ....",
+        "➢ Contribute to society and human well-being.",
+        "➢ Avoid harm to others.",
+        "➢ Be honest and trustworthy.",
+        "➢ Be fair and take action not to discriminate.",
+        "➢ Honor property rights including copyrights and patent.",
+        "➢ Give proper credit for intellectual property.",
+        "➢ Respect the privacy of others.",
+        "➢ Honor confidentiality."
+      ],
+      "raw_text": "Code of Ethics\nAs an ACM member I will ....\n➢ Contribute to society and human well-being.\n➢ Avoid harm to others.\n➢ Be honest and trustworthy.\n➢ Be fair and take action not to discriminate.\n➢ Honor property rights including copyrights and patent.\n➢ Give proper credit for intellectual property.\n➢ Respect the privacy of others.\n➢ Honor confidentiality.",
+      "char_count": 352
+    },
+    {
+      "slide_id": 68,
+      "slide_number": 69,
+      "title": "More on testing …",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Integration testing",
+        "Two ways to go about",
+        "Big bang approach and Incremental integration",
+        "Big bang approach",
+        "Design, code, test, debug each class/unit/sub-system separately",
+        "Combine them all",
+        "Hope for the best."
+      ],
+      "raw_text": "More on testing …\nIntegration testing\nTwo ways to go about\nBig bang approach and Incremental integration\nBig bang approach\nDesign, code, test, debug each class/unit/sub-system separately\nCombine them all\nHope for the best.",
+      "char_count": 222
+    },
+    {
+      "slide_id": 69,
+      "slide_number": 70,
+      "title": "More on testing …",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Incremental integration",
+        "➢ Incrementally from the top, bottom or “sandwich” ?",
+        "➢ “Sandwich” integration by fleshing out a skeleton system.",
+        "➢ Connect top-level UI with crucial bottom-level components.",
+        "➢ Add middle layers incrementally.",
+        "➢ More common and agile approach."
+      ],
+      "raw_text": "More on testing …\nIncremental integration\n➢ Incrementally from the top, bottom or “sandwich” ?\n➢ “Sandwich” integration by fleshing out a skeleton system.\n➢ Connect top-level UI with crucial bottom-level components.\n➢ Add middle layers incrementally.\n➢ More common and agile approach.",
+      "char_count": 284
+    },
+    {
+      "slide_id": 70,
+      "slide_number": 71,
+      "title": "More on testing …",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Different ways to approach integration",
+        "Top Down Integration :",
+        "➢ Start with outer UI layers and work inward.",
+        "➢ Must write (lots of) lower level stubs for UI to interact with.",
+        "➢ Allows postponing tough design/implementation decisions",
+        "(bad ?).",
+        "Bottom up Integration :",
+        "➢ Start with lower level data/logic layers and work outwards.",
+        "➢ Must write upper level stubs to drive these layers.",
+        "➢ Won’t discover high-level/ UI design flaws until late."
+      ],
+      "raw_text": "More on testing …\nDifferent ways to approach integration\nTop Down Integration :\n➢ Start with outer UI layers and work inward.\n➢ Must write (lots of) lower level stubs for UI to interact with.\n➢ Allows postponing tough design/implementation decisions\n(bad ?).\nBottom up Integration :\n➢ Start with lower level data/logic layers and work outwards.\n➢ Must write upper level stubs to drive these layers.\n➢ Won’t discover high-level/ UI design flaws until late.",
+      "char_count": 455
+    },
+    {
+      "slide_id": 71,
+      "slide_number": 72,
+      "title": "More on testing …",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Which approach to adopt?",
+        "➢ If you have UI requirements clarified → Top-down makes sense",
+        "➢ If database schema is critical → Bottom-up",
+        "➢ Most agile projects → Sandwich (build skeleton, iterate)"
+      ],
+      "raw_text": "More on testing …\nWhich approach to adopt?\n➢ If you have UI requirements clarified → Top-down makes sense\n➢ If database schema is critical → Bottom-up\n➢ Most agile projects → Sandwich (build skeleton, iterate)",
+      "char_count": 209
+    },
+    {
+      "slide_id": 72,
+      "slide_number": 73,
+      "title": "More on testing …",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Regression testing",
+        "➢ Regression testing is testing the system to check that changes",
+        "have not ‘broken’ previously working code.",
+        "➢ In a manual testing process, regression testing is expensive but,",
+        "with automated testing, it is simple and straightforward. All tests",
+        "are rerun every time a change is made to the program.",
+        "➢ Tests must run ‘successfully’ before the change is committed."
+      ],
+      "raw_text": "More on testing …\nRegression testing\n➢ Regression testing is testing the system to check that changes\nhave not ‘broken’ previously working code.\n➢ In a manual testing process, regression testing is expensive but,\nwith automated testing, it is simple and straightforward. All tests\nare rerun every time a change is made to the program.\n➢ Tests must run ‘successfully’ before the change is committed.",
+      "char_count": 398
+    },
+    {
+      "slide_id": 73,
+      "slide_number": 74,
+      "title": "More on testing …",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Release testing and system testing",
+        "Release testing is a form of system testing.",
+        "Important differences:",
+        "➢ A separate team that has not been involved in the system",
+        "development, should be responsible for release testing.",
+        "➢ System testing by the development team should focus on",
+        "discovering bugs in the system (defect testing). The",
+        "objective of release testing is to check that the system meets",
+        "its requirements and is good enough for external use",
+        "(validation testing)."
+      ],
+      "raw_text": "More on testing …\nRelease testing and system testing\nRelease testing is a form of system testing.\nImportant differences:\n➢ A separate team that has not been involved in the system\ndevelopment, should be responsible for release testing.\n➢ System testing by the development team should focus on\ndiscovering bugs in the system (defect testing). The\nobjective of release testing is to check that the system meets\nits requirements and is good enough for external use\n(validation testing).",
+      "char_count": 483
+    },
+    {
+      "slide_id": 74,
+      "slide_number": 75,
+      "title": "More on testing …",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Performance testing",
+        "Part of release testing may involve testing the emergent properties",
+        "of a system, such as performance and reliability.",
+        "Tests should reflect the profile of use of the system.",
+        "Performance tests usually involve planning a series of tests where",
+        "the load is steadily increased until the system performance",
+        "becomes unacceptable.",
+        "Stress testing is a form of performance testing where the system is",
+        "deliberately overloaded to test its failure behaviour."
+      ],
+      "raw_text": "More on testing …\nPerformance testing\nPart of release testing may involve testing the emergent properties\nof a system, such as performance and reliability.\nTests should reflect the profile of use of the system.\nPerformance tests usually involve planning a series of tests where\nthe load is steadily increased until the system performance\nbecomes unacceptable.\nStress testing is a form of performance testing where the system is\ndeliberately overloaded to test its failure behaviour.",
+      "char_count": 482
+    },
+    {
+      "slide_id": 75,
+      "slide_number": 76,
+      "title": "More on testing - Penetration testing",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Penetration testing",
+        "Overview",
+        "➢ An authorized, simulated cyberattack on a system to evaluate",
+        "its security",
+        "➢ Goal: identify and exploit vulnerabilities before real attackers do.",
+        "➢ Complements other testing (e.g. vulnerability scans) by",
+        "mimicking attacker behavior.",
+        "➢ Findings include weaknesses in networks, applications,",
+        "configurations, or human factors.",
+        "➢ Penetration testing (“pentesting”) involves security experts using",
+        "the same tools and techniques as attackers to probe a system. It",
+        "combines automated scanning with manual exploitation.",
+        "➢ The tester reports discovered vulnerabilities and how they can",
+        "be exploited, along with recommended fixes."
+      ],
+      "raw_text": "More on testing - Penetration testing\nPenetration testing\nOverview\n➢ An authorized, simulated cyberattack on a system to evaluate\nits security\n➢ Goal: identify and exploit vulnerabilities before real attackers do.\n➢ Complements other testing (e.g. vulnerability scans) by\nmimicking attacker behavior.\n➢ Findings include weaknesses in networks, applications,\nconfigurations, or human factors.\n➢ Penetration testing (“pentesting”) involves security experts using\nthe same tools and techniques as attackers to probe a system. It\ncombines automated scanning with manual exploitation.\n➢ The tester reports discovered vulnerabilities and how they can\nbe exploited, along with recommended fixes.",
+      "char_count": 688
+    },
+    {
+      "slide_id": 76,
+      "slide_number": 77,
+      "title": "More on testing – Penetration testing",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Types of penetration testing",
+        "White-box testing: Tester has full knowledge of target (source",
+        "code, architecture)",
+        "Black-box testing: Tester knows only public information (like an",
+        "external attacker)",
+        "Gray-box testing: Tester has partial knowledge (some credentials",
+        "or architecture) – a hybrid approach.",
+        "Different approaches suit different goals: white-box can be more",
+        "thorough by using internal insights, while black-box best simulates a",
+        "real external attacker. Gray-box balances both.",
+        "Typical industry products (e.g. HW products) go for white box",
+        "testing"
+      ],
+      "raw_text": "More on testing – Penetration testing\nTypes of penetration testing\nWhite-box testing: Tester has full knowledge of target (source\ncode, architecture)\nBlack-box testing: Tester knows only public information (like an\nexternal attacker)\nGray-box testing: Tester has partial knowledge (some credentials\nor architecture) – a hybrid approach.\nDifferent approaches suit different goals: white-box can be more\nthorough by using internal insights, while black-box best simulates a\nreal external attacker. Gray-box balances both.\nTypical industry products (e.g. HW products) go for white box\ntesting",
+      "char_count": 589
+    },
+    {
+      "slide_id": 77,
+      "slide_number": 78,
+      "title": "More on testing – Penetration testing process",
+      "title_font_size": 24.0,
+      "bullets": [
+        "➢ Reconnaissance: Gather information on target (domains, IPs, tech stack) using",
+        "public sources (WHOIS, Shodan, etc.) to understand potential attack surfaces",
+        "➢ Scanning: Probe the target for open ports, services, and known vulnerabilities",
+        "(e.g. using Nmap or vulnerability scanners)",
+        "➢ Vulnerability Assessment: Analyze scan results, identify high-risk issues, and",
+        "prioritize targets",
+        "➢ Exploitation: Attempt to exploit confirmed vulnerabilities (e.g. SQL injection, XSS",
+        "(Cross site scripting), misconfigurations) to prove impact and support remediation",
+        "planning",
+        "➢ Reporting: Document findings, evidence of exploitation, and remediation advice;",
+        "often includes screenshots or logs",
+        "➢ A typical pentest follows these stages to systematically uncover security flaws.",
+        "For example, the Open Web Application Security Project (OWASP) and industry",
+        "standards describe similar five-phase methodologies. In exploitation, testers",
+        "might demonstrate how an attacker could gain admin access or steal data, which",
+        "helps justify fixes."
+      ],
+      "raw_text": "More on testing – Penetration testing process\n➢ Reconnaissance: Gather information on target (domains, IPs, tech stack) using\npublic sources (WHOIS, Shodan, etc.) to understand potential attack surfaces\n➢ Scanning: Probe the target for open ports, services, and known vulnerabilities\n(e.g. using Nmap or vulnerability scanners)\n➢ Vulnerability Assessment: Analyze scan results, identify high-risk issues, and\nprioritize targets\n➢ Exploitation: Attempt to exploit confirmed vulnerabilities (e.g. SQL injection, XSS\n(Cross site scripting), misconfigurations) to prove impact and support remediation\nplanning\n➢ Reporting: Document findings, evidence of exploitation, and remediation advice;\noften includes screenshots or logs\n➢ A typical pentest follows these stages to systematically uncover security flaws.\nFor example, the Open Web Application Security Project (OWASP) and industry\nstandards describe similar five-phase methodologies. In exploitation, testers\nmight demonstrate how an attacker could gain admin access or steal data, which\nhelps justify fixes.",
+      "char_count": 1059
+    },
+    {
+      "slide_id": 78,
+      "slide_number": 79,
+      "title": "More on testing …",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Benefits of penetration testing",
+        "Prevents breaches: Finds critical flaws before attackers do.",
+        "Compliance and Assurance: Fulfills requirements (e.g. PCI DSS",
+        "mandates regular pentests) and boosts stakeholder confidence.",
+        "( Payment Card Industry Data Security Standard )",
+        "Red Teaming and Risk Assessment: Reveals not just technical",
+        "bugs but also process issues (e.g. weak passwords, unpatched",
+        "servers) and helps organizations prioritize security improvements.",
+        "Pentesting provides a reality check of an organization’s security.",
+        "In practice, security audits that include pentesting have helped",
+        "companies avoid costly data breaches by uncovering critical flaws",
+        "in time."
+      ],
+      "raw_text": "More on testing …\nBenefits of penetration testing\nPrevents breaches: Finds critical flaws before attackers do.\nCompliance and Assurance: Fulfills requirements (e.g. PCI DSS\nmandates regular pentests) and boosts stakeholder confidence.\n( Payment Card Industry Data Security Standard )\nRed Teaming and Risk Assessment: Reveals not just technical\nbugs but also process issues (e.g. weak passwords, unpatched\nservers) and helps organizations prioritize security improvements.\nPentesting provides a reality check of an organization’s security.\nIn practice, security audits that include pentesting have helped\ncompanies avoid costly data breaches by uncovering critical flaws\nin time.",
+      "char_count": 678
+    },
+    {
+      "slide_id": 79,
+      "slide_number": 80,
+      "title": "More on testing – Penetration testing tools (OSS)",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Nmap: Network mapper/scanner to discover hosts, ports, services",
+        "Metasploit Framework (Community Edition): Exploitation",
+        "platform with many payloads (partially open source).",
+        "OWASP ZAP: Web application scanner (DAST) for finding common",
+        "web vulnerabilities",
+        "SQLMap: Automates SQL injection discovery and exploitation in",
+        "web applications",
+        "Wireshark: Network protocol analyzer (for packet capture &",
+        "analysis).",
+        "ZAP: widely used web app scanner."
+      ],
+      "raw_text": "More on testing – Penetration testing tools (OSS)\nNmap: Network mapper/scanner to discover hosts, ports, services\nMetasploit Framework (Community Edition): Exploitation\nplatform with many payloads (partially open source).\nOWASP ZAP: Web application scanner (DAST) for finding common\nweb vulnerabilities\nSQLMap: Automates SQL injection discovery and exploitation in\nweb applications\nWireshark: Network protocol analyzer (for packet capture &\nanalysis).\nZAP: widely used web app scanner.",
+      "char_count": 485
+    },
+    {
+      "slide_id": 80,
+      "slide_number": 81,
+      "title": "Fuzzing",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Overview",
+        "Definition:",
+        "Automated testing by feeding a program random, malformed, or",
+        "unexpected inputs",
+        "Purpose:",
+        "Trigger crashes, assertion failures, memory errors, or other bugs that might",
+        "be security vulnerabilities.",
+        "Key idea:",
+        "Let a fuzzer generate many test cases (often continuously) and watch for",
+        "faults that manual tests miss.",
+        "Fuzzing (or “fuzz testing”) is a dynamic analysis technique. In practice, a",
+        "fuzzer iteratively generates inputs and runs the target program, checking if",
+        "it crashes or behaves incorrectly",
+        "Unlike traditional test suites with fixed cases, fuzzers explore thousands to",
+        "millions of inputs, including edge cases and random data. This exposes",
+        "hidden bugs, especially in low-level code (e.g. C/C++ memory errors) or",
+        "poorly-validated parsers."
+      ],
+      "raw_text": "Fuzzing\nOverview\nDefinition:\nAutomated testing by feeding a program random, malformed, or\nunexpected inputs\nPurpose:\nTrigger crashes, assertion failures, memory errors, or other bugs that might\nbe security vulnerabilities.\nKey idea:\nLet a fuzzer generate many test cases (often continuously) and watch for\nfaults that manual tests miss.\nFuzzing (or “fuzz testing”) is a dynamic analysis technique. In practice, a\nfuzzer iteratively generates inputs and runs the target program, checking if\nit crashes or behaves incorrectly\nUnlike traditional test suites with fixed cases, fuzzers explore thousands to\nmillions of inputs, including edge cases and random data. This exposes\nhidden bugs, especially in low-level code (e.g. C/C++ memory errors) or\npoorly-validated parsers.",
+      "char_count": 770
+    },
+    {
+      "slide_id": 81,
+      "slide_number": 82,
+      "title": "Types of fuzzers",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Mutation-based fuzzers: Start from valid sample inputs and modify them",
+        "(flip bits, alter lengths, insert special values)",
+        "Generation-based fuzzers: Use a model of the input format (specification",
+        "or grammar) to generate new inputs from scratch.",
+        "White-box fuzzers: Have full knowledge of the target (source",
+        "code/structure); can use e.g. symbolic execution or instrumentation.",
+        "Gray-box fuzzers: Use feedback (e.g. code coverage) but treat the target",
+        "as a black-box binary with limited instrumentation.",
+        "Black-box fuzzers: No knowledge of internals; treat the program purely as",
+        "an external interface, relying on random inputs only.",
+        "Many fuzzers fall on a spectrum of intelligence. For example, a “dumb”",
+        "fuzzer might choose purely random bytes, while a “smart” fuzzer tries to",
+        "produce syntactically valid or interesting inputs. In fact, fuzzers can be",
+        "categorized by how much they know: white-box fuzzers know internal",
+        "details, black-box know nothing, and gray-box have some instrumentation."
+      ],
+      "raw_text": "Types of fuzzers\nMutation-based fuzzers: Start from valid sample inputs and modify them\n(flip bits, alter lengths, insert special values)\nGeneration-based fuzzers: Use a model of the input format (specification\nor grammar) to generate new inputs from scratch.\nWhite-box fuzzers: Have full knowledge of the target (source\ncode/structure); can use e.g. symbolic execution or instrumentation.\nGray-box fuzzers: Use feedback (e.g. code coverage) but treat the target\nas a black-box binary with limited instrumentation.\nBlack-box fuzzers: No knowledge of internals; treat the program purely as\nan external interface, relying on random inputs only.\nMany fuzzers fall on a spectrum of intelligence. For example, a “dumb”\nfuzzer might choose purely random bytes, while a “smart” fuzzer tries to\nproduce syntactically valid or interesting inputs. In fact, fuzzers can be\ncategorized by how much they know: white-box fuzzers know internal\ndetails, black-box know nothing, and gray-box have some instrumentation.",
+      "char_count": 1001
+    },
+    {
+      "slide_id": 82,
+      "slide_number": 83,
+      "title": "Fuzzing process",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Input Generation: The fuzzer produces test cases (either by mutating seed inputs",
+        "or generating new data)",
+        "Program Execution: Each test input is fed to the target program, which is run under",
+        "a monitor (often with sanitizers like AddressSanitizer) to detect errors.",
+        "Monitoring/Analysis: The fuzzer watches for crashes, hangs, leaks, or assertion",
+        "failures. It logs inputs that cause such failures.",
+        "Feedback-Driven Loop: Coverage-guided fuzzers analyze which new code paths",
+        "were exercised. Inputs that increase coverage are “favored” and used to generate",
+        "further mutations",
+        "Modern fuzzers operate in three phases: they generate inputs, run the target, and",
+        "then use the results to drive further testing. For instance, AFL and libFuzzer track",
+        "execution to find new branches.",
+        "Fuzz testing steps (generate or mutate inputs, run the target, monitor for crashes,",
+        "and analyze failures) are repeated thousands of times to uncover crashes or",
+        "vulnerabilities."
+      ],
+      "raw_text": "Fuzzing process\nInput Generation: The fuzzer produces test cases (either by mutating seed inputs\nor generating new data)\nProgram Execution: Each test input is fed to the target program, which is run under\na monitor (often with sanitizers like AddressSanitizer) to detect errors.\nMonitoring/Analysis: The fuzzer watches for crashes, hangs, leaks, or assertion\nfailures. It logs inputs that cause such failures.\nFeedback-Driven Loop: Coverage-guided fuzzers analyze which new code paths\nwere exercised. Inputs that increase coverage are “favored” and used to generate\nfurther mutations\nModern fuzzers operate in three phases: they generate inputs, run the target, and\nthen use the results to drive further testing. For instance, AFL and libFuzzer track\nexecution to find new branches.\nFuzz testing steps (generate or mutate inputs, run the target, monitor for crashes,\nand analyze failures) are repeated thousands of times to uncover crashes or\nvulnerabilities.",
+      "char_count": 959
+    },
+    {
+      "slide_id": 83,
+      "slide_number": 84,
+      "title": "Fuzzing - value",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Uncovers deep bugs: Fuzzing has found countless memory safety and",
+        "crash bugs in critical software (e.g. browsers, SSL libraries) that were",
+        "invisible to code review",
+        "Broad applicability: It can test anything with a programmable interface:",
+        "libraries, file parsers, network servers, even entire kernel modules.",
+        "Continuous security: Services like Google’s OSS-Fuzz continuously fuzz",
+        "open-source projects and report new CVEs, fixing bugs before users find",
+        "them.",
+        "Complements other testing: Unlike pentesting (which targets high-level",
+        "behavior), fuzzing excels at low-level code paths. Together they strengthen",
+        "security validation.",
+        "Fuzzing is especially valuable for security validation because it simulates",
+        "random/malicious inputs."
+      ],
+      "raw_text": "Fuzzing - value\nUncovers deep bugs: Fuzzing has found countless memory safety and\ncrash bugs in critical software (e.g. browsers, SSL libraries) that were\ninvisible to code review\nBroad applicability: It can test anything with a programmable interface:\nlibraries, file parsers, network servers, even entire kernel modules.\nContinuous security: Services like Google’s OSS-Fuzz continuously fuzz\nopen-source projects and report new CVEs, fixing bugs before users find\nthem.\nComplements other testing: Unlike pentesting (which targets high-level\nbehavior), fuzzing excels at low-level code paths. Together they strengthen\nsecurity validation.\nFuzzing is especially valuable for security validation because it simulates\nrandom/malicious inputs.",
+      "char_count": 740
+    },
+    {
+      "slide_id": 84,
+      "slide_number": 85,
+      "title": "Fuzzing tools – Open Source",
+      "title_font_size": 24.0,
+      "bullets": [
+        "AFL / AFL++ (C/C++): A coverage-guided mutation fuzzer; widely used.",
+        "libFuzzer (C/C++): A library-based fuzzer integrated into LLVM/Clang; generates",
+        "inputs in-process using sanitizers.",
+        "Honggfuzz (C): A general-purpose feedback-driven fuzzer supporting sanitizers and",
+        "code-coverage.",
+        "Syzkaller (C, Linux Kernel): Kernel fuzzer by Google, uses system call models to",
+        "fuzz the Linux kernel.",
+        "Radamsa: A gray-box dumb mutational fuzzer (common for file-format fuzzing).",
+        "Hypothesis (Python): A property-based testing library – part of the lab later on.",
+        "Python fuzzers: e.g. BooFuzz (network protocol fuzzer), python-afl (bindings for",
+        "AFL), PyFuzzer packages.",
+        "There are many open-source fuzzers. For C/C++ code, AFL and libFuzzer are",
+        "standards. Google’s OSS-Fuzz runs large-scale fuzzing on thousands of projects",
+        "(finding ~10,000 bugs since launch). Python has its own ecosystem."
+      ],
+      "raw_text": "Fuzzing tools – Open Source\nAFL / AFL++ (C/C++): A coverage-guided mutation fuzzer; widely used.\nlibFuzzer (C/C++): A library-based fuzzer integrated into LLVM/Clang; generates\ninputs in-process using sanitizers.\nHonggfuzz (C): A general-purpose feedback-driven fuzzer supporting sanitizers and\ncode-coverage.\nSyzkaller (C, Linux Kernel): Kernel fuzzer by Google, uses system call models to\nfuzz the Linux kernel.\nRadamsa: A gray-box dumb mutational fuzzer (common for file-format fuzzing).\nHypothesis (Python): A property-based testing library – part of the lab later on.\nPython fuzzers: e.g. BooFuzz (network protocol fuzzer), python-afl (bindings for\nAFL), PyFuzzer packages.\nThere are many open-source fuzzers. For C/C++ code, AFL and libFuzzer are\nstandards. Google’s OSS-Fuzz runs large-scale fuzzing on thousands of projects\n(finding ~10,000 bugs since launch). Python has its own ecosystem.",
+      "char_count": 898
+    },
+    {
+      "slide_id": 85,
+      "slide_number": 86,
+      "title": "Fuzzing – case studies",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Mozilla Firefox (2022–2023): Mozilla’s fuzzers detected 20",
+        "vulnerabilities (5 critical, 15 high) in Firefox 102/103, such as memory",
+        "safety bugs, before these versions shipped",
+        "OpenSSL (2022): Google’s OSS-Fuzz found two critical CVEs (CVE-2022-",
+        "3602, CVE-2022-3786) – stack buffer overflows in the Punycode parser.",
+        "These were fixed before public exploitation",
+        "Linux Kernel: The Syzkaller project has unearthed thousands of kernel",
+        "bugs since 2015, many being privilege escalations (e.g. CVE-2023-0386).",
+        "Other: Tools like AFL have been used to fuzz browsers (Chrome/Firefox),",
+        "PDF readers, media libraries, often yielding dozens of CVEs each year.",
+        "These examples (all within 5 years) highlight fuzzing’s impact. They show",
+        "that even mature, critical software still benefits from automated fuzzing.",
+        "Many companies now integrate fuzzing into their CI pipelines for this",
+        "reason."
+      ],
+      "raw_text": "Fuzzing – case studies\nMozilla Firefox (2022–2023): Mozilla’s fuzzers detected 20\nvulnerabilities (5 critical, 15 high) in Firefox 102/103, such as memory\nsafety bugs, before these versions shipped\nOpenSSL (2022): Google’s OSS-Fuzz found two critical CVEs (CVE-2022-\n3602, CVE-2022-3786) – stack buffer overflows in the Punycode parser.\nThese were fixed before public exploitation\nLinux Kernel: The Syzkaller project has unearthed thousands of kernel\nbugs since 2015, many being privilege escalations (e.g. CVE-2023-0386).\nOther: Tools like AFL have been used to fuzz browsers (Chrome/Firefox),\nPDF readers, media libraries, often yielding dozens of CVEs each year.\nThese examples (all within 5 years) highlight fuzzing’s impact. They show\nthat even mature, critical software still benefits from automated fuzzing.\nMany companies now integrate fuzzing into their CI pipelines for this\nreason.",
+      "char_count": 892
+    },
+    {
+      "slide_id": 86,
+      "slide_number": 87,
+      "title": "Stubs",
+      "title_font_size": 24.0,
+      "bullets": [
+        "What's a Stub?",
+        "➢ A controllable replacement for a software unit. Used to simulate",
+        "difficult-to-control elements or components not yet developed",
+        "Why you need them:",
+        "➢ Component B doesn't exist yet (you're still building it)",
+        "➢ Component B is hard to control (it's a 3rd-party service,",
+        "database, network)",
+        "➢ Component B is slow (real database calls take time)",
+        "➢ Component B has side effects (sending emails, charging cards)",
+        "Example: Testing registration logic without touching real database:",
+        "➢ Create a StubDatabase that returns fake data",
+        "➢ Registration logic can be tested in isolation",
+        "➢ No risk of data corruption",
+        "Key point: Minimize code changes when you remove the stub."
+      ],
+      "raw_text": "Stubs\nWhat's a Stub?\n➢ A controllable replacement for a software unit. Used to simulate\ndifficult-to-control elements or components not yet developed\nWhy you need them:\n➢ Component B doesn't exist yet (you're still building it)\n➢ Component B is hard to control (it's a 3rd-party service,\ndatabase, network)\n➢ Component B is slow (real database calls take time)\n➢ Component B has side effects (sending emails, charging cards)\nExample: Testing registration logic without touching real database:\n➢ Create a StubDatabase that returns fake data\n➢ Registration logic can be tested in isolation\n➢ No risk of data corruption\nKey point: Minimize code changes when you remove the stub.",
+      "char_count": 675
+    },
+    {
+      "slide_id": 87,
+      "slide_number": 88,
+      "title": "Capability Maturity",
+      "title_font_size": 24.0,
+      "bullets": [
+        "Capability Maturity Model (CMM)",
+        "➢ Developed by Software Engineering Institute of Carnegie Mellon",
+        "University",
+        "➢ Tool for objectively assessing the capability of vendor to deliver",
+        "software",
+        "➢ Maturity model: set of structured levels that decide how well the",
+        "behaviors, practices and processes of an organization can",
+        "reliably and sustainably produce outcomes",
+        "➢ Evolutionary improvement path for software organization",
+        "➢ Benchmark for comparison of software development processes",
+        "and an aid to understanding"
+      ],
+      "raw_text": "Capability Maturity\nCapability Maturity Model (CMM)\n➢ Developed by Software Engineering Institute of Carnegie Mellon\nUniversity\n➢ Tool for objectively assessing the capability of vendor to deliver\nsoftware\n➢ Maturity model: set of structured levels that decide how well the\nbehaviors, practices and processes of an organization can\nreliably and sustainably produce outcomes\n➢ Evolutionary improvement path for software organization\n➢ Benchmark for comparison of software development processes\nand an aid to understanding",
+      "char_count": 520
+    },
+    {
+      "slide_id": 88,
+      "slide_number": 89,
+      "title": "Software Engineering Institute – CMM …",
+      "title_font_size": 24.0,
+      "bullets": [],
+      "raw_text": "Software Engineering Institute – CMM …",
+      "char_count": 38
+    },
+    {
+      "slide_id": 89,
+      "slide_number": 90,
+      "title": "PCMM",
+      "title_font_size": 24.0,
+      "bullets": [
+        "What’s PCMM?",
+        "The People Capability Maturity Model (P-CMM) is a framework",
+        "developed by Carnegie Mellon University to help organizations",
+        "improve their human resource practices and continuously develop",
+        "their workforce's knowledge, skills, and motivation."
+      ],
+      "raw_text": "PCMM\nWhat’s PCMM?\nThe People Capability Maturity Model (P-CMM) is a framework\ndeveloped by Carnegie Mellon University to help organizations\nimprove their human resource practices and continuously develop\ntheir workforce's knowledge, skills, and motivation.",
+      "char_count": 256
+    },
+    {
+      "slide_id": 90,
+      "slide_number": 91,
+      "title": "THANK YOU",
+      "title_font_size": 36.0,
+      "bullets": [
+        "M S Anand",
+        "Department of Computer Science Engineering",
+        "anandms@pes.edu"
+      ],
+      "raw_text": "THANK YOU\nM S Anand\nDepartment of Computer Science Engineering\nanandms@pes.edu",
+      "char_count": 78
+    }
+  ]
+}
