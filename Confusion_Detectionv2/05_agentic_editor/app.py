@@ -33,21 +33,15 @@ applier = importlib.import_module("05_agentic_editor.src.applier")
 editor_storage = importlib.import_module("05_agentic_editor.src.storage")
 upstream = importlib.import_module("05_agentic_editor.src._upstream")
 
-DECK_JSON = _PROJECT_ROOT / "01_deck_parsing" / "parsed_deck.json"
-GAP_INPUT = _PROJECT_ROOT / "03_question_mapping" / "gap_verification_input.json"
-REPORTS_DIR = _PROJECT_ROOT / "04_gap_reporting_agent" / "output"
-SOURCE_PDF = _PROJECT_ROOT / "data" / "cc-unit2-slides.pdf"
-SOURCE_PPTX = _PROJECT_ROOT / "data" / "cc-unit2-slides.pptx"
-OUTPUT_DIR = Path(__file__).resolve().parent / "output"
-DEMO_PPTX = OUTPUT_DIR / "cc-unit2-slides.demo.pptx"
-DEMO_LOG = OUTPUT_DIR / "demo_change_log.json"
+deck_workspace = importlib.import_module("common.deck_workspace")
+has_credentials = importlib.import_module("common.llm_client").has_credentials
 layout_check = importlib.import_module("05_agentic_editor.src.layout_check")
 repair = importlib.import_module("05_agentic_editor.src.repair")
 preview = importlib.import_module("05_agentic_editor.src.preview")
+display = importlib.import_module("05_agentic_editor.src.display")
 schema = importlib.import_module("05_agentic_editor.src.schema")
 revise = importlib.import_module("05_agentic_editor.src.revise")
 planner_module = importlib.import_module("05_agentic_editor.src.planner")
-REVIEWED = OUTPUT_DIR / "reviewed_suggestions.json"
 FACT_CHECK_MAX_TOKENS = 1500  # the fact-check's answer is short: a smaller budget waits less on the rate limit
 REPAIRS = schema.REPAIR_TOPIC_ID  # key of the repairs among state.suggestions
 
@@ -56,21 +50,47 @@ GAP_LABELS = {
     "shallow_coverage": "Covered too thinly",
     "fragmented_context": "Scattered across slides",
     "covered": "Covered",
+    "off_topic": "Not about this deck",
 }
-GAP_COLOURS = {"complete_omission": "red", "shallow_coverage": "orange", "fragmented_context": "violet", "covered": "green"}
+GAP_COLOURS = {"complete_omission": "red", "shallow_coverage": "orange", "fragmented_context": "violet", "covered": "green", "off_topic": "gray"}
 GAP_MEANINGS = {
     "complete_omission": "The deck never explains what students asked about.",
     "shallow_coverage": "The deck mentions it, but too briefly to answer the students' questions.",
     "fragmented_context": "The explanation exists, but is split across slides far apart.",
     "covered": "The deck already answers these questions.",
+    "off_topic": "The questions are about subjects this deck does not teach. Not a gap.",
 }
 
 st.set_page_config(page_title="Slide Gap Editor", layout="wide")
 
+# This demo edits a .pptx (new slides, added bullets, layout repairs drawn
+# from the PDF), so it offers decks that have both files and a finished
+# pipeline. PDF-only decks open in the React editor (serve.py).
+_ready = [d for d in deck_workspace.list_decks()
+          if d.pptx and d.pdf and d.gap_input.exists() and d.reports_index.exists()]
+if not _ready:
+    st.error("No deck is ready for this demo: it needs a deck added with both its .pptx and .pdf, "
+             "and `python run_pipeline.py run <deck_id>` finished. PDF-only decks: "
+             "`python 05_agentic_editor/serve.py`.")
+    st.stop()
+_ids = [d.deck_id for d in _ready]
+_env = os.getenv("DECK_ID")
+DECK_ID = st.sidebar.selectbox("Deck", _ids, index=_ids.index(_env) if _env in _ids else 0,
+                               format_func=lambda i: deck_workspace.load(i).title,
+                               help="Decks with a .pptx and a finished pipeline. PDF-only decks open in the React editor.")
+WS = deck_workspace.load(DECK_ID)
+DECK_JSON, GAP_INPUT, REPORTS_DIR = WS.parsed_deck, WS.gap_input, WS.reports_dir
+SOURCE_PDF, SOURCE_PPTX = WS.pdf, WS.pptx
+OUTPUT_DIR = WS.editor_dir
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+DEMO_PPTX = OUTPUT_DIR / f"{SOURCE_PPTX.stem}.demo.pptx"
+DEMO_LOG = OUTPUT_DIR / "demo_change_log.json"
+REVIEWED = OUTPUT_DIR / "reviewed_suggestions.json"
+
 
 @st.cache_resource
-def load_inputs():
-    deck = upstream.load_deck_json(DECK_JSON)
+def load_inputs(deck_id: str):
+    deck = WS.editor_deck()  # the .pptx text when there is one; same slide ids
     gap_input = upstream.load_gap_verification_input_json(GAP_INPUT)
     dossiers = {d.topic_id: d for d in gap_input.topics}
     unmatched = [u.question for u in gap_input.unmatched_questions]
@@ -83,7 +103,7 @@ def load_inputs():
 
 
 @st.cache_resource
-def room_checker():
+def room_checker(deck_id: str):
     return applier.RoomChecker(SOURCE_PPTX)
 
 
@@ -95,7 +115,7 @@ def llm(api_key):
 
 
 @st.cache_data(show_spinner="Drawing the changed slide…")
-def _changed_slide_image(edit_json: str):
+def _changed_slide_image(edit_json: str, deck_id: str):
     """The slide an edit produces (the new slide, the slide with added
     bullets, or the rebuilt slide), drawn after really applying the edit
     to a scratch copy of the deck -- what the board sees is what the
@@ -115,14 +135,14 @@ def _changed_slide_image(edit_json: str):
 def changed_slide_image(edit):
     from dataclasses import asdict
 
-    return _changed_slide_image(json.dumps(asdict(edit), sort_keys=True))
+    return _changed_slide_image(json.dumps(asdict(edit), sort_keys=True), DECK_ID)
 
 
 rebuilt_preview = changed_slide_image  # repairs use the same drawing
 
 
 @st.cache_data
-def slide_image(slide_id: int):
+def slide_image(slide_id: int, deck_id: str):
     import pypdfium2
 
     pdf = pypdfium2.PdfDocument(str(SOURCE_PDF))
@@ -130,7 +150,7 @@ def slide_image(slide_id: int):
 
 
 @st.cache_data
-def broken_layout_candidates():
+def broken_layout_candidates(deck_id: str):
     return layout_check.find_layout_issues(SOURCE_PPTX, SOURCE_PDF, max_results=10)
 
 
@@ -176,7 +196,7 @@ def edit_key(edit) -> str:
     return f"{edit.topic_id}|{edit.after_slide_id}|{edit.title}"
 
 
-deck, dossiers, reports, index, unmatched = load_inputs()
+deck, dossiers, reports, index, unmatched = load_inputs(DECK_ID)
 reviewed_topics, reviewed_repairs, reviewed_meta = editor_storage.load_reviewed_json(REVIEWED)
 state = st.session_state
 state.setdefault("suggestions", {})  # topic_id -> [CheckedEdit]
@@ -234,9 +254,10 @@ with st.sidebar:
     st.divider()
     # .env is not in git, so a fresh clone has no key: ask for one here.
     # It stays in this browser session only and is never written to disk.
-    api_key = os.getenv("GROQ_API_KEY") or st.text_input(
+    api_key = None if has_credentials() else st.text_input(
         "Groq API key", type="password", help="Needed only to suggest slides. Free at console.groq.com/keys."
     )
+    LIVE_OK = has_credentials() or bool(api_key)
     st.divider()
     n_approved = sum(state.approved.values())
     st.metric("Slides approved so far", n_approved)
@@ -261,7 +282,7 @@ c3.metric("Slides in topic", f"{min(dossier.slide_ids) + 1}–{max(dossier.slide
 left, right = st.columns([3, 2])
 with left:
     with st.expander("Full report from the investigating agent", expanded=True):
-        st.markdown(report.report_text)
+        st.markdown(display.report_text_for_display(report.report_text, getattr(report, "slide_refs", None)))
 with right:
     st.markdown("**Questions students asked about this topic**")
     for q in questions:
@@ -284,9 +305,9 @@ if reason is not None:
     pass  # nothing to suggest for this report; the note above says why
 elif use_reviewed and cached is None:
     st.info("No pre-checked results for this gap; switch off “Use pre-checked results” in the sidebar to generate live.")
-elif not use_reviewed and not api_key:
+elif not use_reviewed and not LIVE_OK:
     st.info("Enter a Groq API key in the sidebar to have the LLM suggest slides.")
-can_suggest = reason is None and (cached is not None if use_reviewed else bool(api_key))
+can_suggest = reason is None and (cached is not None if use_reviewed else LIVE_OK)
 if reason is None and st.button("Suggest slides for this gap", type="primary", disabled=not can_suggest):
     if use_reviewed:
         checked = copy.deepcopy(cached)
@@ -304,7 +325,7 @@ if reason is None and st.button("Suggest slides for this gap", type="primary", d
             earlier = [c.edit for t, cs in state.suggestions.items() if t not in (topic_id, REPAIRS) for c in cs if c.accepted]
             checked = revise.suggest_for_topic(
                 report, dossier, deck, dossiers, planner, verifier, earlier=earlier,
-                progress=lambda m: st.write(m + "…"), room=room_checker(),
+                progress=lambda m: st.write(m + "…"), room=room_checker(DECK_ID),
             )
             error = getattr(planner.generator, "last_error", None)
             if not checked and error:
@@ -355,7 +376,7 @@ def show_suggestion(number: int, c) -> None:
     else:
         before.caption(f"Existing slide {where} (unchanged)")
         after.caption("The new slide, right after it (drawn from the edited file; open the deck for exact fonts)")
-    before.image(slide_image(e.after_slide_id), width="stretch")
+    before.image(slide_image(e.after_slide_id, DECK_ID), width="stretch")
     try:
         after.image(changed_slide_image(e), width="stretch")
     except Exception as err:  # the drawing is a convenience; never block the review on it
@@ -437,18 +458,18 @@ st.caption(
     "from its own text and pictures, puts it right after the original, and hides the original (nothing is deleted)."
 )
 if st.button("Find slides with a broken layout"):
-    state.broken = broken_layout_candidates()
+    state.broken = broken_layout_candidates(DECK_ID)
 ticked = []
 for issue in state.get("broken") or []:
     image, text = st.columns([1, 2])
-    image.image(slide_image(issue.slide_id), width="stretch")
+    image.image(slide_image(issue.slide_id, DECK_ID), width="stretch")
     text.markdown(f"**Slide {issue.slide_id + 1}** · score {issue.score:.2f}\n\n" + "\n".join(f"- {r}" for r in issue.reasons))
     if text.checkbox("Repair this slide", key=f"repair-{issue.slide_id}"):
         ticked.append(issue.slide_id)
 if state.get("broken"):
     from_file = [sid for sid in ticked if use_reviewed and sid in reviewed_repairs]
     live = [sid for sid in ticked if sid not in from_file]
-    if st.button(f"Plan repairs for the {len(ticked)} ticked slide(s)", type="primary", disabled=not ticked or (bool(live) and not api_key)):
+    if st.button(f"Plan repairs for the {len(ticked)} ticked slide(s)", type="primary", disabled=not ticked or (bool(live) and not LIVE_OK)):
         checked = [copy.deepcopy(c) for sid in from_file for c in reviewed_repairs[sid]]
         if checked:
             replay_repair_steps(checked, model_name=reviewed_meta.get("model"))
@@ -465,7 +486,7 @@ if state.get("broken"):
         state.suggestions[REPAIRS] = checked
         for c in checked:
             state.approved[edit_key(c.edit)] = False
-    if live and not api_key and ticked:
+    if live and not LIVE_OK and ticked:
         st.caption("Some ticked slides have no pre-checked repair; a Groq key is needed to repair them live.")
 
 def show_repair(c) -> None:
@@ -473,7 +494,7 @@ def show_repair(c) -> None:
     st.subheader(f"Repair of slide {e.after_slide_id + 1}")
     before, after = st.columns(2)
     before.caption("Now (broken)")
-    before.image(slide_image(e.after_slide_id), width="stretch")
+    before.image(slide_image(e.after_slide_id, DECK_ID), width="stretch")
     after.caption("Rebuilt (drawn from the real rebuilt slide; open the deck for exact fonts)")
     try:
         after.image(rebuilt_preview(e), width="stretch")

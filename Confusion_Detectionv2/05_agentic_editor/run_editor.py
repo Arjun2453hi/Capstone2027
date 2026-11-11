@@ -8,15 +8,15 @@ digit, same reason every other stage's runner does this):
 Plans edits from the gap reports, checks them, and applies the accepted
 ones to a COPY of the deck. Two-step use, for reviewing before applying:
 
-    python 05_agentic_editor/run_editor.py --plan-only
-    python 05_agentic_editor/run_editor.py --apply-plan 05_agentic_editor/output/edit_plan.json
+    python 05_agentic_editor/run_editor.py --deck-id <deck_id> --plan-only
+    python 05_agentic_editor/run_editor.py --deck-id <deck_id> --apply-plan decks/<deck_id>/editor/edit_plan.json
 
 Broken layouts: list candidates, look at them, then repair the ones you
 confirm (slide numbers as shown in PowerPoint; add --topic-ids to plan
 gap edits in the same run):
 
-    python 05_agentic_editor/run_editor.py --find-broken
-    python 05_agentic_editor/run_editor.py --repair-slides 5 98 282
+    python 05_agentic_editor/run_editor.py --deck-id <deck_id> --find-broken
+    python 05_agentic_editor/run_editor.py --deck-id <deck_id> --repair-slides 5 98 282
 """
 from __future__ import annotations
 
@@ -38,12 +38,8 @@ editor = importlib.import_module("05_agentic_editor.src")
 editor_storage = importlib.import_module("05_agentic_editor.src.storage")
 upstream = importlib.import_module("05_agentic_editor.src._upstream")
 
-DEFAULT_DECK_PATH = _PROJECT_ROOT / "01_deck_parsing" / "parsed_deck.json"
-DEFAULT_GAP_INPUT_PATH = _PROJECT_ROOT / "03_question_mapping" / "gap_verification_input.json"
-DEFAULT_REPORTS_DIR = _PROJECT_ROOT / "04_gap_reporting_agent" / "output"
-DEFAULT_SOURCE_PPTX = _PROJECT_ROOT / "data" / "cc-unit2-slides.pptx"
-DEFAULT_SOURCE_PDF = _PROJECT_ROOT / "data" / "cc-unit2-slides.pdf"
-DEFAULT_OUTPUT_DIR = Path(__file__).resolve().parent / "output"
+deck_workspace = importlib.import_module("common.deck_workspace")
+pdf_applier = importlib.import_module("05_agentic_editor.src.pdf_applier")
 # The fact-check's answer is a short list, so it asks for a smaller reply
 # budget than the planner and waits less on the tokens/minute limit.
 FACT_CHECK_MAX_TOKENS = 1500
@@ -58,13 +54,21 @@ def load_reports(reports_dir: Path) -> dict:
     return reports
 
 
-def plan(deck, dossiers_by_id: dict, reports: dict, topic_ids, min_confidence: float, fact_check: bool = True, source_pptx: Path = DEFAULT_SOURCE_PPTX):
-    planner = editor.EditPlanner(editor.GroqEditGenerator(), min_confidence=min_confidence)
+def _room(source: Path):
+    """A .pptx deck's real slide space is measured; a PDF can only gain pages."""
+    if source.suffix.lower() == ".pdf":
+        return pdf_applier.pdf_room_check
+    return importlib.import_module("05_agentic_editor.src.applier").RoomChecker(source)
+
+
+def plan(deck, dossiers_by_id: dict, reports: dict, topic_ids, min_confidence: float, fact_check: bool = True, source_pptx: Path = None):
+    planner = editor.EditPlanner(editor.GroqEditGenerator(), min_confidence=min_confidence,
+                                 insert_only=source_pptx.suffix.lower() == ".pdf")
     print(f"Planner model: {planner.generator.model}")
     planner_module = importlib.import_module("05_agentic_editor.src.planner")
     revise = importlib.import_module("05_agentic_editor.src.revise")
     verifier = editor.EditVerifier(planner_module.with_max_tokens(planner.generator, FACT_CHECK_MAX_TOKENS)) if fact_check else None
-    room = importlib.import_module("05_agentic_editor.src.applier").RoomChecker(source_pptx)
+    room = _room(source_pptx)
     checked = []
     skipped = {}
     for topic_id, report in sorted(reports.items()):
@@ -99,11 +103,14 @@ def describe(edit) -> str:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--deck", type=Path, default=DEFAULT_DECK_PATH)
-    parser.add_argument("--gap-input", type=Path, default=DEFAULT_GAP_INPUT_PATH)
-    parser.add_argument("--reports-dir", type=Path, default=DEFAULT_REPORTS_DIR)
-    parser.add_argument("--source-pptx", type=Path, default=DEFAULT_SOURCE_PPTX)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument("--deck-id", default=None,
+                        help="deck workspace to edit (see run_pipeline.py list); every path below defaults to it")
+    parser.add_argument("--deck", type=Path, default=None, help="parsed deck JSON (default: the workspace's)")
+    parser.add_argument("--gap-input", type=Path, default=None)
+    parser.add_argument("--reports-dir", type=Path, default=None)
+    parser.add_argument("--source-pptx", "--source", dest="source_pptx", type=Path, default=None,
+                        help="the deck file edits are applied to: .pptx, or .pdf for a PDF-only deck")
+    parser.add_argument("--output-dir", type=Path, default=None)
     parser.add_argument("--topic-ids", type=int, nargs="+", default=None, help="Only plan for these topic_id(s).")
     parser.add_argument("--min-confidence", type=float, default=None, help="Reports below this get no edits.")
     parser.add_argument("--no-fact-check", action="store_true", help="Skip the LLM fact-check of planned edits.")
@@ -115,16 +122,26 @@ def main():
     )
     parser.add_argument("--apply-plan", type=Path, default=None, help="Skip planning; apply the accepted edits of this plan file.")
     args = parser.parse_args()
+    ws = deck_workspace.resolve(args.deck_id)
+    args.deck = args.deck or ws.parsed_deck
+    args.gap_input = args.gap_input or ws.gap_input
+    args.reports_dir = args.reports_dir or ws.reports_dir
+    args.source_pptx = args.source_pptx or ws.edit_source
+    args.output_dir = args.output_dir or ws.editor_dir
+    is_pdf = args.source_pptx.suffix.lower() == ".pdf"
+    print(f"Deck '{ws.deck_id}' ({ws.title}); editing {args.source_pptx.name}")
+    if is_pdf and (args.find_broken or args.repair_slides):
+        sys.exit("Layout checks and repairs need the deck as .pptx; this deck is a PDF.")
 
     if args.find_broken:
         layout_check = importlib.import_module("05_agentic_editor.src.layout_check")
-        pdf = DEFAULT_SOURCE_PDF if DEFAULT_SOURCE_PDF.exists() else None
+        pdf = ws.pdf if ws.pdf and ws.pdf.exists() else None
         print("Candidates, most likely broken first (open each to confirm):")
         for issue in layout_check.find_layout_issues(args.source_pptx, pdf, max_results=15):
             print(f"  slide {issue.slide_id + 1:3d}  score {issue.score:.2f}  " + "; ".join(issue.reasons))
         return
 
-    deck = upstream.load_deck_json(args.deck)
+    deck = ws.editor_deck() if args.deck == ws.parsed_deck else upstream.load_deck_json(args.deck)
     gap_input = upstream.load_gap_verification_input_json(args.gap_input)
     dossiers_by_id = {d.topic_id: d for d in gap_input.topics}
     plan_path = args.output_dir / "edit_plan.json"
@@ -135,7 +152,7 @@ def main():
         # fact-check is not re-run (it costs LLM calls), so its findings
         # are kept from the file; delete them there to overrule them.
         stored = editor_storage.load_plan_json(args.apply_plan)
-        room = importlib.import_module("05_agentic_editor.src.applier").RoomChecker(args.source_pptx)
+        room = _room(args.source_pptx)
         checked = editor.check_edits([c.edit for c in stored], dossiers_by_id, deck, room)
         for fresh, old in zip(checked, stored):
             fresh.problems.extend(p for p in old.problems if p.startswith("fact-check"))
@@ -161,9 +178,13 @@ def main():
     if args.plan_only or not accepted:
         return
 
-    applier = importlib.import_module("05_agentic_editor.src.applier")
-    output_pptx = args.output_dir / f"{args.source_pptx.stem}.edited.pptx"
-    applied = applier.apply_edits(args.source_pptx, output_pptx, accepted, deck)
+    output_pptx = args.output_dir / f"{args.source_pptx.stem}.edited{args.source_pptx.suffix}"
+    if is_pdf:
+        banner = pdf_applier.find_banner(args.source_pptx)
+        applied = pdf_applier.apply_edits_pdf(args.source_pptx, output_pptx, accepted, deck, banner=banner)
+    else:
+        applier = importlib.import_module("05_agentic_editor.src.applier")
+        applied = applier.apply_edits(args.source_pptx, output_pptx, accepted, deck)
     change_log_path = args.output_dir / "change_log.json"
     editor_storage.save_change_log_json(applied, args.source_pptx, output_pptx, change_log_path)
     for a in applied:
