@@ -197,16 +197,24 @@ def parse_edits(raw: Optional[str], report) -> List[SlideEdit]:
     return edits
 
 
+PDF_ONLY_NOTE = """
+This deck is a PDF: existing slides cannot be changed. Use only
+"insert_slide_after"; never "append_bullets"."""
+
+
 class EditPlanner:
-    def __init__(self, generator: EditGenerator, min_confidence: float = MIN_REPORT_CONFIDENCE, max_edits_per_topic: int = MAX_EDITS_PER_TOPIC):
+    def __init__(self, generator: EditGenerator, min_confidence: float = MIN_REPORT_CONFIDENCE,
+                 max_edits_per_topic: int = MAX_EDITS_PER_TOPIC, insert_only: bool = False):
         self.generator = generator
         self.min_confidence = min_confidence
         self.max_edits_per_topic = max_edits_per_topic
+        # PDF decks: the applier can only insert pages, so the model is told so up front.
+        self.insert_only = insert_only
 
     def plan_topic(self, report, dossier, deck) -> List[SlideEdit]:
         if skip_reason(report, dossier, self.min_confidence) is not None:
             return []
-        system = SYSTEM_PROMPT.format(max_edits=self.max_edits_per_topic)
+        system = SYSTEM_PROMPT.format(max_edits=self.max_edits_per_topic) + (PDF_ONLY_NOTE if self.insert_only else "")
         raw = self.generator.generate(system, build_user_prompt(report, dossier, deck))
         edits = parse_edits(raw, report)[: self.max_edits_per_topic]
         known = [m.question for m in dossier.matched_questions]
