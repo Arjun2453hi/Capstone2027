@@ -1,0 +1,15 @@
+{
+  "deck_id": "cc-unit2",
+  "questions": "data/u2_v2_questions.txt",
+  "parsed_deck": "01_deck_parsing/parsed_deck.json",
+  "question_mapping": "03_question_mapping/question_mapping.json",
+  "reports_dir": "04_gap_reporting_agent/output",
+  "split": "eval/datasets/splits/cc-unit2.json",
+  "labels": "eval/datasets/gold/cc-unit2.dev.labels.csv",
+  "equivalent_slide_ranges": [
+    {"first": 127, "last": 187, "offset": 61,
+     "note": "slide_id 127-187 (pages 128-188) are a byte-for-byte copy of 188-248 (pages 189-249); verified by text comparison"}
+  ],
+  "seed": 2027,
+  "held_out_fraction": 0.3
+}
