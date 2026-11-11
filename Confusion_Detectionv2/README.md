@@ -5,8 +5,46 @@ actually asked, and fixes the deck: an LLM writes the missing slides,
 they are checked and fact-checked, and the approved ones are inserted
 into a copy of the PowerPoint file.
 
-Test data: a 288-slide Cloud Computing (Unit 2) deck and 140 real
-student questions, both in `data/`.
+Works on any deck: a `.pptx` (full editing), a `.pdf` (new slides are
+inserted as pages of a copy), or both. Registered decks live in `decks/`:
+Cloud Computing Unit 2 (288 slides, 140 real student questions) and
+Software Engineering Units 1-4 (PDF, synthetic questions for now).
+
+---
+
+## Any deck: add it, run it, open it
+
+```powershell
+.venv\Scripts\python run_pipeline.py add "SE - UNIT 4.pdf" --title "Software Engineering - Unit 4"
+.venv\Scripts\python run_pipeline.py questions se-unit-4 questions.txt    # real student questions, one per line
+.venv\Scripts\python run_pipeline.py run se-unit-4                        # stages 1-4 into decks/se-unit-4/
+.venv\Scripts\python run_pipeline.py list
+.venv\Scripts\python 05_agentic_editor\serve.py                           # pick the deck in the header
+```
+
+- **No real questions yet?** `run ... --synthetic-questions` has the LLM
+  write student-style questions from each topic's slides
+  (`questions.synthetic.txt`). They are marked synthetic everywhere (UI
+  badge, manifest, evaluation reports) and must not be reported as real
+  student results. Adding real questions later replaces them.
+- **Resumable.** Each stage is skipped when its output is newer than its
+  inputs; stage 4 only re-investigates topics without a report or whose
+  last attempt failed (rate limit, provider error). LLM calls are
+  recorded (`LLM_REPLAY_MODE=auto`), so a rerun after a quota stop
+  replays finished calls instead of paying for them again.
+- **Keys.** `GROQ_API_KEY`, or several keys from different accounts as
+  `GROQ_API_KEY_1`, `_2`, ... in `.env`: every stage rotates across them.
+- **Per-deck paths.** Every entry point takes a deck id
+  (`run_editor.py --deck-id`, `eval/score.py --deck-id`,
+  `eval/closure.py --deck-id`, `serve.py --deck`, `DECK_ID=...`); none
+  falls back to a built-in deck. With several decks and no id given they
+  stop and ask.
+- **PDF-only decks** get new slides only (drawn at the page size, below
+  the deck's own banner, with an "Added slide" footer). Adding bullets
+  to an existing slide and layout repair need the `.pptx`.
+
+The stage folders' own CLIs still accept explicit paths; their defaults
+point at the original Cloud Computing files for backward compatibility.
 
 ---
 

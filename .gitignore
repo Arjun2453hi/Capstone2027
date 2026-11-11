@@ -36,3 +36,14 @@ dist/
 # Agentic editor: the edited deck is regenerated from edit_plan.json
 Confusion_Detectionv2/05_agentic_editor/output/*.pptx
 Confusion_Detectionv2/05_agentic_editor/output/demo_*
+
+# Deck workspaces: copied source files, local editor state and logs stay local;
+# manifests, questions and stage outputs are small and are committed.
+Confusion_Detectionv2/decks/*/source.pdf
+Confusion_Detectionv2/decks/*/source.pptx
+Confusion_Detectionv2/decks/*/editor/workspace/
+Confusion_Detectionv2/decks/*/editor/*.pptx
+Confusion_Detectionv2/decks/*/editor/*.pdf
+Confusion_Detectionv2/decks/*/pipeline.log
+Confusion_Detectionv2/decks/*/last_run.txt
+Confusion_Detectionv2/eval/reports/**/run.log
