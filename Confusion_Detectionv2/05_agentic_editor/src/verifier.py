@@ -41,6 +41,24 @@ exactly into "question", one entry per question.
 Do NOT flag a correct statement only because the deck does not mention
 it -- adding what the deck is missing is the point of the slide.
 
+Check each bullet on its own, as worded, against what you know of the
+technology -- not only against the deck. Errors that are easy to miss:
+  - a mapping or relationship stated backwards (who maps to whom, what is
+    privileged where, inside vs outside, parent vs child);
+  - a count or list presented as complete ("uses six X") when the real
+    set differs, or an optional feature presented as the default;
+  - a "because", "so" or "showing" whose conclusion does not follow;
+  - what an instruction or command actually does (reads vs writes,
+    limits vs labels, creates vs joins);
+  - the wrong actor (an application vs the OS kernel, guest vs host);
+  - wording stronger than the fact ("any", "always", "never",
+    "instantly", "security breach") where the truth is conditional;
+  - a sentence about the slide or the deck itself ("this slide does not
+    show ...") instead of about the subject;
+  - numbering or order taken from the deck ("Principle #1", "step 3")
+    that does not match the deck slide exactly -- check each number.
+Flag such a bullet even if the rest of it is right.
+
 Respond with strict JSON only:
 {"problems": [{"where": "title" or <bullet number> or "questions", "question": "<only for questions>", "issue": "<one sentence>"}]}
 Use an empty list when nothing is wrong."""
@@ -69,12 +87,21 @@ def parse_problems(raw: Optional[str]) -> Optional[List[str]]:
     if not raw:
         return None
     try:
-        items = json.loads(raw.strip()).get("problems")
+        data = json.loads(raw.strip())
+        items = data.get("problems", [] if "bullets" in data else None)
+        bullets = data.get("bullets", [])
     except (json.JSONDecodeError, AttributeError, TypeError):
         return None
-    if not isinstance(items, list):
+    if not isinstance(items, list) or not isinstance(bullets, list):
         return None
     problems = []
+    # Per-bullet verdicts: every bullet judged "true": false is a problem.
+    for b in bullets:
+        if not isinstance(b, dict):
+            return None
+        if b.get("true") is False or str(b.get("true")).lower() == "false":
+            issue = str(b.get("issue") or b.get("claim") or "judged false").strip()
+            problems.append(f"fact-check, bullet {b.get('n')}: {issue}")
     for item in items:
         if isinstance(item, dict) and str(item.get("issue") or "").strip():
             where = item.get("where")

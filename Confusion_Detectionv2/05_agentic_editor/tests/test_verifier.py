@@ -64,3 +64,19 @@ def test_unreadable_or_failed_fact_check_blocks_the_edit():
         assert parse_problems(raw) is None
         problems = EditVerifier(ScriptedGenerator(raw)).verify(make_edit(), make_dossier(), make_deck(["a", "b", "c"]))
         assert problems == ["fact-check could not be completed; review this slide by hand"]
+
+
+def test_per_bullet_verdicts_are_also_read():
+    from ..src.verifier import parse_problems
+
+    raw = '{"bullets": [{"n": 1, "claim": "a", "true": true}, {"n": 2, "claim": "b", "true": false, "issue": "backwards"}], "problems": []}'
+    assert parse_problems(raw) == ["fact-check, bullet 2: backwards"]
+    assert parse_problems('{"bullets": ["not an object"]}') is None
+
+
+def test_fact_check_prompt_names_the_error_types_that_slipped_through():
+    from ..src.verifier import SYSTEM_PROMPT
+
+    for phrase in ("backwards", "optional feature presented as the default", "does not follow",
+                   "reads vs writes", "wrong actor", "about the slide or the deck itself", "numbering or order"):
+        assert phrase in SYSTEM_PROMPT
