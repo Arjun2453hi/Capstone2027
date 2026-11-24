@@ -15,7 +15,7 @@ import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from pathlib import Path
 from typing import Literal
 
@@ -29,7 +29,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from common import deck_workspace
 from common.llm_client import has_credentials
 from common.llm_monitoring import sanitize_text
-from . import _upstream, applier, checker, display, evaluation, layout_check, pdf_applier, preview, repair, revise, storage
+from . import _upstream, applier, checker, display, evaluation, layout_check, pdf_applier, preview, repair, revise, storage, question_assessment
 from .harness import HarnessPolicy, HarnessStopped, RequestRuntime
 from .planner import EditPlanner, GroqEditGenerator, skip_reason, with_max_tokens
 from .schema import CheckedEdit, SlideEdit
@@ -49,8 +49,9 @@ class Decision(StrictBody):
 
 
 class StartRun(StrictBody):
-    kind: Literal["gap", "repair"] = "gap"
+    kind: Literal["gap", "repair", "assessment"] = "gap"
     target_id: int = Field(ge=0, le=10000)
+    question: str | None = Field(default=None, min_length=1, max_length=10000)
 
 
 class ApplyRequest(StrictBody):
@@ -179,6 +180,25 @@ def create_app(state_dir=None, generator_factory=None, deck_id=None, include_sav
             raise HTTPException(404, "Proposal not found")
         return row
 
+    def assessment_verdicts(topic_id):
+        path = store.directory / f"question-assessment-{topic_id}.json"
+        return json.loads(path.read_text(encoding="utf-8"))["verdicts"] if path.exists() else []
+
+    def assessed_report(topic_id, question=None):
+        report = reports[topic_id]
+        assessments = [v for v in assessment_verdicts(topic_id) if question is None or v["question"] == question]
+        weights = {"complete_omission": 3, "fragmented_context": 2, "shallow_coverage": 1}
+        rows = [v for v in assessments if v["verdict"] in weights]
+        if rows:
+            worst = max(rows, key=lambda v: weights[v["verdict"]])
+            return report.model_copy(update={"gap_type": worst["verdict"],
+                "report_text": "Individual question assessment:\n" +
+                "\n".join(v["question"] + ": " + v["reason"] for v in rows) +
+                "\n\nOriginal topic report:\n" + report.report_text})
+        if assessments and all(v["verdict"] in ("covered", "off_topic") for v in assessments):
+            return report.model_copy(update={"gap_type": "covered"})
+        return report
+
     def current_snapshot():
         return {"edits": [{k: v for k, v in row.items() if k not in ("id", "source", "decision", "review_note")}
                           for row in sorted(store.proposals(), key=lambda r: r["id"])]}
@@ -198,11 +218,26 @@ def create_app(state_dir=None, generator_factory=None, deck_id=None, include_sav
             generator = factory()
             generator.runtime = runtime
             runtime.check()
+            if kind == "assessment":
+                verdicts = question_assessment.assess_questions(with_max_tokens(generator, 1500), dossiers[target], deck, progress)
+                runtime.check()
+                path = store.directory / f"question-assessment-{target}.json"
+                temporary = path.with_suffix(".tmp")
+                temporary.write_text(json.dumps({"verdicts": verdicts}, ensure_ascii=False), encoding="utf-8")
+                temporary.replace(path)
+                store.update_run(key, status="completed", message=f"Assessed all {len(verdicts)} questions", telemetry=runtime.summary())
+                return
             if kind == "gap":
                 earlier = [_edit(row) for row in store.proposals() if row["decision"] == "approved"]
-                checked = revise.suggest_for_topic(reports[target], dossiers[target], deck, dossiers,
+                dossier = dossiers[target]
+                if run.get("question"):
+                    matches = [m for m in dossier.matched_questions if m.question == run["question"]]
+                    dossier = replace(dossier, matched_questions=matches, cluster_size=len(matches))
+                checked = revise.suggest_for_topic(assessed_report(target, run.get("question")), dossier, deck, dossiers,
                     EditPlanner(generator, insert_only=is_pdf), EditVerifier(with_max_tokens(generator, 1500)), earlier=earlier,
                     progress=progress, room=room, trace=lambda event, **fields: store.event(key, event, **fields))
+                if run.get("question"):
+                    checked = [c for c in checked if run["question"] in c.edit.addresses_questions]
             else:
                 edits = repair.plan_repairs(repair.RepairPlanner(generator), SOURCE, [target], deck)
                 checked = checker.check_edits(edits, dossiers, deck)
@@ -225,13 +260,14 @@ def create_app(state_dir=None, generator_factory=None, deck_id=None, include_sav
     def workspace():
         topics = []
         for topic_id, report in sorted(reports.items()):
+            report = assessed_report(topic_id)
             dossier = dossiers.get(topic_id)
             slides = dossier.slide_ids if dossier else []
             title = display.topic_title(deck, slides, fallback="Unmatched questions")
             topics.append({"id": topic_id, "title": title, "gap_type": report.gap_type,
                            "confidence": report.confidence, "slide_ids": slides,
                            "question_count": len(dossier.matched_questions) if dossier else len(unmatched),
-                           "eligible": skip_reason(report, dossier) is None})
+                           "eligible": skip_reason(assessed_report(topic_id), dossier) is None})
         return {"token": token, "title": ws.title, "filename": SOURCE.name, "deck_id": ws.deck_id,
                 "format": ws.editable_format, "capabilities": capabilities,
                 "question_source": ws.question_source, "pipeline": ws.status(),
@@ -246,10 +282,16 @@ def create_app(state_dir=None, generator_factory=None, deck_id=None, include_sav
         if topic_id not in reports:
             raise HTTPException(404, "Topic not found")
         dossier = dossiers.get(topic_id)
-        report = reports[topic_id].model_dump()
+        report = assessed_report(topic_id).model_dump()
+        assessment = assessment_verdicts(topic_id)
+        if assessment:
+            report["question_verdicts"] = assessment
         report["report_text"] = display.report_text_for_display(report["report_text"], report.get("slide_refs"))
         return {"report": report,
                 "questions": [m.question for m in dossier.matched_questions] if dossier else [q.question for q in unmatched],
+                "question_links": [{"question": m.question, "slide_id": m.best_slide_id,
+                                    "score": m.score, "method": m.method}
+                                   for m in dossier.matched_questions] if dossier else [],
                 "slides": [{"id": s, "title": deck.get(s).title, "text": deck.get(s).raw_text}
                            for s in (dossier.slide_ids if dossier else []) if deck.get(s)]}
 
@@ -261,12 +303,8 @@ def create_app(state_dir=None, generator_factory=None, deck_id=None, include_sav
     def decision(key: str, body: Decision):
         with mutation_lock:
             row = find_proposal(key)
-            if body.decision == "approved":
-                if not row["accepted"] or row.get("problems"):
-                    raise HTTPException(409, "Blocked proposals must be corrected and checked before approval")
-                fresh = checker.check_edit(_edit(row), dossiers.get(row["topic_id"]), deck, room=room)
-                if not fresh.accepted:
-                    raise HTTPException(409, "This proposal no longer passes validation: " + "; ".join(fresh.problems))
+            # Automated findings remain advisory; the user's explicit decision
+            # controls approval without rewriting the recorded check results.
             store.decide(key, body.decision)
             store.event("workspace", "proposal_decision", proposal_id=key, decision=body.decision)
         return {"id": key, "decision": body.decision}
@@ -288,17 +326,26 @@ def create_app(state_dir=None, generator_factory=None, deck_id=None, include_sav
             raise HTTPException(503, "Set GROQ_API_KEY (or GROQ_API_KEY_1, _2, ...) in the server .env to generate live suggestions")
         if body.kind == "repair" and not capabilities["layout_repair"]:
             raise HTTPException(422, "Layout repair needs the deck's .pptx and .pdf; this deck has only its " + ws.editable_format)
-        if body.kind == "gap":
-            if body.target_id not in reports or skip_reason(reports[body.target_id], dossiers.get(body.target_id)):
+        if body.kind == "assessment":
+            if body.target_id not in dossiers or not dossiers[body.target_id].matched_questions:
+                raise HTTPException(422, "This topic has no questions to assess")
+            if body.question is not None:
+                raise HTTPException(422, "Assessment checks all questions in a topic")
+        elif body.kind == "gap":
+            if body.target_id not in reports or skip_reason(assessed_report(body.target_id, body.question), dossiers.get(body.target_id)):
                 raise HTTPException(422, "This topic is not eligible for gap editing")
+            if body.question is not None and not any(m.question == body.question for m in dossiers[body.target_id].matched_questions):
+                raise HTTPException(422, "Question does not belong to this topic")
         elif deck.get(body.target_id) is None:
             raise HTTPException(422, "Slide does not exist")
+        elif body.question is not None:
+            raise HTTPException(422, "Question targeting is only available for gap changes")
         with mutation_lock:
             if len(cancellations) >= 4:
                 raise HTTPException(429, "The local run queue is full")
             if any(r["status"] in ("queued", "running") and r.get("kind") == body.kind and r.get("target_id") == body.target_id for r in store.runs()):
                 raise HTTPException(409, "This task is already queued or running")
-            run = store.create_run(body.kind, target_id=body.target_id, message="Queued")
+            run = store.create_run(body.kind, target_id=body.target_id, question=body.question, message="Queued")
             cancel = threading.Event()
             cancellations[run["id"]] = cancel
             executor.submit(execute, run, cancel)
@@ -314,46 +361,73 @@ def create_app(state_dir=None, generator_factory=None, deck_id=None, include_sav
             store.event(key, "cancel_requested")
         return {"message": "Cancellation requested; an in-flight model request may finish before stopping"}
 
-    @app.post("/api/apply")
-    def apply(body: ApplyRequest):
+    def build_export(body: ApplyRequest, draft=False):
         with mutation_lock:
             if hashlib.sha256(SOURCE.read_bytes()).hexdigest() != source_digest:
                 raise HTTPException(409, "The source deck changed after this workspace was opened")
             if len(set(body.proposal_ids)) != len(body.proposal_ids):
                 raise HTTPException(422, "Duplicate proposal IDs")
             rows = [find_proposal(key) for key in body.proposal_ids]
-            if any(r["decision"] != "approved" or not r["accepted"] or r.get("problems") for r in rows):
-                raise HTTPException(409, "Every selected proposal must pass checks and be explicitly approved")
-            checked = checker.check_edits([_edit(r) for r in rows], dossiers, deck, room=room)
-            if any(not c.accepted for c in checked):
-                raise HTTPException(409, "Selected edits conflict or fail validation; review the selection")
-            run = store.create_run("export", status="running", message="Writing approved edits")
+            if draft:
+                if any(r["decision"] == "rejected" for r in rows):
+                    raise HTTPException(409, "Set-aside proposals cannot be included in a draft")
+                for row in rows:
+                    if row["decision"] != "approved" and not checker.check_edits([_edit(row)], dossiers, deck, room)[0].accepted:
+                        raise HTTPException(409, "This draft proposal has structural problems; revise it first")
+            elif any(r["decision"] != "approved" for r in rows):
+                raise HTTPException(409, "Every selected proposal must be explicitly approved")
+            edits = [_edit(r) for r in rows]
+            run = store.create_run("draft" if draft else "export", status="running", message="Writing new draft deck" if draft else "Writing approved edits")
             folder = store.directory / "exports" / run["id"]
             folder.mkdir(parents=True, exist_ok=True)
-            output = folder / f"lecture.edited{SOURCE.suffix}"
+            output = folder / f"lecture.{'draft' if draft else 'edited'}{SOURCE.suffix}"
             try:
                 # Applier writes a new file; publish only after a full successful save.
                 if is_pdf:
-                    applied = pdf_applier.apply_edits_pdf(SOURCE, output, [c.edit for c in checked], deck, banner=banner)
+                    applied = pdf_applier.apply_edits_pdf(SOURCE, output, edits, deck, banner=banner)
                 else:
-                    applied = applier.apply_edits(SOURCE, output, [c.edit for c in checked], deck)
+                    applied = applier.apply_edits(SOURCE, output, edits, deck)
+                if draft and not is_pdf:
+                    from pptx import Presentation
+                    presentation = Presentation(str(output))
+                    for row, change in zip(rows, applied):
+                        if row["decision"] != "approved":
+                            notes = "Unapproved review draft.\n" + "\n".join(row.get("problems", []))
+                            for position in change.new_slide_positions:
+                                frame = presentation.slides[position].notes_slide.notes_text_frame
+                                frame.text = frame.text + "\n" + notes
+                    presentation.save(str(output))
                 storage.save_change_log_json(applied, SOURCE.name, output.name, folder / "changes.json")
+                if draft:
+                    path = folder / "changes.json"
+                    log = json.loads(path.read_text(encoding="utf-8"))
+                    log["draft"] = True
+                    log["review_notes"] = {row["id"]: row.get("problems", []) for row in rows if row["decision"] != "approved"}
+                    path.write_text(json.dumps(log, ensure_ascii=False, indent=2), encoding="utf-8")
                 store.event(run["id"], "export_saved", proposal_ids=body.proposal_ids, source_sha256=source_digest)
-                store.update_run(run["id"], status="completed", message=f"Exported {len(applied)} approved edits", proposal_ids=body.proposal_ids)
+                store.update_run(run["id"], status="completed", message=f"Exported {len(applied)} {'draft' if draft else 'approved'} edits", proposal_ids=body.proposal_ids)
             except Exception as exc:
                 store.update_run(run["id"], status="failed", message=safe_run_error(exc))
                 raise HTTPException(500, "Deck export failed; inspect the run history") from exc
-        return {"id": run["id"], "download_url": f"/api/exports/{run['id']}/deck", "changes_url": f"/api/exports/{run['id']}/changes"}
+        return {"id": run["id"], "draft": draft, "download_url": f"/api/exports/{run['id']}/deck", "changes_url": f"/api/exports/{run['id']}/changes"}
+
+    @app.post("/api/apply")
+    def apply(body: ApplyRequest):
+        return build_export(body)
+
+    @app.post("/api/draft")
+    def draft(body: ApplyRequest):
+        return build_export(body, draft=True)
 
     @app.get("/api/exports/{key}/{kind}")
     def download(key: str, kind: Literal["deck", "changes"]):
         if len(key) != 32 or any(c not in "0123456789abcdef" for c in key):
             raise HTTPException(404, "Export not found")
-        run = next((r for r in store.runs() if r["id"] == key and r["kind"] == "export" and r["status"] == "completed"), None)
+        run = next((r for r in store.runs() if r["id"] == key and r["kind"] in ("export", "draft") and r["status"] == "completed"), None)
         if not run:
             raise HTTPException(404, "Export not found")
         folder = store.directory / "exports" / key
-        path = next(iter(sorted(folder.glob("lecture.edited.*"))), folder / "missing") if kind == "deck" else folder / "changes.json"
+        path = next(iter(sorted(folder.glob("lecture.*"))), folder / "missing") if kind == "deck" else folder / "changes.json"
         if not path.exists():
             raise HTTPException(404, "Export not found")
         return FileResponse(path, filename=path.name)

@@ -31,6 +31,12 @@ def test_workspace_and_evidence_are_real_and_do_not_expose_credentials(client):
     topic = next(t for t in data["topics"] if t["eligible"])
     response = client.get(f"/api/topics/{topic['id']}")
     assert response.status_code == 200 and response.json()["questions"]
+    evidence = response.json()
+    assert len(evidence["slides"]) == len(topic["slide_ids"])
+    assert [q["question"] for q in evidence["question_links"]] == evidence["questions"]
+    assert all(q["slide_id"] is None or q["slide_id"] in topic["slide_ids"] for q in evidence["question_links"])
+    assert any(q["slide_id"] is not None for q in evidence["question_links"])
+
     assert client.get("/api/topics/9999").status_code == 404
     assert client.get("/api/slides/-1/image").status_code == 404
 
@@ -42,15 +48,22 @@ def test_mutations_require_session_token_and_allowed_origin(client):
     assert client.post(f"/api/proposals/{key}/decision", json={"decision": "rejected", "title": "injected"}).status_code == 422
 
 
-def test_blocked_and_unapproved_proposals_cannot_be_applied(client):
+def test_check_findings_are_advisory_but_explicit_approval_is_required(client):
     rows = client.get("/api/proposals").json()
     assert all(p["decision"] == "pending" for p in rows)
     blocked = next(p for p in rows if not p["accepted"])
-    assert client.post(f"/api/proposals/{blocked['id']}/decision", json={"decision": "approved"}).status_code == 409
     assert client.post("/api/apply", json={"proposal_ids": [rows[0]["id"]]}).status_code == 409
     assert client.post("/api/apply", json={"proposal_ids": [rows[0]["id"], rows[0]["id"]]}).status_code == 422
     assert client.post("/api/apply", json={"proposal_ids": ["unknown"]}).status_code == 404
     assert client.get("/api/exports/not-a-real-export/deck").status_code == 404
+    before = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+    assert client.post(f"/api/proposals/{blocked['id']}/decision", json={"decision": "approved"}).status_code == 200
+    approved = next(p for p in client.get('/api/proposals').json() if p['id'] == blocked['id'])
+    assert not approved['accepted'] and approved['problems'] == blocked['problems']
+    response = client.post('/api/apply', json={'proposal_ids': [blocked['id']]})
+    assert response.status_code == 200, response.text
+    assert client.get(response.json()['download_url']).content.startswith(b'PK')
+    assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == before
 
 
 def test_clearing_explicit_approval_disables_export_again(client):
@@ -113,21 +126,33 @@ def wait_for_terminal(client, key):
     raise AssertionError("Run did not finish")
 
 
-def test_live_worker_checkpoints_without_applying_any_edits(tmp_path):
+@pytest.mark.parametrize("targeted", [False, True])
+def test_live_worker_checkpoints_without_applying_any_edits(tmp_path, targeted):
     answer = {}
+    prompts = []
     class Scripted:
         model = "test-fixture"
         max_tokens = 3000
         def generate(self, system, user):
+            prompts.append((system, user))
             return '{"problems": []}' if 'You fact-check' in system else json.dumps({"edits": [answer]})
     app = create_app(state_dir=tmp_path, generator_factory=Scripted, deck_id=TEST_DECK, include_saved=True)
     with TestClient(app) as client:
         client.headers["x-workspace-token"] = client.get('/api/workspace').json()['token']
         row = next(p for p in client.get('/api/proposals').json() if p['accepted'] and p['operation'] == 'insert_slide_after')
         answer.update({k: row[k] for k in ('operation', 'after_slide_id', 'title', 'bullets', 'addresses_questions')})
-        run = client.post('/api/runs', json={'kind': 'gap', 'target_id': row['topic_id']}).json()
+        body = {'kind': 'gap', 'target_id': row['topic_id']}
+        if targeted:
+            body['question'] = row['addresses_questions'][0]
+            assert client.post('/api/runs', json={**body, 'question': 'Not a question from this topic'}).status_code == 422
+        run = client.post('/api/runs', json=body).json()
         result = wait_for_terminal(client, run['id'])
         assert result['status'] == 'completed', result
+        if targeted:
+            assert result['question'] == body['question']
+            planner_prompt = next(user for system, user in prompts if 'You write new lecture slides' in system)
+            assert planner_prompt.split('Student questions matched to this topic:\n')[1].strip() == '- ' + body['question']
+
         assert result['proposal_ids']
         assert any(e['event'] == 'initial_review' for e in result['events'])
         assert any(e['event'] == 'checkpoint_saved' for e in result['events'])
@@ -179,3 +204,48 @@ def test_by_default_no_pre_generated_suggestions_are_shown(tmp_path):
     # Same workspace state, reopened without saved suggestions: they are gone.
     with TestClient(create_app(state_dir=tmp_path, deck_id=TEST_DECK)) as client:
         assert client.get("/api/proposals").json() == []
+
+
+def test_assessment_covers_every_question_without_changing_approvals(tmp_path):
+    class Assessor:
+        model = "test-assessment"
+        max_tokens = 1500
+        def generate(self, system, user):
+            evidence = json.loads(user)
+            slide_id = evidence["original_slides"][0]["slide_id"]
+            return json.dumps({"verdicts": [{"question": q, "verdict": "covered",
+                "reason": "The original source explains this question.", "slide_ids": [slide_id]}
+                for q in evidence["questions"]]})
+    app = create_app(state_dir=tmp_path, generator_factory=Assessor, deck_id=TEST_DECK, include_saved=True)
+    with TestClient(app) as client:
+        workspace = client.get('/api/workspace').json()
+        client.headers['x-workspace-token'] = workspace['token']
+        target = next(t for t in workspace['topics'] if t['id'] >= 0 and t['question_count'] > 3)['id']
+        before = client.get('/api/proposals').json()
+        response = client.post('/api/runs', json={'kind': 'assessment', 'target_id': target})
+        assert response.status_code == 202
+        result = wait_for_terminal(client, response.json()['id'])
+        assert result['status'] == 'completed', result
+        evidence = client.get(f'/api/topics/{target}').json()
+        assert [v['question'] for v in evidence['report']['question_verdicts']] == list(dict.fromkeys(evidence['questions']))
+        assert all(v['verdict'] == 'covered' and v['reason'] and v['slide_ids'] for v in evidence['report']['question_verdicts'])
+        assert client.get('/api/proposals').json() == before
+        assert not (tmp_path / 'exports').exists()
+
+
+def test_draft_is_a_new_full_deck_without_approving_pending_proposals(client):
+    rows = client.get('/api/proposals').json()
+    checked = next(row for row in rows if row['accepted'] and row['operation'] == 'insert_slide_after')
+    original = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+    response = client.post('/api/draft', json={'proposal_ids': [checked['id']]})
+    assert response.status_code == 200, response.text
+    assert response.json()['draft'] is True
+    content = client.get(response.json()['download_url']).content
+    from pptx import Presentation
+    import io
+    assert len(Presentation(io.BytesIO(content)).slides) > len(Presentation(str(SOURCE)).slides)
+    assert client.get('/api/proposals').json() == rows
+    assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == original
+    assert client.post('/api/apply', json={'proposal_ids': [checked['id']]}).status_code == 409
+    assert client.post(f"/api/proposals/{checked['id']}/decision", json={'decision': 'rejected'}).status_code == 200
+    assert client.post('/api/draft', json={'proposal_ids': [checked['id']]}).status_code == 409
